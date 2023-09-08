@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaypalController;
-use Cate;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/home', function () {
+    return view('pages.index');
 });
 Route::get('/single', function () {
     return view('pages.contact');
