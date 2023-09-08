@@ -20,10 +20,8 @@ return new class extends Migration
             $table->string('user_email');
             $table->float('amount', 10, 2);
             $table->string('currency');
-            $table->unsignedBigInteger('product_id');
             $table->string('payment_status');
             $table->timestamps();
-            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

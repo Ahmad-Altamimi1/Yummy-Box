@@ -88,6 +88,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</nav>
 
 	<div class="hero overlay" style="background-image: url('images/classroom-1.png')">
@@ -128,7 +129,6 @@
 
 								
 							</label>
-							<h3>And you can select custom</h3>
 
 						</div>
 						<div class="field-icon">
@@ -137,11 +137,11 @@
 
 						</div>
 						<div class="form-field mb-3">
-							{{-- <input type="text" placeholder="Name" class="form-control px-4"> --}}
-							{{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
+							<input type="text" placeholder="Name" class="form-control px-4">
+							<input type="email" placeholder="Email" class="form-control px-4">
 						</div>
 
-						<input type="submit" value="Donate now" class="btn btn-secondary w-100" style="background:url('images/PayPal-Logo.png')">
+						<input type="submit" value="Donate now" class="btn btn-secondary w-100">
 					</form>
 
 
@@ -180,52 +180,46 @@
 			<div class="row justify-content-center mb-5">
 				<div class="col-lg-7 text-center" data-aos="fade-up">
 					<span class="subheading-white mb-3 text-white">Help Now</span>
-					<h2 class="heading text-white">Ways to Donation</h2>
+					<h2 class="heading text-white">Help Today</h2>
 				</div>
 			</div>
 			<div class="row">
-				@foreach ( $categories as $categorie )
-					
 				<div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="100">
 					<div class="card-flip">
 						<div class="flip">
 							<div class="front">
 								<!-- front content -->
 								<div class="flip-content-wrap">
-									{{-- class="icon-local_drink" --}}
-									<span ><img src="{{ $categorie->image  }}" width="100px" alt=""></span>
-									<h3>{{ $categorie->name }}</h3>
+									<span class="icon-local_drink"></span>
+									<h3>Pure Water</h3>
 								</div>
 							</div>
 							<div class="back">
 								<!-- back content -->
 								<div class="flip-content-wrap">
-<h3>{{ $categorie->name }}</h3>	
-
-									<p>{{ $categorie->description }}</p>
+									<h3>Pure Water</h3>
+									<p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Distinctio, quam.</p>
 								</div>
 							</div>
 						</div>
 					</div>
 					<!-- End Card Flip -->
 				</div>
-				@endforeach
-
-				{{-- <div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="200">
+				<div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="200">
 					<div class="card-flip">
 						<div class="flip">
 							<div class="front">
 								<!-- front content -->
 								<div class="flip-content-wrap">
 									<span class="icon-graduation-cap"></span>
-									<h3>Teaching as a volunteer</h3>
+									<h3>Give Education</h3>
 								</div>
 							</div>
 							<div class="back">
 								<!-- back content -->
 								<div class="flip-content-wrap">
-									<h3>Teaching as a volunteer</h3>
-									<p>Teaching as a volunteer</p>
+									<h3>Give Education</h3>
+									<p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Distinctio, quam.</p>
 								</div>
 							</div>
 						</div>
@@ -246,14 +240,34 @@
 								<!-- back content -->
 								<div class="flip-content-wrap">
 									<h3>Give Donation</h3>
-									<p>Donating money entails supplying all necessary supplies.</p>
+									<p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Distinctio, quam.</p>
 								</div>
 							</div>
 						</div>
 					</div>
 
-				</div> --}}
-				
+				</div>
+				<div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="400">
+					<div class="card-flip">
+						<div class="flip">
+							<div class="front">
+								<!-- front content -->
+								<div class="flip-content-wrap">
+									<span class="icon-medkit"></span>
+									<h3>Medical Mission</h3>
+								</div>
+							</div>
+							<div class="back">
+								<!-- back content -->
+								<div class="flip-content-wrap">
+									<h3>Medical Mission</h3>
+									<p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Distinctio, quam.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>		
 		</div>		
 	</div>
@@ -354,35 +368,32 @@
 		<div class="container mb-5">
 			<div class="features-slider-wrap position-relative" data-aos="fade-up" data-aos-delay="200">
 				<div class="features-slider" id="features-slider">
-@foreach ($products as $product )
-	
+
 					<div class="item">
 						<div class="causes-item bg-white">
-							<a href="#"><img src='{{ $product->image }}' alt="Image" class="img-fluid mb-4 rounded"></a>
+							<a href="#"><img src="images/img_v_1-min.jpg" alt="Image" class="img-fluid mb-4 rounded"></a>
 							<div class="px-4 pb-5 pt-3">
 
-								<h3><a href="#">{{ $product->name }}</a></h3>
-								<p>{{ $product->breif }}</p>
+								<h3><a href="#">Food for the Hungry</a></h3>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta labore eligendi tempora laudantium voluptate, amet ad libero facilis nihil officiis.</p>
 
 								<div class="progress mb-2">
 									<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
 								</div>
 
 								<div class="d-flex mb-4 justify-content-between amount">
-									<div>{{ $product->id }}</div>
-									<div>${{ $product->total }}</div>
+									<div>$509.00</div>
+									<div>$10,000.00</div>
 								</div>
 								<div>
 									<a href="#" class="btn btn-primary">Donate Now</a>
 								</div>
 							</div>
 						</div>
-						
 					</div>
-					@endforeach
 
 
-					{{-- <div class="item">
+					<div class="item">
 						<div class="causes-item bg-white">
 							<a href="#"><img src="images/img_v_2-min.jpg" alt="Image" class="img-fluid mb-4 rounded"></a>
 							<div class="px-4 pb-5 pt-3">
@@ -424,9 +435,9 @@
 								</div>
 							</div>
 						</div>
-					</div> --}}
+					</div>
 
-{{-- 
+
 					<div class="item">
 						<div class="causes-item bg-white">
 							<a href="#"><img src="images/img_v_4-min.jpg" alt="Image" class="img-fluid mb-4 rounded"></a>
@@ -493,7 +504,7 @@
 								</div>
 							</div>
 						</div>
-					</div> --}}
+					</div>
 
 
 
