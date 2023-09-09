@@ -153,6 +153,19 @@ grid-auto-columns: 40% 40%; */
 @if ($diffInMinutes>60 && $diffInHours >=24)
 <p> posted befor {{$diffInDays}} days</p>
 @endif
+@auth
+	
+@if ( Auth::user()->id ==false)
+	<div> you must log in</div>
+@endif
+@if ( Auth::user()->id ==true)
+                                        <div>{{ Auth::user()->id }}</div>
+	
+@endif
+
+@endauth
+
+
 {{-- <p>{{ $products->time }}</p> --}}
 
 
