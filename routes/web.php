@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
+
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,17 +19,17 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PaypalController;
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
    
-});
-Route::get('/home', function () {
-    return view('pages.index');
-});
-Route::get('/single', function () {
-    return view('pages.contact');
-});
-
+// });
+// Route::get('/home', function () {
+//     return view('pages.index');
+// });
+Route::get('single/{id?}', [CategoryController::class, 'find']);
+Route::get('/', [CategoryController::class, 'index']);
+Route::get('/home', [CategoryController::class, 'index']);
+Route::resource('pages/', ProductsController::class);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -49,10 +52,10 @@ Route::get('pages/news', [Controller::class, 'shownews'])
     ->name('news');
 
 
-Route::view('/loadmins/login', 'loadmins.login');
-    
-// Route::view('pages/index', 'pages/index');
-// Route::view('pages/about', 'pages/about');
+// Route::get('admin/login', [AdminAuthenticatedSessionController::class, 'create']);
+// Route::view('admin/dashboard', 'admin/dashboard');
+
+
 // Route::view('pages/contact', 'pages/contact');
 // Route::view('pages/causes', 'pages/causes');
 // Route::view('pages/news', 'pages.news');

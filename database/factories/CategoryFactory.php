@@ -19,5 +19,10 @@ class CategoryFactory extends Factory
         return [
             //
         ];
+        return [
+            'name' => fake()->name(),
+            'description' => fake()->unique(),
+          
+        ];
     }
 }
