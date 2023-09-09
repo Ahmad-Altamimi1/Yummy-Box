@@ -8,7 +8,7 @@
                     {{ __("You're logged in Admin!") }}
                     {{Auth::guard('admin')->user()->name}}
 
-                    <a href="{{route('logout')}}">logout</a>
+                    <a href="{{route('admin_logout')}}">logout</a>
                 </div>
             </div>
         </div>
