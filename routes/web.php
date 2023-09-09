@@ -70,4 +70,28 @@ Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_c
 
 
 
+
 require __DIR__ . '/auth.php';
+
+//////////////////////////////// SAJEDA CODE ////////////////////////////////
+
+Route::get('/Admin_Category', function () {
+    return view('Admin_Dashboard.Category ');
+   
+});
+Route::get('/Admin_Home', function () {
+    return view('Admin_Dashboard.Statics ');
+   
+});
+Route::get('/Admin_Donations', function () {
+    return view('Admin_Dashboard.Donations');
+   
+});
+Route::get('/Admin_Volunteers', function () {
+    return view('Admin_Dashboard.Volunteers');
+   
+});
+Route::get('/Admin_User', function () {
+    return view('Admin_Dashboard.User');
+   
+});
