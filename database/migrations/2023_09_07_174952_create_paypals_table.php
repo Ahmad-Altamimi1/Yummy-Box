@@ -21,6 +21,7 @@ return new class extends Migration
             $table->float('amount', 10, 2);
             $table->string('currency');
             $table->string('payment_status');
+            $table->integer('product_id');
             $table->timestamps();
         });
     }

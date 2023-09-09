@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,13 +21,12 @@ Route::get('/', function () {
     return view('welcome');
    
 });
-Route::get('/home', function () {
-    return view('pages.index');
-});
-Route::get('/single', function () {
-    return view('pages.contact');
-});
-
+// Route::get('/home', function () {
+//     return view('pages.index');
+// });
+Route::get('single/{id?}', [CategoryController::class, 'find']);
+Route::get('/home', [CategoryController::class, 'index']);
+Route::resource('pages/', ProductsController::class);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

@@ -70,6 +70,7 @@ class PaypalController extends Controller
                 'payment_status'=> $response['payment_source']['paypal']['account_status'],
                 'currency'=> 'USD',
                 'amount'=> $response['purchase_units'][0]['payments']['captures'][0]['amount']['value'],
+                'product_id'=>1,
                 
             ]);
            return "paymeny seccc";
