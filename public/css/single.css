@@ -1,0 +1,90 @@
+.project-block1 {
+    background: #f0f0f0;
+    padding: 15px 40px 35px;
+    padding-top: 20px;
+    position: relative;
+}
+.project-category-icon {
+    float: right;
+    width: 100%;
+    vertical-align: middle;
+    /* display: inline-block; */
+}
+.project-block-left {
+    width: 695px;
+    float: right;
+}
+.project-block-right {
+    width: 350px;
+    float: left;
+    margin-right: 35px;}
+    .text-normal {
+    font-size: 16px;
+    font-family: "TheSans-Plain";
+}
+.project-block1 .separator-line1 {
+    margin: 5px 0;
+}
+.separator-line1 {
+    height: 1.3px;
+    background: #dedee6;
+}
+.project-ngo-name {
+    font-size: 16px;
+       margin: -3px 20px 0 0;
+
+    float: right;
+}
+.clearfix {
+    clear: both;
+}
+
+.button-mid-large {
+    background: var(--primary-color);
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'TheSans-Plain';
+    font-weight: 600;
+    padding: 20px 45px;
+    display: table;
+    cursor: pointer;
+    border: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.project-donors ul {
+    height: 75px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    border-bottom: solid 1px #dedee6;}
+.project-donors ul {
+    height: 75px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    border-bottom: solid 1px #dedee6;
+}
+.project-donors ul li {
+    float: right;
+    text-align: center;
+}
+.donor-companies-list2 {
+    margin-top: 3px;
+    margin-bottom: 0px;
+    display: inline-block;
+    margin-right: 0px;
+    width: 50%;
+}
+project-contribute .follow-block {
+    position: relative;
+    left: inherit;
+    bottom: inherit;
+    margin: 19px 45px 0 0;
+    color: #a1a1a8;
+    float: right;
+}
