@@ -1,4 +1,4 @@
-@include('layouts.nav')
+@include('layouts.navigation')
 
 
 
