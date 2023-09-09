@@ -13,10 +13,26 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post"  action="{{ route('profile.update') }}" class="mt-6 space-y-6"  enctype="multipart/form-data">
         @csrf
         @method('patch')
+<div style="display: flex ;">
+    <div>
+        @if ($user->image)
+    <img src="{{asset('images/users/' . $user->image) }}" alt="{{ $user->name }}'s Profile Picture" style="width: 200px ; hight:200px ;  ">
+@else
+    <img src="{{ asset('images/users/Default_pfp.svg.png') }}" alt="Default Profile Picture" style="width: 200px ; hight:200px ;  ">
+@endif 
 
+<div>
+    <x-input-label for="image" :value="__('Uplode new image')" />
+    <x-text-input id="image" name="image" type="file" accept="image/*" class="mt-1 block w-full" :value="old('image', $user->image)"   autocomplete="image" />
+    <x-input-error class="mt-2" :messages="$errors->get('image')" />
+</div>
+
+    </div>
+<div>
+    
         <div>
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
@@ -47,6 +63,16 @@
             @endif
         </div>
 
+        <div>
+            <x-input-label for="phone" :value="__('Phone')" />
+            <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full" :value="old('phone', $user->phone)" required autofocus autocomplete="phone" />
+            <x-input-error class="mt-2" :messages="$errors->get('phone')" />
+        </div>
+
+      
+   
+
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
@@ -60,5 +86,8 @@
                 >{{ __('Saved.') }}</p>
             @endif
         </div>
+    </div>
+   
+    </div>
     </form>
 </section>
