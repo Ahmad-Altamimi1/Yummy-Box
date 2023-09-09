@@ -15,6 +15,7 @@ class products extends Model
         'description2',
         'description3',
         'location',
+        'period',
         'time',
         'image',
     ];
