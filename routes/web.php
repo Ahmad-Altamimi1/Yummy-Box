@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,10 +51,10 @@ Route::get('pages/news', [Controller::class, 'shownews'])
     ->name('news');
 
 
-Route::view('/loadmins/login', 'loadmins.login');
-    
-// Route::view('pages/index', 'pages/index');
-// Route::view('pages/about', 'pages/about');
+// Route::get('admin/login', [AdminAuthenticatedSessionController::class, 'create']);
+// Route::view('admin/dashboard', 'admin/dashboard');
+
+
 // Route::view('pages/contact', 'pages/contact');
 // Route::view('pages/causes', 'pages/causes');
 // Route::view('pages/news', 'pages.news');
