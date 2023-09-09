@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\paypal;
 
 class PaypalSeeder extends Seeder
 {
@@ -14,6 +15,6 @@ class PaypalSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Paypal::factory()->count(10)->create();
     }
 }
