@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('breif');
             $table->string('time');
             $table->string('location'); 
+            $table->string('period');
+            
             $table->string('image');
             $table->float('total');
             $table->timestamps();

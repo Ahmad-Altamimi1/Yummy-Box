@@ -155,8 +155,9 @@
                             <input type="radio" id="amount-4" name="radio-amount">
                             <span>$100</span>
 
-
-                        </label>
+								
+							</label>
+							<h3>And you can select custom</h3>
 
                     </div>
                     <div class="field-icon">
@@ -164,14 +165,14 @@
                         <input type="text" placeholder="0.00" class="form-control px-4" name="price"
                             value="1.00">
 
-                    </div>
-                    <div class="form-field mb-3">
-                        <input type="text" placeholder="Name" class="form-control px-4">
-                        <input type="email" placeholder="Email" class="form-control px-4">
-                    </div>
+						</div>
+						<div class="form-field mb-3">
+							{{-- <input type="text" placeholder="Name" class="form-control px-4"> --}}
+							{{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
+						</div>
 
-                    <input type="submit" value="Donate now" class="btn btn-secondary w-100">
-                </form>
+						<input type="submit" value="Donate now" class="btn btn-secondary w-100" style="background:url('images/PayPal-Logo.png')">
+					</form>
 
 
             </div>
@@ -203,105 +204,91 @@
 </div>
 
 
-<div class="section flip-section" style="background-image: url('images/classroom-1.png')">
-    <div class="blob-1">
-        <img src="images/blob.png" alt="Image" class="img-fluid">
-    </div>
-    <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-lg-7 text-center" data-aos="fade-up">
-                <span class="subheading-white mb-3 text-white">Help Now</span>
-                <h2 class="heading text-white">Help Today</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="100">
-                <div class="card-flip">
-                    <div class="flip">
-                        <div class="front">
-                            <!-- front content -->
-                            <div class="flip-content-wrap">
-                                <span class="icon-local_drink"></span>
-                                <h3>Pure Water</h3>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <!-- back content -->
-                            <div class="flip-content-wrap">
-                                <h3>Pure Water</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Distinctio, quam.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Card Flip -->
-            </div>
-            <div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="200">
-                <div class="card-flip">
-                    <div class="flip">
-                        <div class="front">
-                            <!-- front content -->
-                            <div class="flip-content-wrap">
-                                <span class="icon-graduation-cap"></span>
-                                <h3>Give Education</h3>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <!-- back content -->
-                            <div class="flip-content-wrap">
-                                <h3>Give Education</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Distinctio, quam.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+	<div class="section flip-section" style="background-image: url('images/classroom-1.png')">
+		<div class="blob-1">
+			<img src="images/blob.png" alt="Image" class="img-fluid">
+		</div>
+		<div class="container">
+			<div class="row justify-content-center mb-5">
+				<div class="col-lg-7 text-center" data-aos="fade-up">
+					<span class="subheading-white mb-3 text-white">Help Now</span>
+					<h2 class="heading text-white">Ways to Donation</h2>
+				</div>
+			</div>
+			<div class="row">
+				@foreach ( $categories as $categorie )
+					
+				<div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="100">
+					<div class="card-flip">
+						<div class="flip">
+							<div class="front">
+								<!-- front content -->
+								<div class="flip-content-wrap">
+									{{-- class="icon-local_drink" --}}
+									<span ><img src="{{ $categorie->image  }}" width="100px" alt=""></span>
+									<h3>{{ $categorie->name }}</h3>
+								</div>
+							</div>
+							<div class="back">
+								<!-- back content -->
+								<div class="flip-content-wrap">
+<h3>{{ $categorie->name }}</h3>	
 
-            </div>
-            <div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="300">
-                <div class="card-flip">
-                    <div class="flip">
-                        <div class="front">
-                            <!-- front content -->
-                            <div class="flip-content-wrap">
-                                <span class="icon-dollar"></span>
-                                <h3>Give Donation</h3>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <!-- back content -->
-                            <div class="flip-content-wrap">
-                                <h3>Give Donation</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Distinctio, quam.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+									<p>{{ $categorie->description }}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- End Card Flip -->
+				</div>
+				@endforeach
 
-            </div>
-            <div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="400">
-                <div class="card-flip">
-                    <div class="flip">
-                        <div class="front">
-                            <!-- front content -->
-                            <div class="flip-content-wrap">
-                                <span class="icon-medkit"></span>
-                                <h3>Medical Mission</h3>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <!-- back content -->
-                            <div class="flip-content-wrap">
-                                <h3>Medical Mission</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Distinctio, quam.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+				{{-- <div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="200">
+					<div class="card-flip">
+						<div class="flip">
+							<div class="front">
+								<!-- front content -->
+								<div class="flip-content-wrap">
+									<span class="icon-graduation-cap"></span>
+									<h3>Teaching as a volunteer</h3>
+								</div>
+							</div>
+							<div class="back">
+								<!-- back content -->
+								<div class="flip-content-wrap">
+									<h3>Teaching as a volunteer</h3>
+									<p>Teaching as a volunteer</p>
+								</div>
+							</div>
+						</div>
+					</div>
 
-            </div>
-        </div>
-    </div>
-</div>
+				</div>
+				<div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="300">
+					<div class="card-flip">
+						<div class="flip">
+							<div class="front">
+								<!-- front content -->
+								<div class="flip-content-wrap">
+									<span class="icon-dollar"></span>
+									<h3>Give Donation</h3>
+								</div>
+							</div>
+							<div class="back">
+								<!-- back content -->
+								<div class="flip-content-wrap">
+									<h3>Give Donation</h3>
+									<p>Donating money entails supplying all necessary supplies.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div> --}}
+				
+			</div>		
+		</div>		
+	</div>
 
 
 
@@ -427,173 +414,66 @@
     </div>
 
 
-    <div class="container mb-5">
-        <div class="features-slider-wrap position-relative" data-aos="fade-up" data-aos-delay="200">
-            <div class="features-slider" id="features-slider">
+		<div class="container mb-5">
+			<div class="features-slider-wrap position-relative" data-aos="fade-up" data-aos-delay="200">
+				<div class="features-slider" id="features-slider">
+@foreach ($products as $product )
+	
+					<div class="item">
+						<div class="causes-item bg-white">
+							<a href="#"><img src='{{ $product->image }}' alt="Image" class="img-fluid mb-4 rounded"></a>
+							<div class="px-4 pb-5 pt-3">
 
-                <div class="item">
-                    <div class="causes-item bg-white">
-                        <a href="#"><img src="images/img_v_1-min.jpg" alt="Image"
-                                class="img-fluid mb-4 rounded"></a>
-                        <div class="px-4 pb-5 pt-3">
+								<h3><a href="#">{{ $product->name }}</a></h3>
+								<p>{{ $product->breif }}</p>
 
-                            <h3><a href="#">Food for the Hungry</a></h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta labore eligendi
-                                tempora laudantium voluptate, amet ad libero facilis nihil officiis.</p>
+														@php
+									$totalsproduct =0;
+									$percant=0;
+								@endphp
+								@foreach ($volanters as $volanter )
+@if ($volanter->product_id==$product->id)
+	
+@php
+$totalsproduct +=$volanter->amount 
+@endphp
+@php
+	
+$percant= ( $totalsproduct  / $product->total) * 100
+@endphp
+@endif
+@endforeach
 
-                            <div class="progress mb-2">
-                                <div class="progress-bar" role="progressbar" style="width: 25%;"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                            </div>
+								<div class="progress mb-2">
+									<div class="progress-bar" role="progressbar" style="width: <?php echo $percant?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> <?php echo $percant?>%</div>
+								</div>
 
-                            <div class="d-flex mb-4 justify-content-between amount">
-                                <div>$509.00</div>
-                                <div>$10,000.00</div>
-                            </div>
-                            <div>
-                                <a href="#" class="btn btn-primary">Donate Now</a>
-                            </div>
-                        </div>
-                    </div>
+								<div class="d-flex mb-4 justify-content-between amount">
+									<div>@php
+									echo "$" .$totalsproduct 
+									@endphp</div>
+									
+									<div>${{ $product->total }}</div>
+								</div>
+								<div>
+									<a href="single/{{ $product->id}}" class="btn btn-primary">Donate Now</a>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					@endforeach
+
+
+
+
+
                 </div>
-
-
-                <div class="item">
-                    <div class="causes-item bg-white">
-                        <a href="#"><img src="images/img_v_2-min.jpg" alt="Image"
-                                class="img-fluid mb-4 rounded"></a>
-                        <div class="px-4 pb-5 pt-3">
-                            <h3><a href="#">Education for Children</a></h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta labore eligendi
-                                tempora laudantium voluptate, amet ad libero facilis nihil officiis.</p>
-
-                            <div class="progress mb-2">
-                                <div class="progress-bar" role="progressbar" style="width: 68%;"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">68%</div>
-                            </div>
-
-                            <div class="d-flex mb-4 justify-content-between amount">
-                                <div>$7,597.00</div>
-                                <div>$10,000.00</div>
-                            </div>
-                            <div>
-                                <a href="#" class="btn btn-primary">Donate Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="causes-item bg-white">
-                        <a href="#"><img src="images/img_v_3-min.jpg" alt="Image"
-                                class="img-fluid mb-4 rounded"></a>
-                        <div class="px-4 pb-5 pt-3">
-                            <h3><a href="#">Support Livelihood</a></h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta labore eligendi
-                                tempora laudantium voluptate, amet ad libero facilis nihil officiis.</p>
-
-                            <div class="progress mb-2">
-                                <div class="progress-bar" role="progressbar" style="width: 87%;"
-                                    aria-valuenow="87" aria-valuemin="0" aria-valuemax="100">87%</div>
-                            </div>
-
-                            <div class="d-flex mb-4 justify-content-between amount">
-                                <div>$19,509.00</div>
-                                <div>$25,000.00</div>
-                            </div>
-                            <div>
-                                <a href="#" class="btn btn-primary">Donate Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="item">
-                    <div class="causes-item bg-white">
-                        <a href="#"><img src="images/img_v_4-min.jpg" alt="Image"
-                                class="img-fluid mb-4 rounded"></a>
-                        <div class="px-4 pb-5 pt-3">
-
-                            <h3><a href="#">Food for the Hungry</a></h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta labore eligendi
-                                tempora laudantium voluptate, amet ad libero facilis nihil officiis.</p>
-
-                            <div class="progress mb-2">
-                                <div class="progress-bar" role="progressbar" style="width: 25%;"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                            </div>
-
-                            <div class="d-flex mb-4 justify-content-between amount">
-                                <div>$509.00</div>
-                                <div>$10,000.00</div>
-                            </div>
-                            <div>
-                                <a href="#" class="btn btn-primary">Donate Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="item">
-                    <div class="causes-item bg-white">
-                        <a href="#"><img src="images/img_v_5-min.jpg" alt="Image"
-                                class="img-fluid mb-4 rounded"></a>
-                        <div class="px-4 pb-5 pt-3">
-                            <h3><a href="#">Education for Children</a></h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta labore eligendi
-                                tempora laudantium voluptate, amet ad libero facilis nihil officiis.</p>
-
-                            <div class="progress mb-2">
-                                <div class="progress-bar" role="progressbar" style="width: 54%;"
-                                    aria-valuenow="54" aria-valuemin="0" aria-valuemax="100">54%</div>
-                            </div>
-
-                            <div class="d-flex mb-4 justify-content-between amount">
-                                <div>$6,031.00</div>
-                                <div>$10,000.00</div>
-                            </div>
-                            <div>
-                                <a href="#" class="btn btn-primary">Donate Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="causes-item bg-white">
-                        <a href="#"><img src="images/img_v_6-min.jpg" alt="Image"
-                                class="img-fluid mb-4 rounded"></a>
-                        <div class="px-4 pb-5 pt-3">
-                            <h3><a href="#">Support Livelihood</a></h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta labore eligendi
-                                tempora laudantium voluptate, amet ad libero facilis nihil officiis.</p>
-
-                            <div class="progress mb-2">
-                                <div class="progress-bar" role="progressbar" style="width: 25%;"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                            </div>
-
-                            <div class="d-flex mb-4 justify-content-between amount">
-                                <div>$509.00</div>
-                                <div>$10,000.00</div>
-                            </div>
-                            <div>
-                                <a href="#" class="btn btn-primary">Donate Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
             </div>
         </div>
+
+
     </div>
-
-
-</div>
 
 
 
@@ -612,32 +492,41 @@
 </div>
 
 
-<div class="section bg-light">
-    <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-lg-5" data-aos="fade-up">
-                <span class="subheading mb-3">Impact</span>
-                <h2 class="heading mb-4">Explore Volunteer work and Impact in 2020</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Inventore, vero quibusdam quisquam
-                    nisi officia obcaecati, modi impedit veniam nam possimus!</p>
-                <p>Corporis culpa facilis, nesciunt repellat amet nihil voluptatibus repudiandae blanditiis officia,
-                    ullam adipisci molestiae minima magnam quas ex temporibus aliquid!</p>
-            </div>
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="row section-counter">
-                    <div class="col-lg-6">
-                        <div class="counter">
-                            <i class="flaticon-social-services d-block text-secondary"></i>
+	<div class="section bg-light">
+		<div class="container">
+			<div class="row justify-content-between">
+				<div class="col-lg-5" data-aos="fade-up">
+					<span class="subheading mb-3">Impact</span>
+					<h2 class="heading mb-4">Explore Volunteer work and Impact in 2020</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Inventore, vero quibusdam quisquam nisi officia obcaecati, modi impedit veniam nam possimus!</p>
+					<p>Corporis culpa facilis, nesciunt repellat amet nihil voluptatibus repudiandae blanditiis officia, ullam adipisci molestiae minima magnam quas ex temporibus aliquid!</p>
+				</div>		
+				<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+					<div class="row section-counter">
+						<div class="col-lg-6">
+							<div class="counter">
+								<i class="flaticon-social-services d-block text-secondary"></i>
+								
+								<span class="number countup">3</span>
+								<span class="d-block">New Causes</span>
+							</div>
 
-                            <span class="number countup">589</span>
-                            <span class="d-block">New Causes</span>
-                        </div>
+							<div class="counter">
+								<i class="flaticon-charity-money d-block text-secondary"></i>
+								@php
+									$totals =0;
+								@endphp
+								@foreach ($volanters as $volanter )
 
-                        <div class="counter">
-                            <i class="flaticon-charity-money d-block text-secondary"></i>
-                            <span class="number">$<span class="countup">920</span>M</span>
-                            <span class="d-block">Fund Raised</span>
-                        </div>
+     @php
+		$totals +=$volanter->amount 
+	 @endphp
+								@endforeach
+{{-- <span class="number countup">{{  $volanter->amount }} --}}
+{{-- </span> --}}
+								<span class="number">$<span class="countup"><?php echo  $totals ?></span>k</span>
+								<span class="d-block">Fund Raised</span>
+							</div>
 
                     </div>
                     <div class="col-lg-6">
@@ -647,17 +536,17 @@
                             <span class="d-block">Donors</span>
                         </div>
 
-                        <div class="counter">
-                            <i class="flaticon-organs-donation d-block text-secondary"></i>
-                            <span class="number countup">389</span>
-                            <span class="d-block">Volunteers</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+							<div class="counter">
+								<i class="flaticon-organs-donation d-block text-secondary"></i>
+								<span class="number countup">{{ count($volanters) }}</span>
+								<span class="d-block">Volunteers</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>		
+	</div>
 
 <div class="section bg-light pt-0">
     <div class="container">
