@@ -22,7 +22,7 @@ class CategoryController extends Controller
         $users = DB::table('users')->get();
         $volanters= DB::table('paypals')->get();
         // dd($categories);
-        return view('pages.index',compact('categories','products', 'users', 'volanters'));
+        return view('pages/index',compact('categories','products', 'users', 'volanters'));
 
     }
 
@@ -98,8 +98,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
-    {
-        //
-    }
+    // public function destroy($id)
+    // {
+    //     Category::destroy($id);
+    //     return redirect()->route('Admain_Dashbored.Category')->with(['success' => 'Deleted successfully
+    //     ']);
+    // }
 }

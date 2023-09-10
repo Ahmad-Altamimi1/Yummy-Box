@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,10 +111,17 @@
                 <h4 class="single-product-right-h4">شارك الفرصه</h4>
 
             </div>
+=======
+@extends('layouts.master')
+
+
+@section('title','about')
+>>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871
 
 
 
 
+<<<<<<< HEAD
         </div>
 
 
@@ -232,3 +240,25 @@
 </body>
 
 </html>
+=======
+<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
+
+
+
+@section('content')
+
+
+
+
+
+
+
+@endsection
+>>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871

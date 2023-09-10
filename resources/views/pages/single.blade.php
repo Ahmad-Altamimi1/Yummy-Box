@@ -4,6 +4,7 @@
 * Tempalte URI: https://untree.co/
 * License: https://creativecommons.org/licenses/by/3.0/
 */ -->
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,22 +18,25 @@
 	<meta name="keywords" content="Volunteer training  education" />
 	
 
+=======
+@extends('layouts.master')
+>>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871
 
 
-	<link rel="stylesheet" href="fonts/icomoon/style.css">
-	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+@section('title','about')
 
+<<<<<<< HEAD
 	<link rel="stylesheet" href="../css/tiny-slider.css">
 	{{-- <link rel="stylesheet" href="../css/aos.css"> --}}
 	<link rel="stylesheet" href="../css/flatpickr.min.css">
 	<link rel="stylesheet" href="../css/glightbox.min.css">
 	<link rel="stylesheet" href="../css/style.css">
+=======
+>>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871
 
-	<title>Volunteer </title>
-</head>
-<body>
 
-	<div class="site-mobile-menu site-navbar-target">
+
+<div class="site-mobile-menu site-navbar-target">
 		<div class="site-mobile-menu-header">
 			<div class="site-mobile-menu-close">
 				<span class="icofont-close js-menu-toggle"></span>
@@ -41,55 +45,9 @@
 		<div class="site-mobile-menu-body"></div>
 	</div>
 
-	<nav class="site-nav">
-		<div class="container">
-			<div class="menu-bg-wrap">
-				<div class="site-navigation">
-					<div class="row g-0 align-items-center">
-						<div class="col-2">
-							<a href="index.html" class="logo m-0 float-start text-white">Volunteer</a>
-						</div>
-						<div class="col-8 text-center">
-							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
-								<li class="active"><a href="index.html">Home</a></li>
-								<li class="has-children">
-									<a href="causes.html">Causes</a>
-									<ul class="dropdown">
-										<li><a href="#">Menu One</a></li>
-										<li><a href="#">Menu Two</a></li>
-										<li class="has-children">
-											<a href="#">Dropdown</a>
-											<ul class="dropdown">
-												<li><a href="#">Sub Menu One</a></li>
-												<li><a href="#">Sub Menu Two</a></li>
-												<li><a href="#">Sub Menu Three</a></li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="news.html">News</a></li>
-								<li><a href="contact.html">Contact</a></li>
-							</ul>
-						</div>
-						<div class="col-2 text-end">
-							<a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
-								<span></span>
-							</a>
 
-							<a href="tel:+962798540904" class="call-us d-flex align-items-center">
-								<span class="icon-phone"></span>
-								<span>0798540904</span>
-							</a>
-						</div>
-					</div>
 
-				</div>
-			</div>
-		</div>
-		
-	</nav>
-
+@section('content')
 <style>
     .site-nav {
         background: red;
@@ -178,6 +136,7 @@ grid-auto-columns: 40% 40%; */
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -320,3 +279,6 @@ grid-auto-columns: 40% 40%; */
 </body>
 
 </html>
+=======
+@endsection
+>>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871
