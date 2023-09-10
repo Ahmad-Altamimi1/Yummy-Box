@@ -1,4 +1,6 @@
 <x-app-layout>
+
+
     <div class="hero overlay" style="background-image: url('{{ asset('images/bg11.png') }}'); height: 500px; background-size: cover; background-repeat: no-repeat;" >
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -14,19 +16,19 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
+                <div class="">
                     @include('profile.partials.update-profile-information-form')
                 </div>
             </div>
 
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
+                <div class="">
                     @include('profile.partials.update-password-form')
                 </div>
             </div>
 
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
+                <div class="">
                     @include('profile.partials.delete-user-form')
                 </div>
             </div>
