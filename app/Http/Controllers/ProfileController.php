@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Volunteer;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -9,8 +9,16 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
+
 class ProfileController extends Controller
 {
+    // public function show(Volunteer $volunteer)
+    // {
+    //     $volunteers = Volunteer::all();
+    //    return view('profile.edit')->with('Volunteers',$volunteers);
+    // }
+
+
     /**
      * Display the user's profile form.
      */
