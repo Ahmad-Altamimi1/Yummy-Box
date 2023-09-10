@@ -11,21 +11,28 @@ use Laravel\Socialite\Facades\Socialite;
 
 class SocialController extends Controller
 {
+    // for google driver
+
     public function redirectToGoogle()
     {
 
         return Socialite::driver('google')->redirect();
     }
+    // for Github facebook
+
     public function redirectToFacebook()
     {
 
         return Socialite::driver('facebook')->redirect();
     }
+    // for Github driver
     public function redirectToGithub()
     {
 
         return Socialite::driver('github')->redirect();
     }
+    // for google handele
+
     public function handleGoogleCallback()
     {
         try {
@@ -53,7 +60,7 @@ class SocialController extends Controller
         }
 
     }
-    
+    // for facebook handle
     public function handleFacebookCallback()
     {
         try {
@@ -80,6 +87,7 @@ class SocialController extends Controller
         }
 
     }
+    // for github handle
     public function handleGithubCallback()
     {
         try {
