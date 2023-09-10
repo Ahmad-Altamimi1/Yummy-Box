@@ -82,6 +82,52 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-4">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/Admin_Home">Volunteers</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/Admins_Data"> Admins</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admin_Category">Category</a>
+              </li>
+             <li class="nav-item">
+                <a class="nav-link" href="/Admins_Payment">Donations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admin_Volunteers">Volunteers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admins_User">User</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admins_Projects">Projects</a>
+              </li>
+              
+              {{-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Link
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Link</a>
+              </li> --}}
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
     <header>
         <h1> Manage Your User</h1>
     </header>
@@ -119,26 +165,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($Users as $User)
                         <tr>
-                            <td>{{ $user['id'] }}</td>
-                            <td>{{ $user['name'] }}</td>
-                            <td>{{ $user['LastName'] }}</td>
-                            <td>{{ $user['email'] }}</td>
-                            <td>{{ $user['password'] }}</td>
+                            <td>{{ $User['id'] }}</td>
+                            <td>{{ $User['name'] }}</td>
+                            <td>{{ $User['LastName'] }}</td>
+                            <td>{{ $User['email'] }}</td>
+                            <td>{{ $User['password'] }}</td>
                             <td>
                                 <div>
-                                    @if ($user->image)
-                                        <img src="{{ asset('images/Users/' . $user->image) }}" alt="{{ $user->name }}"
+                                    @if ($User->image)
+                                        <img src="{{ asset('images/Users/' . $User->image) }}" alt="{{ $user->name }}"
                                             width="200" height="200">
                                     @endif
                                 </div>
-                            </td>
-                    @endforeach
-
-                    <td><button style="margin-right:5px" class="btn btn-primary">Edit</button><button
+                            </td> 
+                            <td><button style="margin-right:5px" class="btn btn-primary">Edit</button><button
                             class="btn btn-danger">Delete</button></td>
                     </tr>
+                    @endforeach
+
+                   
 
                 </tbody>
             </table>

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Statics</title>
-    <link href="styles.css" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+        <title></title>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <style>
+        <style>
 /* Reset some default browser styles */
 body, h1 {
     margin: 0;
@@ -79,7 +81,54 @@ body {
     </style>
 </head>
 <body>
-    <div class="flex-wrapper">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-4">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/Admin_Home">Volunteers</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/Admins_Data"> Admins</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admin_Category">Category</a>
+              </li>
+              
+             <li class="nav-item">
+                <a class="nav-link" href="/Admins_Payment">Donations</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="/Admin_Volunteers">Volunteers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admins_User">User</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admins_Projects">Projects</a>
+              </li>
+              
+              {{-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Link
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Link</a>
+              </li> --}}
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+    <div class="flex-wrapper  p-5">
         <div class="single-chart">
             <svg viewBox="0 0 36 36" class="circular-chart orange">
                 <path class="circle-bg"

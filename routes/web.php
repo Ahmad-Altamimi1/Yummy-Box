@@ -149,6 +149,8 @@ Route::get('/Admin_Volunteers', function () {
     return view('Admin_Dashboard.Volunteers');
    
 });
+Route::get('/Admin_Volunteers',[VolunteerController::class, 'showe']);
+
 // Route::get('/Admins_Payment', function () {
 //     return view('Admin_Dashboard.Payments');
    
@@ -171,6 +173,8 @@ Route::post('/Admins_User',[UserController::class, 'store']);
 // });
 Route::get('/Admins_Data',[AdminController::class, 'show']) -> name ('Admin_Dashboard.Admins_Data');
 Route::post('/Admins_Data',[AdminController::class, 'store']);
+
+Route::delete('admin/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
 
 // Route::get('/Admins_Projects', function () {
 //     return view('Admin_Dashboard.Projects');
