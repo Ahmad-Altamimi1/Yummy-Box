@@ -90,15 +90,15 @@
 		</div>
 	</nav>
 
-	<div class="hero overlay" style="background-image: url('images/img_v_5-min.jpg')">
+	<div class="hero overlay" style="background-image: url('images/about.jpg')">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="col-lg-6 text-center">
 					<h1 class="heading text-white mb-2" data-aos="fade-up">Contact Us</h1>
-					<p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum minima dignissimos hic mollitia eius et quam ducimus maiores eos magni.</p>
+					{{-- <p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum minima dignissimos hic mollitia eius et quam ducimus maiores eos magni.</p>
 					<p data-aos="fade-up"  data-aos-delay="100">
 						<a href="#" class="btn btn-primary me-4">Donate Now</a> 
-					</p>		
+					</p>		 --}}
 					
 				</div>
 
@@ -112,27 +112,43 @@
 			<div class="row mb-5">
 				<div class="col-lg-6" data-aos="fade-up">
 					<h2 class="heading">Get In Touch</h2>
-					<p class="text-black-50">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+					<p class="text-black-50">Volunteers are the heart of CodeHeroes. Have questions, ideas, or want to get involved? Contact us using the form below . Your contributions drive our mission.</p>
 				</div>
 			</div>
+            <div class="row gap-5 ">
 
-			<form action="" class="row justify-content-between">
+				@if(Session::has('success'))
+				<div class="alert alert-success">
+					{{Session::get('success')}}
+				</div>
+			@endif
 
-				<div class="col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+			<form method="POST" action="{{ route('contact.us.store') }}" id="contactUSForm" class="col-md-6 col-lg-6 justify-content-between">
+				{{ csrf_field() }}
+				<div  data-aos="fade-up" data-aos-delay="100">
 					<div class="row">
 
 						<div class="mb-3 col-lg-6">
 							<label for="name" class="ps-3 fw-bold mb-2">Name</label>
-							<input type="text" class="form-control" id="name">
+							<input type="text" name="name" class="form-control" placeholder="Name" value="{{ old('name') }}">
+                                        @if ($errors->has('name'))
+                                            <span class="text-danger">{{ $errors->first('name') }}</span>
+                                        @endif
 						</div>
 						<div class="mb-3 col-lg-6">
 							<label for="email" class="ps-3 fw-bold mb-2">Email</label>
-							<input type="email" class="form-control" id="email">
+							<input type="text" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
+                                        @if ($errors->has('email'))
+                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        @endif
 						</div>
 
 						<div class="mb-3 col-lg-12">
 							<label for="message" class="ps-3 fw-bold mb-2">Message</label>
-							<textarea name="" id="message" class="form-control" cols="30" rows="10"></textarea>
+							<textarea name="message" rows="3" class="form-control">{{ old('message') }}</textarea>
+							@if ($errors->has('message'))
+								<span class="text-danger">{{ $errors->first('message') }}</span>
+							@endif
 						</div>	
 
 						<div class="col-lg-6">
@@ -141,17 +157,20 @@
 
 					</div>
 				</div>
+
+			</form>
+
 				<div class="col-md-6 col-lg-5" data-aos="fade-up" data-aos-delay="200">
 					<div class="row">
 						<div class="col-6 col-lg-6 mb-4">
 							<h3 class="h6 fw-bold text-secondary">Address</h3>
-							<p>43 Raymouth Rd. Baltemoer, London 3910</p>
+							<p>Eidon. Irbid, Jordan </p>
 						</div>
 						<div class="col-6 col-lg-6 mb-4">
 							<h3 class="h6 fw-bold text-secondary">Phone</h3>
 							<p>
-								+1 939 3839 399 <br>
-								+1 492 5991 203
+								+962777844121 <br>
+								+962779599633
 							</p>
 						</div>
 
@@ -169,7 +188,7 @@
 						<div class="col-6 col-lg-6 mb-4">
 							<h3 class="h6 fw-bold text-secondary">Email</h3>
 							<p>
-								<a href="#">info@mydomain.com</a>
+								<a href="#">info@CodeHeroes.com</a>
 							</p>
 						</div>
 
@@ -177,81 +196,13 @@
 				</div>
 				
 
-			</form>
+			</div>
 		</div>
 	</div>
 
-	<div class="section sec-instagram pb-0">
-		<div class="container mb-5">
-			<div class="row align-items-center">
-				<div class="col-lg-3" data-aos="fade-up">
-					<span class="subheading mb-3">Instagram</span>
-					<h2 class="heading">We Are In Instagram</h2>
-				</div>
-				<div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-					<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus, aperiam sint voluptatum? Molestiae debitis, ipsum, rem ipsa voluptatum cupiditate quaerat!</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="instagram-slider-wrap" data-aos="fade-up" data-aos-delay="200">
-			<div class="instagram-slider" id="instagram-slider">
-
-				<div class="item">
-					<a class="instagram-item">
-						<span class="icon-instagram"></span>
-						<img src="images/img_v_8-min.jpg" alt="Image" class="img-fluid">		
-					</a>
-				</div>
-
-				<div class="item">
-					<a class="instagram-item">
-						<span class="icon-instagram"></span>
-						<img src="images/img_v_2-min.jpg" alt="Image" class="img-fluid">		
-					</a>
-				</div>
-
-				<div class="item">
-					<a class="instagram-item">
-						<span class="icon-instagram"></span>
-						<img src="images/img_v_3-min.jpg" alt="Image" class="img-fluid">		
-					</a>
-				</div>
-
-				<div class="item">
-					<a class="instagram-item">
-						<span class="icon-instagram"></span>
-						<img src="images/img_v_4-min.jpg" alt="Image" class="img-fluid">		
-					</a>
-				</div>
-
-				<div class="item">
-					<a class="instagram-item">
-						<span class="icon-instagram"></span>
-						<img src="images/img_v_5-min.jpg" alt="Image" class="img-fluid">		
-					</a>
-				</div>
-
-				<div class="item">
-					<a class="instagram-item">
-						<span class="icon-instagram"></span>
-						<img src="images/img_v_6-min.jpg" alt="Image" class="img-fluid">		
-					</a>
-				</div>
-
-				<div class="item">
-					<a class="instagram-item">
-						<span class="icon-instagram"></span>
-						<img src="images/img_v_7-min.jpg" alt="Image" class="img-fluid">		
-					</a>
-				</div>
 
 
-			</div>
-		</div>
 
-	</div>
 
 	<div class="site-footer">
 		<div class="container">
