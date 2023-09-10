@@ -86,12 +86,14 @@ th {
     <main>
         <div class="container">
             <div class="category-form">
+                <form action="Admin_Category" method="POST">
+                    @csrf
                 <label for="categoryName">Name</label>
-                <input type="text" id="categoryName">
+                <input type="text" id="categoryName" name="name">
                 <label for="categoryDescription">Description</label>
-                <input type="text" id="categoryDescription">
+                <input type="text" id="categoryDescription" name="description">
                 <label for="categoryImage">Image</label>
-                <input type="file" id="categoryImage">
+                <input type="file" id="categoryImage" name="image">
                 <button class="btn btn-warning">Add Category</button>
             </div>
         </div>
@@ -101,8 +103,8 @@ th {
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Description</th>                        
                         <th>Image</th>
-                        <th>Description</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -110,13 +112,13 @@ th {
                     @foreach ($categories as $category)
                     <tr>
                         <td>{{ $category ['id'] }}</td>
-                        <td>{{ $category ['categoryName'] }}</td>
-                        <td>{{ $category ['categoryDescription'] }}</td>
+                        <td>{{ $category ['name'] }}</td>
+                        <td>{{ $category ['description'] }}</td>
                         <td>
                             <div>
-                                @if ($category->categoryImage)
-                                    <img src="{{ asset('images/categories/' . $category->categoryImage) }}"
-                                        alt="{{ $category->categoryName }}" width="200" height="200">
+                                @if ($category->image)
+                                    <img src="{{ asset('images/categories/' . $category->image) }}"
+                                        alt="{{ $category->categoryimage }}" width="200" height="200">
                                 @endif
                             </div>
                         </td><td><button style="margin-right:5px" class="btn btn-primary">Edit</button><button  class="btn btn-danger">Delete</button></td>

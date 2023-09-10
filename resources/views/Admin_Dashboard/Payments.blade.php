@@ -94,13 +94,13 @@ h1 {
                 </tr>
             </thead>
             <tbody>
-                @foreach ($Paymantes as $Paymant)
+                @foreach ($paypals as $paypal)
                 <tr>
-                    <td>{{ $Paymant['id'] }}</td>
-                    <td>{{ $Paymant['user_name'] }}</td>
-                    <td>{{ $Paymant['user_email'] }}</td>
-                    <td>{{ $Paymant['amount'] }}</td>
-                    <td>{{ $Paymant['payment_status'] }}</td>
+                    <td>{{ $paypal['id'] }}</td>
+                    <td>{{ $paypal['user_name'] }}</td>
+                    <td>{{ $paypal['user_email'] }}</td>
+                    <td>{{ $paypal['amount'] }}</td>
+                    <td>{{ $paypal['payment_status'] }}</td>
                 </tr>
                 @endforeach
 

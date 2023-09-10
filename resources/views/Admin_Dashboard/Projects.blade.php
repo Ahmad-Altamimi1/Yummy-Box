@@ -82,20 +82,27 @@
     <main>
         <div class="container">
             <div class="Projects-form">
-                <form action="" method="POST">
+                <form action="Admins_Projects" method="POST">
+                    @csrf
                 <label for="ProjectsName">Name</label>
-                <input type="text" id="ProjectsName" name="ProjectsName">
+                <input type="text" id="ProjectsName" name="name">
                 <label for="ProjectsBreif">Breif</label>
-                <input type="text" id="ProjectsBreif" name="ProjectsBreif">
+                <input type="text" id="ProjectsBreif" name="breif">
                 <label for="Description One">Description One</label>
-                <input type="text" id="DescriptionOne" name="DescriptionOne">
+                <input type="text" id="DescriptionOne" name="description2">
                 <label for="Description Two">Description Two</label>
-                <input type="text" id="DescriptionTwo" name="DescriptionTwo">
+                <input type="text" id="DescriptionTwo" name="description3">
                 <label for="ProjectsLocation">Location</label>
-                <input type="text" id="ProjectsLocation" name="ProjectsLocation">
+                <input type="text" id="ProjectsLocation" name="location">
+                <label for="ProjectsTime">Time</label>
+                <input type="text" id="ProjectsTime" name="time">
+                <label for="ProjectsPeriod">Period</label>
+                <input type="text" id="ProjectsPeriod" name="period">
+                <label for="ProjectsTotal">Total</label>
+                <input type="text" id="ProjectsTotal" name="total">
                 <label for="ProjectsImage">Image</label>
-                <input type="file" id="ProjectsImage" name="ProjectsImage">
-                <button class="btn btn-warning">Add project</button>
+                <input type="file" id="ProjectsImage" name="image">
+                <button class="btn btn-warning" type="submit">Add project</button>
                 </form>
             </div>
         </div>
@@ -109,24 +116,30 @@
                         <th>Description One</th>
                         <th>Description Two</th>
                         <th>Location</th>
+                        <th>Time</th>
+                        <th>Period</th>
+                        <th>Total</th>
                         <th>Image</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($projectes as $project)
+                    @foreach ($products as $product)
                     <tr>
-                        <td>{{ $project['id'] }}</td>
-                        <td>{{ $project['ProjectsName'] }}</td>
-                        <td>{{ $project['ProjectsBreif'] }}</td>
-                        <td>{{ $project['DescriptionOne'] }}</td>
-                        <td>{{ $project['DescriptionTwo'] }}</td>
-                        <td>{{ $project['ProjectsLocation'] }}</td>
+                        <td>{{ $product['id'] }}</td>
+                        <td>{{ $product['name'] }}</td>
+                        <td>{{ $product['breif'] }}</td>
+                        <td>{{ $product['description2'] }}</td>
+                        <td>{{ $product['description3'] }}</td>
+                        <td>{{ $product['location'] }}</td>
+                        <td>{{ $product['time'] }}</td>
+                        <td>{{ $product['period'] }}</td>
+                        <td>{{ $product['total'] }}</td>
                         <td>
                             <div>
-                                @if ($project->ProjectsImage)
-                                    <img src="{{ asset('images/Admins/' . $Admin->ProjectsImage) }}"
-                                        alt="{{ $project->ProjectsName }}" width="200" height="200">
+                                @if ($product->productImage)
+                                    <img src="{{ asset('images/product/' . $product->productImage) }}"
+                                        alt="{{ $product->name }}" width="200" height="200">
                                 @endif
                             </div>
                         </td>  

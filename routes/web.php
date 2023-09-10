@@ -5,6 +5,12 @@ use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\UserController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +23,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controllers\PaypalController;
 
 Route::get('/contact', function () {
     return view('pages/contact');
@@ -83,12 +88,20 @@ require __DIR__ . '/auth.php';
 
 //////////////////////////////// SAJEDA CODE ////////////////////////////////
 
-Route::get('/Admin_Category', function () {
-    return view('Admin_Dashboard.Category ');
+// Route::get('/Admin_Category', function () {
+//     return view('Admin_Dashboard.Category ');
    
-});
+// });
+Route::get('/Admin_Category',[CategoryController::class, 'show'])-> name ('Admin_Dashboard.Category');
+Route::post('/Admin_Category',[CategoryController::class, 'save']);
+
+
 Route::get('/Admin_Home', function () {
     return view('Admin_Dashboard.Statics ');
+   
+});
+Route::get('/Admin_creatuser', function () {
+    return view('Admin_Dashboard.creatuser ');
    
 });
 Route::get('/Admin_Donations', function () {
@@ -99,19 +112,33 @@ Route::get('/Admin_Volunteers', function () {
     return view('Admin_Dashboard.Volunteers');
    
 });
-Route::get('/Admin_User', function () {
-    return view('Admin_Dashboard.User');
+// Route::get('/Admins_Payment', function () {
+//     return view('Admin_Dashboard.Payments');
    
-});
-Route::get('/Admins_Data', function () {
-    return view('Admin_Dashboard.Admins_Data');
+// });
+Route::get('/admins/{id}/edit', [AdminController::class, 'edit'])->name('Admin_Dashboard.Admins_Update');
+
+Route::get('/Admins_Payment',[PaypalController::class, 'show']);
+
+Route::get('/Admins_User',[UserController::class, 'show'])-> name ('Admin_Dashboard.User');
+Route::post('/Admins_User',[UserController::class, 'store']);
+
+
+// Route::get('/Admin_User', function () {
+//     return view('Admin_Dashboard.User');
    
-});
-Route::get('/Admins_Projects', function () {
-    return view('Admin_Dashboard.Projects');
+// });
+// Route::get('/Admins_Data', function () {
+//     return view('Admin_Dashboard.Admins_Data');
    
-});
-Route::get('/Admins_Payment', function () {
-    return view('Admin_Dashboard.Payments');
+// });
+Route::get('/Admins_Data',[AdminController::class, 'show']) -> name ('Admin_Dashboard.Admins_Data');
+Route::post('/Admins_Data',[AdminController::class, 'store']);
+
+// Route::get('/Admins_Projects', function () {
+//     return view('Admin_Dashboard.Projects');
    
-});
+// });
+Route::get('/Admins_Projects',[ProductsController::class, 'show'])-> name ('Admin_Dashboard.Projects');
+Route::post('/Admins_Projects',[ProductsController::class, 'store']);
+

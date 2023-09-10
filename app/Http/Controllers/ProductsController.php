@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Products;
+use App\Models\products;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -36,7 +36,20 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product=  new products;
+        $product->name= $request->name;
+        $product->breif= $request->breif;
+        $product->description2= $request->description2;
+        $product->description3= $request->description3;
+        $product->location= $request->location;
+        $product->period= $request->period;
+        $product->time= $request->time;
+        $product->total= $request->total;
+        $product->image= $request->image;
+        $product->save();
+    
+    
+        return redirect()->route('Admin_Dashboard.Projects');
     }
 
     /**
@@ -47,7 +60,8 @@ class ProductsController extends Controller
      */
     public function show(products $products)
     {
-        //
+        $productList= products::all();
+        return view('Admin_Dashboard.Projects',['products'=>$productList]);
     }
 
     /**

@@ -87,19 +87,19 @@
     <main>
         <div class="container">
             <div class="user-form">
-                <form action="" method="POST">
+                <form action="Admins_Data" method="POST">
                     @csrf
                     <label for="FirstName">First Name</label>
-                    <input type="text" id="FirstName" name="AdminFirstName">
+                    <input type="text" id="FirstName" name="name">
                     <label for="LastName">Last Name</label>
-                    <input type="text" id="LastName" name="AdminLastName">
+                    <input type="text" id="LastName" name="last_name">
                     <label for="userEmail">Email</label>
-                    <input type="text" id="AdminEmail" name="AdminEmail">
-                    <label for="AdminImage">Image</label>
-                    <input type="file" id="AdminImage" name="AdminImage">
+                    <input type="text" id="AdminEmail" name="email">
+                    {{-- <label for="AdminImage">Image</label>
+                    <input type="file" id="AdminImage" name="AdminImage"> --}}
                     <label for="AdminPassword">Password</label>
-                    <input type="file" id="AdminPassword" name="AdminPassword">
-                    <button class="btn btn-warning">Add Admin</button>
+                    <input type="text" id="AdminPassword" name="password">
+                    <button class="btn btn-warning" type="submit">Add Admin</button>
                 </form>
             </div>
         </div>
@@ -111,29 +111,32 @@
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
-                        <th>Image</th>
-                        <th>Password</th>
+                        {{-- <th>Image</th> --}}
+                        {{-- <th>Password</th> --}}
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($Admins as $Admin)
+                    @foreach ($admins as $admin)
                     <tr>
-                        <td>{{ $Admin['id'] }}</td>
-                        <td>{{ $Admin['AdminFirstName'] }}</td>
-                        <td>{{ $Admin['AdminLastName'] }}</td>
-                        <td>{{ $Admin['AdminEmail'] }}</td>
-                        <td>
+                        <td>{{ $admin['id'] }}</td>
+                        <td>{{ $admin['name'] }}</td>
+                        <td>{{ $admin['last_name'] }}</td>
+                        <td>{{ $admin['email'] }}</td>
+                        {{-- <td>
                             <div>
                                 @if ($Admin->AdminImage)
                                     <img src="{{ asset('images/Admins/' . $Admin->AdminImage) }}"
                                         alt="{{ $Admin->AdminFirstName }}" width="200" height="200">
                                 @endif
                             </div>
-                        </td>                        <td>{{ $Admin['AdminPassword'] }}</td>
+                        </td>                         --}}
+                        {{-- <td>{{ $admin['password'] }}</td> --}}
+                         <td><a href="{{ route('Admins_Update', $admin->id) }}"><button style="margin-right:5px" class="btn btn-primary" type="submit" >Edit</button></a>
+                           {{-- <a href="{{  }}"> <button  class="btn btn-danger">Delete</button></a></td> --}}
+
                         @endforeach
 
-                        <td><button style="margin-right:5px" class="btn btn-primary">Edit</button><button  class="btn btn-danger">Delete</button></td>
                     </tr>
                    
                 </tbody>
