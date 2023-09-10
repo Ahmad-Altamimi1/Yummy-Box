@@ -19,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PaypalController;
 
-Route::get('/contact', function () {
-    return view('pages/contact');
+Route::get('/about', function () {
+    return view('pages/about');
    
-});
+})-> name('About');
 // Route::get('/home', function () {
 //     return view('pages.index');
 // });
