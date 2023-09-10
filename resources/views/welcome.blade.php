@@ -5,3 +5,11 @@
 <input type="text" name="name" >
 <button type="submit">submit paypal</button>
 </form>
+
+<form action="stripe" method="POST">
+@csrf
+
+<input type="hidden" name="price" value="20">
+<input type="text" name="name1" >
+<button type="submit">submit stripe</button>
+</form>

@@ -16,12 +16,6 @@
 
     <meta name="description" content="Volunteer work in training and education " />
     <meta name="keywords" content="Volunteer training  education" />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap"
-        rel="stylesheet">
-
-
     <link rel="stylesheet" href="fonts/icomoon/style.css">
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 

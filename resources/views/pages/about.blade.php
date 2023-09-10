@@ -23,11 +23,11 @@
 	<link rel="stylesheet" href="fonts/icomoon/style.css">
 	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
-	<link rel="stylesheet" href="css/tiny-slider.css">
-	<link rel="stylesheet" href="css/aos.css">
-	<link rel="stylesheet" href="css/flatpickr.min.css">
-	<link rel="stylesheet" href="css/glightbox.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="../css/tiny-slider.css">
+	<link rel="stylesheet" href="../css/aos.css">
+	<link rel="stylesheet" href="../css/flatpickr.min.css">
+	<link rel="stylesheet" href="../css/glightbox.min.css">
+	<link rel="stylesheet" href="../css/style.css">
 
 	<title>Volunteer &mdash; Free Bootstrap 5 Website Template by Untree.co</title>
 </head>
@@ -420,12 +420,12 @@
 
 
 	<!-- Preloader -->
-	<div id="overlayer"></div>
+	{{-- <div id="overlayer"></div>
 	<div class="loader">
 		<div class="spinner-border text-primary" role="status">
 			<span class="visually-hidden">Loading...</span>
 		</div>
-	</div>
+	</div> --}}
 
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/tiny-slider.js"></script>
