@@ -18,22 +18,22 @@
               <tr>
                 <th scope="col">Program Name</th>
                 <th scope="col">Location</th>
-                <th scope="col">Date</th>
-                <th scope="col">Period</th>
+                <th scope="col">Experiance</th>
+                <th scope="col">CV file</th>
                 
               </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($user->volunteeringPrograms as $program)
+             {{-- @foreach ($volunteers as $program)
                 <tr>
-                    <td>{{ $program->name }}</td>
-                    <td>{{ $program->location }}</td>
-                    <td>{{ $program->date }}</td>
-                    <td>{{ $program->period }}</td>
+                    <td>{{ $program->Languages }}</td>
+                    <td>{{ $program->Address }}</td>
+                    <td>{{ $program->Experiance }}</td>
+                    <td>{{ $program->CV }}</td>
             
                 </tr>
-            @endforeach --}}
-         
+            @endforeach 
+          --}}
             </tbody>
           </table>
     </section>
