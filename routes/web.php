@@ -162,16 +162,19 @@ Route::post('/Admins_User',[UserController::class, 'store']);
 
 
 // Route::get('/Admin_User', function () {
-//     return view('Admin_Dashboard.User');
-   
+    //     return view('Admin_Dashboard.User');
+    
 // });
 // Route::get('/Admins_Data', function () {
-//     return view('Admin_Dashboard.Admins_Data');
-   
-// });
-Route::get('/Admins_Data',[AdminController::class, 'show']) -> name ('Admin_Dashboard.Admins_Data');
-Route::post('/Admins_Data',[AdminController::class, 'store']);
-
+    //     return view('Admin_Dashboard.Admins_Data');
+    
+    // });
+    Route::get('/Admins_Data',[AdminController::class, 'show']) -> name ('Admin_Dashboard.Admins_Data');
+    Route::post('/Admins_Data',[AdminController::class, 'store']);
+    Route::get('/Admins_Update/{id}', [AdminController::class,'edit']);
+    Route::get('store_admin', [AdminController::class, 'store_admin']);
+    // store_admin/{{ $admins->id }}
+    
 // Route::get('/Admins_Projects', function () {
 //     return view('Admin_Dashboard.Projects');
    

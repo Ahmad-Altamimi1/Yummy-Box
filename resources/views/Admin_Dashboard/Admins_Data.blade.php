@@ -132,7 +132,8 @@
                             </div>
                         </td>                         --}}
                         {{-- <td>{{ $admin['password'] }}</td> --}}
-                         <td><a href="{{ route('Admins_Update', $admin->id) }}"><button style="margin-right:5px" class="btn btn-primary" type="submit" >Edit</button></a>
+                        
+                         <td><a href="Admins_Update/{{  $admin->id }}"><button style="margin-right:5px" class="btn btn-primary" type="submit" >Edit</button></a>
                            {{-- <a href="{{  }}"> <button  class="btn btn-danger">Delete</button></a></td> --}}
 
                         @endforeach
