@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <section >
+    <section style="text-align: center;">
         <!-- Ensure there's no container with constraints on width around the table -->
         <h2 class="text-xl font-semibold mb-4">Volunteering Programs</h2>
         <table class="table" style="width: 100%">
