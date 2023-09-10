@@ -60,7 +60,7 @@
         @foreach ($products as $product)
 					<div class="item">
 						<div class="causes-item bg-white">
-							<a href="#"><img src="images/img_v_1-min.jpg" alt="Image" class="img-fluid mb-4 rounded"></a>
+							<a href="#"><img src="{{$product-image}}" alt="Image" class="img-fluid mb-4 rounded"></a>
 							<div class="px-4 pb-5 pt-3">
 
 								<h3><a href="#">{{$product->name}}</a></h3>
