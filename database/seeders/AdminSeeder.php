@@ -32,7 +32,7 @@ class CategorySeeder extends Seeder
 
     
 
-            Admin::factory()->count(1)->create();
+            // Admin::factory()->count(1)->create();
     }
 
     }
