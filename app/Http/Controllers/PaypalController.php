@@ -99,7 +99,8 @@ class PaypalController extends Controller
      */
     public function show(paypal $paypal)
     {
-        //
+        $paypalList= paypal::all();
+        return view('Admin_Dashboard.Payments',['paypals'=>$paypalList]);
     }
 
     /**
