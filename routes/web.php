@@ -25,35 +25,32 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\PaypalController;
 
 Route::get('/about', function () {
-    return view('pages/about');
-   
-})-> name('About');
-// Route::get('/home', function () {
-//     return view('pages.index');
-// });
+    return view('pages.about');
+});
 Route::get('single/{id?}', [CategoryController::class, 'find']);
 Route::get('/', [CategoryController::class, 'index']);
 Route::get('home', [CategoryController::class, 'index'])->name('home');
-// Route::resource('pages', ProductsController::class);
+Route::resource('product', ProductsController::class);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
-// Route::get('pages/index', [Controller::class, 'showhome'])
+// Route::get('home', [Controller::class, 'showhome'])
 //     ->name('home');
 
-Route::get('about', [Controller::class, 'showabout'])
+Route::get('/about', [Controller::class, 'showabout'])
     ->name('about');
 
-Route::get('contact', [Controller::class, 'showcontact'])
+Route::get('/contact', [Controller::class, 'showcontact'])
     ->name('contact');
 
-Route::get('causes', [Controller::class, 'showcauses'])
+Route::get('/causes', [Controller::class, 'showcauses'])
     ->name('causes');
 
-Route::get('news', [Controller::class, 'shownews'])
+Route::get('/news', [Controller::class, 'shownews'])
     ->name('news');
 
 

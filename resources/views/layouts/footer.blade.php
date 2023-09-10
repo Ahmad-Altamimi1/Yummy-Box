@@ -17,11 +17,11 @@
                 <div class="widget">
                     <h3>Navigation</h3>
                     <ul class="list-unstyled float-left links">
-                        <li><a href="about">About us</a></li>
-                        <li><a href="#">Donate Now</a></li>
-                        <li><a href="causes">Causes</a></li>
-                        <li><a href="#">Volunteer</a></li>
-                        <li><a href="terms">Terms</a></li>
+                        <li><a href="">About us</a></li>
+                        <li><a href="">Donate Now</a></li>
+                        <li><a href="">Causes</a></li>
+                        <li><a href="">Volunteer</a></li>
+                        <li><a href="">Terms</a></li>
                     </ul>
                 </div> <!-- /.widget -->
             </div> <!-- /.col-lg-3 -->
