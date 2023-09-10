@@ -5,24 +5,10 @@
 * License: https://creativecommons.org/licenses/by/3.0/
 */ -->
 
-<<<<<<< HEAD
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Untree.co">
-    <link rel="shortcut icon" href="favicon.png">
-
-    <meta name="description" content="Volunteer work in training and education " />
-    <meta name="keywords" content="Volunteer training  education" />
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-=======
 @extends('layouts.master')
 
 
 @section('title','Home')
->>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871
 
 <div class="site-mobile-menu site-navbar-target">
 		<div class="site-mobile-menu-header">

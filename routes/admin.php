@@ -1,5 +1,7 @@
 <?php
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Controller;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginAdmin;
 use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
@@ -27,6 +29,7 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function (){
 
 Route::get('dashboard', [App\Http\Controllers\LoginAdmin::class,'dashboard'])->name('admin_dashboard');
 Route::get('admin_logout', [App\Http\Controllers\LoginAdmin::class, 'logout_admin'])->name('admin_logout');
+   
 
 
 
