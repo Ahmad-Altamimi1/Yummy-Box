@@ -7,7 +7,7 @@
 @extends('layouts.master')
 
 
-@section('title','about')
+@section('title','news')
 
 
 

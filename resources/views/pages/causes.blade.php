@@ -7,9 +7,7 @@
 @extends('layouts.master')
 
 
-@section('title','about')
-
-
+@section('title','causes')
 
 
 <div class="site-mobile-menu site-navbar-target">
@@ -25,7 +23,7 @@
 
 @section('content')
 
-	<div class="hero overlay" style="background-image: url('images/hero_1.jpg')">
+	<div class="hero overlay" style="background-image: url('../images/hero_1.jpg')">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-6 text-center mx-auto">

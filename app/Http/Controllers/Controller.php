@@ -14,7 +14,7 @@ class Controller extends BaseController
     
   function showhome()
   {
-    return view('pages.index');
+    return view('pages/index');
   }
     function showabout()
     {

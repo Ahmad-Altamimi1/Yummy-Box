@@ -8,35 +8,36 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
+ 
+<style>
+    .container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+</style></head>
   <body>
-    <section style="text-align: center;">
-        <!-- Ensure there's no container with constraints on width around the table -->
-        <h2 class="text-xl font-semibold mb-4">Volunteering Programs</h2>
-        <table class="table" style="width: 100%">
-            <thead style="background-color: rgb(166, 234, 166)">
-              <tr>
-                <th scope="col">Program Name</th>
-                <th scope="col">Location</th>
-                <th scope="col">Experiance</th>
-                <th scope="col">CV file</th>
-                
-              </tr>
-            </thead>
-            <tbody>
-             {{-- @foreach ($volunteers as $program)
-                <tr>
-                    <td>{{ $program->Languages }}</td>
-                    <td>{{ $program->Address }}</td>
-                    <td>{{ $program->Experiance }}</td>
-                    <td>{{ $program->CV }}</td>
-            
-                </tr>
-            @endforeach 
-          --}}
-            </tbody>
-          </table>
-    </section>
+    <div class="container">
+        <div class="user-form">
+            <form action="Admins_User" method="POST">
+                @csrf
+                @method('post')
+                <label for="userName">First Name</label>
+                <input type="text" id="FirstName" name="name">
+                <label for="last_name">Last Name</label>
+                <input type="text" id="LastName" name="last_name">
+                <label for="userEmail">Email</label>
+                <input type="text" id="userEmail" name="email">
+                <label for="userPassword">Password</label>
+                <input type="text" id="userPassword" name="password">
+                <label for="userImage">Image</label>
+                <input type="file" id="userImage" name="image">
+                <button class="btn btn-warning" type="submit">Add User</button>
+            </form>
+        </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

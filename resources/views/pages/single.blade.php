@@ -4,11 +4,35 @@
 * Tempalte URI: https://untree.co/
 * License: https://creativecommons.org/licenses/by/3.0/
 */ -->
+<<<<<<< HEAD
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Untree.co">
+	<link rel="shortcut icon" href="favicon.png">
+
+	<meta name="description" content="Volunteer work in training and education " />
+	<meta name="keywords" content="Volunteer training  education" />
+	
+
+=======
 @extends('layouts.master')
+>>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871
 
 
 @section('title','about')
 
+<<<<<<< HEAD
+	<link rel="stylesheet" href="../css/tiny-slider.css">
+	{{-- <link rel="stylesheet" href="../css/aos.css"> --}}
+	<link rel="stylesheet" href="../css/flatpickr.min.css">
+	<link rel="stylesheet" href="../css/glightbox.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+=======
+>>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871
 
 
 
@@ -112,4 +136,149 @@ grid-auto-columns: 40% 40%; */
 
 
 
+<<<<<<< HEAD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Untree.co">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <meta name="description" content="Volunteer work in training and education " />
+    <meta name="keywords" content="Volunteer training  education" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="css/tiny-slider.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/flatpickr.min.css">
+    <link rel="stylesheet" href="css/glightbox.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/single.css">
+    <title>single</title>
+</head>
+
+<body>
+
+
+
+    <section class="container">
+
+        <div class="header-container">
+            <img src="images/hero_1.png" alt="">
+            <h1>{{ $products->name }}</h1>
+        </div>
+
+        <div class="inside-container">
+
+            <div class="single-product-left">
+
+                <div class="single-product-left-first-div">
+                    <img src="../images/hero_1.png" alt="">
+                </div>
+
+                <div class="single-product-left-second-div">
+                    <div class="single-product-left-second-div-image">
+                        <div>
+                            <img src="{{ $products->image }}" alt="">
+                        </div>
+                        <h3><a href="../images/hero_1.jpg">Lorem ipsum dolor sit amet.</a></h3>
+                    </div>
+                    <div>
+                        <a href="">Lorem.</a>
+                    </div>
+                </div>
+
+                <h4 class="single-product-left-first-h4">وصف الفرصة</h4>
+
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptatibus! Vel, quis ratione
+                    fugiat ducimus aperiam itaque tenetur natus modi iure velit minima reiciendis quasi maiores, aliquam
+                    veritatis qui illum cupiditate aut consequatur perferendis impedit at atque quas. Pariatur quod sit
+                    nulla velit sequi. Eligendi vero porro vel nulla deserunt.
+                </p>
+            </div>
+
+
+
+            <div class="single-product-right">
+                <div class="single-product-right-h1">
+                    <h1>time</h1>
+                </div>
+                <div class="single-product-right-first">
+                    <h4>Lorem, ipsum. <span>2023/10/15</span> to <span>2023/12/12</span> day <span>saturday</span> </h4>
+                    <h4>hours to <span>9:00</span> to <span>16:00</span></h4>
+                </div>
+
+                <div class="single-product-right-second">
+                    <h4><a href="">المهارات المطلوبة</a></h4>
+                    <p>غير محدد</p>
+                </div>
+
+                <div class="single-product-right-second">
+                    <h4><a href="">الفئة العمرية </a></h4>
+                    <p>المرحلة الجامعية، بعد المرحلة الجامعية </p>
+                </div>
+
+
+                <div class="single-product-right-third">
+                    <div>
+                        <h1>167</h1>
+                        <p>تحت الموافقة</p>
+                    </div>
+                    <div>
+                        <h1>200</h1>
+                        <p>العدد المطلوب</p>
+                    </div>
+
+                </div>
+
+                <button class="single-product-right-button">submit</button>
+
+
+                <h4 class="single-product-right-h4">شارك الفرصه</h4>
+
+            </div>
+
+
+
+
+        </div>
+
+
+    </section>
+
+    
+   
+@extends('pages.cliker')
+</body>
+
+</html>
+=======
 @endsection
+>>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871

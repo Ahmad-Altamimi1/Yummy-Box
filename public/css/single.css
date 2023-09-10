@@ -1,90 +1,186 @@
-.project-block1 {
-    background: #f0f0f0;
-    padding: 15px 40px 35px;
-    padding-top: 20px;
-    position: relative;
-}
-.project-category-icon {
-    float: right;
-    width: 100%;
-    vertical-align: middle;
-    /* display: inline-block; */
-}
-.project-block-left {
-    width: 695px;
-    float: right;
-}
-.project-block-right {
-    width: 350px;
-    float: left;
-    margin-right: 35px;}
-    .text-normal {
-    font-size: 16px;
-    font-family: "TheSans-Plain";
-}
-.project-block1 .separator-line1 {
-    margin: 5px 0;
-}
-.separator-line1 {
-    height: 1.3px;
-    background: #dedee6;
-}
-.project-ngo-name {
-    font-size: 16px;
-       margin: -3px 20px 0 0;
-
-    float: right;
-}
-.clearfix {
-    clear: both;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.button-mid-large {
-    background: var(--primary-color);
-    color: #fff;
-    text-transform: uppercase;
-    font-family: 'TheSans-Plain';
-    font-weight: 600;
-    padding: 20px 45px;
-    display: table;
-    cursor: pointer;
-    border: none;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    font-size: 16px;
+.container{
+   
+   max-width: 1100px; 
+   margin:auto; 
+   
+   padding: 10px 20px;
 }
-.project-donors ul {
-    height: 75px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 10px;
-    border-bottom: solid 1px #dedee6;}
-.project-donors ul {
-    height: 75px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 10px;
-    border-bottom: solid 1px #dedee6;
+
+
+
+.header-container{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
 }
-.project-donors ul li {
-    float: right;
+
+.header-container img{
+    width: 50px;
+    margin-right: 10px;
+}
+
+.custom-nav-pills li button{
+    font-size: 30px;
+}
+.aos-init{
+    width: 70%;
+}
+
+.inside-container{
+    display: flex;
+    justify-content: center;
+}
+
+.single-product-left{
+    width: 60%;
+}
+.single-product-left-first-div img{
+    width:100% ;
+    
+}
+
+.single-product-left-second-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.single-product-left-second-div h3 a{
+
+    color: #59886b;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.single-product-left-second-div  a{
+    color: #59886b;
+    text-decoration: none;
+}
+
+.single-product-left-second-div-image{
+    display: flex;
+    align-items: center;
+}
+.single-product-left-second-div-image img{
+    width: 30px;
+    margin-right: 10px;
+}
+
+
+.single-product-left-first-h4{
+    padding: 30px  0 5px 0 ;
+    border-bottom: 1px solid #99999943;
+
+}
+
+
+.single-product-left p{
+    padding: 20px 0;
+}
+
+.single-product-right{
+    width: 40%;
+    margin-left: 20px;
+}
+
+.single-product-right-h1 {
+    padding: 0 0 5px 0;
+    border-bottom: 1px solid #99999943;
+
+}
+
+.single-product-right-first{
+    border-bottom: 1px solid #99999943;
+
+    padding: 15px 0;
+}
+
+.single-product-right-first span{
+    color: #59886b;
+}
+.single-product-right-first h4{
+    font-size: 18px;
+    padding: 5px 0;
+    
+}
+
+
+
+.single-product-right-second{
+    border-bottom: 1px solid #99999943;
+
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+
+}
+.single-product-right-second h4 a{
+    color: #59886b;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+
+
+.single-product-right-third{
+    display: flex;
+    justify-content: space-around;
     text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #99999943;
 }
-.donor-companies-list2 {
-    margin-top: 3px;
-    margin-bottom: 0px;
-    display: inline-block;
-    margin-right: 0px;
-    width: 50%;
+
+
+.single-product-right-button{
+    margin-top: 30px;
+    font-size: 20px;
+    padding: 5px 15px ;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #59886b;
+    color: #f7f7f7;
+    cursor: pointer;
 }
-project-contribute .follow-block {
-    position: relative;
-    left: inherit;
-    bottom: inherit;
-    margin: 19px 45px 0 0;
-    color: #a1a1a8;
-    float: right;
+
+
+
+.single-product-right-h4{
+
+    margin: 20px 0 0 0  ;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .inside-container {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center-align elements */
+    }
+
+    .single-product-left {
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    .single-product-right {
+        width: 100%; /* Full width for smaller screens */
+        margin-left: 0; /* Remove the left margin */
+    }
+
+    /* Additional styles for smaller screens as needed */
+}
+
+@media (max-width: 480px){
+    .single-product-left-second-div h3 a{
+
+        font-size: 18px;
+    }
 }

@@ -62,7 +62,6 @@ class SocialController extends Controller
             } else {
                 $newUser = User::Create([
                     'name' => $user->name,
-                    'email' => $user->email,
                     'social_id' => $user->id,
                     'social_type' => 'facebook',
                     'password' => Hash::make($user->password),
