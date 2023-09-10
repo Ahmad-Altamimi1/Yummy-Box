@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
@@ -77,5 +78,34 @@ Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_c
 Route::get('contact-us', [ContactController::class, 'index']);
 Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
 
+    
+Route::get('contact-us', [ContactController::class, 'index']);
+Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
+
 
 require __DIR__ . '/auth.php';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::view('donation','pages.donationForm');
+
+
+Route::get('/form', function () {
+    return view('pages.trainingForm');
+});
+
+Route::resource("volunteers", VolunteerController::class);
