@@ -1,10 +1,4 @@
-<!-- /*
-* Template Name: Volunteer
-* Template Author: Untree.co
-* Tempalte URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
-<<<<<<< HEAD
+@extends('layouts.master')
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,21 +12,15 @@
 	<meta name="keywords" content="Volunteer training  education" />
 	
 
-=======
-@extends('layouts.master')
->>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871
 
 
 @section('title','about')
 
-<<<<<<< HEAD
 	<link rel="stylesheet" href="../css/tiny-slider.css">
 	{{-- <link rel="stylesheet" href="../css/aos.css"> --}}
 	<link rel="stylesheet" href="../css/flatpickr.min.css">
 	<link rel="stylesheet" href="../css/glightbox.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-=======
->>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871
 
 
 
@@ -136,7 +124,6 @@ grid-auto-columns: 40% 40%; */
 
 
 
-<<<<<<< HEAD
 
 
 
@@ -273,12 +260,10 @@ grid-auto-columns: 40% 40%; */
 
     </section>
 
-    
+    @endsection
    
 @extends('pages.cliker')
+
 </body>
 
 </html>
-=======
-@endsection
->>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871
