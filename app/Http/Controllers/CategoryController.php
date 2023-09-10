@@ -22,7 +22,7 @@ class CategoryController extends Controller
         $users = DB::table('users')->get();
         $volanters= DB::table('paypals')->get();
         // dd($categories);
-        return view('pages.index',compact('categories','products', 'users', 'volanters'));
+        return view('pages/index',compact('categories','products', 'users', 'volanters'));
 
     }
 

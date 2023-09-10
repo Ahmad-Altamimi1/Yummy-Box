@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
+// use App\Http\Controllers\ProductsController;
 
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,17 +30,17 @@ use App\Http\Controllers\PaypalController;
 //     return view('pages.index');
 // });
 Route::get('single/{id?}', [CategoryController::class, 'find']);
-Route::get('/', [CategoryController::class, 'index']);
-Route::get('/home', [CategoryController::class, 'index']);
-Route::resource('pages/', ProductsController::class);
+// Route::get('/', [CategoryController::class, 'index']);
+Route::get('home', [CategoryController::class, 'index'])->name('home');
+// Route::resource('pages', ProductsController::class);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
-Route::get('pages/index', [Controller::class, 'showhome'])
-    ->name('home');
+// Route::get('pages/index', [Controller::class, 'showhome'])
+//     ->name('home');
 
 Route::get('pages/about', [Controller::class, 'showabout'])
     ->name('about');
