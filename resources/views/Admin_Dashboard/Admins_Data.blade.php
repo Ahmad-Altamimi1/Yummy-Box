@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Management</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Admins Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="styles.css">
     <style>
         /* Reset some default browser styles */
         html,
@@ -82,59 +82,60 @@
 
 <body>
     <header>
-        <h1> Manage Your User</h1>
+        <h1> Manage Your Admins </h1>
     </header>
     <main>
         <div class="container">
             <div class="user-form">
-                <label for="userName">First Name</label>
-                <input type="text" id="FirstName" name="FirstName">
-                <label for="userName">Last Name</label>
-                <input type="text" id="LastName" name="LastName">
-                <label for="userEmail">Email</label>
-                <input type="text" id="userEmail" name="userEmail">
-                <label for="userPassword">Password</label>
-                <input type="text" id="userPassword" name="userPassword">
-                <label for="userImage">Image</label>
-                <input type="file" id="userImage" name="userImage">
-                <button class="btn btn-warning">Add User</button>
+                <form action="" method="POST">
+                    @csrf
+                    <label for="FirstName">First Name</label>
+                    <input type="text" id="FirstName" name="AdminFirstName">
+                    <label for="LastName">Last Name</label>
+                    <input type="text" id="LastName" name="AdminLastName">
+                    <label for="userEmail">Email</label>
+                    <input type="text" id="AdminEmail" name="AdminEmail">
+                    <label for="AdminImage">Image</label>
+                    <input type="file" id="AdminImage" name="AdminImage">
+                    <label for="AdminPassword">Password</label>
+                    <input type="file" id="AdminPassword" name="AdminPassword">
+                    <button class="btn btn-warning">Add Admin</button>
+                </form>
             </div>
         </div>
         <div class="container">
             <table class="table table-hover">
-                <thead style="background-color: #3c9ee5"> 
+                <thead style="background-color: #3c9ee5">
                     <tr>
                         <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
-                        <th>Password</th>
                         <th>Image</th>
-<th>Action</th>
+                        <th>Password</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($Users as $User)
+                    @foreach ($Admins as $Admin)
                     <tr>
-                        <td>{{ $User['id'] }}</td>
-                        <td>{{ $User['FirstName'] }}</td>
-                        <td>{{ $User['LastName'] }}</td>
-                        <td>{{ $User['userEmail'] }}</td>
-                        <td>{{ $User['userPassword'] }}</td>
+                        <td>{{ $Admin['id'] }}</td>
+                        <td>{{ $Admin['AdminFirstName'] }}</td>
+                        <td>{{ $Admin['AdminLastName'] }}</td>
+                        <td>{{ $Admin['AdminEmail'] }}</td>
                         <td>
                             <div>
-                                @if ($User->UserImage)
-                                    <img src="{{ asset('images/Users/' . $User->UserImage) }}"
-                                        alt="{{ $User->UserFirstName }}" width="200" height="200">
+                                @if ($Admin->AdminImage)
+                                    <img src="{{ asset('images/Admins/' . $Admin->AdminImage) }}"
+                                        alt="{{ $Admin->AdminFirstName }}" width="200" height="200">
                                 @endif
                             </div>
-                        </td>
+                        </td>                        <td>{{ $Admin['AdminPassword'] }}</td>
                         @endforeach
-                        
-                        <td><button style="margin-right:5px" class="btn btn-primary">Edit</button><button
-                                class="btn btn-danger">Delete</button></td>
-                    </tr>
 
+                        <td><button style="margin-right:5px" class="btn btn-primary">Edit</button><button  class="btn btn-danger">Delete</button></td>
+                    </tr>
+                   
                 </tbody>
             </table>
         </div>

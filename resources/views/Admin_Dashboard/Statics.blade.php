@@ -125,7 +125,7 @@ body {
     <div style="display: flex; justify-content: space-around; width: 100%;">
         <h4>Number of Volunteers</h4>
         <h4>Number of Donations</h4>
-        <h4>Donations of </h4>
+        <h4>Donations of Users</h4>
     </div>
     <br />
     <br />

@@ -29,6 +29,30 @@ Route::get('dashboard', [App\Http\Controllers\LoginAdmin::class,'dashboard'])->n
 Route::get('logout', [App\Http\Controllers\LoginAdmin::class, 'logout'])->name('logout');
 
 
+
+//////////////////////////////// SAJEDA CODE ////////////////////////////////
+
+Route::get('/Admin_Category', function () {
+    return view('Admin_Dashboard.Category ');
+   
+});
+Route::get('/Admin_Home', function () {
+    return view('Admin_Dashboard.Statics ');
+   
+});
+Route::get('/Admin_Donations', function () {
+    return view('Admin_Dashboard.Donations');
+   
+});
+Route::get('/Admin_Volunteers', function () {
+    return view('Admin_Dashboard.Volunteers');
+   
+});
+Route::get('/Admin_User', function () {
+    return view('Admin_Dashboard.User');
+   
+});
+
 });
 
 require __DIR__ . '/auth.php';

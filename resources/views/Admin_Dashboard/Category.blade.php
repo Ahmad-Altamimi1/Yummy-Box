@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
     <title>Category Management</title>
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -79,7 +81,7 @@ th {
 
 <body>
     <header>
-        <h1>Category Management</h1>
+        <h1> Manage Your Categories</h1>
     </header>
     <main>
         <div class="container">
@@ -95,32 +97,31 @@ th {
         </div>
         <div class="container">
             <table class="table table-hover">
-                <thead>
+                <thead style="background-color: #3c9ee5">
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Image</th>
                         <th>Description</th>
-                        <th>Edit</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Sample table data -->
+                    @foreach ($categories as $category)
                     <tr>
-                        <td>1</td>
-                        <td>Category 1</td>
-                        <td><img src="category1.jpg" alt="Category 1"></td>
-                        <td>Description of Category 1</td>
-                        <td><button>Edit</button></td>
+                        <td>{{ $category ['id'] }}</td>
+                        <td>{{ $category ['categoryName'] }}</td>
+                        <td>{{ $category ['categoryDescription'] }}</td>
+                        <td>
+                            <div>
+                                @if ($category->categoryImage)
+                                    <img src="{{ asset('images/categories/' . $category->categoryImage) }}"
+                                        alt="{{ $category->categoryName }}" width="200" height="200">
+                                @endif
+                            </div>
+                        </td><td><button style="margin-right:5px" class="btn btn-primary">Edit</button><button  class="btn btn-danger">Delete</button></td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Category 2</td>
-                        <td><img src="category2.jpg" alt="Category 2"></td>
-                        <td>Description of Category 2</td>
-                        <td><button>Edit</button></td>
-                    </tr>
-                    <!-- Add more table rows as needed -->
+                    @endforeach
                 </tbody>
             </table>
         </div>

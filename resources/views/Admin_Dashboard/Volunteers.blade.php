@@ -79,30 +79,37 @@ h1 {
 </head>
 <body>
     <header>
-        <h1>Volunteers Management</h1>
+        <h1>Volunteers</h1>
     </header>
 
     <div class="flex-container">
         <table class="table">
             <thead>
                 <tr>
-                    <th>id_donation</th>
-                    <th>UserName</th>
-                    <th>name_donation</th>
-                    <th>img_donation</th>
-                    <th>quantity_donation</th>
-                    <th>name_category</th>
+                    <th>ID</th>
+                    <th>User ID</th>
+                    <th>Service Type</th>
+                    <th>Location</th>
+                    <th>Phone Number</th>
+                    <th>CV</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Sample row, replace with data binding -->
+                @foreach ($Volunteers as $Volunteer)
                 <tr>
-                    <td>1</td>
-                    <td>User1</td>
-                    <td>Donation 1</td>
-                    <td><img src="pic/donation1.jpg" alt="Donation 1"></td>
-                    <td>5</td>
-                    <td>Category 1</td>
+                    <td>{{ $Volunteer['id'] }}</td>
+                    <td>{{ $Volunteer['id'] }}</td>
+                    <td>{{ $Volunteer['id'] }} </td>
+                    <td>{{ $Volunteer['id'] }}</td>
+                    <td>{{ $Volunteer['id'] }} </td>
+                    <td>
+                        <div>
+                            @if ($Volunteer->AdminImage)
+                                <img src="{{ asset('images/Volunteer/' . $Volunteer->VolunteerImage) }}"
+                                    alt="{{ $Volunteer->VolunteerFirstName }}" width="200" height="200">
+                            @endif
+                        </div>
+                    @endforeach
                 </tr>
                 <!-- Add more rows for actual data -->
             </tbody>

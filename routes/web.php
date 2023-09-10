@@ -98,3 +98,15 @@ Route::get('/Admin_User', function () {
     return view('Admin_Dashboard.User');
    
 });
+Route::get('/Admins_Data', function () {
+    return view('Admin_Dashboard.Admins_Data');
+   
+});
+Route::get('/Admins_Projects', function () {
+    return view('Admin_Dashboard.Projects');
+   
+});
+Route::get('/Admins_Payment', function () {
+    return view('Admin_Dashboard.Payments');
+   
+});

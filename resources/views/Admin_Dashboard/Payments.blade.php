@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donations Management
+    <title>Paymant Management
     </title>
     <style>
     /* Apply styles to the entire page */
@@ -79,33 +79,33 @@ h1 {
 </head>
 <body>
     <header>
-        <h1>Donations Data</h1>
+        <h1>Paymant Data</h1>
     </header>
 
     <div class="flex-container">
         <table class="table">
             <thead>
                 <tr>
-                    <th>Donation ID</th>
-                    <th>User Name</th>                    
-                    <th>Category Name</th>
-                    <th>Project Name</th>
-                    <th>Donation Amount</th>
+                    <th>Payment ID</th>
+                    <th>User Name</th>
+                    <th>User Email</th>
+                    <th>Transaction Amount</th>
+                    <th>Payment status</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($Donations as $Donation)
+                @foreach ($Paymantes as $Paymant)
                 <tr>
-                    <td>{{ $Donation['id'] }}</td>
-                    <td>{{ $Donation['FirstName'.'LastName'] }}</td>
-                    <td>{{ $Donation['categoryName'] }} </td>
-                    <td>{{ $Donation['ProjectsName'] }}</td>
-                    <td>{{ $Donation['DonationAmount'] }} </td>
+                    <td>{{ $Paymant['id'] }}</td>
+                    <td>{{ $Paymant['user_name'] }}</td>
+                    <td>{{ $Paymant['user_email'] }}</td>
+                    <td>{{ $Paymant['amount'] }}</td>
+                    <td>{{ $Paymant['payment_status'] }}</td>
                 </tr>
                 @endforeach
+
             </tbody>
         </table>
     </div>
-    <!-- You can add your SQL data source here if needed -->
 </body>
 </html>
