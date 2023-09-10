@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
 
 use App\Http\Controllers\CategoryController;
@@ -23,9 +24,9 @@ use App\Http\Controllers\PaypalController;
 //     return view('welcome');
    
 // });
-// Route::get('/home', function () {
-//     return view('pages.index');
-// });
+Route::get('/home', function () {
+    return view('pages.index');
+});
 Route::get('single/{id?}', [CategoryController::class, 'find']);
 Route::get('/', [CategoryController::class, 'index']);
 Route::get('/home', [CategoryController::class, 'index']);
@@ -74,3 +75,28 @@ Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_c
 
 
 require __DIR__ . '/auth.php';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::view('donation','pages.donationForm');
+
+
+Route::get('/form', function () {
+    return view('pages.trainingForm');
+});
+
+Route::resource("volunteers", VolunteerController::class);
