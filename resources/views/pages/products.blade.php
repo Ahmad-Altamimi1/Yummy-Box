@@ -1,34 +1,33 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="Untree.co">
-	<link rel="shortcut icon" href="favicon.png">
-
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+@extends('layouts.master')
 
 
-	<link rel="stylesheet" href="fonts/icomoon/style.css">
-	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-
-	<link rel="stylesheet" href="css/tiny-slider.css">
-	<link rel="stylesheet" href="css/aos.css">
-	<link rel="stylesheet" href="css/flatpickr.min.css">
-	<link rel="stylesheet" href="css/glightbox.min.css">
-	<link rel="stylesheet" href="css/style.css">
-
-	<title>Volunteer &mdash; Free Bootstrap 5 Website Template by Untree.co</title>
-</head>
+@section('title','products')
 
 
-  
 
+
+
+
+
+
+@section('content')
+
+<div class="hero overlay" style="background-image: url('images/img_v_8-min.jpg')">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-lg-6 text-center">
+					<h1 class="heading text-white mb-2" data-aos="fade-up"></h1>
+					<p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum minima dignissimos hic mollitia eius et quam ducimus maiores eos magni.</p>
+					<p data-aos="fade-up"  data-aos-delay="100">
+						<a href="#" class="btn btn-primary me-4">Donate Now</a> 
+					</p>		
+					
+				</div>
+
+				
+			</div>
+		</div>
+	</div>
 
 
 <div class="section cause-section bg-light">
@@ -49,12 +48,14 @@
 		</div>
 
 
+
+
+		
+
+
 		<div class="container mb-5">
 			<div class="features-slider-wrap position-relative" data-aos="fade-up" data-aos-delay="200">
 				<div class="features-slider" id="features-slider">
-
-
-
 
         @foreach ($products as $product)
 					<div class="item">
@@ -93,29 +94,13 @@
 		</div>
 
 
-	</div>	
+</div>	
 
 
 
   
-      
-  <div id="overlayer"></div>
-	<div class="loader">
-		<div class="spinner-border text-primary" role="status">
-			<span class="visually-hidden">Loading...</span>
-		</div>
-	</div>
-
-	<script src="js/bootstrap.bundle.min.js"></script>
-	<script src="js/tiny-slider.js"></script>
-
-	<script src="js/flatpickr.min.js"></script>
-	<script src="js/glightbox.min.js"></script>
+  
 
 
-	<script src="js/aos.js"></script>
-	<script src="js/navbar.js"></script>
-	<script src="js/counter.js"></script>
-	<script src="js/custom.js"></script>
-</body>
-</html>
+
+@endsection

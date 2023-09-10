@@ -1,9 +1,15 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+    <div class="hero overlay" style="background-image: url('{{ asset('images/bg11.png') }}'); height: 500px; background-size: cover; background-repeat: no-repeat;" >
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h1 class="heading mt-6 mb-2" style="margin-top: 210px; font-weight: bolder;" data-aos="fade-up">Your Profile</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
@@ -24,6 +30,9 @@
                     @include('profile.partials.delete-user-form')
                 </div>
             </div>
+
+
+        
         </div>
     </div>
 </x-app-layout>
