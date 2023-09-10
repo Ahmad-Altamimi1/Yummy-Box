@@ -1,9 +1,14 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
+<<<<<<< HEAD
 // use App\Http\Controllers\ProductsController;
 
+=======
+use App\Http\Controllers\ContactController;
+>>>>>>> ae34ab54d04e58d17dc690e812e08c52de91d990
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
@@ -22,10 +27,10 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Controllers\PaypalController;
 
-// Route::get('/', function () {
-//     return view('welcome');
+Route::get('/about', function () {
+    return view('pages/about');
    
-// });
+})-> name('About');
 // Route::get('/home', function () {
 //     return view('pages.index');
 // });
@@ -42,8 +47,8 @@ Route::get('/dashboard', function () {
 // Route::get('pages/index', [Controller::class, 'showhome'])
 //     ->name('home');
 
-Route::get('pages/about', [Controller::class, 'showabout'])
-    ->name('about');
+// Route::get('pages/about', [Controller::class, 'showabout'])
+//     ->name('about');
 
 Route::get('pages/contact', [Controller::class, 'showcontact'])
     ->name('contact');
@@ -68,6 +73,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+   
 });
 // Define the PayPal routes with the appropriate methods
 Route::post('paypal', [PaypalController::class, 'payment'])->name('paypal'); // Use 'store' method for POST
@@ -75,5 +81,38 @@ Route::get('paypal/success', [PaypalController::class, 'success'])->name('succes
 Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
 
 
+    
+Route::get('contact-us', [ContactController::class, 'index']);
+Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
+
+    
+Route::get('contact-us', [ContactController::class, 'index']);
+Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
+
 
 require __DIR__ . '/auth.php';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::view('donation','pages.donationForm');
+
+
+Route::get('/form', function () {
+    return view('pages.trainingForm');
+});
+
+Route::resource("volunteers", VolunteerController::class);

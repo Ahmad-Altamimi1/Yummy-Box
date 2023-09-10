@@ -10,6 +10,7 @@
 
 @section('title','Home')
 
+<<<<<<< HEAD
 <div class="site-mobile-menu site-navbar-target">
 		<div class="site-mobile-menu-header">
 			<div class="site-mobile-menu-close">
@@ -18,6 +19,60 @@
 		</div>
 		<div class="site-mobile-menu-body"></div>
 	</div>
+=======
+    <link rel="stylesheet" href="css/tiny-slider.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/flatpickr.min.css">
+    <link rel="stylesheet" href="css/glightbox.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Volunteer </title>
+</head>
+
+<body>
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <nav class="site-nav">
+        <div class="container">
+            <div class="menu-bg-wrap">
+                <div class="site-navigation">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                            <a href="index.html" class="logo m-0 float-start text-white">Volunteer</a>
+                        </div>
+                        <div class="col-8 text-center">
+                            <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
+                                <li class="active"><a href="index.html">Home</a></li>
+                                <li class="has-children">
+                                    <a href="causes.html">Causes</a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">Menu One</a></li>
+                                        <li><a href="#">Menu Two</a></li>
+                                        <li class="has-children">
+                                            <a href="#">Dropdown</a>
+                                            <ul class="dropdown">
+                                                <li><a href="#">Sub Menu One</a></li>
+                                                <li><a href="#">Sub Menu Two</a></li>
+                                                <li><a href="#">Sub Menu Three</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li><a href="{{route('About')}}">About</a></li>
+                                <li><a href="news.html">News</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li class="has-children">
+>>>>>>> ae34ab54d04e58d17dc690e812e08c52de91d990
 
 
 
