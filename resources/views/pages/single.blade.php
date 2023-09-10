@@ -2,184 +2,176 @@
 @extends('layouts.master')
 
 
-@section('title','about')
+@section('title','Project')
 
 
 
-
-<div class="site-mobile-menu site-navbar-target">
-		<div class="site-mobile-menu-header">
-			<div class="site-mobile-menu-close">
-				<span class="icofont-close js-menu-toggle"></span>
-			</div>
-		</div>
-		<div class="site-mobile-menu-body"></div>
-	</div>
-
-
-
-
-padding:60px; 
-margin-top: 4%;
-    }
-    .left{
-        width: 60%;
-    }
-    .left img{
-width: 100%;
-    }
-	.right{
-		color: #ffc85c;
-		color: #59886b;
-        width: 30%;
-padding-left: 8%;
-	}
-	.rightandleft{
-display: flex;
-		/* display: grid;
-grid-auto-columns: 40% 40%; */
-	}
-</style>
-
-
-
-	<h3>{{ $products->name }}</h3>
-<div class="rightandleft">
-    <div class="left">
-
-			{{-- {{$products->image}} --}}
-
-    </div>
-<div class="right">
-
-{{-- <p>{{ $products->breif }}</p> --}}
-<p>Hours of instruction:{{ $products->period }}</p>
-<p>Start in{{ $products->time }}</p>
-<p>location:{{ $products->description2 }}</p>
-<p>{{ $products->description3 }}</p>
-<p>{{ $products->location }}</p>
-<p>{{ $products->total }}</p>
-@if ($diffInMinutes<60)
-<p> posted befor {{$diffInMinutes}} Minutes</p>
-@endif
-@if ($diffInMinutes>60 &&$diffInHours <24)
-<p> posted befor {{$diffInHours}} Hours</p>
-@endif
-@if ($diffInMinutes>60 && $diffInHours >=24)
-<p> posted befor {{$diffInDays}} days</p>
-@endif
-@auth
-	
-@if ( Auth::user()->id ==false)
-	<div> you must log in</div>
-@endif
-@if ( Auth::user()->id ==true)
-                                        <div>{{ Auth::user()->id }}</div>
-	
-@endif
-
-@endauth
-
-
-{{-- <p>{{ $products->time }}</p> --}}
-
-
-</div>
-</div>
-
-</div>
-
-
-
-
-
-
-    <section class="container">
-
-        <div class="header-container">
-            <img src="images/hero_1.png" alt="">
-            <h1>{{ $products->name }}</h1>
+<div class="site-mobile-menu site-navbar-target" >
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
         </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+<script src="https://kit.fontawesome.com/d6692547f6.js" crossorigin="anonymous"></script>
 
-        <div class="inside-container">
+@section('content')
 
+
+<div class="hero overlay" style="background-image: url('images/about.jpg')">
+	<div class="container">
+		<div class="row align-items-center justify-content-center">
+			<div class="col-lg-6 text-center">
+				<h1 class="heading text-white mb-2" data-aos="fade-up">{{ $products->name }}</h1>
+				{{-- <p data-aos="fade-up"  data-aos-delay="100">
+					<a href="#" class="btn btn-primary me-4">Donate Now</a> 
+				</p>		 --}}
+				
+			</div>
+
+			
+		</div>
+	</div>
+</div>
+
+ <section class="container" style="color: black">
+
+      <br><br>
+ 
+        <div class="inside-container row g-5">
+
+            
+<div class="col-7">
             <div class="single-product-left">
 
-                <div class="single-product-left-first-div">
-                    <img src="../images/hero_1.png" alt="">
-                </div>
+                
 
-                <div class="single-product-left-second-div">
+                <div class="single-product-left-second-div ">
                     <div class="single-product-left-second-div-image">
                         <div>
                             <img src="{{ $products->image }}" alt="">
-                        </div>
-                        <h3><a href="../images/hero_1.jpg">Lorem ipsum dolor sit amet.</a></h3>
+                        </div> <br>
+                        <h3><a href="../images/hero_1.jpg">Below you will see the details:</a></h3> <br>
                     </div>
+                    
                     <div>
-                        <a href="">Lorem.</a>
+                        <i class="fa-solid fa-location-dot fa-2xl" style="color: #318c5d;"> </i> <span> {{ $products->location }}</span>
+                    </div>
+                    <br> <br>
+                    <div>
+                        <i class="fa-regular fa-clock fa-2xl" style="color: #f3ec20;"> </i><span> Start at{{ $products->time }}</span>
+                    </div>
+                    <br> <br>
+                    <div>
+                        <i class="fa-regular fa-calendar-days fa-2xl" style="color: #fd9d17;"> </i> <span> Days of instruction:{{ $products->period }}</span>
                     </div>
                 </div>
+              <hr >
+                
+                
+            </div>
+           <div >
+            <h1>Role</h1>
+            <p>About the job and it’s activities</p>
 
-                <h4 class="single-product-left-first-h4">وصف الفرصة</h4>
+            <div class="single-product-right" >
+                <div class="single-product-right-h1">
+                    <h3 class="single-product-left-first-h4">About </h3>
 
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptatibus! Vel, quis ratione
-                    fugiat ducimus aperiam itaque tenetur natus modi iure velit minima reiciendis quasi maiores, aliquam
-                    veritatis qui illum cupiditate aut consequatur perferendis impedit at atque quas. Pariatur quod sit
-                    nulla velit sequi. Eligendi vero porro vel nulla deserunt.
-                </p>
-            </div>
+                    {{ $products->description2 }}
+                 </p>
+               
+                        <h3 class="single-product-left-first-h4">Responsibilities </h3>
+    
+                    <p>
+                        {{ $products->description3 }}
+                     </p>
 
-
-
-            <div class="single-product-right">
-                <div class="single-product-right-h1">
-                    <h1>time</h1>
-                </div>
-                <div class="single-product-right-first">
-                    <h4>Lorem, ipsum. <span>2023/10/15</span> to <span>2023/12/12</span> day <span>saturday</span> </h4>
-                    <h4>hours to <span>9:00</span> to <span>16:00</span></h4>
-                </div>
-
-                <div class="single-product-right-second">
-                    <h4><a href="">المهارات المطلوبة</a></h4>
-                    <p>غير محدد</p>
-                </div>
-
-                <div class="single-product-right-second">
-                    <h4><a href="">الفئة العمرية </a></h4>
-                    <p>المرحلة الجامعية، بعد المرحلة الجامعية </p>
-                </div>
-
-
-                <div class="single-product-right-third">
-                    <div>
-                        <h1>167</h1>
-                        <p>تحت الموافقة</p>
+                     <h3 class="single-product-left-first-h4">Prosses </h3>
+    
+                     <p>
+                        <ul style="list-style-color: green;">
+                            <li>Apply Online: Fill out our quick online application form, indicating your interest in mentoring for the Front-End Foundations project.</li>
+                            <li>Resume Submission: Upload your CV or resume to showcase your skills and experience in web development.</li>
+                            <li>Interview and Orientation: After reviewing your application, we'll schedule a brief interview to discuss your availability and expectations. Attend an orientation to get acquainted with our platform and guidelines.</li>
+                            <li>Mentor Match: Once approved, we'll match you with learners eager to participate in the Front-End Foundations project.</li>
+                            <li>Start Mentoring: Begin your volunteer journey by mentoring and sharing your expertise with aspiring web developers.</li>
+                        </ul>
+                      
+                        
+                        
+                        
+                        
+                        
+                        
+                      </p>
+                    <div style="text-align:end">
+                      {{-- <p>{{ $products->total }}</p> --}}
+                      @if ($diffInMinutes<60)
+                      <p> posted before {{$diffInMinutes}} Minutes</p>
+                      @endif
+                      @if ($diffInMinutes>60 &&$diffInHours <24)
+                      <p> posted before {{$diffInHours}} Hours</p>
+                      @endif
+                      @if ($diffInMinutes>60 && $diffInHours >=24)
+                      <p> posted before {{$diffInDays}} days</p>
+                      @endif
+                      @auth
+                          
+                      @if ( Auth::user()->id ==false)
+                          <div> you must log in</div>
+                      @endif
+                      @if ( Auth::user()->id ==true)
+                      <div>{{ Auth::user()->id }}</div>
+                          
+                      @endif
+                      
+                      @endauth
                     </div>
-                    <div>
-                        <h1>200</h1>
-                        <p>العدد المطلوب</p>
-                    </div>
-
-                </div>
-
-                <button class="single-product-right-button">submit</button>
-
-
-                <h4 class="single-product-right-h4">شارك الفرصه</h4>
 
             </div>
+        </div>
 
-
-
+    </div>
 
         </div>
+
+        <div class="col-5 ">
+            <div style=" position: sticky;
+           width: 450px;
+          top: 300px;
+          text-align: center;
+        
+           ">
+                
+               <div style="border: #318c5d solid 3px ; padding : 25px 10px">Join us, volunteer, empower, thrive
+                <br><br>
+                <a href="#" class="btn btn-primary me-4">Join Us as a Trainer</a> <br><br>
+                <a href="#" class="btn btn-primary me-4">Donate to help trainnes </a>                
+            </div>
+            </div>
+   
+   
+           </div>
+
+    </div>
+
+       
 
 
     </section>
 
-    
+    <div class="right">
+
+
+     
+        
+        
+        
+        
+        
+        </div>
    
 
