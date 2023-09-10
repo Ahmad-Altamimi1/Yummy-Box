@@ -32,7 +32,6 @@
 @section('content')
 <div class="hero overlay" style="background-image: url('{{ asset('images/img_v_8-min.jpg') }}')">
 
-<<<<<<< HEAD
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-6 text-center">
@@ -45,7 +44,6 @@
         </div>
     </div>
 </div>
-=======
 	<div class="hero overlay" style="background-image: url('images/about.jpg')">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
@@ -56,7 +54,6 @@
 					</p>		
 					
 				</div>
->>>>>>> ae34ab54d04e58d17dc690e812e08c52de91d990
 
 <div class="section sec-about">
     <div class="container">
@@ -64,7 +61,6 @@
             <div class="col-lg-6 has-bg" data-aos="fade-right">
                 <img src="{{ asset('images/hero_2.jpg') }}" alt="Image" class="img-fluid img-box-shadow rounded">
 
-<<<<<<< HEAD
             </div>
             <div class="col-lg-4 align-self-center" data-aos="fade-left" data-aos-delay="100">
                 <span class="subheading mb-3">About</span>
@@ -89,7 +85,6 @@
             </div>
         </div>
     </div>
-=======
 	<div class="section sec-about">
 		<div class="container">
 			<div class="row g-5 justify-content-between">
@@ -117,7 +112,6 @@
 			
 			</div>
 		</div>
->>>>>>> ae34ab54d04e58d17dc690e812e08c52de91d990
 
     <div class="container">
         <div class="features-slider-wrap" data-aos="fade-up" data-aos-delay="100">
@@ -180,8 +174,6 @@
                 </div>
 
 					<div class="item">
-<<<<<<< HEAD
-=======
 
 						<div class="feature bg-color-1">
 							<img src="images/team/Sereen.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
@@ -253,7 +245,6 @@
 
 					<div class="item">
 
->>>>>>> ae34ab54d04e58d17dc690e812e08c52de91d990
 						<div class="feature bg-color-5">
 							<img src="{{ asset('images/person_4.jpg') }}" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
 
@@ -266,7 +257,6 @@
 
 					</div>
 
-<<<<<<< HEAD
 					<div class="item">
 
 						<div class="feature bg-color-6">
@@ -280,9 +270,7 @@
 						</div>
 
 					</div>
-=======
 				
->>>>>>> ae34ab54d04e58d17dc690e812e08c52de91d990
 
 				</div>
 			</div>
