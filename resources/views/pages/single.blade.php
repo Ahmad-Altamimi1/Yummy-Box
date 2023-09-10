@@ -1,38 +1,9 @@
-<!-- /*
-* Template Name: Volunteer
-* Template Author: Untree.co
-* Tempalte URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
-<<<<<<< HEAD
-<!doctype html>
-<html lang="en">
-<head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="Untree.co">
-	<link rel="shortcut icon" href="favicon.png">
 
-	<meta name="description" content="Volunteer work in training and education " />
-	<meta name="keywords" content="Volunteer training  education" />
-	
-
-=======
 @extends('layouts.master')
->>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871
 
 
 @section('title','about')
 
-<<<<<<< HEAD
-	<link rel="stylesheet" href="../css/tiny-slider.css">
-	{{-- <link rel="stylesheet" href="../css/aos.css"> --}}
-	<link rel="stylesheet" href="../css/flatpickr.min.css">
-	<link rel="stylesheet" href="../css/glightbox.min.css">
-	<link rel="stylesheet" href="../css/style.css">
-=======
->>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871
 
 
 
@@ -47,17 +18,6 @@
 
 
 
-@section('content')
-<style>
-    .site-nav {
-        background: red;
-		position: sticky;	
-        top: 0;
-    }
-    .all{
-        height: 100vh;
-margin: 0 10%;
-background: #eee;
 
 padding:60px; 
 margin-top: 4%;
@@ -83,13 +43,11 @@ grid-auto-columns: 40% 40%; */
 
 
 
-<div class="all">
 	<h3>{{ $products->name }}</h3>
 <div class="rightandleft">
     <div class="left">
 
 			{{-- {{$products->image}} --}}
-        <img src="../images/hero_1.jpg" alt="">
 
     </div>
 <div class="right">
@@ -133,57 +91,6 @@ grid-auto-columns: 40% 40%; */
 
 
 
-
-
-
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Untree.co">
-    <link rel="shortcut icon" href="favicon.png">
-
-    <meta name="description" content="Volunteer work in training and education " />
-    <meta name="keywords" content="Volunteer training  education" />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap"
-        rel="stylesheet">
-
-
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-
-    <link rel="stylesheet" href="css/tiny-slider.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/flatpickr.min.css">
-    <link rel="stylesheet" href="css/glightbox.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="../css/single.css">
-    <title>single</title>
-</head>
-
-<body>
 
 
 
@@ -275,10 +182,4 @@ grid-auto-columns: 40% 40%; */
 
     
    
-@extends('pages.cliker')
-</body>
 
-</html>
-=======
-@endsection
->>>>>>> 841a779efbe7f3acf713722582df3cac9e7e9871
