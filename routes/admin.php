@@ -26,7 +26,7 @@ Route::post('check', [LoginAdmin::class, 'store'])->name('check_admin');
 Route::prefix('admin')->middleware('IsAdmin')->group(function (){
 
 Route::get('dashboard', [App\Http\Controllers\LoginAdmin::class,'dashboard'])->name('admin_dashboard');
-Route::get('logout', [App\Http\Controllers\LoginAdmin::class, 'logout'])->name('logout');
+Route::get('admin_logout', [App\Http\Controllers\LoginAdmin::class, 'logout_admin'])->name('admin_logout');
 
 
 

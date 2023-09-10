@@ -29,7 +29,7 @@
 	<link rel="stylesheet" href="css/glightbox.min.css">
 	<link rel="stylesheet" href="css/style.css">
 
-	<title>Volunteer &mdash; Free Bootstrap 5 Website Template by Untree.co</title>
+	<title>Volunteer </title>
 </head>
 <body>
 
@@ -90,12 +90,11 @@
 		</div>
 	</nav>
 
-	<div class="hero overlay" style="background-image: url('images/img_v_8-min.jpg')">
+	<div class="hero overlay" style="background-image: url('images/about.jpg')">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="col-lg-6 text-center">
 					<h1 class="heading text-white mb-2" data-aos="fade-up">About Us</h1>
-					<p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum minima dignissimos hic mollitia eius et quam ducimus maiores eos magni.</p>
 					<p data-aos="fade-up"  data-aos-delay="100">
 						<a href="#" class="btn btn-primary me-4">Donate Now</a> 
 					</p>		
@@ -113,12 +112,11 @@
 				<div class="col-lg-6 has-bg" data-aos="fade-right">
 					<img src="images/hero_2.jpg" alt="Image" class="img-fluid img-box-shadow rounded">
 				</div>
-				<div class="col-lg-4 align-self-center" data-aos="fade-left" data-aos-delay="100">
+				<div class="col-lg-6 align-self-center" data-aos="fade-left" data-aos-delay="100">
 					<span class="subheading mb-3">About</span>
 					<h2 class="heading mb-4">History</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-					<p>
-					A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+					<p>Welcome to CodeHeroes, where our journey began with a shared passion for technology and a deep belief in the transformative power of education. Founded by a group of dedicated volunteers, CodeHeroes is the culmination of our commitment to make a positive impact on the world. Our mission is simple yet profound: to provide accessible and quality tech education to aspiring learners while harnessing the strength of our volunteer community. With years of collective experience in the tech industry, we're driven by the belief that knowledge should be shared, and barriers to learning should be dismantled. Together, we strive to empower individuals with the skills to thrive in an increasingly digital world. Join us on our mission to make technology education accessible to all, one volunteer at a time.</p>
+					
 				</div>
 			</div>
 		</div>
@@ -132,9 +130,7 @@
 					<span class="subheading mb-3">The Team</span>
 					<h2 class="heading">Who We Are</h2>
 				</div>
-				<div class="col-lg-6 text-start" data-aos="fade-up" data-aos-delay="100">
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-				</div>
+			
 			</div>
 		</div>
 
@@ -146,13 +142,27 @@
 					<div class="item">
 
 						<div class="feature bg-color-1">
-							<img src="images/person_1.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+							<img src="images/team/Sereen.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
 
-							<h3 class="mb-0">James Scott</h3>
+							<h3 class="mb-0">Sereen Qamhia</h3>
 							<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
-							<p class="text-black-50">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<p class="text-black-50">"Dedicated to fostering inclusive tech communities."</p>
 
-							<a href="#" class="more d-block">Learn More</a>
+							{{-- <a href="#" class="more d-block">Learn More</a> --}}
+						</div>
+
+					</div>
+
+					<div class="item">
+
+						<div class="feature bg-color-6">
+							<img src="images/team/Hasan.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+
+							<h3 class="mb-0">Hasan Abu Khalil</h3>
+							<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
+							<p class="text-black-50">"Empowering the future, one line of code at a time."</p>
+
+							{{-- <a href="#" class="more d-block">Learn More</a> --}}
 						</div>
 
 					</div>
@@ -164,9 +174,9 @@
 
 							<h3 class="mb-0">Hannah White</h3>
 							<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
-							<p class="text-black-50">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<p class="text-black-50"> "Driving innovation through education."</p>
 
-							<a href="#" class="more d-block">Learn More</a>
+							{{-- <a href="#" class="more d-block">Learn More</a> --}}
 						</div>
 
 					</div>
@@ -178,9 +188,9 @@
 
 							<h3 class="mb-0">Amy Perez</h3>
 							<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
-							<p class="text-black-50">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<p class="text-black-50">"Passionate about making tech accessible to all."</p>
 
-							<a href="#" class="more d-block">Learn More</a>
+							{{-- <a href="#" class="more d-block">Learn More</a> --}}
 						</div>
 
 					</div>
@@ -192,9 +202,9 @@
 
 							<h3 class="mb-0">Brian Nance</h3>
 							<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
-							<p class="text-black-50">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<p class="text-black-50">"Inspiring the next generation of coders."</p>
 
-							<a href="#" class="more d-block">Learn More</a>
+							{{-- <a href="#" class="more d-block">Learn More</a> --}}
 						</div>
 
 					</div>
@@ -206,26 +216,14 @@
 
 							<h3 class="mb-0">Stephanie Kenney</h3>
 							<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
-							<p class="text-black-50">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<p class="text-black-50">"Bringing diversity and expertise to tech education."</p>
 
-							<a href="#" class="more d-block">Learn More</a>
+							{{-- <a href="#" class="more d-block">Learn More</a> --}}
 						</div>
 
 					</div>
 
-					<div class="item">
-
-						<div class="feature bg-color-6">
-							<img src="images/person_3.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
-
-							<h3 class="mb-0">Amy Perez</h3>
-							<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
-							<p class="text-black-50">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-
-							<a href="#" class="more d-block">Learn More</a>
-						</div>
-
-					</div>
+				
 
 				</div>
 			</div>
@@ -252,15 +250,15 @@
 				<div class="col-lg-6" data-aos="fade-up">
 					<div class="vision">
 						<h2>Our Vision</h2>
-						<p class="mb-4 lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum minima dignissimos hic mollitia eius et quam ducimus maiores eos magni.</p>
-						<p><a href="#" class="link-underline">Learn More</a></p>
+						<p class="mb-4 lead">Our vision is to create a world where technology education knows no boundaries. We aspire to be a beacon of empowerment, where volunteers come together to ignite the passion for coding and digital literacy in every corner of the globe. We envision a future where anyone, regardless of background or circumstance, can access the skills and knowledge needed to excel in an ever-evolving tech-driven world. Together, we are shaping a brighter future.</p>
+						{{-- <p><a href="#" class="link-underline">Learn More</a></p> --}}
 					</div>
 				</div>
 				<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
 					<div class="mission">
 						<h2>Our Mission</h2>
-						<p class="mb-4 lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum minima dignissimos hic mollitia eius et quam ducimus maiores eos magni.</p>
-						<p><a href="#" class="link-underline">Learn More</a></p>
+						<p class="mb-4 lead">At CodeHeroes, our mission is to democratize technology education. We are dedicated to fostering a thriving community of volunteers who share their expertise to equip individuals of all backgrounds with the coding skills essential for success in the digital age. Through accessible and engaging courses, we aim to bridge the knowledge gap, empower learners, and pave the way for a more inclusive and innovative world. Together, we strive to make learning to code an enriching journey for all.</p>
+						{{-- <p><a href="#" class="link-underline">Learn More</a></p> --}}
 					</div>
 				</div>
 			</div>		
@@ -272,12 +270,12 @@
 		<div class="container mb-5">
 			<div class="row align-items-center">
 				<div class="col-lg-3" data-aos="fade-up">
-					<span class="subheading mb-3">Instagram</span>
-					<h2 class="heading">We Are In Instagram</h2>
+					<span class="subheading mb-3">Partnerships</span>
+					<h2 class="heading">Our Partnerships</h2>
 				</div>
 				<div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
 					<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus, aperiam sint voluptatum? Molestiae debitis, ipsum, rem ipsa voluptatum cupiditate quaerat!</p>
+						Partnerships fuel our mission at CodeHeroes. Together with like-minded organizations, we're expanding access to tech education and building a brighter future through collaborative efforts. Join us in making a global impact.</p>
 				</div>
 			</div>
 		</div>
