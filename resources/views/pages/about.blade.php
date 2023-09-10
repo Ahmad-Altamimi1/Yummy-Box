@@ -51,6 +51,17 @@
 	</div>
 </div>
 
+	
+	<div class="section sec-features bg-light">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-lg-4" data-aos="fade-up">
+					<span class="subheading mb-3">The Team</span>
+					<h2 class="heading">Who We Are</h2>
+				</div>
+			
+			</div>
+		</div>
 
 <div class="section sec-features bg-light">
 	<div class="container">

@@ -14,6 +14,8 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\SocialController;
+
 
 
 /*
@@ -50,6 +52,9 @@ Route::get('/rer', function () {
 Route::get('single/{id?}', [CategoryController::class, 'find']);
 Route::get('/', [CategoryController::class, 'index']);
 Route::get('home', [CategoryController::class, 'index'])->name('home');
+// Route::resource('pages', ProductsController::class);
+Route::resource('pages/', ProductsController::class);
+
 Route::resource('product', ProductsController::class);
 
 // Route::get('/', [CategoryController::class, 'index']);
@@ -60,6 +65,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
+
+
+// Route::get('pages/index', [App\Http\Controllers\Controller::class, 'showhome'])
+//     ->name('home');
 
 // Route::get('home', [Controller::class, 'showhome'])
 //     ->name('home');
@@ -76,9 +85,16 @@ Route::get('/causes', [Controller::class, 'showcauses'])
 Route::get('/news', [Controller::class, 'shownews'])
     ->name('news');
 
+Route::get('pages/about', [Controller::class, 'showabout'])
+    ->name('about');
 
-// Route::get('admin/login', [AdminAuthenticatedSessionController::class, 'create']);
-// Route::view('admin/dashboard', 'admin/dashboard');
+// Route::view('about', 'pages/about');
+   
+// Route::view('contact', 'pages/contact');
+
+// Route::view('causes', 'pages/causes');
+
+// Route::view('news', 'pages/news');
 
 
 // Route::view('pages/contact', 'pages/contact');
@@ -196,15 +212,24 @@ require __DIR__ . '/auth.php';
 
 
 
+// login by google
+Route::get('auth/google',[SocialController::class,'redirectToGoogle'])->name('google') ;
+
+Route::get('auth/google/callback', [SocialController::class, 'handleGoogleCallback']);
+
+//login by facebook
+
+Route::get('auth/facebook', [SocialController::class, 'redirectToFacebook'])->name('facebook') ;
+
+Route::get('auth/facebook/callback', [SocialController::class, 'handleFacebookCallback']);
 
 
 
+//login by github
 
+Route::get('auth/github', [SocialController::class, 'redirectToGithub'])->name('github');
 
-
-
-
-
+Route::get('auth/github/callback', [SocialController::class, 'handleGithubCallback']);
 
 
 
