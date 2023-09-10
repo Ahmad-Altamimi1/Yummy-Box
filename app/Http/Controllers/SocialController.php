@@ -21,6 +21,11 @@ class SocialController extends Controller
 
         return Socialite::driver('facebook')->redirect();
     }
+    public function redirectToGithub()
+    {
+
+        return Socialite::driver('github')->redirect();
+    }
     public function handleGoogleCallback()
     {
         try {
@@ -64,6 +69,33 @@ class SocialController extends Controller
                     'name' => $user->name,
                     'social_id' => $user->id,
                     'social_type' => 'facebook',
+                    'password' => Hash::make($user->password),
+                ]);
+                Auth::login($newUser);
+                return redirect()->route('home');
+
+            }
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+
+    }
+    public function handleGithubCallback()
+    {
+        try {
+
+            $user = Socialite::driver('github')->user();
+            $finduser = User::where('social_id', $user->id)->first();
+
+            if ($finduser) {
+                Auth::login($finduser);
+                return redirect()->route('home');
+            } else {
+                $newUser = User::Create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'social_id' => $user->id,
+                    'social_type' => 'github',
                     'password' => Hash::make($user->password),
                 ]);
                 Auth::login($newUser);

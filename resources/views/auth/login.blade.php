@@ -51,3 +51,6 @@
 <div>
     <a href="{{route('facebook')}}">login facebook</a>
 </div>
+<div>
+    <a href="{{route('github')}}">login github</a>
+</div>

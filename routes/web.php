@@ -222,6 +222,11 @@ Route::get('auth/facebook/callback', [SocialController::class, 'handleFacebookCa
 
 
 
+//login by github
+
+Route::get('auth/github', [SocialController::class, 'redirectToGithub'])->name('github');
+
+Route::get('auth/github/callback', [SocialController::class, 'handleGithubCallback']);
 
 
 
