@@ -73,9 +73,9 @@
 
 
                                 </li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="news.html">News</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="pages/about">About</a></li>
+                                <li><a href="pages/news">News</a></li>
+                                <li><a href="pages/contact">Contact</a></li>
                                 <li class="has-children">
 
 

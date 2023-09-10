@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
-
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,30 +30,24 @@ Route::get('single/{id?}', [CategoryController::class, 'find']);
 Route::get('/', [CategoryController::class, 'index']);
 Route::get('/home', [CategoryController::class, 'index']);
 Route::resource('pages/', ProductsController::class);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
-Route::get('pages/index', [Controller::class, 'showhome'])
+Route::get('pages/index', [App\Http\Controllers\Controller::class, 'showhome'])
     ->name('home');
 
-Route::get('pages/about', [Controller::class, 'showabout'])
-    ->name('about');
 
-Route::get('pages/contact', [Controller::class, 'showcontact'])
-    ->name('contact');
+Route::view('about', 'pages/about');
+   
+Route::view('contact', 'pages/contact');
 
-Route::get('pages/causes', [Controller::class, 'showcauses'])
-    ->name('causes');
+Route::view('causes', 'pages/causes');
 
-Route::get('pages/news', [Controller::class, 'shownews'])
-    ->name('news');
-
-
-// Route::get('admin/login', [AdminAuthenticatedSessionController::class, 'create']);
-// Route::view('admin/dashboard', 'admin/dashboard');
+Route::view('news', 'pages/news');
 
 
 // Route::view('pages/contact', 'pages/contact');
