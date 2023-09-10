@@ -10,16 +10,6 @@
 
 @section('title','Home')
 
-<<<<<<< HEAD
-<div class="site-mobile-menu site-navbar-target">
-		<div class="site-mobile-menu-header">
-			<div class="site-mobile-menu-close">
-				<span class="icofont-close js-menu-toggle"></span>
-			</div>
-		</div>
-		<div class="site-mobile-menu-body"></div>
-	</div>
-=======
     <link rel="stylesheet" href="css/tiny-slider.css">
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/flatpickr.min.css">
@@ -68,11 +58,10 @@
 
 
                                 </li>
-                                <li><a href="{{route('About')}}">About</a></li>
+                                <li><a href="{{route('about')}}">About</a></li>
                                 <li><a href="news.html">News</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                                 <li class="has-children">
->>>>>>> ae34ab54d04e58d17dc690e812e08c52de91d990
 
 
 
