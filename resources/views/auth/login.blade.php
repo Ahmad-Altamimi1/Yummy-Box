@@ -81,9 +81,9 @@
               <div class="text-center">
                 <p>or login with:</p>
                 
-                  <a href="{{route('facebook')}}"style="padding: 0 10px; font-size:25px;"><i class="fab fa-facebook-f"></i></a>            
-                  <a href="{{route('google')}}" style="padding: 0 10px; font-size:25px;"><i class="fab fa-google"></i></a>
-                  <a href="{{route('github')}}"style="padding: 0 10px; font-size:25px;"><i class="fab fa-github"></i></a>
+                  <a href="{{route('facebook')}}"style="padding: 0 10px; font-size:25px; color: #ede43c"><i class="fab fa-facebook-f"></i></a>            
+                  <a href="{{route('google')}}" style="padding: 0 10px; font-size:25px; color: #ede43c"><i class="fab fa-google"></i></a>
+                  <a href="{{route('github')}}"style="padding: 0 10px; font-size:25px; color: #ede43c"><i class="fab fa-github"></i></a>
                 
               </div>
             </form>
@@ -92,7 +92,7 @@
       </div>
 
       <div class="col-lg-6 mb-5 mb-lg-0">
-        <img src="../images/img_v_7-min.jpg" class="w-100 rounded-4 shadow-4"
+        <img src="../images\Tablet login-cuate.png" class="w-100 rounded-4 shadow-4" style="height: 100%"
           alt="" />
       </div>
     </div>

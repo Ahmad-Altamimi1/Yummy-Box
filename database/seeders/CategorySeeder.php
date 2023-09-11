@@ -27,7 +27,7 @@ class CategorySeeder extends Seeder
             ],
             [
                 'name' => 'Volunteer',
-                'image' => 'https://letsvolunteerla.org/wp-content/uploads/2022/06/P5il-f0Ns.jpeg',
+                'image' => 'https://caltech-prod.s3.amazonaws.com/main/images/CSOutreach.2e16d0ba.fill-1600x810-c100.jpg',
                 'description' => 'Consider volunteering to become a code trainer. Your expertise can inspire and equip others with valuable coding skills.',
             ]
     ]);
