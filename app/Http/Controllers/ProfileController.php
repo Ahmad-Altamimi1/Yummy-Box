@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
+use App\Models\Uvolunteer;
 use App\Models\Volunteer;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
@@ -25,8 +27,24 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+
+
+        $users = DB::table('uvolunteers as uv')
+            ->select([
+                'u.id',
+                'v.Languages',
+                'uv.Address',
+                'uv.Experience',
+                'uv.CV'
+            ])
+            ->join('users as u', 'u.id', '=', 'uv.user_id')
+            ->join('volunteers as v', 'v.user_id', '=', 'u.id')
+            ->where('u.id', '=', Auth::user()->id)
+            ->get();
+           
+      
         return view('profile.edit', [
-            'user' => $request->user(),
+            'user' => $request->user(),'volunteers'=>$users
         ]);
     }
 
@@ -86,4 +104,6 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+    
+
 }
