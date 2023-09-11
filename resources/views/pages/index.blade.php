@@ -107,7 +107,7 @@
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="mission">
                     <h2>Our Mission</h2>
-                    <p class="mb-4 lead">At CodeHeroes, our mission is to democratize technology education.
+                    <p class="mb-4 lead">At Tech-Volunteer, our mission is to democratize technology education.
                          We are dedicated to fostering a thriving community of volunteers who share their expertise.</p>
                     <p><a href="#" class="link-underline">Learn More</a></p>
                 </div>
