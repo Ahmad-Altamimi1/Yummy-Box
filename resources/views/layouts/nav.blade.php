@@ -43,7 +43,7 @@
             <div class="menu-bg-wrap">
                 <div class="site-navigation">
                     <div class="row g-0 align-items-center">
-                        <div class="col-2">
+                        <div class="col-2"  >
                             <a href="#" id='logo' class="logo m-0 float-start text-white">Tech-Volunteer</a>
                         </div>
                         <div class="col-8 text-center">

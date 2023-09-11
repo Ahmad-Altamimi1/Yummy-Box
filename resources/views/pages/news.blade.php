@@ -32,7 +32,7 @@
 					<span class="subheading-white text-white mb-3" data-aos="fade-up">News</span>
 
 					<h1 class="heading text-white mb-2" data-aos="fade-up">Our News</h1>
-					<p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">Stay updated with the latest happenings at Tech-Volunteer! Our news page is your source for inspiring stories, course updates, and valuable insights in the world of tech education.</p>
+					<p data-aos="fade-up" class=" mb-5 text-white lead text-white-100">Stay updated with the latest happenings at Tech-Volunteer! Our news page is your source for inspiring stories, course updates, and valuable insights in the world of tech education.</p>
 					
 				</div>
 
