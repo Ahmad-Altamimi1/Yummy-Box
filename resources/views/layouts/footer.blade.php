@@ -67,7 +67,7 @@
                     <script>
                         document.write(new Date().getFullYear());
                     </script>. All Rights Reserved. &mdash; Designed with love by <a
-                        href="#">TechHub</a>
+                        href="#">Tech-Volunteer</a>
                     <!-- License information: https://untree.co/license/ -->
                 </p>
             </div>

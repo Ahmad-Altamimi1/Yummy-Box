@@ -25,9 +25,17 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ()
-                
-              @endforeach
+                @foreach ($volunteers as $item)
+    
+<tr>
+       <td scope="col">{{ $item->Languages }}</td>
+                <td scope="col">{{ $item->Address }}</td>
+                <td scope="col">{{ $item->Experience }}</td>
+                <td scope="col">{{ $item->CV }}</td>
+                <td scope="col">{{ $item->day }}</td>
+            
+@endforeach
+           
             <tr>
 
             </tr>

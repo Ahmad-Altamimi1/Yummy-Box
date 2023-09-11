@@ -33,7 +33,7 @@
             backdrop-filter: blur(30px);
             ">
           <div class="card-body p-5 shadow-5 text-center">
-            <h2 class="fw-bold mb-5">Login</h2>
+            <h2 class="fw-bold mb-5 style="color:#555;"">Login</h2>
            
     <form method="POST" action="{{ route('login') }}">
         @csrf
@@ -48,7 +48,7 @@
               <!-- Password input -->
               <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example4">Password</label>
-                <input id="password" class="block mt-1 w-full"
+                <input id="password" class="form-control"
                             type="password"
                             name="password"
                             required autocomplete="current-password" id="form3Example4"  />
