@@ -82,7 +82,8 @@ class PaypalController extends Controller
 
                 
             ]);
-           return "paymeny seccc";
+            return redirect('sccess');
+
         }else{
             return redirect()->route('paypal_cancel');
 

@@ -134,6 +134,10 @@ Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us
 
 
 
+
+Route::get('/success', function () {
+    return view('sccess');
+});
 // login by google
 Route::get('auth/google',[SocialController::class,'redirectToGoogle'])->name('google') ;
 
