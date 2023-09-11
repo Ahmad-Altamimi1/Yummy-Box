@@ -91,18 +91,7 @@ Route::get('/news', [Controller::class, 'shownews'])
 Route::get('pages/about', [Controller::class, 'showabout'])
     ->name('about');
 
-// Route::view('about', 'pages/about');
-   
-// Route::view('contact', 'pages/contact');
 
-// Route::view('causes', 'pages/causes');
-
-// Route::view('news', 'pages/news');
-
-
-// Route::view('pages/contact', 'pages/contact');
-// Route::view('pages/causes', 'pages/causes');
-// Route::view('pages/news', 'pages.news');
 
 
 Route::middleware('auth')->group(function () {
@@ -116,19 +105,25 @@ Route::middleware('auth')->group(function () {
 
 
 // Define the PayPal routes with the appropriate methods
-Route::post('paypal', [PaypalController::class, 'payment'])->name('paypal'); // Use 'store' method for POST
+Route::post('paypal', [PaypalController::class, 'payment'])->middleware('auth', 'verified')->name('paypal'); // Use 'store' method for POST
 Route::get('paypal/success', [PaypalController::class, 'success'])->name('success'); // Use 'success' method for GET
 Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
+// Define the PayPal routes with the appropriate methods
+Route::post('single/paypal', [PaypalController::class, 'payment'])->middleware('auth', 'verified')->name('paypal_single'); // Use 'store' method for POST
+Route::get('single/paypal/success', [PaypalController::class, 'success'])->name('success'); // Use 'success' method for GET
+Route::get('single/paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
+
+
 
 // Define the Stripe routes with the appropriate methods
-Route::post('stripe', [StripeController::class, 'payment'])->name('stripe'); // Use 'store' method for POST
+Route::post('stripe', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe'); // Use 'store' method for POST
 Route::get('stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
 Route::get('stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
-
 // Define the Stripe routes with the appropriate methods
-Route::post('stripe', [StripeController::class, 'payment'])->name('stripe'); // Use 'store' method for POST
-Route::get('stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
-Route::get('stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
+
+Route::post('single/stripe', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe_single'); // Use 'store' method for POST
+Route::get('single/stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
+Route::get('single/stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
 
 
     
@@ -240,8 +235,30 @@ Route::get('auth/github/callback', [SocialController::class, 'handleGithubCallba
 // Route::view('donation','pages.donationForm');
 
 
-Route::get('/form', function () {
+Route::get('/backform', function () {
     return view('pages.trainingForm');
 });
 
 Route::resource("volunteers", VolunteerController::class);
+
+
+Route::get('/frontform', function () {
+    return view('pages.frontendForm');
+});
+
+Route::resource("frontvolunteers", FrontvolunteerController::class);
+
+
+Route::get('/serviceform', function () {
+    return view('pages.donationForm');
+});
+
+Route::resource("donors", DonorController::class);
+
+
+
+Route::get('/UIform', function () {
+    return view('pages.UIform');
+});
+
+Route::resource("uvolunteers", UvolunteerController::class);

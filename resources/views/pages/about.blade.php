@@ -20,6 +20,24 @@
 
 @section('content')
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 <div class="hero overlay" style="background-image: url('images/about.jpg')">
 	<div class="container">
