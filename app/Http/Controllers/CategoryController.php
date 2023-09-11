@@ -20,6 +20,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        session(['number'=>1]);
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->get();
         $users = DB::table('users')->get();
@@ -35,6 +36,7 @@ class CategoryController extends Controller
      */
     public function find($id)
     {
+        session(['number' => 2]);
 
         $products = products::findOrFail($id);
         $startDate = Carbon::parse($products->created_at);
