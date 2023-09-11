@@ -168,7 +168,7 @@
                         
                                     </div>
                                     <div class="form-group">
-                                        <label for="programmingLanguages">Proficient Frontend Programming Languages</label>
+                                        <label for="programmingLanguages">Proficient Programming Classes</label>
                                         <select class="form-control" id="programmingLanguages" name="Languages" >
                                             <option value="Choose Language">Choose Class</option>
                                             <option value="FrontEnd">FrontEnd</option>
