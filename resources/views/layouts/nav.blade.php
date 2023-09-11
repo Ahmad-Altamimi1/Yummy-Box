@@ -44,7 +44,7 @@
 				<div class="site-navigation">
 					<div class="row g-0 align-items-center">
 						<div class="col-2">
-							<a href="index.html" class="logo m-0 float-start text-white">Volunteer</a>
+							<a href="index.html" id='logo' class="logo m-0 float-start text-white">TechHub</a>
 						</div>
 						<div class="col-8 text-center">
                             

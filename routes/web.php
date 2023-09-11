@@ -7,6 +7,9 @@ use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DonorController;
+use App\Http\Controllers\FrontvolunteerController;
+use App\Http\Controllers\UvolunteerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PaypalController;
@@ -231,11 +234,33 @@ Route::get('auth/github/callback', [SocialController::class, 'handleGithubCallba
 
 
 
-Route::view('donation','pages.donationForm');
+// Route::view('donation','pages.donationForm');
 
 
-Route::get('/form', function () {
+Route::get('/backform', function () {
     return view('pages.trainingForm');
 });
 
 Route::resource("volunteers", VolunteerController::class);
+
+
+Route::get('/frontform', function () {
+    return view('pages.frontendForm');
+});
+
+Route::resource("frontvolunteers", FrontvolunteerController::class);
+
+
+Route::get('/serviceform', function () {
+    return view('pages.donationForm');
+});
+
+Route::resource("donors", DonorController::class);
+
+
+
+Route::get('/UIform', function () {
+    return view('pages.UIform');
+});
+
+Route::resource("uvolunteers", UvolunteerController::class);
