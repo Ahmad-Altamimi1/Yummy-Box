@@ -12,16 +12,16 @@
   <body>
     <div class="container">
         <div class="user-form">
-          <form action="adminsupdate/{{ $admins->id }}" method="POST">
+          <form action="categoryupdate/{{ $category->id }}" method="POST">
             @csrf
             @method('PATCH') 
             
                 <label for="FirstName">First Name</label>
-                <input type="text" id="FirstName" name="name" value="{{ $admins->name }}">
+                <input type="text" id="FirstName" name="name" value="{{ $category->name }}">
                 <label for="LastName">Last Name</label>
-                <input type="text" id="LastName" name="last_name" value="{{ $admins->last_name }}">
+                <input type="text" id="LastName" name="last_name" value="{{ $category->description }}">
                 <label for="userEmail">Email</label>
-                <input type="text" id="AdminEmail" name="email" value="{{ $admins->email }}">
+                <input type="text" id="AdminEmail" name="email" value="{{ $category->image }}">
                 {{-- <label for="AdminImage">Image</label>
                 <input type="file" id="AdminImage" name="AdminImage"> --}}
                 {{-- @if ($admins->image)
