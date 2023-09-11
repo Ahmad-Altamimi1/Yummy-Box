@@ -10,5 +10,5 @@ class Volunteer extends Model
 {
     use HasFactory;
     protected $table = 'volunteers';
-    protected $fillable = ['user_id'=>"1",'Address', 'Languages' , 'Experience' , 'CV',];
+    protected $fillable = ['Address', 'Languages' , 'day' , 'Experience' , 'CV'];
 }

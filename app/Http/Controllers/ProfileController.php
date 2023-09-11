@@ -6,6 +6,7 @@ use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -61,7 +62,7 @@ class ProfileController extends Controller
     
         // Save the user's updated profile
         $user->save();
-
+        $donition=DB::table(' frontvolunteers');
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 

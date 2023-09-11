@@ -21,7 +21,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'last_name',
+        'LastName',
         'password',
         'phone',
         'social_id',
@@ -45,4 +45,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function volnuter()
+    {
+
+        return $this->hasOne(Volunteer::class);
+    }
+    
 }

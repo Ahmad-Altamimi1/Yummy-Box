@@ -17,11 +17,10 @@
                 <div class="widget">
                     <h3>Navigation</h3>
                     <ul class="list-unstyled float-left links">
-                        <li><a href="">About us</a></li>
-                        <li><a href="">Donate Now</a></li>
-                        <li><a href="">Causes</a></li>
+                        <li><a href="{{route('about')}}">About us</a></li>
+                        <li><a href="{{route('causes')}}">Causes</a></li>
                         <li><a href="">Volunteer</a></li>
-                        <li><a href="">Terms</a></li>
+                        <li><a href="{{route('news')}}">News</a></li>
                     </ul>
                 </div> <!-- /.widget -->
             </div> <!-- /.col-lg-3 -->
@@ -43,9 +42,9 @@
                 <div class="widget">
                     <h3>Services</h3>
                     <ul class="list-unstyled float-left links">
-                        <li><a href="#">Causes</a></li>
-                        <li><a href="#">Volunteer</a></li>
-                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">back-end</a></li>
+                        <li><a href="#">front-end</a></li>
+                        <li><a href="#">UI-UX</a></li>
                     </ul>
                 </div> <!-- /.widget -->
             </div> <!-- /.col-lg-3 -->
@@ -81,7 +80,7 @@
                     <script>
                         document.write(new Date().getFullYear());
                     </script>. All Rights Reserved. &mdash; Designed with love by <a
-                        href="https://untree.co">g6</a>
+                        href="#">TechHub</a>
                     <!-- License information: https://untree.co/license/ -->
                 </p>
             </div>

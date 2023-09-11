@@ -37,10 +37,30 @@ class VolunteerController extends Controller
      */
     public function store(StoreVolunteerRequest $request)
     {
-       $input = $request->all();
-       Volunteer::create($input);
-       return redirect('pages.index');
+        $request->validate([
+            'CV' => 'required|mimes:pdf,docx',
+        ]);
+       Volunteer::create([
+
+        'Address'=>$request->Address,
+        'Languages'=>$request->Languages,
+        'day'=>$request->day,
+        'Experience'=>$request->Experience,
+        'CV'=>$request->CV,
+       
+       ]);
+       return redirect('home');
     }
+
+    
+    public function upload(Volunteer $request)
+{
+    $request->validate([
+        'file' => 'required|mimes:pdf,docx',
+    ]);
+
+    // Handle file upload logic here
+}
 
     /**
      * Display the specified resource.
