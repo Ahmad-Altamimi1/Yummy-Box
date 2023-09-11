@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Admin;
+use Illuminate\Support\Facades\Hash;
 class CategorySeeder extends Seeder
 {
     /**
@@ -22,7 +23,7 @@ class CategorySeeder extends Seeder
             'name' => 'Admin',
                 'last_name' => 'admin',
                 'email' => 'admin@admin.com',
-                'password' => 'adminadmin123456',
+                'password' =>Hash::make('adminadmin123456') ,
 
 
             ],
