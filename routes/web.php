@@ -131,112 +131,6 @@ Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us
 
  
 
-require __DIR__ . '/auth.php';
-
-//////////////////////////////// SAJEDA CODE ////////////////////////////////
-
-// Route::get('/Admin_Category', function () {
-//     return view('Admin_Dashboard.Category ');
-   
-// });
-// Route::get('/Admins_Payment', function () {
-//     return view('Admin_Dashboard.Payments');
-   
-// });
-// Route::get('/Admin_User', function () {
-//     return view('Admin_Dashboard.User');
-   
-// });
-// Route::get('/Admins_Data', function () {
-//     return view('Admin_Dashboard.Admins_Data');
-   
-// });// Route::get('/Admins_Projects', function () {
-//     return view('Admin_Dashboard.Projects');
-   
-// });
-// Route::get('/Admin_Category',[CategoryController::class, 'show'])-> name ('Admin_Dashboard.Category');
-// Route::post('/Admin_Category',[CategoryController::class, 'save']);
-
-
-// Route::get('/Admin_Home', function () {
-//     return view('admin.Statics ');
-   
-// });
-// Route::get('/Admin_creatuser', function () {
-//     return view('admin.creatuser ');
-   
-// });
-// Route::get('/Admin_Donations', function () {
-//     return view('admin.Donations');
-   
-// });
-// Route::get('/Admin_Volunteers', function () {
-//     return view('admin.Volunteers');
-   
-// });
-
-// Route::get('/Admin_Volunteers',[VolunteerController::class, 'showe']);
-
-
-// // Route::get('/admins/{id}/edit', [AdminController::class, 'edit'])->name('Admin_Dashboard.Admins_Update');
-
-// Route::get('/Admins_Payment',[PaypalController::class, 'show']);
-
-
-
-
-// // categories data
-// Route::get('/Admin_Category',[CategoryController::class, 'show'])-> name ('admin.Category');
-// Route::post('/Admin_Category',[CategoryController::class, 'save']);
-// Route::post('categorydelete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
-// Route::get('categoryedit/{id}', [CategoryController::class,'edit'])->name('category.edit');
-// Route::patch('categoryedit/categoryupdate/{id}', [CategoryController::class,'update']);
-
-
-// // admins data
-// Route::get('/Admins_Data',[AdminController::class, 'show']) -> name ('admin.Admins_Data');
-// Route::post('/Admins_Data',[AdminController::class, 'store']);
-// Route::delete('admindelete/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
-// Route::get('adminsedit/{id}', [AdminController::class,'edit'])->name('admin.edit');
-// Route::patch('adminsedit/adminsupdate/{id}', [AdminController::class,'update']);
-
-
-
-
-// // users data
-// Route::get('/Admins_User',[UserController::class, 'show'])-> name ('admin.User');
-// Route::post('/Admins_User',[UserController::class, 'store']);
-// Route::delete('userdelete/{id}', [UserController::class, 'destroy'])->name('User.destroy');
-// Route::get('useredit/{id}', [UserController::class,'edit'])->name('user.edit');
-// Route::patch('useredit/userupdate/{id}', [UserController::class,'update']);
-
-
-
-
-// Route::get('/Admins_Projects',[ProductsController::class, 'show'])-> name ('admin.Projects');
-// Route::post('/Admins_Projects',[ProductsController::class, 'store']);
-// Route::delete('productdelete/{id}', [ProductsController::class, 'destroy'])->name('product.destroy');
-// Route::get('productedit/{id}', [ProductsController::class,'edit'])->name('product.edit');
-// Route::patch('productedit/productupdate/{id}', [ProductsController::class,'update']);
-
-// Route::get('/Admins_Data',[AdminController::class, 'show']) -> name ('Admin_Dashboard.Admins_Data');
-// Route::post('/Admins_Data',[AdminController::class, 'store']);
-// Route::get('/Admins_Update/{id}', [AdminController::class,'edit']);
-// Route::get('store_admin', [AdminController::class, 'store_admin']);
-// store_admin/{{ $admins->id }}
-// Route::get('/Admins_Data',[AdminController::class, 'show']) -> name ('Admin_Dashboard.Admins_Data');
-// Route::post('/Admins_Data',[AdminController::class, 'store']);
-// Route::delete('admindelete/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
-// Route::PUT('adminsedit/adminsupdate/{id}', [AdminController::class,'update'])->name('admin.update');
-    
-
-
-
-
-
-
-
-
 
 
 
@@ -266,21 +160,21 @@ Route::get('auth/github/callback', [SocialController::class, 'handleGithubCallba
 
 
 Route::get('/backform', function () {
-    return view('pages.trainingForm');
+    return view('pages.trainingForm')->middleware('auth', 'verified');
 });
 
-Route::resource("volunteers", VolunteerController::class);
+Route::resource("volunteers", VolunteerController::class)->middleware('auth', 'verified');
 
 
 Route::get('/frontform', function () {
-    return view('pages.frontendForm');
+    return view('pages.frontendForm')->middleware('auth', 'verified');
 });
 
-Route::resource("frontvolunteers", FrontvolunteerController::class);
+Route::resource("frontvolunteers", FrontvolunteerController::class)->middleware('auth', 'verified');
 
 
 Route::get('/serviceform', function () {
-    return view('pages.donationForm');
+    return view('pages.donationForm')->middleware('auth', 'verified');
 });
 
 Route::resource("donors", DonorController::class);
@@ -288,7 +182,9 @@ Route::resource("donors", DonorController::class);
 
 
 Route::get('/UIform', function () {
-    return view('pages.UIform');
+    return view('pages.UIform')->middleware('auth', 'verified');
 });
 
-Route::resource("uvolunteers", UvolunteerController::class);
+Route::resource("uvolunteers", UvolunteerController::class)->middleware('auth', 'verified');
+
+require __DIR__ . '/auth.php';

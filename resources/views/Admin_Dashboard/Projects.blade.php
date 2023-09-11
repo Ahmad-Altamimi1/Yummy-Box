@@ -83,7 +83,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{route('Admin_Dashboard.Admins_Data')}}"> Admins</a>
               </li>
@@ -103,7 +103,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{route('Admin_Dashboard.Projects')}}">Projects</a>
               </li>
-             
+             <li class="nav-item">
+                <a class="nav-link" href="{{route('admin_logout')}}">logout</a>
+              </li>
               {{-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Link
