@@ -1,18 +1,10 @@
 
-
-
- 
-
-
-
-
-
 <x-app-layout>
 
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-<section class="text-center text-lg-start" style="    padding: 100px 0;">
+<section class="text-center text-lg-start" style="padding: 100px 0;">
   <style>
     
     .cascading-right {
