@@ -24,11 +24,11 @@
                 
               </tr>
             </thead>
-            <tbody>
+            {{-- <tbody>
               @foreach ()
                 
               @endforeach
-            <tr>
+            <tr> --}}
 
             </tr>
             

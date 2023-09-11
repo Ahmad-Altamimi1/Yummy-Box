@@ -56,9 +56,7 @@
 
             </div>
 
-            <div class="col-lg-5" style="
-    margin-top: 49px;
-">
+            <div class="col-lg-5" style="margin-top: 49px;">
                 <form action="paypal" method="POST" class="bg-white p-5 rounded donation-form" data-aos="fade-up" style="margin-bottom: 0">
                     @csrf
                     <h3>Quick Donation Form</h3>
