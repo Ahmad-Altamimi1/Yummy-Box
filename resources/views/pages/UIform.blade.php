@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Code Languages Training Volunteer Form</title>
-    
+ 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -42,14 +36,15 @@ h1 {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
     </style>
-</head>
-<body>
+      <x-modal name="Join Us as a Trainer 3" :show="$errors->changePassword->isNotEmpty()" focusable>
+
+
     <div class="container mt-5">
         <h1>UX/UI Training Volunteer Form</h1>
         <form action="{{ route('uvolunteers.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('post')
-            <div>
+            {{-- <div>
                     <label for="firstName">Name : </label>
                     <label for="firstName">{{Auth::user()->name}}</label>
                 </div>   
@@ -65,7 +60,7 @@ h1 {
                 <div>
                     <label for="phoneNumber">Phone Number</label>
                     <label for="phoneNumber">{{Auth::user()->phone}}</label>
-                </div> 
+                </div>  --}}
 
             <div class="form-group">                
                 <input  type="hidden" class="form-control" id="user_id"  name="user_id" required>
@@ -111,8 +106,4 @@ h1 {
         
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+</x-app-layout>

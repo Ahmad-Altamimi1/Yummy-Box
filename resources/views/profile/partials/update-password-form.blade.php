@@ -25,8 +25,9 @@
               </tr>
             </thead>
             <tbody>
+              @foreach ()
                 
-       
+              @endforeach
             <tr>
 
             </tr>
