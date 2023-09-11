@@ -19,7 +19,7 @@
 @section('content')
 <x-app-layout>
 
-<div class="hero overlay" style="background-image: url({{ asset('images/about.jpg') }})">
+<div class="hero overlay" style="background-image: url({{ $products->image }})">
 	<div class="container">
 		<div class="row align-items-center justify-content-center">
 			<div class="col-lg-6 text-center">
@@ -49,9 +49,7 @@
 
                 <div class="single-product-left-second-div ">
                     <div class="single-product-left-second-div-image">
-                        <div>
-                            <img src="{{ $products->image }}" alt="">
-                        </div> <br>
+                      
                         <h3><a href="../images/hero_1.jpg">Below you will see the details:</a></h3> <br>
                     </div>
                     
@@ -138,19 +136,19 @@
 
         </div>
 
-        <div class="col-5 ">
+        <div class="col-5  ">
             <div style=" position: relative;
            width: 450px;
-          top: 80px;
+           left:50px;
           text-align: center;
-        
+         
+     
            ">
                 
-               <div style="border: #ff6f08 solid 3px ; padding : 25px 10px"> <h3>Join us, volunteer, empower</h3> 
+               <div style="border: #4a260b solid 3px ; padding : 25px 10px"> <h3>Join us, volunteer, empower</h3> 
                 <br>
                 <div class="">
-                <a href="#" class="btn btn-primary me-4" style="background-color: #2ab652">Join Us as a Trainer</a>
-                <x-primary-button
+                <x-primary-button class="btn btn-primary me-4 " style="background-color: #54ac75 ; width:75% ; height:50px"
                             x-data=""
                     x-on:click.prevent="$dispatch('open-modal', 'Join Us as a Trainer')"
                        >{{ __('Join Us as a Trainer') }}</x-primary-button>
@@ -216,7 +214,7 @@
                                 
                             </div>
                        </x-modal> <br><br>
-                    <form action="paypal" method="POST" class="bg-white p-5 rounded donation-form" data-aos="fade-up">
+                    <form action="paypal" method="POST" class=" p-5 rounded donation-form" data-aos="fade-up">
                         @csrf
                         <h3 >Quick Donation Form</h3>
                       
@@ -254,19 +252,19 @@
                                 {{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
                             </div>
     
-                            <input type="submit" value="Paypal" class="btn btn-secondary w-100" style="color: white ; background-color :#e99816">
+                            <input type="submit" value="Paypal" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75">
                         </form>
 
 
-                        <form action="stripe" class="bg-white  rounded donation-form" method="post" style="padding: 0px 50px">
+                        <form action="stripe" class="  rounded donation-form" method="post" style="padding: 0px 50px">
                             @csrf
-                                                    <h3 for="" style="background: white; margin:0;    font-weight: bold;
+                                                    <h3 for="" style=" margin:0;    font-weight: bold;
                                 margin-bottom: 0px;
                                 text-transform: uppercase;
                                 font-size: 18px;">Or donate by Visa</h3> <br>
                             
                                                      <input type="text" placeholder="0.00" class="form-control px-4" name="price">
-                                                     <input type="submit" value="visa" class="btn btn-secondary w-100" style="color: white ; background-color :#e99816" >
+                                                     <input type="submit" value="visa" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75" >
                                                 </form>
     
                 </div>  
