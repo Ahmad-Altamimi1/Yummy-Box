@@ -129,10 +129,7 @@ Route::get('single/stripe/cancel', [StripeController::class, 'cancel'])->name('s
 Route::get('contact-us', [ContactController::class, 'index']);
 Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
 
-    
-Route::get('contact-us', [ContactController::class, 'index']);
-Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
-
+ 
 
 require __DIR__ . '/auth.php';
 
@@ -161,66 +158,66 @@ require __DIR__ . '/auth.php';
 // Route::post('/Admin_Category',[CategoryController::class, 'save']);
 
 
-Route::get('/Admin_Home', function () {
-    return view('Admin_Dashboard.Statics ');
+// Route::get('/Admin_Home', function () {
+//     return view('admin.Statics ');
    
-});
-Route::get('/Admin_creatuser', function () {
-    return view('Admin_Dashboard.creatuser ');
+// });
+// Route::get('/Admin_creatuser', function () {
+//     return view('admin.creatuser ');
    
-});
-Route::get('/Admin_Donations', function () {
-    return view('Admin_Dashboard.Donations');
+// });
+// Route::get('/Admin_Donations', function () {
+//     return view('admin.Donations');
    
-});
-Route::get('/Admin_Volunteers', function () {
-    return view('Admin_Dashboard.Volunteers');
+// });
+// Route::get('/Admin_Volunteers', function () {
+//     return view('admin.Volunteers');
    
-});
+// });
 
-Route::get('/Admin_Volunteers',[VolunteerController::class, 'showe']);
-
-
-// Route::get('/admins/{id}/edit', [AdminController::class, 'edit'])->name('Admin_Dashboard.Admins_Update');
-
-Route::get('/Admins_Payment',[PaypalController::class, 'show']);
+// Route::get('/Admin_Volunteers',[VolunteerController::class, 'showe']);
 
 
+// // Route::get('/admins/{id}/edit', [AdminController::class, 'edit'])->name('Admin_Dashboard.Admins_Update');
 
-
-// categories data
-Route::get('/Admin_Category',[CategoryController::class, 'show'])-> name ('Admin_Dashboard.Category');
-Route::post('/Admin_Category',[CategoryController::class, 'save']);
-Route::post('categorydelete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
-Route::get('categoryedit/{id}', [CategoryController::class,'edit'])->name('category.edit');
-Route::patch('categoryedit/categoryupdate/{id}', [CategoryController::class,'update']);
-
-
-// admins data
-Route::get('/Admins_Data',[AdminController::class, 'show']) -> name ('Admin_Dashboard.Admins_Data');
-Route::post('/Admins_Data',[AdminController::class, 'store']);
-Route::delete('admindelete/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
-Route::get('adminsedit/{id}', [AdminController::class,'edit'])->name('admin.edit');
-Route::patch('adminsedit/adminsupdate/{id}', [AdminController::class,'update']);
+// Route::get('/Admins_Payment',[PaypalController::class, 'show']);
 
 
 
 
-// users data
-Route::get('/Admins_User',[UserController::class, 'show'])-> name ('Admin_Dashboard.User');
-Route::post('/Admins_User',[UserController::class, 'store']);
-Route::delete('userdelete/{id}', [UserController::class, 'destroy'])->name('User.destroy');
-Route::get('useredit/{id}', [UserController::class,'edit'])->name('user.edit');
-Route::patch('useredit/userupdate/{id}', [UserController::class,'update']);
+// // categories data
+// Route::get('/Admin_Category',[CategoryController::class, 'show'])-> name ('admin.Category');
+// Route::post('/Admin_Category',[CategoryController::class, 'save']);
+// Route::post('categorydelete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+// Route::get('categoryedit/{id}', [CategoryController::class,'edit'])->name('category.edit');
+// Route::patch('categoryedit/categoryupdate/{id}', [CategoryController::class,'update']);
+
+
+// // admins data
+// Route::get('/Admins_Data',[AdminController::class, 'show']) -> name ('admin.Admins_Data');
+// Route::post('/Admins_Data',[AdminController::class, 'store']);
+// Route::delete('admindelete/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
+// Route::get('adminsedit/{id}', [AdminController::class,'edit'])->name('admin.edit');
+// Route::patch('adminsedit/adminsupdate/{id}', [AdminController::class,'update']);
 
 
 
 
-Route::get('/Admins_Projects',[ProductsController::class, 'show'])-> name ('Admin_Dashboard.Projects');
-Route::post('/Admins_Projects',[ProductsController::class, 'store']);
-Route::delete('productdelete/{id}', [ProductsController::class, 'destroy'])->name('product.destroy');
-Route::get('productedit/{id}', [ProductsController::class,'edit'])->name('product.edit');
-Route::patch('productedit/productupdate/{id}', [ProductsController::class,'update']);
+// // users data
+// Route::get('/Admins_User',[UserController::class, 'show'])-> name ('admin.User');
+// Route::post('/Admins_User',[UserController::class, 'store']);
+// Route::delete('userdelete/{id}', [UserController::class, 'destroy'])->name('User.destroy');
+// Route::get('useredit/{id}', [UserController::class,'edit'])->name('user.edit');
+// Route::patch('useredit/userupdate/{id}', [UserController::class,'update']);
+
+
+
+
+// Route::get('/Admins_Projects',[ProductsController::class, 'show'])-> name ('admin.Projects');
+// Route::post('/Admins_Projects',[ProductsController::class, 'store']);
+// Route::delete('productdelete/{id}', [ProductsController::class, 'destroy'])->name('product.destroy');
+// Route::get('productedit/{id}', [ProductsController::class,'edit'])->name('product.edit');
+// Route::patch('productedit/productupdate/{id}', [ProductsController::class,'update']);
 
 // Route::get('/Admins_Data',[AdminController::class, 'show']) -> name ('Admin_Dashboard.Admins_Data');
 // Route::post('/Admins_Data',[AdminController::class, 'store']);
@@ -238,15 +235,7 @@ Route::patch('productedit/productupdate/{id}', [ProductsController::class,'updat
 
 
 
-Route::get('contact-us', [ContactController::class, 'index']);
-Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
 
-    
-Route::get('contact-us', [ContactController::class, 'index']);
-Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
-
-
-require __DIR__ . '/auth.php';
 
 
 

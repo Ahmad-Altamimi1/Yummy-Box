@@ -89,26 +89,27 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/Admins_Data"> Admins</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/Admin_Category">Category</a>
-              </li>
-             <li class="nav-item">
-                <a class="nav-link" href="/Admins_Payment">Donations</a>
+                <a class="nav-link active" aria-current="page" href="{{route('Admin_Dashboard.Admins_Data')}}"> Admins</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/Admin_Volunteers">Volunteers</a>
+                <a class="nav-link" href="{{route('Admin_Dashboard.Category')}}">Category</a>
+              </li>
+               {{-- <li class="nav-item">
+                <a class="nav-link" href="{{route('Admin_Donations')}}">Donations</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('Admin_Volunteers')}}">Volunteers</a>
+              </li> --}}
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('Admin_Dashboard.User')}}">User</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/Admins_User">User</a>
+                <a class="nav-link" href="{{route('Admin_Dashboard.Projects')}}">Projects</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/Admins_Projects">Projects</a>
-              </li>
-              
+             
               {{-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Link
@@ -124,7 +125,6 @@
                 <a class="nav-link disabled" aria-disabled="true">Link</a>
               </li> --}}
             </ul>
-            
           </div>
         </div>
       </nav>
