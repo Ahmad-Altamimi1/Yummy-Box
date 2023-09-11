@@ -33,7 +33,7 @@
     <div class="row g-0 align-items-center">
         
       <div class="col-lg-6 mb-5 mb-lg-0">
-        <img src="../images/img_v_7-min.jpg" class="w-100 h-100 rounded-4 shadow-4"
+        <img src="../images/Sign up-cuate.png" class="w-100 h-100 rounded-4 shadow-4"
           alt="" />
       </div>
       <div class="col-lg-6 mb-5 mb-lg-0">
