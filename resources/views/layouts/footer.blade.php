@@ -80,7 +80,7 @@
                     <script>
                         document.write(new Date().getFullYear());
                     </script>. All Rights Reserved. &mdash; Designed with love by <a
-                        href="https://untree.co">g6</a>
+                        href="#">TechHub</a>
                     <!-- License information: https://untree.co/license/ -->
                 </p>
             </div>
