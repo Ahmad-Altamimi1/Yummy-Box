@@ -147,10 +147,12 @@
 				@foreach ( $categories as $categorie )
 					
 				<div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="100">
+                
 					<div class="card-flip">
 						<div class="flip">
 							<div class="front">
 								<!-- front content -->
+                                
 								<div class="flip-content-wrap">
 									{{-- class="icon-local_drink" --}}
 									<span ><img src="{{ $categorie->image  }}" width="100px" alt=""></span>
@@ -160,13 +162,14 @@
 							<div class="back">
 								<!-- back content -->
 								<div class="flip-content-wrap">
-<h3>{{ $categorie->name }}</h3>	
+                                    <h3>{{ $categorie->name }}</h3>	
 
 									<p>{{ $categorie->description }}</p>
 								</div>
 							</div>
 						</div>
 					</div>
+                    
 					<!-- End Card Flip -->
 				</div>
 				@endforeach
