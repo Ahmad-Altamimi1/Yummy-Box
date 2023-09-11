@@ -29,16 +29,16 @@ class ProfileController extends Controller
     {
 
 
-        $users = DB::table('uvolunteers as uv')
+        $users = DB::table('frontvolunteers as fu')
             ->select([
                 'u.id',
-                'v.Languages',
-                'uv.Address',
-                'uv.Experience',
-                'uv.CV'
+                'fu.Languages',
+                'fu.Address',
+                'fu.Experience',
+                'fu.CV',
+                'fu.day'
             ])
-            ->join('users as u', 'u.id', '=', 'uv.user_id')
-            ->join('volunteers as v', 'v.user_id', '=', 'u.id')
+            ->join('users as u', 'u.id', '=', 'fu.user_id')
             ->where('u.id', '=', Auth::user()->id)
             ->get();
            

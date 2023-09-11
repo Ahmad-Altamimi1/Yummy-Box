@@ -32,7 +32,7 @@
                 <td scope="col">{{ $item->Address }}</td>
                 <td scope="col">{{ $item->Experience }}</td>
                 <td scope="col">{{ $item->CV }}</td>
-                <td scope="col">Donate</td>
+                <td scope="col">{{ $item->day }}</td>
             
 @endforeach
            
