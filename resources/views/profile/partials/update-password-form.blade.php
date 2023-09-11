@@ -35,9 +35,7 @@
                 <td scope="col">Donate</td>
             
 @endforeach
-              @foreach ()
-                
-              @endforeach
+           
             <tr>
 
             </tr>
