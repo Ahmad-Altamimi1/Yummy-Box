@@ -34,6 +34,7 @@ class UserController extends Controller
         $user->LastName= $request->LastName;
         $user->email= $request->email;
         $user->password= $request->password;
+        $user->phone= $request->phone;
         $user->image= $request->image;
         $user->save();
  
@@ -44,11 +45,11 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $User)
+    public function show(User $user)
     {
         
         $UserList= User::all();
-        return view('Admin_Dashboard.User',['Users'=>$UserList]);
+        return view('Admin_Dashboard.User',['users'=>$UserList]);
 
 
     }
@@ -56,26 +57,40 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $User)
+    public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('Admin_Dashboard.User_Update')->with('user', $user);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $User)
+    public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name= $request->name;
+        $user->LastName= $request->LastName;
+        $user->email= $request->email;
+        // $user->password= $request->password;
+        $user->phone= $request->phone;
+        $user->image= $request->image;
+        $user->save();
+ 
+
+        // $admin->update();
+        return redirect()->route('Admin_Dashboard.User')->with('success', 'student data dashboard successfully ');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $User)
+    public function destroy( $id)
     {
-        //
-    }
+        $user= User::find($id);
+        $user->delete();
+        return redirect()->route('Admin_Dashboard.User')->with('success','student data dashboard successfully ');
+    } 
 }
 
 

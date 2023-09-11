@@ -82,6 +82,52 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-4">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/Admin_Home">Volunteers</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/Admins_Data"> Admins</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admin_Category">Category</a>
+              </li>
+             <li class="nav-item">
+                <a class="nav-link" href="/Admins_Payment">Donations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admin_Volunteers">Volunteers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admins_User">User</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admins_Projects">Projects</a>
+              </li>
+              
+              {{-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Link
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Link</a>
+              </li> --}}
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
     <header>
         <h1> Manage Your User</h1>
     </header>
@@ -99,8 +145,11 @@
                     <input type="text" id="userEmail" name="email">
                     <label for="userPassword">Password</label>
                     <input type="text" id="userPassword" name="password">
+                    <label for="userphone">Phone</label>
+                    <input type="text" id="userphone" name="phone">
                     <label for="userImage">Image</label>
                     <input type="file" id="userImage" name="image">
+                  
                     <button class="btn btn-warning" type="submit">Add User</button>
                 </form>
             </div>
@@ -114,6 +163,7 @@
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Password</th>
+                        <th>Phone</th>
                         <th>Image</th>
                         <th>Action</th>
                     </tr>
@@ -126,6 +176,8 @@
                             <td>{{ $user['LastName'] }}</td>
                             <td>{{ $user['email'] }}</td>
                             <td>{{ $user['password'] }}</td>
+                            <td>{{ $user['phone'] }}</td>
+
                             <td>
                                 <div>
                                     @if ($user->image)
@@ -133,12 +185,20 @@
                                             width="200" height="200">
                                     @endif
                                 </div>
-                            </td>
+                            </td> <td>
+                            <form action="userdelete/{{$user['id'] }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit" value="DELETE">Delete</button>
+                            </form>
+                            <form action="useredit/{{ $user['id'] }}" method="">
+                                @csrf
+                                <button class="btn btn-primary" type="submit" value="Update">Update</button>
+                            </form>
+                        </td>
                     @endforeach
 
-                    <td><button style="margin-right:5px" class="btn btn-primary">Edit</button><button
-                            class="btn btn-danger">Delete</button></td>
-                    </tr>
+                   
 
                 </tbody>
             </table>

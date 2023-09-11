@@ -63,11 +63,11 @@ class CategoryController extends Controller
     }
     public function save(Request $request)
     {
-        $Category =  new Category;
-        $Category->name = $request->name;
-        $Category->description = $request->description;
-        $Category->image = $request->image;
-        $Category->save();
+        $category =  new Category;
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->image = $request->image;
+        $category->save();
 
 
         return redirect()->route('Admin_Dashboard.Category');
@@ -90,9 +90,24 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit( $id)
     {
         //
+        $category = Category::find($id);
+        return view('Admin_Dashboard.Category_Update')->with('category', $category);
+    }
+    public function update(Request $request, $id)
+    {
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->image = $request->image;
+        $category->description = $request->description;
+        $category->save();
+
+        // $admin->password = $request->password;
+
+        // $admin->update();
+        return redirect()->route('Admin_Dashboard.Category')->with('success', 'student data dashboard successfully ');
     }
 
     /**
@@ -102,9 +117,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function updatee(UpdateCategoryRequest $request, Category $category)
     {
         //
+
     }
 
     /**
@@ -119,4 +135,11 @@ class CategoryController extends Controller
     //     return redirect()->route('Admain_Dashbored.Category')->with(['success' => 'Deleted successfully
     //     ']);
     // }
+
+    public function destroy( $id)
+    {
+        $category= Category::find($id);
+        $category->delete();
+        return redirect()->route('Admin_Dashboard.Category')->with('success','student data dashboard successfully ');
+    } 
 }

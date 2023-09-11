@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
     <title>Volunteers Management
     </title>
     <style>
@@ -78,6 +80,53 @@ h1 {
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-4">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/Admin_Home">Volunteers</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/Admins_Data"> Admins</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admin_Category">Category</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="/Admins_Payment">Donations</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/Admin_Volunteers">Volunteers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admins_User">User</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admins_Projects">Projects</a>
+              </li>
+             
+              {{-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Link
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Link</a>
+              </li> --}}
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
     <header>
         <h1>Volunteers</h1>
     </header>
@@ -88,9 +137,9 @@ h1 {
                 <tr>
                     <th>ID</th>
                     <th>User ID</th>
-                    <th>Service Type</th>
-                    <th>Location</th>
-                    <th>Phone Number</th>
+                    <th>Address</th>
+                    <th>Languages</th>
+                    <th>Experience</th>
                     <th>CV</th>
                 </tr>
             </thead>
@@ -98,17 +147,11 @@ h1 {
                 @foreach ($Volunteers as $Volunteer)
                 <tr>
                     <td>{{ $Volunteer['id'] }}</td>
-                    <td>{{ $Volunteer['id'] }}</td>
-                    <td>{{ $Volunteer['id'] }} </td>
-                    <td>{{ $Volunteer['id'] }}</td>
-                    <td>{{ $Volunteer['id'] }} </td>
-                    <td>
-                        <div>
-                            @if ($Volunteer->AdminImage)
-                                <img src="{{ asset('images/Volunteer/' . $Volunteer->VolunteerImage) }}"
-                                    alt="{{ $Volunteer->VolunteerFirstName }}" width="200" height="200">
-                            @endif
-                        </div>
+                    <td>{{ $Volunteer['user_id'] }}</td>
+                    <td>{{ $Volunteer['Address'] }} </td>
+                    <td>{{ $Volunteer['Languages'] }}</td>
+                    <td>{{ $Volunteer['Experience'] }} </td>
+                    <td>{{ $Volunteer['CV'] }}</td>
                     @endforeach
                 </tr>
                 <!-- Add more rows for actual data -->
