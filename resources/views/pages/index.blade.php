@@ -47,7 +47,7 @@
                 <p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">program to help increase access to
                     education in communities around jordan</p>
                 <p data-aos="fade-up" data-aos-delay="100">
-                    <a href="single" class="btn btn-primary me-4 d-inline-flex align-items-center"> <span
+                    <a href="#donite" class="btn btn-primary me-4 d-inline-flex align-items-center"> <span
                             class="icon-attach_money me-2"></span><span>Donate Now </span></a>
                     <a href="https://www.youtube.com/watch?v=7b1qBE_Icbw&t=911s"
                         class="text-white glightbox d-inline-flex align-items-center"><span
@@ -98,7 +98,17 @@
 						</div>
 
 						<input type="submit" value="Donate by paypal" class="btn w-100" style="background:url('images/PayPal-Logo.png')">
-                        
+                </form>
+                                    <form action="stripe" class="bg-white p-5 rounded donation-form" method="post">
+@csrf
+                        <h3 for="" style="background: white; margin:0;    font-weight: bold;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+    font-size: 18px;">Or donate by Visa</h3>
+    
+                         <input type="text" placeholder="0.00" class="form-control px-4" name="price">
+                         <input type="submit" value="visa" class="btn visa w-100" style="" >
+                    </form>
 
 
 
@@ -131,7 +141,7 @@
     </div>
 </div>
 
-	<div class="section flip-section" style="background-image: url('images/classroom-1.png')">
+	<div class="section flip-section"  id="donite" style="background-image: url('images/classroom-1.png')">
 		<div class="blob-1">
 			<img src="images/blob.png" alt="Image" class="img-fluid">
 		</div>
@@ -170,48 +180,7 @@
 				</div>
 				@endforeach
 
-				{{-- <div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="200">
-					<div class="card-flip">
-						<div class="flip">
-							<div class="front">
-								<!-- front content -->
-								<div class="flip-content-wrap">
-									<span class="icon-graduation-cap"></span>
-									<h3>Teaching as a volunteer</h3>
-								</div>
-							</div>
-							<div class="back">
-								<!-- back content -->
-								<div class="flip-content-wrap">
-									<h3>Teaching as a volunteer</h3>
-									<p>Teaching as a volunteer</p>
-								</div>
-							</div>
-						</div>
-					</div>
 
-				</div>
-				<div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="300">
-					<div class="card-flip">
-						<div class="flip">
-							<div class="front">
-								<!-- front content -->
-								<div class="flip-content-wrap">
-									<span class="icon-dollar"></span>
-									<h3>Give Donation</h3>
-								</div>
-							</div>
-							<div class="back">
-								<!-- back content -->
-								<div class="flip-content-wrap">
-									<h3>Give Donation</h3>
-									<p>Donating money entails supplying all necessary supplies.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div> --}}
 				
 			</div>		
 		</div>		
@@ -267,7 +236,7 @@
                              knowledge-sharing and generosity. Together, we strive to make a lasting impact in the tech
                               world and beyond.</p>
                         <p class="mt-5">
-                            <a href="#" class="btn btn-primary me-4">Donate Now</a>
+                            <a href="#donite" class="btn btn-primary me-4">Donate Now</a>
                             <a href="#" class="link-more">Learn More <span
                                     class="icon-chevron-right"></span></a>
                         </p>
@@ -411,8 +380,9 @@ $percant= ( $totalsproduct  / $product->total) * 100
             <div class="col-lg-7 mx-auto text-center">
                 <span class="subheading-white mb-3 text-white" data-aos="fade-up">Help Now</span>
                 <h3 class="mb-4 heading text-white" data-aos="fade-up">Join us, volunteer, empower, thrive</h3>
-                <a href="#" class="btn btn-outline-white me-3" data-aos="fade-up"
+                <a href="#features-slider-mw" class="btn btn-outline-white me-3" data-aos="fade-up"
                     data-aos-delay="100">Become a Volunteer</a>
+                
                      <a href="#" class="btn btn-outline-white"
                     data-aos="fade-up" data-aos-delay="200">Donate Now</a>
             </div>
