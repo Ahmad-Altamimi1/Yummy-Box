@@ -6,8 +6,6 @@
 */ -->
 
 @extends('layouts.master')
-
-
 @section('title','Home')
 
 <div class="site-mobile-menu site-navbar-target">
@@ -20,6 +18,18 @@
 	</div>
 
 
+
+{{-- @if (Session::has('message')) --}}
+    {{-- <script>
+        swal("Message", "{{Session::get('message')}}",'warning',{
+        button:true,
+        button:'ok',
+    dangerMode:true,
+})
+    </script> --}}
+
+    
+{{-- @endif --}}
 
 
 
@@ -46,8 +56,10 @@
 
             </div>
 
-            <div class="col-lg-5">
-                <form action="paypal" method="POST" class="bg-white p-5 rounded donation-form" data-aos="fade-up">
+            <div class="col-lg-5" style="
+    margin-top: 49px;
+">
+                <form action="paypal" method="POST" class="bg-white p-5 rounded donation-form" data-aos="fade-up" style="margin-bottom: 0">
                     @csrf
                     <h3>Quick Donation Form</h3>
                     <div class="form-field mb-3">
@@ -72,6 +84,7 @@
 							</label>
 							<h3>And you can select custom</h3>
 
+
                     </div>
                     <div class="field-icon">
                         <span>$</span>
@@ -84,11 +97,13 @@
 							{{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
 						</div>
 
-						<input type="submit" value="Donate now" class="btn btn-secondary w-100" style="background:url('images/PayPal-Logo.png')">
-					</form>
+						<input type="submit" value="Donate by paypal" class="btn w-100" style="background:url('images/PayPal-Logo.png')">
+                        
+
 
 
             </div>
+            
         </div>
     </div>
 </div>
@@ -115,7 +130,6 @@
         </div>
     </div>
 </div>
-
 
 	<div class="section flip-section" style="background-image: url('images/classroom-1.png')">
 		<div class="blob-1">
@@ -598,7 +612,9 @@ $percant= ( $totalsproduct  / $product->total) * 100
 
         </div>
     </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </div>
+
 
 

@@ -117,10 +117,7 @@ Route::post('paypal', [PaypalController::class, 'payment'])->name('paypal'); // 
 Route::get('paypal/success', [PaypalController::class, 'success'])->name('success'); // Use 'success' method for GET
 Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
 
-// Define the Stripe routes with the appropriate methods
-Route::post('stripe', [StripeController::class, 'payment'])->name('stripe'); // Use 'store' method for POST
-Route::get('stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
-Route::get('stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
+
 
 // Define the Stripe routes with the appropriate methods
 Route::post('stripe', [StripeController::class, 'payment'])->name('stripe'); // Use 'store' method for POST
