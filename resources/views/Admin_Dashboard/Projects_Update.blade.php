@@ -12,16 +12,28 @@
   <body>
     <div class="container">
         <div class="user-form">
-          <form action="adminsupdate/{{ $admins->id }}" method="POST">
+          <form action="productupdate/{{ $product->id }}" method="POST">
             @csrf
             @method('PATCH') 
             
                 <label for="FirstName">First Name</label>
-                <input type="text" id="FirstName" name="name" value="{{ $admins->name }}">
-                <label for="LastName">Last Name</label>
-                <input type="text" id="LastName" name="last_name" value="{{ $admins->last_name }}">
-                <label for="userEmail">Email</label>
-                <input type="text" id="AdminEmail" name="email" value="{{ $admins->email }}">
+                <input type="text" id="FirstName" name="name" value="{{ $product->name }}">
+                <label for="LastName">breif</label>
+                <input type="text" id="LastName" name="breif" value="{{ $product->breif }}">
+                <label for="userEmail">description2</label>
+                <input type="text" id="AdminEmail" name="email" value="{{ $product->description2 }}">
+                <label for="userEmail">description3</label>
+                <input type="text" id="AdminEmail" name="email" value="{{ $product->description3 }}">
+                <label for="userEmail">location</label>
+                <input type="text" id="AdminEmail" name="email" value="{{ $product->location }}">
+                <label for="userEmail">time</label>
+                <input type="text" id="AdminEmail" name="email" value="{{ $product->time }}">
+                <label for="userEmail">period</label>
+                <input type="text" id="AdminEmail" name="email" value="{{ $product->period }}">
+                <label for="userEmail">total</label>
+                <input type="text" id="AdminEmail" name="email" value="{{ $product->total }}">
+                <label for="userEmail">productImage</label>
+                <input type="text" id="AdminEmail" name="email" value="{{ $product->productImage }}">
                 {{-- <label for="AdminImage">Image</label>
                 <input type="file" id="AdminImage" name="AdminImage"> --}}
                 {{-- @if ($admins->image)
@@ -29,7 +41,7 @@
                 @endif --}}
                 {{-- <label for="AdminPassword">Password</label>
                 <input type="text" id="AdminPassword" name="password"> --}}
-                <button class="btn btn-warning" type="submit">Update</button>
+                
             </form>
         </div>
     </div>

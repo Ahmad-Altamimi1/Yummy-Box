@@ -189,8 +189,16 @@
                                 @endif
                             </div>
                         </td>  
-                        <td><button style="margin-right:5px" class="btn btn-primary">Edit</button><button  class="btn btn-danger">Delete</button></td>
-                    </tr>
+                        <td><form action="productdelete/{{$product['id'] }}" method="POST">
+                          @csrf
+                          @method('DELETE')
+                          <button class="btn btn-danger" type="submit" value="DELETE">Delete</button>
+                      </form>                   
+                      <form action="productedit/{{ $product['id'] }}" method="">
+                        @csrf
+                        <button class="btn btn-primary" type="submit" value="Update">Update</button>
+                    </form> </tr>
+                    </td>
                      @endforeach   
                 </tbody>
             </table>

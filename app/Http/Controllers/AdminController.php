@@ -7,7 +7,7 @@ use App\Models\Admin;
 
 class AdminController extends Controller
 {
-    
+
 
 
 
@@ -33,15 +33,21 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-       $admin=  new Admin;
-       $admin->name= $request->name;
-       $admin->last_name= $request->last_name;
-       $admin->email= $request->email;
-       $admin->password= $request->password;
-       $admin->save();
+        $admin =  new Admin;
+        $admin->name = $request->name;
+        $admin->last_name = $request->last_name;
+        $admin->email = $request->email;
+        $admin->password = $request->password;
+        $admin->save();
 
 
-       return redirect()->route('Admin_Dashboard.Admins_Data');
+        return redirect()->route('Admin_Dashboard.Admins_Data');
+    }
+    public function store_admin(Request $request, $id)
+    {
+
+
+        return redirect()->route('Admin_Dashboard.Admins_Data');
     }
 
     /**
@@ -49,41 +55,43 @@ class AdminController extends Controller
      */
     public function show(Admin $admin)
     {
-        
-        $AdminList= Admin::all();
-        return view('Admin_Dashboard.Admins_Data',['admins'=>$AdminList]);
-        
 
-
+        $AdminList = Admin::all();
+        return view('Admin_Dashboard.Admins_Data', ['admins' => $AdminList]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Admin $admin)
+    public function edit($id)
     {
-   $admins= Admin::find($admin);
-   return view('Admin_Dashboard.Admins_Update',['admins'=>$admin]);
-
+        $admin = Admin::find($id);
+        return view('Admin_Dashboard.Admins_Update')->with('admins', $admin);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request, $id)
     {
-        //
+        $admin = Admin::find($id);
+        $admin->name = $request->name;
+        $admin->last_name = $request->last_name;
+        $admin->email = $request->email;
+        // $admin->password = $request->password;
+        $admin->save();
+
+        // $admin->update();
+        return redirect()->route('Admin_Dashboard.Admins_Data')->with('success', 'student data dashboard successfully ');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
-        $admin= Admin::find($id);
+        $admin = Admin::find($id);
         $admin->delete();
-        return redirect()->route('Admin_Dashboard.Admins_Data')->with('success','student data dashboard successfully ');
+        return redirect()->route('Admin_Dashboard.Admins_Data')->with('success', 'student data dashboard successfully ');
     }
 }
-
-

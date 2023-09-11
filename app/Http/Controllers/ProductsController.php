@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\products;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class ProductsController extends Controller
 {
@@ -16,6 +17,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Products::all();
+        
         return view('pages.products', ['products' => $products]);
     }
     /**
@@ -70,9 +72,12 @@ class ProductsController extends Controller
      * @param  \App\Models\products  $products
      * @return \Illuminate\Http\Response
      */
-    public function edit(products $products)
+    public function edit( $id)
     {
         //
+        $product = products::find($id);
+        return view('Admin_Dashboard.Projects_Update')->with('product', $product);
+  
     }
 
     /**
@@ -82,9 +87,24 @@ class ProductsController extends Controller
      * @param  \App\Models\products  $products
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, products $products)
+    public function update(Request $request,  $id)
     {
         //
+        $product = products::find($id);
+
+        $product->name= $request->name;
+        $product->breif= $request->breif;
+        $product->description2= $request->description2;
+        $product->description3= $request->description3;
+        $product->location= $request->location;
+        $product->period= $request->period;
+        $product->time= $request->time;
+        $product->total= $request->total;
+        $product->image= $request->image;
+        $product->save();
+
+        return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
+
     }
 
     /**
@@ -93,8 +113,10 @@ class ProductsController extends Controller
      * @param  \App\Models\products  $products
      * @return \Illuminate\Http\Response
      */
-    public function destroy(products $products)
+    public function destroy( $id)
     {
-        //
-    }
+        $products= Products::find($id);
+        $products->delete();
+        return redirect()->route('Admin_Dashboard.Projects')->with('success','student data dashboard successfully ');
+    } 
 }

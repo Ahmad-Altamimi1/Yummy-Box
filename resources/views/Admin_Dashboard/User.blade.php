@@ -145,8 +145,11 @@
                     <input type="text" id="userEmail" name="email">
                     <label for="userPassword">Password</label>
                     <input type="text" id="userPassword" name="password">
+                    <label for="userphone">Phone</label>
+                    <input type="text" id="userphone" name="phone">
                     <label for="userImage">Image</label>
                     <input type="file" id="userImage" name="image">
+                  
                     <button class="btn btn-warning" type="submit">Add User</button>
                 </form>
             </div>
@@ -160,29 +163,39 @@
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Password</th>
+                        <th>Phone</th>
                         <th>Image</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($Users as $User)
+                    @foreach ($users as $user)
                         <tr>
-                            <td>{{ $User['id'] }}</td>
-                            <td>{{ $User['name'] }}</td>
-                            <td>{{ $User['LastName'] }}</td>
-                            <td>{{ $User['email'] }}</td>
-                            <td>{{ $User['password'] }}</td>
+                            <td>{{ $user['id'] }}</td>
+                            <td>{{ $user['name'] }}</td>
+                            <td>{{ $user['LastName'] }}</td>
+                            <td>{{ $user['email'] }}</td>
+                            <td>{{ $user['password'] }}</td>
+                            <td>{{ $user['phone'] }}</td>
+
                             <td>
                                 <div>
-                                    @if ($User->image)
-                                        <img src="{{ asset('images/Users/' . $User->image) }}" alt="{{ $user->name }}"
+                                    @if ($user->image)
+                                        <img src="{{ asset('images/Users/' . $user->image) }}" alt="{{ $user->name }}"
                                             width="200" height="200">
                                     @endif
                                 </div>
-                            </td> 
-                            <td><button style="margin-right:5px" class="btn btn-primary">Edit</button><button
-                            class="btn btn-danger">Delete</button></td>
-                    </tr>
+                            </td> <td>
+                            <form action="userdelete/{{$user['id'] }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit" value="DELETE">Delete</button>
+                            </form>
+                            <form action="useredit/{{ $user['id'] }}" method="">
+                                @csrf
+                                <button class="btn btn-primary" type="submit" value="Update">Update</button>
+                            </form>
+                        </td>
                     @endforeach
 
                    

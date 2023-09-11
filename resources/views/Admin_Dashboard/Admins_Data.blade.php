@@ -134,10 +134,64 @@
     </header>
 
     <main>
+
+        <div class="container">
+            <table class="table table-hover">
+                <thead style="background-color: #3c9ee5">
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                        {{-- <th>Image</th> --}}
+                        {{-- <th>Password</th> --}}
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($admins as $admin)
+                        <tr>
+                            <td>{{ $admin['id'] }}</td>
+                            <td>{{ $admin['name'] }}</td>
+                            <td>{{ $admin['last_name'] }}</td>
+                            <td>{{ $admin['email'] }}</td>
+                            <td>
+                                <form action="admindelete/{{ $admin['id'] }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit" value="DELETE">Delete</button>
+                                </form>
+                                <form action="adminsedit/{{ $admin['id'] }}" method="">
+                                    @csrf
+                                    <button class="btn btn-primary" type="submit" value="Update">Update</button>
+                                </form>
+                                {{-- <a href="adminsedit/{{ $admin['id'] }}">edit</a> --}}
+                            </td>
+                    @endforeach
+
+{{-- <td>
+                            <div>
+                                @if ($Admin->AdminImage)
+                                    <img src="{{ asset('images/Admins/' . $Admin->AdminImage) }}"
+                                        alt="{{ $Admin->AdminFirstName }}" width="200" height="200">
+                                @endif
+                            </div>
+                        </td>                         --}}
+                            {{-- <td>{{ $admin['password'] }}</td> --}}
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
         <div class="container">
             <div class="user-form">
                 <form action="Admins_Data" method="POST">
                     @csrf
+                    <h1>Add New Admin</h1>
+                    <div style="text-align: right;">
+                        <button class="btn btn-warning" type="submit">Add Admin</button>
+                    </div>
                     <label for="FirstName">First Name</label>
                     <input type="text" id="FirstName" name="name">
                     <label for="LastName">Last Name</label>
@@ -148,51 +202,8 @@
                     <input type="file" id="AdminImage" name="AdminImage"> --}}
                     <label for="AdminPassword">Password</label>
                     <input type="text" id="AdminPassword" name="password">
-                    <button class="btn btn-warning" type="submit">Add Admin</button>
                 </form>
             </div>
-        </div>
-        <div class="container">
-            <table class="table table-hover">
-                <thead style="background-color: #3c9ee5">
-                    <tr>
-                        <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        {{-- <th>Image</th> --}}
-                        {{-- <th>Password</th> --}}
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($admins as $admin)
-                        <tr>
-                            <td>{{ $admin['id'] }}</td>
-                            <td>{{ $admin['name'] }}</td>
-                            <td>{{ $admin['last_name'] }}</td>
-                            <td>{{ $admin['email'] }}</td>
-                            {{-- <td>
-                            <div>
-                                @if ($Admin->AdminImage)
-                                    <img src="{{ asset('images/Admins/' . $Admin->AdminImage) }}"
-                                        alt="{{ $Admin->AdminFirstName }}" width="200" height="200">
-                                @endif
-                            </div>
-                        </td>                         --}}
-                            {{-- <td>{{ $admin['password'] }}</td> --}}
-                            <form action="admindelete/{{$admin['id'] }}" method="POST">
-                              @csrf
-                              @method('DELETE')
-                              <td><button class="btn btn-danger" type="submit" value="DELETE">Delete</button></td>
-                          </form>
-                          
-                    @endforeach
-
-                    </tr>
-
-                </tbody>
-            </table>
         </div>
     </main>
 </body>

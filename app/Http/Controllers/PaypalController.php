@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatepaypalRequest;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class PaypalController extends Controller
 {
     /**
@@ -70,7 +71,8 @@ class PaypalController extends Controller
                 'payment_status'=> $response['payment_source']['paypal']['account_status'],
                 'currency'=> 'USD',
                 'amount'=> $response['purchase_units'][0]['payments']['captures'][0]['amount']['value'],
-                'product_id'=>1,
+                'product_id'=>Auth::user()->id,
+
                 
             ]);
            return "paymeny seccc";

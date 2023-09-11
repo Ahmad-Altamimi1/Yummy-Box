@@ -8,33 +8,24 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
- 
-<style>
-    .container {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-</style></head>
+  </head>
   <body>
     <div class="container">
         <div class="user-form">
-            <form action="Admins_User" method="POST">
+            <form action="adminsupdate/{{ $admin->id }}" method="POST">
                 @csrf
-                @method('post')
-                <label for="userName">First Name</label>
-                <input type="text" id="FirstName" name="name">
-                <label for="last_name">Last Name</label>
-                <input type="text" id="LastName" name="last_name">
+@method('PUT')
+                <label for="FirstName">First Name</label>
+                <input type="text" id="FirstName" name="name" value="{{ $admin->name }}">
+                <label for="LastName">Last Name</label>
+                <input type="text" id="LastName" name="last_name" value="{{ $admin->last_name }}">
                 <label for="userEmail">Email</label>
-                <input type="text" id="userEmail" name="email">
-                <label for="userPassword">Password</label>
-                <input type="text" id="userPassword" name="password">
-                <label for="userImage">Image</label>
-                <input type="file" id="userImage" name="image">
-                <button class="btn btn-warning" type="submit">Add User</button>
+                <input type="text" id="AdminEmail" name="email" value="{{ $admin->email }}">
+                {{-- <label for="AdminImage">Image</label>
+                <input type="file" id="AdminImage" name="AdminImage"> --}}
+                <label for="AdminPassword">Password</label>
+                <input type="text" id="AdminPassword" name="password">
+                <button class="btn btn-warning" type="submit">Update</button>
             </form>
         </div>
     </div>
