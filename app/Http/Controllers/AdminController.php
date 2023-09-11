@@ -82,7 +82,7 @@ class AdminController extends Controller
     {
         $admin= Admin::find($id);
         $admin->delete();
-        return view('Admin_Dashboard.Admins_Data');
+        return redirect()->route('Admin_Dashboard.Admins_Data')->with('success','student data dashboard successfully ');
     }
 }
 
