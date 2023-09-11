@@ -148,12 +148,8 @@
                         style=" position: relative;
            width: 450px;
            left:50px;
-          text-align: center;
-         
-     
-           ">
-
-                        <div style="border: #4a260b solid 3px ; padding : 25px 10px">
+          text-align: center;">
+                    <div style="border: #4a260b solid 3px ; padding : 25px 10px">
                             <h3>Join us, volunteer, empower</h3>
                             <br>
                             <div class="">
