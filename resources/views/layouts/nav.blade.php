@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="{{asset('css/glightbox.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/home.css')}}">
+
+
 
     <title>Volunteer </title>
 
