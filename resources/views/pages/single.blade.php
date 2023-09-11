@@ -162,7 +162,10 @@
                                 <form action="{{ route('frontvolunteers.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     @method('post')
-                                     <div class="form-group">                
+                                 
+                                  
+                        
+                                    <div class="form-group">                
                                         <input  type="hidden" class="form-control" id="user_id"  name="user_id" required>
                         
                                         <label for="address">Address</label>
