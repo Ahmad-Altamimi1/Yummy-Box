@@ -18,7 +18,7 @@ class ProductsController extends Controller
     {
         $products = Products::all();
         
-        return view('pages.products', ['products' => $products]);
+        return view('Admin_Dashboard.products', ['products' => $products]);
     }
     /**
      * Show the form for creating a new resource.

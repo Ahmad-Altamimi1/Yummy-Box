@@ -81,7 +81,7 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         $CategoryList = Category::all();
-        return view('Admin_Dashboard.Category', ['categories' => $CategoryList]);
+        return view('Admin_Dashboard/Category', ['categories' => $CategoryList]);
     }
 
     /**
