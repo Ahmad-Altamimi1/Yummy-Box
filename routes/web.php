@@ -50,7 +50,7 @@ Route::get('/rer', function () {
 //     return view('pages.index');
 // });
 Route::get('single/{id?}', [CategoryController::class, 'find']);
-Route::get('/', [CategoryController::class, 'index']);
+// Route::get('/', [CategoryController::class, 'index']);
 Route::get('home', [CategoryController::class, 'index'])->name('home');
 // Route::resource('pages', ProductsController::class);
 Route::resource('pages/', ProductsController::class);

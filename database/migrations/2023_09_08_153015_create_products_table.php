@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('location'); 
             $table->string('period');
             
-            $table->string('image');
+            $table->mediumText('image');
             $table->float('total');
             $table->timestamps();
         });
