@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paymant Management
     </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
     <style>
     /* Apply styles to the entire page */
 body {
@@ -78,8 +80,54 @@ h1 {
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-4">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/Admin_Home">Volunteers</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{route('Admin_Dashboard.Admins_Data')}}"> Admins</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('Admin_Dashboard.Category')}}">Category</a>
+              </li>
+               {{-- <li class="nav-item">
+                <a class="nav-link" href="{{route('Admin_Donations')}}">Donations</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('Admin_Volunteers')}}">Volunteers</a>
+              </li> --}}
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('Admin_Dashboard.User')}}">User</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('Admin_Dashboard.Projects')}}">Projects</a>
+              </li>
+             
+              {{-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Link
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Link</a>
+              </li> --}}
+            </ul>
+          </div>
+        </div>
+      </nav>
     <header>
-        <h1>Paymant Data</h1>
+        <h1>Donations Data</h1>
     </header>
 
     <div class="flex-container">

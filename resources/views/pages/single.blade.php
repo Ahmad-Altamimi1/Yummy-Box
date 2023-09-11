@@ -90,7 +90,7 @@
                      <h3 class="single-product-left-first-h4">Prosses </h3>
     
                      <p>
-                        <ul style="list-style-color: green;">
+                        <ul style="list-style-color: green;list-style-type: disc">
                             <li>Apply Online: Fill out our quick online application form, indicating your interest in mentoring for the Front-End Foundations project.</li>
                             <li>Resume Submission: Upload your CV or resume to showcase your skills and experience in web development.</li>
                             <li>Interview and Orientation: After reviewing your application, we'll schedule a brief interview to discuss your availability and expectations. Attend an orientation to get acquainted with our platform and guidelines.</li>
@@ -156,7 +156,7 @@
                         <x-modal name="Join Us as a Trainer" :show="$errors->changePassword->isNotEmpty()" focusable>
 
                             <div class="container mt-5">
-                                <h1>Frontend Training Volunteer Form</h1>
+                                <h1> Training Volunteer Form</h1>
                                 <form action="{{ route('frontvolunteers.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     @method('post')                                     <div class="form-group">                
@@ -168,14 +168,12 @@
                         
                                     </div>
                                     <div class="form-group">
-                                        <label for="programmingLanguages">Proficient Frontend Programming Languages</label>
+                                        <label for="programmingLanguages">Proficient Programming Classes</label>
                                         <select class="form-control" id="programmingLanguages" name="Languages" >
-                                            <option value="Choose Language">Choose Language</option>
-                                            <option value="HTML">HTML</option>
-                                            <option value="CSS">CSS</option>
-                                            <option value="javascript">JavaScript</option>
-                                            <option value="React">React</option>
-                                            <option value="Angular">Angular</option>
+                                            <option value="Choose Language">Choose Class</option>
+                                            <option value="FrontEnd">FrontEnd</option>
+                                            <option value="BackEnd">BackEnd</option>
+                                            <option value="javascript">UX/UI</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -284,16 +282,16 @@
                                 text-transform: uppercase;
                                 font-size: 18px;">Or donate by Visa</h3> <br>
                             
-                                                     <input type="text" placeholder="0.00" class="form-control px-4" name="price">
-                                                                                 @if(!Auth::check())
+ <input type="text" placeholder="0.00" class="form-control px-4" name="price">
+ @if(!Auth::check())
                                 
 <x-primary-button class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"
         x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'change-password')"
+        x-on:click.prevent="$dispatch('open-modal', 'change1')"
     >{{ __('donite') }}</x-primary-button>
 
 
-    <x-modal name="change-password" :show="$errors->changePassword->isNotEmpty()" focusable>
+    <x-modal name="change-1" :show="$errors->changePassword->isNotEmpty()" focusable>
 <p >You Must Login </p>
     </x-modal>
                             @endif
@@ -322,6 +320,5 @@
     </section>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    
 </x-app-layout>

@@ -12,9 +12,10 @@
   <body>
     <div class="container">
         <div class="user-form">
-            <form action="store_admin/{{ $admins->id }}" method="POST">
-                @csrf
-@method('PUT')
+          <form action="adminsupdate/{{ $admins->id }}" method="POST">
+            @csrf
+            @method('PATCH') 
+            
                 <label for="FirstName">First Name</label>
                 <input type="text" id="FirstName" name="name" value="{{ $admins->name }}">
                 <label for="LastName">Last Name</label>
@@ -23,8 +24,11 @@
                 <input type="text" id="AdminEmail" name="email" value="{{ $admins->email }}">
                 {{-- <label for="AdminImage">Image</label>
                 <input type="file" id="AdminImage" name="AdminImage"> --}}
-                <label for="AdminPassword">Password</label>
-                <input type="text" id="AdminPassword" name="password">
+                {{-- @if ($admins->image)
+                <img src="{{ asset('assets/img/' . $admins->image) }}" alt="Existing Image" width="100"><br>
+                @endif --}}
+                {{-- <label for="AdminPassword">Password</label>
+                <input type="text" id="AdminPassword" name="password"> --}}
                 <button class="btn btn-warning" type="submit">Update</button>
             </form>
         </div>

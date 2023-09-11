@@ -14,7 +14,7 @@
 #card {
   position: relative;
   top: 20px;
-  width: 320px;
+      width: 543px;
   display: block;
   margin: auto;
   text-align: center;
@@ -28,6 +28,8 @@
   color: #fff;
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
+  padding: 121px;
+
 }
 
 #checkmark {
@@ -130,7 +132,7 @@ body{
     line-height: 1.5;
     text-align: center;
 }
-
+/* #59886b */
 .cd__intro h1 {
    font-size: 18pt;
    padding-bottom: 15px;

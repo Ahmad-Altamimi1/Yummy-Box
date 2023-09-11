@@ -1,14 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
 <div class="site-footer">
     <div class="container">
 
@@ -17,10 +6,8 @@
                 <div class="widget">
                     <h3>Navigation</h3>
                     <ul class="list-unstyled float-left links">
-                        <li><a href="{{route('about')}}">About us</a></li>
-                        <li><a href="{{route('causes')}}">Causes</a></li>
-                        <li><a href="">Volunteer</a></li>
-                        <li><a href="{{route('news')}}">News</a></li>
+                        <li><a href="about">About us</a></li>
+                        <li><a href="{{ route('news') }}">News</a></li>
                     </ul>
                 </div> <!-- /.widget -->
             </div> <!-- /.col-lg-3 -->
@@ -29,11 +16,11 @@
                 <div class="widget">
                     <h3>Popular Causes</h3>
                     <ul class="list-unstyled float-left links">
-					<li><a href="#">Education Equity</a></li>
-							<li><a href="#">Passion for Learning</a></li>
-							<li><a href="#">Positive Impact</a></li>
-							<li><a href="#">Personal Fulfillment</a></li>
-							<li><a href="#">Community Developmen</a></li>
+                        <li><a href="#">Education Equity</a></li>
+                        <li><a href="#">Passion for Learning</a></li>
+                        <li><a href="#">Positive Impact</a></li>
+                        <li><a href="#">Personal Fulfillment</a></li>
+                        <li><a href="#">Community Developmen</a></li>
                     </ul>
                 </div> <!-- /.widget -->
             </div> <!-- /.col-lg-3 -->
@@ -65,7 +52,7 @@
                         <li><a href="#"><span class="icon-twitter"></span></a></li>
                         <li><a href="#"><span class="icon-facebook"></span></a></li>
                         <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                        
+
                     </ul>
 
                 </div> <!-- /.widget -->
@@ -74,13 +61,13 @@
         </div> <!-- /.row -->
 
 
-        <div class="row mt-5">
+        <div class="row mt-2">
             <div class="col-12 text-center">
                 <p class="copyright">Copyright &copy;
                     <script>
                         document.write(new Date().getFullYear());
                     </script>. All Rights Reserved. &mdash; Designed with love by <a
-                        href="#">TechHub</a>
+                        href="#">Tech-Volunteer</a>
                     <!-- License information: https://untree.co/license/ -->
                 </p>
             </div>
@@ -105,7 +92,7 @@
 
 
 <script src="js/aos.js"></script>
-<script src="{{asset('js/navbar.js')}}"></script>
+<script src="{{ asset('js/navbar.js') }}"></script>
 <script src="js/counter.js"></script>
 <script src="js/custom.js"></script>
 </body>

@@ -6,7 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Admin;
-class CategorySeeder extends Seeder
+use Illuminate\Support\Facades\Hash;
+class AdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.

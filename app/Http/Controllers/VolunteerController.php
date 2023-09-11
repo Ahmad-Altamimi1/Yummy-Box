@@ -107,4 +107,10 @@ class VolunteerController extends Controller
     {
         //
     }
+
+    public function showe(Volunteer $volunteer)
+    {
+        $volunteers = Volunteer::all();
+       return view('admin.Volunteers')->with('Volunteers',$volunteers);
+    }
 }

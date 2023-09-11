@@ -317,6 +317,8 @@ figure {
 img,
 svg {
   vertical-align: middle;
+  width: 100%;
+  height: 200px;
 }
 
 table {
@@ -12847,10 +12849,11 @@ body {
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 21px;
   color: #fff;
   font-weight: 700;
   text-decoration: none !important;
+  width: 100% !important;
 }
 
 
@@ -12862,12 +12865,12 @@ body {
 .site-nav {
   position: fixed;
   top: 0px;
-  height: 80px;
+  height: 90px;
   align-items: center;
   display: flex;
   z-index: 9;
   width: 100%;
-  background-color: #59886bc9;
+  background-color: #59886b;
   padding-top: 10px;
 }
 
@@ -12896,15 +12899,15 @@ body {
   padding: 10px 10px;
   display: inline-block;
   text-decoration: none !important;
-  color: rgba(255, 255, 255, 0.5);
+  color: #fff;
 }
 
 .site-nav .site-navigation .site-menu>li>a:hover {
-  color: #fff;
+  color: #d8d8d8;
 }
 
 .site-nav .site-navigation .site-menu>li.active>a {
-  color: #fff;
+  color: #ffc107;
 }
 
 .site-nav .site-navigation .site-menu .has-children {
@@ -12941,7 +12944,7 @@ body {
   padding: 20px 0;
   margin-top: 20px;
   margin-left: 0px;
-  background: #59886baa;
+  background: #59886b;
   -webkit-transition: 0.2s 0s;
   -o-transition: 0.2s 0s;
   transition: 0.2s 0s;
@@ -12979,7 +12982,7 @@ body {
   -webkit-transition: 0s all;
   -o-transition: 0s all;
   transition: 0s all;
-  color: rgba(255, 255, 255, 0.5);
+  color: #fff;
   text-align: center;
   text-decoration: none;
 }
@@ -12989,7 +12992,7 @@ body {
 border:none;
 background: none;
 width: 100%;
-color: rgba(255, 255, 255, 0.5);
+color: #fff;
 text-align: center;
 margin-top: 10px;
 font-size: 17px;
@@ -13001,7 +13004,7 @@ font-size: 17px;
 }
 
 .site-nav .site-navigation .site-menu .has-children .dropdown .active a {
-  color: #59886b !important;
+  color: #ffc107 !important;
 }
 
 .site-nav .site-navigation .site-menu .has-children .dropdown>li {
@@ -14296,8 +14299,17 @@ textarea {
 .front,
 .back {
   width: 100%;
-  height: 150px;
+  height: 250px;
   margin-bottom: 30px;
+  
+  
+}
+@media screen and (min-width:769px) {
+  .card-flip,
+.front,
+.back{
+  margin-left: 25%;
+}
 }
 
 .flip {
@@ -14311,10 +14323,11 @@ textarea {
 
 .flip .flip-content-wrap {
   text-align: center;
-  padding: 30px;
-  height: 150px;
+  padding: 20px;
+  height: 250px;
   -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.1);
+  
 }
 
 .flip .flip-content-wrap [class^="icon-"] {
