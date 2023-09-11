@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Volunteer;
-use App\Http\Requests\StoreVolunteerRequest;
-use App\Http\Requests\UpdateVolunteerRequest;
+use App\Models\Frontvolunteer;
+use App\Http\Requests\StoreFrontvolunteerRequest;
+use App\Http\Requests\UpdateFrontvolunteerRequest;
 
-class VolunteerController extends Controller
+class FrontvolunteerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class VolunteerController extends Controller
      */
     public function index()
     {
-        $volunteers = Volunteer::all();
-       return view('profile.edit')->with('Volunteers',$volunteers);
+        //
     }
 
     /**
@@ -32,15 +31,15 @@ class VolunteerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreVolunteerRequest  $request
+     * @param  \App\Http\Requests\StoreFrontvolunteerRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreVolunteerRequest $request)
-    {
+    public function store(StoreFrontvolunteerRequest $request)
+    {   
         $request->validate([
             'CV' => 'required|mimes:pdf,docx',
         ]);
-       Volunteer::create([
+        Frontvolunteer::create([
 
         'Address'=>$request->Address,
         'Languages'=>$request->Languages,
@@ -50,37 +49,28 @@ class VolunteerController extends Controller
        
        ]);
        return redirect('home');
+        
+       
     }
-
-    
-    public function upload(Volunteer $request)
-{
-    $request->validate([
-        'file' => 'required|mimes:pdf,docx',
-    ]);
-
-    // Handle file upload logic here
-}
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Volunteer  $volunteer
+     * @param  \App\Models\Frontvolunteer  $frontvolunteer
      * @return \Illuminate\Http\Response
      */
-    public function show(Volunteer $volunteer)
+    public function show(Frontvolunteer $frontvolunteer)
     {
-        $volunteers = Volunteer::all();
-       return view('profile.edit')->with('Volunteers',$volunteers);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Volunteer  $volunteer
+     * @param  \App\Models\Frontvolunteer  $frontvolunteer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Volunteer $volunteer)
+    public function edit(Frontvolunteer $frontvolunteer)
     {
         //
     }
@@ -88,11 +78,11 @@ class VolunteerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateVolunteerRequest  $request
-     * @param  \App\Models\Volunteer  $volunteer
+     * @param  \App\Http\Requests\UpdateFrontvolunteerRequest  $request
+     * @param  \App\Models\Frontvolunteer  $frontvolunteer
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateVolunteerRequest $request, Volunteer $volunteer)
+    public function update(UpdateFrontvolunteerRequest $request, Frontvolunteer $frontvolunteer)
     {
         //
     }
@@ -100,10 +90,10 @@ class VolunteerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Volunteer  $volunteer
+     * @param  \App\Models\Frontvolunteer  $frontvolunteer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Volunteer $volunteer)
+    public function destroy(Frontvolunteer $frontvolunteer)
     {
         //
     }

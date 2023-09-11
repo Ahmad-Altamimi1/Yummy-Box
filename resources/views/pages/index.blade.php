@@ -6,8 +6,6 @@
 */ -->
 
 @extends('layouts.master')
-
-
 @section('title','Home')
 
 <div class="site-mobile-menu site-navbar-target">
@@ -20,6 +18,18 @@
 	</div>
 
 
+
+{{-- @if (Session::has('message')) --}}
+    {{-- <script>
+        swal("Message", "{{Session::get('message')}}",'warning',{
+        button:true,
+        button:'ok',
+    dangerMode:true,
+})
+    </script> --}}
+
+    
+{{-- @endif --}}
 
 
 
@@ -37,7 +47,7 @@
                 <p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">program to help increase access to
                     education in communities around jordan</p>
                 <p data-aos="fade-up" data-aos-delay="100">
-                    <a href="single" class="btn btn-primary me-4 d-inline-flex align-items-center"> <span
+                    <a href="#donite" class="btn btn-primary me-4 d-inline-flex align-items-center"> <span
                             class="icon-attach_money me-2"></span><span>Donate Now </span></a>
                     <a href="https://www.youtube.com/watch?v=7b1qBE_Icbw&t=911s"
                         class="text-white glightbox d-inline-flex align-items-center"><span
@@ -46,8 +56,10 @@
 
             </div>
 
-            <div class="col-lg-5">
-                <form action="paypal" method="POST" class="bg-white p-5 rounded donation-form" data-aos="fade-up">
+            <div class="col-lg-5" style="
+    margin-top: 49px;
+">
+                <form action="paypal" method="POST" class="bg-white p-5 rounded donation-form" data-aos="fade-up" style="margin-bottom: 0">
                     @csrf
                     <h3>Quick Donation Form</h3>
                     <div class="form-field mb-3">
@@ -72,6 +84,7 @@
 							</label>
 							<h3>And you can select custom</h3>
 
+
                     </div>
                     <div class="field-icon">
                         <span>$</span>
@@ -84,11 +97,14 @@
 							{{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
 						</div>
 
-						<input type="submit" value="Donate now" class="btn btn-secondary w-100" style="background:url('images/PayPal-Logo.png')">
-					</form>
+						<input type="submit" value="Donate by paypal" class="btn w-100" style="background:url('images/PayPal-Logo.png')">
+                </form>
+     
+
 
 
             </div>
+            
         </div>
     </div>
 </div>
@@ -107,7 +123,7 @@
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="mission">
                     <h2>Our Mission</h2>
-                    <p class="mb-4 lead">At CodeHeroes, our mission is to democratize technology education.
+                    <p class="mb-4 lead">At Tech-Volunteer, our mission is to democratize technology education.
                          We are dedicated to fostering a thriving community of volunteers who share their expertise.</p>
                     <p><a href="#" class="link-underline">Learn More</a></p>
                 </div>
@@ -116,8 +132,7 @@
     </div>
 </div>
 
-
-	<div class="section flip-section" style="background-image: url('images/classroom-1.png')">
+	<div class="section flip-section"  id="donite" style="background-image: url('images/classroom-1.png')">
 		<div class="blob-1">
 			<img src="images/blob.png" alt="Image" class="img-fluid">
 		</div>
@@ -156,48 +171,7 @@
 				</div>
 				@endforeach
 
-				{{-- <div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="200">
-					<div class="card-flip">
-						<div class="flip">
-							<div class="front">
-								<!-- front content -->
-								<div class="flip-content-wrap">
-									<span class="icon-graduation-cap"></span>
-									<h3>Teaching as a volunteer</h3>
-								</div>
-							</div>
-							<div class="back">
-								<!-- back content -->
-								<div class="flip-content-wrap">
-									<h3>Teaching as a volunteer</h3>
-									<p>Teaching as a volunteer</p>
-								</div>
-							</div>
-						</div>
-					</div>
 
-				</div>
-				<div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="300">
-					<div class="card-flip">
-						<div class="flip">
-							<div class="front">
-								<!-- front content -->
-								<div class="flip-content-wrap">
-									<span class="icon-dollar"></span>
-									<h3>Give Donation</h3>
-								</div>
-							</div>
-							<div class="back">
-								<!-- back content -->
-								<div class="flip-content-wrap">
-									<h3>Give Donation</h3>
-									<p>Donating money entails supplying all necessary supplies.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div> --}}
 				
 			</div>		
 		</div>		
@@ -253,7 +227,7 @@
                              knowledge-sharing and generosity. Together, we strive to make a lasting impact in the tech
                               world and beyond.</p>
                         <p class="mt-5">
-                            <a href="#" class="btn btn-primary me-4">Donate Now</a>
+                            <a href="#donite" class="btn btn-primary me-4">Donate Now</a>
                             <a href="#" class="link-more">Learn More <span
                                     class="icon-chevron-right"></span></a>
                         </p>
@@ -397,8 +371,9 @@ $percant= ( $totalsproduct  / $product->total) * 100
             <div class="col-lg-7 mx-auto text-center">
                 <span class="subheading-white mb-3 text-white" data-aos="fade-up">Help Now</span>
                 <h3 class="mb-4 heading text-white" data-aos="fade-up">Join us, volunteer, empower, thrive</h3>
-                <a href="#" class="btn btn-outline-white me-3" data-aos="fade-up"
+                <a href="#features-slider-mw" class="btn btn-outline-white me-3" data-aos="fade-up"
                     data-aos-delay="100">Become a Volunteer</a>
+                
                      <a href="#" class="btn btn-outline-white"
                     data-aos="fade-up" data-aos-delay="200">Donate Now</a>
             </div>
@@ -599,7 +574,9 @@ $percant= ( $totalsproduct  / $product->total) * 100
 
         </div>
     </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </div>
+
 
 

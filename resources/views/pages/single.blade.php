@@ -17,9 +17,9 @@
 <script src="https://kit.fontawesome.com/d6692547f6.js" crossorigin="anonymous"></script>
 
 @section('content')
+<x-app-layout>
 
-
-<div class="hero overlay" style="background-image: url('images/about.jpg')">
+<div class="hero overlay" style="background-image: url({{ asset('images/about.jpg') }})">
 	<div class="container">
 		<div class="row align-items-center justify-content-center">
 			<div class="col-lg-6 text-center">
@@ -139,17 +139,140 @@
         </div>
 
         <div class="col-5 ">
-            <div style=" position: sticky;
+            <div style=" position: relative;
            width: 450px;
-          top: 300px;
+          top: 80px;
           text-align: center;
         
            ">
                 
-               <div style="border: #318c5d solid 3px ; padding : 25px 10px">Join us, volunteer, empower, thrive
-                <br><br>
-                <a href="#" class="btn btn-primary me-4">Join Us as a Trainer</a> <br><br>
-                <a href="#" class="btn btn-primary me-4">Donate to help trainnes </a>                
+               <div style="border: #ff6f08 solid 3px ; padding : 25px 10px"> <h3>Join us, volunteer, empower</h3> 
+                <br>
+                <div class="">
+                <a href="#" class="btn btn-primary me-4" style="background-color: #2ab652">Join Us as a Trainer</a>
+                <x-primary-button
+                            x-data=""
+                    x-on:click.prevent="$dispatch('open-modal', 'Join Us as a Trainer')"
+                       >{{ __('Join Us as a Trainer') }}</x-primary-button>
+
+                        <x-modal name="Join Us as a Trainer" :show="$errors->changePassword->isNotEmpty()" focusable>
+
+                            <div class="container mt-5">
+                                <h1>Frontend Training Volunteer Form</h1>
+                                <form action="{{ route('frontvolunteers.store') }}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('post')
+                                     <div class="form-group">                
+                                        <input  type="hidden" class="form-control" id="user_id"  name="user_id" required>
+                        
+                                        <label for="address">Address</label>
+                                        <input type="text" class="form-control" id="address" name="Address" required>
+                        
+                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="programmingLanguages">Proficient Frontend Programming Languages</label>
+                                        <select class="form-control" id="programmingLanguages" name="Languages" >
+                                            <option value="Choose Language">Choose Language</option>
+                                            <option value="HTML">HTML</option>
+                                            <option value="CSS">CSS</option>
+                                            <option value="javascript">JavaScript</option>
+                                            <option value="React">React</option>
+                                            <option value="Angular">Angular</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="day">I would like to help weekly</label>
+                                        <select class="form-control" id="day" name="day" >
+                                            <option value="Choose Day">Choose Day</option>
+                                            <option value="saturday">Saturday</option>
+                                            <option value="sunday">Sunday</option>
+                                            <option value="monday">Monday</option>
+                                            <option value="tuesday">Tuesday</option>
+                                            <option value="wednesday">Wednesday</option>
+                                            <option value="thursday">Thursday</option>
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="experience">Experience</label>
+                                        <textarea class="form-control" id="experience" name="Experience" rows="3" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cv">CV</label>
+                                        <input type="file" class="form-control-file" id="cv" name="CV" required>
+                                    </div>
+                                 @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                                    
+                                    <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+                                </form>
+                                
+                            </div>
+                       </x-modal> <br><br>
+                    <form action="paypal" method="POST" class="bg-white p-5 rounded donation-form" data-aos="fade-up">
+                        @csrf
+                        <h3 >Quick Donation Form</h3>
+                      
+                        <div class="form-field mb-3">
+                            <label for="amount-1" class="amount js-amount" data-value="1.00">
+                                <input type="radio" id="amount-1" name="radio-amount" checked="true">
+                                <span>$1</span>
+                            </label>
+    
+                            <label for="amount-2" class="amount js-amount" data-value="5.00">
+                                <input type="radio" id="amount-2" name="radio-amount">
+                                <span>$5</span>
+                            </label>
+                            <label for="amount-3" class="amount js-amount" data-value="25.00">
+                                <input type="radio" id="amount-3" name="radio-amount">
+                                <span>$25</span>
+                            </label>
+                            <label for="amount-4" class="amount js-amount" data-value="100.00">
+                                <input type="radio" id="amount-4" name="radio-amount">
+                                <span>$100</span>
+    
+                                    
+                                </label>
+                                <h3>And you can select custom</h3>
+    
+                        </div>
+                        <div class="field-icon">
+                            <span>$</span>
+                            <input type="text" placeholder="0.00" class="form-control px-4" name="price"
+                                value="1.00">
+    
+                            </div>
+                            <div class="form-field mb-3">
+                                {{-- <input type="text" placeholder="Name" class="form-control px-4"> --}}
+                                {{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
+                            </div>
+    
+                            <input type="submit" value="Paypal" class="btn btn-secondary w-100" style="color: white ; background-color :#e99816">
+                        </form>
+
+
+                        <form action="stripe" class="bg-white  rounded donation-form" method="post" style="padding: 0px 50px">
+                            @csrf
+                                                    <h3 for="" style="background: white; margin:0;    font-weight: bold;
+                                margin-bottom: 0px;
+                                text-transform: uppercase;
+                                font-size: 18px;">Or donate by Visa</h3> <br>
+                            
+                                                     <input type="text" placeholder="0.00" class="form-control px-4" name="price">
+                                                     <input type="submit" value="visa" class="btn btn-secondary w-100" style="color: white ; background-color :#e99816" >
+                                                </form>
+    
+                </div>  
+                
+              
             </div>
             </div>
    
@@ -163,15 +286,6 @@
 
     </section>
 
-    <div class="right">
 
-
-     
-        
-        
-        
-        
-        
-        </div>
    
-
+</x-app-layout>
