@@ -15,8 +15,8 @@ class VolunteerController extends Controller
      */
     public function index()
     {
-        // $volunteers = Volunteer::all();
-        // return view('pages.trainingForm')->with('Volunteers',$volunteers);
+        $volunteers = Volunteer::all();
+       return view('profile.edit')->with('Volunteers',$volunteers);
     }
 
     /**
@@ -70,7 +70,8 @@ class VolunteerController extends Controller
      */
     public function show(Volunteer $volunteer)
     {
-        //
+        $volunteers = Volunteer::all();
+       return view('profile.edit')->with('Volunteers',$volunteers);
     }
 
     /**

@@ -4,128 +4,41 @@
 * Tempalte URI: https://untree.co/
 * License: https://creativecommons.org/licenses/by/3.0/
 */ -->
-<!doctype html>
-<html lang="en">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Untree.co">
-    <link rel="shortcut icon" href="favicon.png">
-
-    <meta name="description" content="Volunteer work in training and education " />
-    <meta name="keywords" content="Volunteer training  education" />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap"
-        rel="stylesheet">
+@extends('layouts.master')
 
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+@section('title','Home')
 
-    <link rel="stylesheet" href="css/tiny-slider.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/flatpickr.min.css">
-    <link rel="stylesheet" href="css/glightbox.min.css">
-    <link rel="stylesheet" href="css/style.css">
-
-    <title>Volunteer </title>
-</head>
-
-<body>
-
-    <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-            <div class="site-mobile-menu-close">
-                <span class="icofont-close js-menu-toggle"></span>
-            </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-    </div>
-
-    <nav class="site-nav">
-        <div class="container">
-            <div class="menu-bg-wrap">
-                <div class="site-navigation">
-                    <div class="row g-0 align-items-center">
-                        <div class="col-2">
-                            <a href="index.html" class="logo m-0 float-start text-white">Volunteer</a>
-                        </div>
-                        <div class="col-8 text-center">
-                            <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
-                                <li class="active"><a href="index.html">Home</a></li>
-                                <li class="has-children">
-                                    <a href="causes.html">Causes</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">Menu One</a></li>
-                                        <li><a href="#">Menu Two</a></li>
-                                        <li class="has-children">
-                                            <a href="#">Dropdown</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Sub Menu One</a></li>
-                                                <li><a href="#">Sub Menu Two</a></li>
-                                                <li><a href="#">Sub Menu Three</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-
-
-                                </li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="news.html">News</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li class="has-children">
+<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
 
 
 
-                                    @if (Auth::check())
-                                        <a href="#">
-                                            <div>{{ Auth::user()->name }}</div>
-                                            <ul class="dropdown">
-                                    <li><a href="{{ route('profile.edit') }}"> {{ __('Profile') }}</a></li>
-                                    <li>
-                                        <!-- Authentication -->
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-                                            <button type="submit">
-
-                                                {{ __('Log Out') }}</button>
-                                        </form>
-                                    </li>
-
-                                </ul>
-                                        </a>
-                                    @else 
-                                    <li><a href="{{route('login')}}">Login</a></li>
-                                <li><a href="{{route('register')}}">Register</a></li>
-                                    @endif
-                    
-                            </li>
 
 
-                            
-                    </div>
 
-                </div>
-            </div>
-        </div>
+@section('content')
 
-</nav>
 
 <div class="hero overlay" style="background-image: url('images/classroom-1.png')">
     <div class="container">
         <div class="row align-items-center justify-content-between">
             <div class="col-lg-6 text-left">
-                <span class="subheading-white text-white mb-3" data-aos="fade-up">Volunteer</span>
-                <h1 class="heading text-white mb-2" data-aos="fade-up">Give a helping hand to those who need it!
+                <span class="subheading-white text-white mb-3" data-aos="fade-up">Tech-Volunteer</span>
+                <h1 class="heading text-white mb-2" data-aos="fade-up">Empower through Code & Giving
                 </h1>
                 <p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">program to help increase access to
                     education in communities around jordan</p>
                 <p data-aos="fade-up" data-aos-delay="100">
                     <a href="single" class="btn btn-primary me-4 d-inline-flex align-items-center"> <span
-                            class="icon-attach_money me-2"></span><span>Donate Now</span></a>
+                            class="icon-attach_money me-2"></span><span>Donate Now </span></a>
                     <a href="https://www.youtube.com/watch?v=7b1qBE_Icbw&t=911s"
                         class="text-white glightbox d-inline-flex align-items-center"><span
                             class="icon-play me-2"></span><span>Watch the video</span></a>
@@ -186,16 +99,16 @@
             <div class="col-lg-6" data-aos="fade-up">
                 <div class="vision">
                     <h2>Our Vision</h2>
-                    <p class="mb-4 lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum minima
-                        dignissimos hic mollitia eius et quam ducimus maiores eos magni.</p>
+                    <p class="mb-4 lead">Our vision is to create a world where technology education knows no boundaries.
+                         We aspire to be a beacon of empowerment, where volunteers ignite the passion for coding</p>
                     <p><a href="#" class="link-underline">Learn More</a></p>
                 </div>
             </div>
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="mission">
                     <h2>Our Mission</h2>
-                    <p class="mb-4 lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum minima
-                        dignissimos hic mollitia eius et quam ducimus maiores eos magni.</p>
+                    <p class="mb-4 lead">At CodeHeroes, our mission is to democratize technology education.
+                         We are dedicated to fostering a thriving community of volunteers who share their expertise.</p>
                     <p><a href="#" class="link-underline">Learn More</a></p>
                 </div>
             </div>
@@ -299,14 +212,12 @@
             <div class="col-lg-5" data-aos="fade-up" data-aos-delay="0">
                 <span class="subheading mb-3">Who we are</span>
                 <h2 class="heading">About Us</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus sint quae cumque vitae sed
-                    aliquid, voluptatibus, doloremque?</p>
+                <p>Discover Tech-Volunteer, where coding fuels education and generosity fuels change. Join our community and be part of something bigger</p>
             </div>
 
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                 <blockquote>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing, elit. Quos deserunt quod, dolores
-                    obcaecati. Magni nesciunt architecto, ullam laborum, illum fugit.
+                    At Tech-Volunteer, we blend the power of code with the spirit of giving to change lives. Join us in shaping a brighter tech future.
                 </blockquote>
             </div>
         </div>
@@ -334,12 +245,13 @@
                     <div class="tab-pane fade show active" id="pills-mission" role="tabpanel"
                         aria-labelledby="pills-mission-tab">
                         <h2 class="mb-3 text-primary fw-bold">Our Mission</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, eveniet voluptates
-                            eligendi maxime ad. Quas commodi distinctio modi, aspernatur, quos neque omnis magnam
-                            voluptatibus, sapiente fugiat cupiditate velit impedit praesentium.</p>
-                        <p>Reprehenderit hic illo, nulla autem odit molestiae molestias, dolores accusantium eos? Ut
-                            aspernatur fuga labore eius sequi nihil sit iusto, enim. Aliquam, cumque! Quaerat
-                            inventore illo dicta, exercitationem natus ducimus?</p>
+                        <p>Our mission at Tech-Volunteer is to bridge the gap between technology, education,
+                             and philanthropy. We aim to empower individuals by providing accessible coding education 
+                             while fostering a culture of giving. </p>
+                        <p>Through our platform, we connect passionate volunteers
+                            with those eager to support, creating a community that thrives on the dual principles of
+                             knowledge-sharing and generosity. Together, we strive to make a lasting impact in the tech
+                              world and beyond.</p>
                         <p class="mt-5">
                             <a href="#" class="btn btn-primary me-4">Donate Now</a>
                             <a href="#" class="link-more">Learn More <span
@@ -349,12 +261,13 @@
                     <div class="tab-pane fade" id="pills-values" role="tabpanel"
                         aria-labelledby="pills-values-tab">
                         <h2 class="mb-3 text-primary fw-bold">Our Values</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, eveniet voluptates
-                            eligendi maxime ad. Quas commodi distinctio modi, aspernatur, quos neque omnis magnam
-                            voluptatibus, sapiente fugiat cupiditate velit impedit praesentium.</p>
-                        <p>Reprehenderit hic illo, nulla autem odit molestiae molestias, dolores accusantium eos? Ut
-                            aspernatur fuga labore eius sequi nihil sit iusto, enim. Aliquam, cumque! Quaerat
-                            inventore illo dicta, exercitationem natus ducimus?</p>
+                        <p>Our core values revolve around the twin principles of knowledge-sharing and generosity. 
+                            We believe in the transformative power of education and its ability to open doors, and 
+                            we are equally committed to fostering a spirit of giving back.</p>
+                        <p> We value inclusivity, 
+                            collaboration, and the belief that technology should be accessible to all. Our community 
+                            is built on trust, mutual support, and the idea that by uniting as one, we can make a 
+                            significant positive impact in the world.</p>
                         <p class="mt-5">
                             <a href="#" class="btn btn-primary me-4">Be A Volunteer</a>
                             <a href="#" class="link-more">Learn More <span
@@ -365,12 +278,14 @@
                         aria-labelledby="pills-history-tab">
 
                         <h2 class="mb-3 text-primary fw-bold">Our History</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, eveniet voluptates
-                            eligendi maxime ad. Quas commodi distinctio modi, aspernatur, quos neque omnis magnam
-                            voluptatibus, sapiente fugiat cupiditate velit impedit praesentium.</p>
-                        <p>Reprehenderit hic illo, nulla autem odit molestiae molestias, dolores accusantium eos? Ut
-                            aspernatur fuga labore eius sequi nihil sit iusto, enim. Aliquam, cumque! Quaerat
-                            inventore illo dicta, exercitationem natus ducimus?</p>
+                        <p>Tech-Volunteer was born out of a vision to create a platform where technology enthusiasts 
+                            could come together to make a difference. Founded in 2020, our journey began 
+                            with a simple idea: to harness the power of coding education and philanthropy to transform
+                             lives. </p>
+                        <p>Since then, we've grown into a thriving community of volunteers and donors who have
+                            collectively impacted countless individuals through coding education and charitable giving.
+                            Our history is a testament to the belief that when passion and generosity combine, remarkable
+                             things happen. Join us as we continue to shape a brighter future for all.</p>
                         <p class="mt-5">
                             <a href="#" class="btn btn-primary me-4">Be a Sponsor</a>
                             <a href="#" class="link-more">Learn More <span
@@ -382,10 +297,10 @@
             </div>
             <div class="col-lg-6">
                 <div class="overlap-imgs">
-                    <img src="images/img_v_2-min.jpg" alt="Image" class="img-fluid rounded"
+                    <img src="images/communitie.png" alt="Image" class="img-fluid rounded"
                         data-aos="fade-up" data-aos="100">
-                    <img src="images/img_v_3-min.jpg" alt="Image" class="img-fluid rounded"
-                        data-aos="fade-up" data-aos="200">
+                    {{-- <img src="images/img_v_3-min.jpg" alt="Image" class="img-fluid rounded"
+                        data-aos="fade-up" data-aos="200"> --}}
                 </div>
             </div>
         </div>
@@ -398,10 +313,9 @@
     <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                <span class="subheading mb-3">Causes</span>
-                <h2 class="heading">Featured Causes</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Animi quaerat, eaque asperiores quos
-                    natus, ratione.</p>
+                <span class="subheading mb-3">Projects</span>
+                <h2 class="heading">Featured Projects</h2>
+                <p>Explore our Featured Projects and witness the impact of code and compassion in action.</p>
 
                 <div id="features-slider-nav" class="mt-5 d-flex justify-content-center">
                     <button class="btn btn-primary prev d-flex align-items-center me-2" data-controls="prev">
@@ -421,7 +335,7 @@
 	
 					<div class="item">
 						<div class="causes-item bg-white">
-							<a href="#"><img src='{{ $product->image }}' alt="Image" class="img-fluid mb-4 rounded"></a>
+							<a href="#"><img  src='{{ $product->image }}' alt="Image" class="img-fluid mb-4 rounded"></a>
 							<div class="px-4 pb-5 pt-3">
 
 								<h3><a href="#">{{ $product->name }}</a></h3>
@@ -482,9 +396,10 @@ $percant= ( $totalsproduct  / $product->total) * 100
         <div class="row">
             <div class="col-lg-7 mx-auto text-center">
                 <span class="subheading-white mb-3 text-white" data-aos="fade-up">Help Now</span>
-                <h3 class="mb-4 heading text-white" data-aos="fade-up">Let's Help The Unfortunate People </h3>
+                <h3 class="mb-4 heading text-white" data-aos="fade-up">Join us, volunteer, empower, thrive</h3>
                 <a href="#" class="btn btn-outline-white me-3" data-aos="fade-up"
-                    data-aos-delay="100">Become a Volunteer</a> <a href="#" class="btn btn-outline-white"
+                    data-aos-delay="100">Become a Volunteer</a>
+                     <a href="#" class="btn btn-outline-white"
                     data-aos="fade-up" data-aos-delay="200">Donate Now</a>
             </div>
         </div>
@@ -497,9 +412,15 @@ $percant= ( $totalsproduct  / $product->total) * 100
 			<div class="row justify-content-between">
 				<div class="col-lg-5" data-aos="fade-up">
 					<span class="subheading mb-3">Impact</span>
-					<h2 class="heading mb-4">Explore Volunteer work and Impact in 2020</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Inventore, vero quibusdam quisquam nisi officia obcaecati, modi impedit veniam nam possimus!</p>
-					<p>Corporis culpa facilis, nesciunt repellat amet nihil voluptatibus repudiandae blanditiis officia, ullam adipisci molestiae minima magnam quas ex temporibus aliquid!</p>
+					<h2 class="heading mb-4">Explore Volunteer work and Impact in 2023</h2>
+					<p>Discover the heart of our community as we invite you to explore volunteer opportunities that
+                         have left an indelible mark in 2023. At Tech-Volunteer, we believe in the transformative
+                          power of giving back, and this year has been no exception. </p>
+					<p>Our volunteers have dedicated 
+                        their time and expertise to empower individuals through coding education, leaving a
+                         lasting impact on countless lives. Join us in celebrating their dedication and achievements,
+                          and consider becoming a part of our volunteer network to continue the journey of making a 
+                          meaningful difference through code.</p>
 				</div>		
 				<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
 					<div class="row section-counter">
@@ -532,7 +453,7 @@ $percant= ( $totalsproduct  / $product->total) * 100
                     <div class="col-lg-6">
                         <div class="counter mt-5">
                             <i class="flaticon-money-donation d-block text-secondary"></i>
-                            <span class="number countup">4211</span>
+                            <span class="number countup">421</span>
                             <span class="d-block">Donors</span>
                         </div>
 
@@ -554,58 +475,52 @@ $percant= ( $totalsproduct  / $product->total) * 100
             <div class="col-lg-5 mb-5" data-aos="fade-up">
                 <span class="subheading mb-1">News Update</span>
                 <h2 class="heading mb-1">Our News</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta labore eligendi tempora
-                    laudantium voluptate, amet ad libero facilis nihil officiis.</p>
+                <p>Stay updated with the latest happenings at CodeHeroes! Our news page is your 
+                    source for inspiring stories, course updates, and valuable insights in the world of tech education.</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="causes-item bg-white">
-                    <a href="#"><img src="images/img_v_1-min.jpg" alt="Image"
-                            class="img-fluid mb-4 rounded"></a>
-                    <div class="px-4 pb-3 pt-3">
-                        <span class="date">May 11, 2020</span>
-                        <h3><a href="#">Food for the Hungry</a></h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta labore eligendi tempora
-                            laudantium voluptate, amet ad libero facilis nihil officiis.</p>
-                        <p><a href="#" class="d-flex align-items-center more2"><span>Read More</span> <span
-                                    class="icon-chevron-right"></span></a></p>
+            
+				<div class="col-lg-4 col-md-6">
+					<div class="causes-item bg-white">
+						<a href="#"><img src="images/tech.jpg" alt="Image" class="img-fluid mb-4 rounded"></a>
+						<div class="px-4 pb-3 pt-3">
+							<span class="date">Sep 3, 2023</span>
 
+							<h3><a href="#">Upcoming Webinar: "Unlocking the World of AI"</a></h3>
+							<p> We're dedicated to providing valuable learning opportunities to our community, and we're excited to announce our upcoming webinar.</p>
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="causes-item bg-white">
-                    <a href="#"><img src="images/img_v_2-min.jpg" alt="Image"
-                            class="img-fluid mb-4 rounded"></a>
-                    <div class="px-4 pb-3 pt-3">
-                        <span class="date">May 11, 2020</span>
-                        <h3><a href="#">Education for Children</a></h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta labore eligendi tempora
-                            laudantium voluptate, amet ad libero facilis nihil officiis.</p>
-                        <p><a href="#" class="d-flex align-items-center more2"><span>Read More</span> <span
-                                    class="icon-chevron-right"></span></a></p>
-
-                    </div>
-                </div>
-            </div>
+							<p><a href="#" class="d-flex align-items-center more2"><span>Read More</span> <span class="icon-chevron-right"></span></a></p>
+						</div>
+					</div>
+				</div>
 
             <div class="col-lg-4 col-md-6">
-                <div class="causes-item bg-white">
-                    <a href="#"><img src="images/img_v_3-min.jpg" alt="Image"
-                            class="img-fluid mb-4 rounded"></a>
-                    <span class="date">May 11, 2020</span>
-                    <div class="px-4 pb-3 pt-3">
-                        <h3><a href="#">Support Livelihood</a></h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta labore eligendi tempora
-                            laudantium voluptate, amet ad libero facilis nihil officiis.</p>
-                        <p><a href="#" class="d-flex align-items-center more2"><span>Read More</span> <span
-                                    class="icon-chevron-right"></span></a></p>
+					<div class="causes-item bg-white">
+						<a href="#"><img src="images/kids.jpg" alt="Image" class="img-fluid mb-4 rounded"></a>
+						<div class="px-4 pb-3 pt-3">
+							<span class="date">jul 29, 2023</span>
+							<h3><a href="#">Making Learning Fun: Creative Ways to Teach Kids Coding</a></h3>
+							<p>In today's digital age, coding has become a crucial skill for children to learn. But teaching kids to code doesn't have to be dull and intimidating.</p>
 
-                    </div>
-                </div>
-            </div>
+							<p><a href="#" class="d-flex align-items-center more2"><span>Read More</span> <span class="icon-chevron-right"></span></a></p>
+						</div>
+					</div>
+				</div>
+
+
+                <div class="col-lg-4 col-md-6">
+					<div class="causes-item bg-white">
+						<a href="#"><img src="images/communitie.png" alt="Image" class="img-fluid mb-4 rounded"></a>
+						<div class="px-4 pb-3 pt-3">
+							<span class="date">Aug 18, 2023</span>
+							<h3><a href="#">Empowering Communities</a></h3>
+							<p>Many of our learners come to CodeHeroes seeking new career opportunities. Through our coding courses and mentorship programs, we equip them with valuable tech skills that are in high demand.</p>
+							<p><a href="#" class="d-flex align-items-center more2"><span>Read More</span> <span class="icon-chevron-right"></span></a></p>
+							
+						</div>
+					</div>
+				</div>
 
 
 
@@ -617,18 +532,17 @@ $percant= ( $totalsproduct  / $product->total) * 100
 
 <div class="section sec-instagram pb-0">
     <div class="container mb-5">
-        <div class="row align-items-center">
-            <div class="col-lg-3" data-aos="fade-up">
-                <span class="subheading mb-3">Instagram</span>
-                <h2 class="heading">We Are In Instagram</h2>
-            </div>
-            <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus, aperiam sint voluptatum?
-                    Molestiae debitis, ipsum, rem ipsa voluptatum cupiditate quaerat!</p>
-            </div>
-        </div>
-    </div>
+		<div class="row align-items-center">
+			<div class="col-lg-3" data-aos="fade-up">
+				<span class="subheading mb-3">Partnerships</span>
+				<h2 class="heading">Our Partnerships</h2>
+			</div>
+			<div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+				<p>
+					Partnerships fuel our mission at CodeHeroes. Together with like-minded organizations, we're expanding access to tech education and building a brighter future through collaborative efforts. Join us in making a global impact.</p>
+			</div>
+		</div>
+	</div>
 
     <div class="instagram-slider-wrap" data-aos="fade-up" data-aos-delay="200">
         <div class="instagram-slider" id="instagram-slider">
@@ -688,114 +602,4 @@ $percant= ( $totalsproduct  / $product->total) * 100
 
 </div>
 
-<div class="site-footer">
-    <div class="container">
 
-        <div class="row">
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
-                <div class="widget">
-                    <h3>Navigation</h3>
-                    <ul class="list-unstyled float-left links">
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Donate Now</a></li>
-                        <li><a href="#">Causes</a></li>
-                        <li><a href="#">Volunteer</a></li>
-                        <li><a href="#">Terms</a></li>
-                        <li><a href="#">Privacy</a></li>
-                    </ul>
-                </div> <!-- /.widget -->
-            </div> <!-- /.col-lg-3 -->
-
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
-                <div class="widget">
-                    <h3>Popular Causes</h3>
-                    <ul class="list-unstyled float-left links">
-                        <li><a href="#">Food for the Hungry</a></li>
-                        <li><a href="#">Education for Children</a></li>
-                        <li><a href="#">Support for Livelihood</a></li>
-                        <li><a href="#">Medical Mission</a></li>
-                        <li><a href="#">Education</a></li>
-                    </ul>
-                </div> <!-- /.widget -->
-            </div> <!-- /.col-lg-3 -->
-
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
-                <div class="widget">
-                    <h3>Services</h3>
-                    <ul class="list-unstyled float-left links">
-                        <li><a href="#">Causes</a></li>
-                        <li><a href="#">Volunteer</a></li>
-                        <li><a href="#">Terms</a></li>
-                    </ul>
-                </div> <!-- /.widget -->
-            </div> <!-- /.col-lg-3 -->
-
-
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
-                <div class="widget">
-                    <h3>Contact</h3>
-                    <address>43 Raymouth Rd. Baltemoer, London 3910</address>
-                    <ul class="list-unstyled links mb-4">
-                        <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
-                        <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
-                        <li><a href="mailto:info@mydomain.com">info@mydomain.com</a></li>
-                    </ul>
-
-                    <h3>Connect</h3>
-                    <ul class="list-unstyled social">
-                        <li><a href="#"><span class="icon-instagram"></span></a></li>
-                        <li><a href="#"><span class="icon-twitter"></span></a></li>
-                        <li><a href="#"><span class="icon-facebook"></span></a></li>
-                        <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                        <li><a href="#"><span class="icon-pinterest"></span></a></li>
-                        <li><a href="#"><span class="icon-dribbble"></span></a></li>
-                    </ul>
-
-                </div> <!-- /.widget -->
-            </div> <!-- /.col-lg-3 -->
-
-        </div> <!-- /.row -->
-
-
-        <div class="row mt-5">
-            <div class="col-12 text-center">
-                <p class="copyright">Copyright &copy;
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script>. All Rights Reserved. &mdash; Designed with love by <a
-                        href="https://untree.co">Untree.co</a>
-                    <!-- License information: https://untree.co/license/ -->
-                </p>
-            </div>
-        </div>
-    </div> <!-- /.container -->
-</div> <!-- /.site-footer -->
-
-
-
-
-
-
-
-<!-- Preloader -->
-<div id="overlayer"></div>
-<div class="loader">
-    <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-    </div>
-</div>
-
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/tiny-slider.js"></script>
-
-<script src="js/flatpickr.min.js"></script>
-<script src="js/glightbox.min.js"></script>
-
-
-<script src="js/aos.js"></script>
-<script src="js/navbar.js"></script>
-<script src="js/counter.js"></script>
-<script src="js/custom.js"></script>
-</body>
-
-</html>

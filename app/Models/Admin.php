@@ -12,14 +12,17 @@ use Laravel\Sanctum\HasApiTokens;
 class Admin extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+ public $timestamps =false;
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $guard = 'admins';
+    protected $guard = 'admins';   
+
     protected $fillable = [
+        'name',
+        'last_name',
         'email',
         'password',
     ];

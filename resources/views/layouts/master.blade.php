@@ -1,7 +1,7 @@
-@include('layouts.navigation')
+@include('layouts.nav')
 
 
-
+    
     @yield('content')
 
 

@@ -45,3 +45,12 @@
         </div>
     </form>
 </x-guest-layout>
+<div>
+    <a href="{{route('google')}}">login google</a>
+</div>
+<div>
+    <a href="{{route('facebook')}}">login facebook</a>
+</div>
+<div>
+    <a href="{{route('github')}}">login github</a>
+</div>

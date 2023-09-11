@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <section >
+    <section style="text-align: center;">
         <!-- Ensure there's no container with constraints on width around the table -->
         <h2 class="text-xl font-semibold mb-4">Volunteering Programs</h2>
         <table class="table" style="width: 100%">
@@ -18,22 +18,22 @@
               <tr>
                 <th scope="col">Program Name</th>
                 <th scope="col">Location</th>
-                <th scope="col">Date</th>
-                <th scope="col">Period</th>
+                <th scope="col">Experiance</th>
+                <th scope="col">CV file</th>
                 
               </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($user->volunteeringPrograms as $program)
+             {{-- @foreach ($volunteers as $program)
                 <tr>
-                    <td>{{ $program->name }}</td>
-                    <td>{{ $program->location }}</td>
-                    <td>{{ $program->date }}</td>
-                    <td>{{ $program->period }}</td>
+                    <td>{{ $program->Languages }}</td>
+                    <td>{{ $program->Address }}</td>
+                    <td>{{ $program->Experiance }}</td>
+                    <td>{{ $program->CV }}</td>
             
                 </tr>
-            @endforeach --}}
-         
+            @endforeach 
+          --}}
             </tbody>
           </table>
     </section>
