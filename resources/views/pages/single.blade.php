@@ -216,6 +216,8 @@
                                 
                             </div>
                        </x-modal> <br><br>
+
+                       
                     <form action="paypal" method="POST" class="bg-white p-5 rounded donation-form" data-aos="fade-up">
                         @csrf
                         <h3 >Quick Donation Form</h3>
@@ -254,7 +256,26 @@
                                 {{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
                             </div>
     
+                            @if(!Auth::check())
+                                
+<x-primary-button
+        x-data=""
+        x-on:click.prevent="$dispatch('open-modal', 'change-password')"
+    >{{ __('donite') }}</x-primary-button>
+
+    <x-modal name="change-password" :show="$errors->changePassword->isNotEmpty()" focusable>
+<p >You Must Login </p>
+    </x-modal>
+                            @endif
+                            @if(Auth::check())
                             <input type="submit" value="Paypal" class="btn btn-secondary w-100" style="color: white ; background-color :#e99816">
+                                
+  @endif
+
+
+
+
+
                         </form>
 
 
@@ -266,6 +287,7 @@
                                 font-size: 18px;">Or donate by Visa</h3> <br>
                             
                                                      <input type="text" placeholder="0.00" class="form-control px-4" name="price">
+                                                     
                                                      <input type="submit" value="visa" class="btn btn-secondary w-100" style="color: white ; background-color :#e99816" >
                                                 </form>
     
