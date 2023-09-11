@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('name');
            $table->string('LastName')->nullable();
 
-            $table->string('email')->unique();
+            $table->string('email')->nullable();;
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password'); // Use a string data type for passwords
             $table->bigInteger('phone')->nullable(); // Phone can be nullable

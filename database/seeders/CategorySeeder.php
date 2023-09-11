@@ -15,6 +15,7 @@ class CategorySeeder extends Seeder
 
         // Insert new data
         DB::table('categories')->insert([
+            [
             'name' => 'kind',
             'image' => 'uplods/hero_1.jpg',
             'description' => 'Donate to a learning center or educational goods.',
@@ -29,7 +30,7 @@ class CategorySeeder extends Seeder
                 'image' => 'uplods/hero_3.jpg',
                 'description' => 'Donate to a learning center or educational goods.',
             ]
-    );
+    ]);
 
 
      DB::table('categories')->insert(
