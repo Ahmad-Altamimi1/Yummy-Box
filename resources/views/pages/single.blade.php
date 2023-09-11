@@ -191,6 +191,7 @@
                             <input type="submit" value="Paypal" class="btn btn-secondary w-100" style="color: white ; background-color :#e99816">
                         </form>
 
+                        
                         <form action="stripe" class="bg-white  rounded donation-form" method="post" style="padding: 0px 50px">
                             @csrf
                                                     <h3 for="" style="background: white; margin:0;    font-weight: bold;
