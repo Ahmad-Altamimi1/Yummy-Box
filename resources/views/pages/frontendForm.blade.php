@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Code Languages Training Volunteer Form</title>
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <style>
         body {
     font-family: Arial, sans-serif;
@@ -42,8 +35,7 @@ h1 {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
     </style>
-</head>
-<body>
+  <x-modal name="Join Us as a Trainer 1" :show="$errors->changePassword->isNotEmpty()" focusable>
     <div class="container mt-5">
         <h1>Frontend Training Volunteer Form</h1>
         <form action="{{ route('frontvolunteers.store') }}" method="post" enctype="multipart/form-data">
@@ -122,8 +114,4 @@ h1 {
         
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+</x-modal> 
