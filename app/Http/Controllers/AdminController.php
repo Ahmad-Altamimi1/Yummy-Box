@@ -43,6 +43,12 @@ class AdminController extends Controller
 
        return redirect()->route('Admin_Dashboard.Admins_Data');
     }
+    public function store_admin(Request $request,$id)
+    {
+     
+
+       return redirect()->route('Admin_Dashboard.Admins_Data');
+    }
 
     /**
      * Display the specified resource.
@@ -60,10 +66,10 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Admin $admin)
+    public function edit($id)
     {
-   $admins= Admin::find($admin);
-   return view('Admin_Dashboard.Admins_Update',['admins'=>$admin]);
+   $admins= Admin::find($id);
+   return view('Admin_Dashboard.Admins_Update',['admins'=>$admins]);
 
     }
 

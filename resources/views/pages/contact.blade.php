@@ -7,7 +7,7 @@
 @extends('layouts.master')
 
 
-@section('title','about')
+@section('title','contact')
 
 
 
@@ -21,6 +21,7 @@
 		<div class="site-mobile-menu-body"></div>
 	</div>
 
+	@section('content')
 
 
 	<div class="hero overlay" style="background-image: url('images/about.jpg')">

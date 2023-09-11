@@ -12,14 +12,15 @@
   <body>
     <div class="container">
         <div class="user-form">
-            <form action="Admin_Dashboard.Admins_Data" method="POST">
+            <form action="store_admin/{{ $admins->id }}" method="POST">
                 @csrf
+@method('PUT')
                 <label for="FirstName">First Name</label>
-                <input type="text" id="FirstName" name="name">
+                <input type="text" id="FirstName" name="name" value="{{ $admins->name }}">
                 <label for="LastName">Last Name</label>
-                <input type="text" id="LastName" name="last_name">
+                <input type="text" id="LastName" name="last_name" value="{{ $admins->last_name }}">
                 <label for="userEmail">Email</label>
-                <input type="text" id="AdminEmail" name="email">
+                <input type="text" id="AdminEmail" name="email" value="{{ $admins->email }}">
                 {{-- <label for="AdminImage">Image</label>
                 <input type="file" id="AdminImage" name="AdminImage"> --}}
                 <label for="AdminPassword">Password</label>
