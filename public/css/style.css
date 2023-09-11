@@ -12849,10 +12849,11 @@ body {
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 21px;
   color: #fff;
   font-weight: 700;
   text-decoration: none !important;
+  width: 100% !important;
 }
 
 
@@ -12981,7 +12982,7 @@ body {
   -webkit-transition: 0s all;
   -o-transition: 0s all;
   transition: 0s all;
-  color: rgba(255, 255, 255, 0.5);
+  color: #fff;
   text-align: center;
   text-decoration: none;
 }
@@ -12991,7 +12992,7 @@ body {
 border:none;
 background: none;
 width: 100%;
-color: rgba(255, 255, 255, 0.5);
+color: #fff;
 text-align: center;
 margin-top: 10px;
 font-size: 17px;
