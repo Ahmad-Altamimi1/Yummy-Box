@@ -13,20 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('volunteers');
-    
-        Schema::create('volunteers', function (Blueprint $table) {
+        Schema::create('donors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned()->default(1);
-            $table->string('Address');
-            $table->string('Languages');
-            $table->string('day');
-            $table->string('Experience');
-            $table->binary('CV');
+            $table->string('address');
+            $table->string('service');
+            $table->string('message');
             $table->timestamps();
-    
-            // Define the foreign key constraint
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -37,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('volunteers');
+        Schema::dropIfExists('donors');
     }
 };
