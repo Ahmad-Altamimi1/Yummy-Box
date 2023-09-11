@@ -22,7 +22,7 @@ class CategorySeeder extends Seeder
             'name' => 'Admin',
                 'last_name' => 'admin',
                 'email' => 'admin@admin.com',
-                'password' => 'adminadmin123456',
+                'password' =>Hash::make('adminadmin123456') ,
 
 
             ],

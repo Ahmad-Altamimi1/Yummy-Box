@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 // use App\Models\Stripe;
 // use App\Http\Requests\StoreStripeRequest;
 // use App\Http\Requests\UpdateStripeRequest;
@@ -20,6 +22,7 @@ class StripeController extends Controller
      */
     public function payment(Request $request)
     {
+        if (Auth::check()) {
 
         // Set your secret key. Remember to switch to your live secret key in production.
         // See your keys here: https://dashboard.stripe.com/apikeys
@@ -51,7 +54,10 @@ class StripeController extends Controller
             'cancel_url' => route('stripe_cancel'),
         ]);
         return redirect()->away($response->url);
-    }
+    } else {
+     return 'hi';
+       }
+}
     public function success()
     {
         
