@@ -135,7 +135,7 @@
 					<div class="feature bg-color-3">
 						<img src="images/person_3.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
 
-						<h3 class="mb-0">Amy Perez</h3>
+						<h3 class="mb-0">Sajeda</h3>
 						<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
 						<p class="text-black-50">"Passionate about making tech accessible to all."</p>
 
@@ -149,7 +149,7 @@
 					<div class="feature bg-color-4">
 						<img src="images/person_4.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
 
-						<h3 class="mb-0">Brian Nance</h3>
+						<h3 class="mb-0">Ahmad Al-Khatatatbeh</h3>
 						<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
 						<p class="text-black-50">"Inspiring the next generation of coders."</p>
 
@@ -161,9 +161,9 @@
 				<div class="item">
 
 					<div class="feature bg-color-5">
-						<img src="images/person_2.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+						<img src="images/person_4.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
 
-						<h3 class="mb-0">Stephanie Kenney</h3>
+						<h3 class="mb-0">Ahmad Al-Tamimi</h3>
 						<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
 						<p class="text-black-50">"Bringing diversity and expertise to tech education."</p>
 

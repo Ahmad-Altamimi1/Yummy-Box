@@ -170,7 +170,7 @@
                                     <div class="form-group">
                                         <label for="programmingLanguages">Proficient Frontend Programming Languages</label>
                                         <select class="form-control" id="programmingLanguages" name="Languages" >
-                                            <option value="Choose Language">Choose Language</option>
+                                            <option value="Choose Language">Choose Class</option>
                                             <option value="FrontEnd">FrontEnd</option>
                                             <option value="BackEnd">BackEnd</option>
                                             <option value="javascript">UX/UI</option>
