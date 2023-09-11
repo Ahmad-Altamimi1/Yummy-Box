@@ -17,9 +17,10 @@ return new class extends Migration
     
         Schema::create('volunteers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned()->default(1);
             $table->string('Address');
             $table->string('Languages');
+            $table->string('day');
             $table->string('Experience');
             $table->binary('CV');
             $table->timestamps();

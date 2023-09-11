@@ -1,22 +1,42 @@
-<!-- /*
-* Template Name: Volunteer
-* Template Author: Untree.co
-* Tempalte URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
+
 @extends('layouts.master')
 
 
-@section('title','Home')
+@section('title','about')
 
 
 
 
-
+<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
 
 
 
 @section('content')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	
 <div class="hero overlay" style="background-image: url('images/about.jpg')">
@@ -51,17 +71,6 @@
 	</div>
 </div>
 
-	
-	<div class="section sec-features bg-light">
-		<div class="container">
-			<div class="row mb-5">
-				<div class="col-lg-4" data-aos="fade-up">
-					<span class="subheading mb-3">The Team</span>
-					<h2 class="heading">Who We Are</h2>
-				</div>
-			
-			</div>
-		</div>
 
 <div class="section sec-features bg-light">
 	<div class="container">
@@ -278,4 +287,4 @@
 
 </div>
 
-	@endsection	
+@endsection

@@ -8,43 +8,30 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 class CategorySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    
     public function run()
     {
         DB::table('categories')->truncate();
 
         // Insert new data
         DB::table('categories')->insert([
-            'name' => 'kind',
-            'image' => 'uplods/hero_1.jpg',
-            'description' => 'Donate to a learning center or educational goods.',
+            [
+            'name' => 'Financial Donation',
+            'image' => 'https://im.indiatimes.in/content/2023/Jan/donations-2022_63b3f2892a52b.jpg',
+            'description' => 'Your financial donation can be a catalyst for learning coding.',
         ],
             [
-                'name' => 'kind',
-                'image' => 'uplods/hero_2.jpg',
-                'description' => 'Donate to a learning center or educational goods.',
+                'name' => 'Halls and Devices',
+                'image' => 'https://www.sbgroupgh.com/productimg/cEKqndou9M26Qkg.jpg',
+                'description' => 'Donation halls and devices facilitate generosity and hold the potential to empower individuals to learn coding.',
             ],
             [
-                'name' => 'kind',
-                'image' => 'uplods/hero_3.jpg',
-                'description' => 'Donate to a learning center or educational goods.',
+                'name' => 'Volunteer',
+                'image' => 'https://letsvolunteerla.org/wp-content/uploads/2022/06/P5il-f0Ns.jpeg',
+                'description' => 'Consider volunteering to become a code trainer. Your expertise can inspire and equip others with valuable coding skills.',
             ]
-    );
+    ]);
 
-
-     DB::table('categories')->insert(
-        
-            [
-                'name' => 'kind',
-                'image' => 'uplods/hero_2.jpg',
-                'description' => 'Donate to a learning center or educational goods.',
-            ]);
-
-            Category::factory()->count(10)->create();
     }
 
     }

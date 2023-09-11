@@ -19,7 +19,13 @@ class products extends Model
         'period',
         'time',
         'image',
+        
     ];
     public $timestamps =false;
 
+    public function pay()
+    {
+        return $this->belongsToMany(paypal::class);
+
+    }
 }

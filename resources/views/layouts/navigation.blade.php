@@ -1,148 +1,105 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-    <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
-                </div>
+<!doctype html>
+<html lang="en">
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
-            </div>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Untree.co">
+    <link rel="shortcut icon" href="favicon.png">
 
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button
-                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+    <meta name="description" content="Volunteer work in training and education " />
+    <meta name="keywords" content="Volunteer training  education" />
 
-                            @if (Auth::check())
-                                <a href="#">
-                                    <div>{{ Auth::user()->name }}</div>
-                                    <ul class="dropdown">
-                                        <li><a href="{{ route('profile.edit') }}"> {{ __('Profile') }}</a></li>
-                                        <li>
-                                            <!-- Authentication -->
-                                            <form method="POST" action="{{ route('logout') }}">
-                                                @csrf
-                                                <button type="submit">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
 
-                                                    {{ __('Log Out') }}</button>
-                                            </form>
-                                        </li>
+    <script src="https://kit.fontawesome.com/659ed253a5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
-                                    </ul>
-                                </a>
-                                
-                            @else
-                                <li><a href="{{ route('login') }}">Login</a></li>
-                                <li><a href="{{ route('register') }}">Register</a></li>
-                            @endif
+    <link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="{{ asset('css/flatpickr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/glightbox.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <title>Volunteer </title>
+
+</head>
 
 
-                            <div class="ml-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
-                    <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
+<body>
 
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
-                    </x-slot>
-
-
-                </x-dropdown>
-            </div>
-
-            <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
             </div>
         </div>
+        <div class="site-mobile-menu-body"></div>
     </div>
 
-    <!-- Responsive Navigation Menu -->
-    <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-        </div>
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-
-                @if (Auth::check())
-                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-                @else
-                @endif
 
 
+    <nav class="site-nav">
+        <div class="container">
+            <div class="menu-bg-wrap">
+                <div class="site-navigation">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                            <a href="#" id="logo" class="logo m-0 float-start text-white">Tech-Volunteer</a>
+                        </div>
+                        <div class="col-8 text-center">
+
+                            <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
+                                <li class="{{ request()->is('home*') ? 'active' : '' }}"><a
+                                        href="{{ route('home') }}">Home</a></li>
+                               
+                                <li class="{{ request()->is('about*') ? 'active' : '' }}"><a href="about">About</a>
+                                </li>
+                                <li class="{{ request()->is('news*') ? 'active' : '' }}"><a
+                                        href="{{ route('news') }}">News</a></li>
+                                <li class="{{ request()->is('contact*') ? 'active' : '' }}"><a
+                                        href="{{ route('contact') }}">Contact</a></li>
+                                <li class="has-children">
+                                    @if (Auth::check())
+                                        <a href="#">
+                                            <div>{{ Auth::user()->name }}</div>
+                                            <ul class="dropdown">
+                                                <li><a href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
+                                                <li>
+                                                    <!-- Authentication -->
+                                                    <form method="POST" action="{{ route('logout') }}">
+                                                        @csrf
+                                                        <button type="submit">{{ __('Log Out') }}</button>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </a>
+                                    @else
+                                <li class="{{ request()->is('login*') ? 'active' : '' }}"><a
+                                        href="{{ route('login') }}">Login</a></li>
+                                <li class="{{ request()->is('register*') ? 'active' : '' }}"><a
+                                        href="{{ route('register') }}">Register</a></li>
+                                @endif
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="col-2 text-end">
+                            <a href="#"
+                                class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
+                                <span></span>
+                            </a>
 
 
+                        </div>
+                    </div>
 
-
-
+                </div>
             </div>
-
-            @if (Auth::check())
-                <a href="#">
-                    <div>{{ Auth::user()->name }}</div>
-                    <ul class="dropdown">
-                        <li><a href="{{ route('profile.edit') }}"> {{ __('Profile') }}</a></li>
-                        <li>
-                            <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit">
-
-                                    {{ __('Log Out') }}</button>
-                            </form>
-                        </li>
-
-                    </ul>
-                </a>
-            @else
-                <li><a href="{{ route('login') }}">Login</a></li>
-                <li><a href="{{ route('register') }}">Register</a></li>
-            @endif
         </div>
-    </div>
-</nav>
+    </nav>

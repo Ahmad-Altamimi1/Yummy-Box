@@ -45,33 +45,30 @@ h1 {
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Code Languages Training Volunteer Form</h1>
+        <h1>Backend Training Volunteer Form</h1>
         <form action="{{ route('volunteers.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('post')
-            <!-- <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="firstName">First Name</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="form-group col-md-6">
+                <div>
+                    <label for="firstName">Name : </label>
+                    <label for="firstName">{{Auth::user()->name}}</label>
+                </div>   
+                
+                <div>
+                    <label for="email">Email : </label>
+                    <label for="email">{{Auth::user()->email}}</label>
+                </div>   
+               
+            
+            
+                
+                <div>
                     <label for="phoneNumber">Phone Number</label>
-                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
-                </div>
-            </div> -->
+                    <label for="phoneNumber">{{Auth::user()->phone}}</label>
+                </div> 
 
             <div class="form-group">                
-                <input  type="text" class="form-control" id="address" value="1" name="user_id" required>
+                <input  type="hidden" class="form-control" id="user_id"  name="user_id" required>
 
                 <label for="address">Address</label>
                 <input type="text" class="form-control" id="address" name="Address" required>
@@ -79,14 +76,31 @@ h1 {
 
             </div>
             <div class="form-group">
-                <label for="programmingLanguages">Proficient Programming Languages</label>
+                <label for="programmingLanguages">Proficient Backend Programming Languages</label>
                 <select class="form-control" id="programmingLanguages" name="Languages" >
-                    <option value="javascript">Choose Language</option>
-                    <option value="javascript">JavaScript</option>
-                    <option value="python">Python</option>
+                    <option value="Choose Language">Choose Language</option>
                     <option value="java">Java</option>
+                    <option value="python">Python</option>
+                    <option value="Ruby">Ruby</option>
                     <option value="csharp">C#</option>
                     <option value="php">PHP</option>
+                    <option value="Node.js">Node.js</option>
+                    <option value="Go">Go</option>
+                    <option value="Rust">Rust</option>
+                    <option value="Kotlin">Kotlin</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="day">I would like to help weekly</label>
+                <select class="form-control" id="day" name="day" >
+                    <option value="Choose Day">Choose Day</option>
+                    <option value="saturday">Saturday</option>
+                    <option value="sunday">Sunday</option>
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    
                 </select>
             </div>
             <div class="form-group">
@@ -97,8 +111,19 @@ h1 {
                 <label for="cv">CV</label>
                 <input type="file" class="form-control-file" id="cv" name="CV" required>
             </div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+            <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+            </div>
+        @endif
+
             <button type="submit" class="btn btn-primary" value="submit">Submit</button>
         </form>
+        
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
