@@ -7,6 +7,9 @@ use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DonorController;
+use App\Http\Controllers\FrontvolunteerController;
+use App\Http\Controllers\UvolunteerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PaypalController;
@@ -234,7 +237,7 @@ Route::get('auth/github/callback', [SocialController::class, 'handleGithubCallba
 
 
 
-Route::view('donation','pages.donationForm');
+// Route::view('donation','pages.donationForm');
 
 
 Route::get('/form', function () {

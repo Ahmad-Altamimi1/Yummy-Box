@@ -13,9 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('volunteers');
-    
-        Schema::create('volunteers', function (Blueprint $table) {
+        Schema::create('frontvolunteers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned()->default(1);
             $table->string('Address');
@@ -37,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('volunteers');
+        Schema::dropIfExists('frontvolunteers');
     }
 };

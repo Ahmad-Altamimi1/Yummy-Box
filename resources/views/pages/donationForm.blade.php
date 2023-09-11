@@ -46,39 +46,48 @@ h1 {
 <body>
     <div class="container mt-5">
         <h1>Donation Form</h1>
-        <form action="#" method="post" enctype="multipart/form-data">
+        <form action="{{ route('donors.store') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="firstName">First Name</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="form-group col-md-6">
+            <div >
+            <div>
+                    <label for="firstName">Name : </label>
+                    <label for="firstName">{{Auth::user()->name}}</label>
+                </div>   
+                
+                <div>
+                    <label for="email">Email : </label>
+                    <label for="email">{{Auth::user()->email}}</label>
+                </div>   
+               
+            
+            
+                
+                <div>
                     <label for="phoneNumber">Phone Number</label>
-                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                    <label for="phoneNumber">{{Auth::user()->phone}}</label>
                 </div>
+                <div class="form-group col-md-6">                
+                    <input  type="hidden" class="form-control" id="user_id"  name="user_id" required>
+
+                    <label for="service">Service</label>
+                    <input type="text" class="form-control" id="service" name="service">
+                
+
+
+            </div>
                 <div class="form-group col-md-6">
-                    <label for="phoneNumber">Donation amount</label>
-                    <input type="number" class="form-control" id="donation" name="donation" placeholder="JOD 0.0">
+                 <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" name="address" required>   
                 </div>
             </div>
             <div class="form-group">
-                <label for="experience">Leave us a message</label>
-                <textarea class="form-control" id="experience" name="experience" rows="3" required></textarea>
+                <label for="message">Leave us a message</label>
+                <textarea class="form-control" id="message" name="message" rows="3"></textarea>
             </div>
             
             <button type="submit" class="btn btn-primary" value="submit">Submit</button>
         </form>
+        
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
