@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-class Volunteer extends Model
+class Frontvolunteer extends Model
 {
     use HasFactory;
-    protected $table = 'volunteers';
+    protected $table = 'frontvolunteers';
     protected $fillable = ['Address', 'Languages' , 'day' , 'Experience' , 'CV'];
 }

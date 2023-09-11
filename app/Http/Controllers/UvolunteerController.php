@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Volunteer;
-use App\Http\Requests\StoreVolunteerRequest;
-use App\Http\Requests\UpdateVolunteerRequest;
+use App\Models\Uvolunteer;
+use App\Http\Requests\StoreUvolunteerRequest;
+use App\Http\Requests\UpdateUvolunteerRequest;
 
-class VolunteerController extends Controller
+class UvolunteerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class VolunteerController extends Controller
      */
     public function index()
     {
-        // $volunteers = Volunteer::all();
-        // return view('pages.trainingForm')->with('Volunteers',$volunteers);
+        //
     }
 
     /**
@@ -32,43 +31,33 @@ class VolunteerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreVolunteerRequest  $request
+     * @param  \App\Http\Requests\StoreUvolunteerRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreVolunteerRequest $request)
+    public function store(StoreUvolunteerRequest $request)
     {
         $request->validate([
             'CV' => 'required|mimes:pdf,docx',
         ]);
-       Volunteer::create([
+        Uvolunteer::create([
 
         'Address'=>$request->Address,
-        'Languages'=>$request->Languages,
         'day'=>$request->day,
         'Experience'=>$request->Experience,
         'CV'=>$request->CV,
        
        ]);
        return redirect('home');
+
     }
-
-    
-    public function upload(Volunteer $request)
-{
-    $request->validate([
-        'file' => 'required|mimes:pdf,docx',
-    ]);
-
-    // Handle file upload logic here
-}
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Volunteer  $volunteer
+     * @param  \App\Models\Uvolunteer  $uvolunteer
      * @return \Illuminate\Http\Response
      */
-    public function show(Volunteer $volunteer)
+    public function show(Uvolunteer $uvolunteer)
     {
         //
     }
@@ -76,10 +65,10 @@ class VolunteerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Volunteer  $volunteer
+     * @param  \App\Models\Uvolunteer  $uvolunteer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Volunteer $volunteer)
+    public function edit(Uvolunteer $uvolunteer)
     {
         //
     }
@@ -87,11 +76,11 @@ class VolunteerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateVolunteerRequest  $request
-     * @param  \App\Models\Volunteer  $volunteer
+     * @param  \App\Http\Requests\UpdateUvolunteerRequest  $request
+     * @param  \App\Models\Uvolunteer  $uvolunteer
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateVolunteerRequest $request, Volunteer $volunteer)
+    public function update(UpdateUvolunteerRequest $request, Uvolunteer $uvolunteer)
     {
         //
     }
@@ -99,10 +88,10 @@ class VolunteerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Volunteer  $volunteer
+     * @param  \App\Models\Uvolunteer  $uvolunteer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Volunteer $volunteer)
+    public function destroy(Uvolunteer $uvolunteer)
     {
         //
     }
