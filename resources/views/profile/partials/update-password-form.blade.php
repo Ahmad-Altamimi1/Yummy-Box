@@ -14,7 +14,7 @@
         <!-- Ensure there's no container with constraints on width around the table -->
         <h2 class="text-xl font-semibold mb-4">Volunteering Programs</h2>
         <table class="table" style="width: 100%">
-            <thead style="background-color: rgb(166, 234, 166)">
+            <thead style="background-color: rgb(179, 236, 164) ;">
               <tr>
                 <th scope="col">Program Name</th>
                 <th scope="col">Location</th>

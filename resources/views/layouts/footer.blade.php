@@ -61,7 +61,7 @@
         </div> <!-- /.row -->
 
 
-        <div class="row mt-5">
+        <div class="row mt-2">
             <div class="col-12 text-center">
                 <p class="copyright">Copyright &copy;
                     <script>

@@ -90,7 +90,7 @@
                      <h3 class="single-product-left-first-h4">Prosses </h3>
     
                      <p>
-                        <ul style="list-style-color: green;">
+                        <ul style="list-style-color: green;list-style-type: disc">
                             <li>Apply Online: Fill out our quick online application form, indicating your interest in mentoring for the Front-End Foundations project.</li>
                             <li>Resume Submission: Upload your CV or resume to showcase your skills and experience in web development.</li>
                             <li>Interview and Orientation: After reviewing your application, we'll schedule a brief interview to discuss your availability and expectations. Attend an orientation to get acquainted with our platform and guidelines.</li>
@@ -261,7 +261,7 @@
                                 text-transform: uppercase;
                                 font-size: 18px;">Or donate by Visa</h3> <br>
                             
-                                                     <input type="text" placeholder="0.00" class="form-control px-4" name="price">
+                                                     <input type="text" placeholder="0.00" class="form-control px-4" name="price" required>
                                                      <input type="submit" value="visa" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75" >
                                                 </form>
     
