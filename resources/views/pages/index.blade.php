@@ -117,7 +117,7 @@
                     <h2>Our Vision</h2>
                     <p class="mb-4 lead">Our vision is to create a world where technology education knows no boundaries.
                          We aspire to be a beacon of empowerment, where volunteers ignite the passion for coding</p>
-                    <p><a href="#" class="link-underline">Learn More</a></p>
+                    <p><a href="{{route('about')}}" class="link-underline">Learn More</a></p>
                 </div>
             </div>
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
@@ -125,7 +125,7 @@
                     <h2>Our Mission</h2>
                     <p class="mb-4 lead">At Tech-Volunteer, our mission is to democratize technology education.
                          We are dedicated to fostering a thriving community of volunteers who share their expertise.</p>
-                    <p><a href="#" class="link-underline">Learn More</a></p>
+                    <p><a href="{{route('about')}}" class="link-underline">Learn More</a></p>
                 </div>
             </div>
         </div>
@@ -230,8 +230,8 @@
                              knowledge-sharing and generosity. Together, we strive to make a lasting impact in the tech
                               world and beyond.</p>
                         <p class="mt-5">
-                            <a href="#donite" class="btn btn-primary me-4">Donate Now</a>
-                            <a href="#" class="link-more">Learn More <span
+                            <a href="#services" class="btn btn-primary me-4">Donate Now</a>
+                            <a href="{{route('about')}}" class="link-more">Learn More <span
                                     class="icon-chevron-right"></span></a>
                         </p>
                     </div>
@@ -246,8 +246,8 @@
                             is built on trust, mutual support, and the idea that by uniting as one, we can make a 
                             significant positive impact in the world.</p>
                         <p class="mt-5">
-                            <a href="#" class="btn btn-primary me-4">Be A Volunteer</a>
-                            <a href="#" class="link-more">Learn More <span
+                            <a href="#services" class="btn btn-primary me-4">Be A Volunteer</a>
+                            <a href="{{route('about')}}" class="link-more">Learn More <span
                                     class="icon-chevron-right"></span></a>
                         </p>
                     </div>
@@ -264,8 +264,8 @@
                             Our history is a testament to the belief that when passion and generosity combine, remarkable
                              things happen. Join us as we continue to shape a brighter future for all.</p>
                         <p class="mt-5">
-                            <a href="#" class="btn btn-primary me-4">Be a Sponsor</a>
-                            <a href="#" class="link-more">Learn More <span
+                            <a href="#services" class="btn btn-primary me-4">Be a Sponsor</a>
+                            <a href="{{route('about')}}" class="link-more">Learn More <span
                                     class="icon-chevron-right"></span></a>
                         </p>
                     </div>
@@ -285,7 +285,7 @@
 </div>
 
 
-<div class="section cause-section bg-light">
+<div class="section cause-section bg-light" id="services">
 
     <div class="container">
         <div class="row justify-content-center mb-5">
@@ -305,7 +305,7 @@
     </div>
 
 
-		<div class="container mb-5">
+		<div class="container mb-5" >
 			<div class="features-slider-wrap position-relative" data-aos="fade-up" data-aos-delay="200">
 				<div class="features-slider" id="features-slider">
 @foreach ($products as $product )
@@ -347,7 +347,7 @@ $percant= ( $totalsproduct  / $product->total) * 100
 									<div>${{ $product->total }}</div>
 								</div>
 								<div>
-									<a href="single/{{ $product->id}}" class="btn btn-primary">Donate Now</a>
+									<a href="single/{{ $product->id}}" class="btn btn-primary">Volunteer Now</a>
 								</div>
 							</div>
 						</div>
@@ -461,27 +461,27 @@ $percant= ( $totalsproduct  / $product->total) * 100
             
 				<div class="col-lg-4 col-md-6">
 					<div class="causes-item bg-white">
-						<a href="#"><img src="images/tech.jpg" alt="Image" class="img-fluid mb-4 rounded"></a>
+						<a href="{{route('news')}}"><img src="images/tech.jpg" alt="Image" class="img-fluid mb-4 rounded"></a>
 						<div class="px-4 pb-3 pt-3">
 							<span class="date">Sep 3, 2023</span>
 
 							<h3><a href="#">Upcoming Webinar: "Unlocking the World of AI"</a></h3>
 							<p> We're dedicated to providing valuable learning opportunities to our community, and we're excited to announce our upcoming webinar.</p>
 
-							<p><a href="#" class="d-flex align-items-center more2"><span>Read More</span> <span class="icon-chevron-right"></span></a></p>
+							<p><a href="{{route('news')}}" class="d-flex align-items-center more2"><span>Read More</span> <span class="icon-chevron-right"></span></a></p>
 						</div>
 					</div>
 				</div>
 
             <div class="col-lg-4 col-md-6">
 					<div class="causes-item bg-white">
-						<a href="#"><img src="images/kids.jpg" alt="Image" class="img-fluid mb-4 rounded"></a>
+						<a href="{{route('news')}}"><img src="images/kids.jpg" alt="Image" class="img-fluid mb-4 rounded"></a>
 						<div class="px-4 pb-3 pt-3">
 							<span class="date">jul 29, 2023</span>
 							<h3><a href="#">Making Learning Fun: Creative Ways to Teach Kids Coding</a></h3>
 							<p>In today's digital age, coding has become a crucial skill for children to learn. But teaching kids to code doesn't have to be dull and intimidating.</p>
 
-							<p><a href="#" class="d-flex align-items-center more2"><span>Read More</span> <span class="icon-chevron-right"></span></a></p>
+							<p><a href="{{route('news')}}" class="d-flex align-items-center more2"><span>Read More</span> <span class="icon-chevron-right"></span></a></p>
 						</div>
 					</div>
 				</div>
@@ -489,12 +489,12 @@ $percant= ( $totalsproduct  / $product->total) * 100
 
                 <div class="col-lg-4 col-md-6">
 					<div class="causes-item bg-white">
-						<a href="#"><img src="images/communitie.png" alt="Image" class="img-fluid mb-4 rounded"></a>
+						<a href="{{route('news')}}"><img src="images/communitie.png" alt="Image" class="img-fluid mb-4 rounded"></a>
 						<div class="px-4 pb-3 pt-3">
 							<span class="date">Aug 18, 2023</span>
 							<h3><a href="#">Empowering Communities</a></h3>
 							<p>Many of our learners come to CodeHeroes seeking new career opportunities. Through our coding courses and mentorship programs, we equip them with valuable tech skills that are in high demand.</p>
-							<p><a href="#" class="d-flex align-items-center more2"><span>Read More</span> <span class="icon-chevron-right"></span></a></p>
+							<p><a href="{{route('news')}}" class="d-flex align-items-center more2"><span>Read More</span> <span class="icon-chevron-right"></span></a></p>
 							
 						</div>
 					</div>
