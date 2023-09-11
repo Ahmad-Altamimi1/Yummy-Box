@@ -119,6 +119,10 @@ Route::middleware('auth')->group(function () {
 Route::post('paypal', [PaypalController::class, 'payment'])->name('paypal'); // Use 'store' method for POST
 Route::get('paypal/success', [PaypalController::class, 'success'])->name('success'); // Use 'success' method for GET
 Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
+// Define the PayPal routes with the appropriate methods
+Route::post('single/paypal', [PaypalController::class, 'payment'])->name('paypal'); // Use 'store' method for POST
+Route::get('single/paypal/success', [PaypalController::class, 'success'])->name('success'); // Use 'success' method for GET
+Route::get('single/paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
 
 
 
@@ -126,6 +130,10 @@ Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_c
 Route::post('stripe', [StripeController::class, 'payment'])->name('stripe'); // Use 'store' method for POST
 Route::get('stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
 Route::get('stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
+// Define the Stripe routes with the appropriate methods
+Route::post('single/stripe', [StripeController::class, 'payment'])->name('stripe'); // Use 'store' method for POST
+Route::get('single/stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
+Route::get('single/stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
 
 
     
