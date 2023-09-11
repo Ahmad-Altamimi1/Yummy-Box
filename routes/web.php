@@ -33,15 +33,15 @@ use App\Http\Controllers\SocialController;
 */
 
 
-Route::get('/about', function () {
-    return view('pages.about');
-});
+// Route::get('/about', function () {
+//     return view('pages.about');
+// });
 use App\Http\Controllers\StripeController;
 
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
    
 });
 Route::get('/rer', function () {
