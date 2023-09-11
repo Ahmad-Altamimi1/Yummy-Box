@@ -161,8 +161,7 @@
                                 <h1>Frontend Training Volunteer Form</h1>
                                 <form action="{{ route('frontvolunteers.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
-                                    @method('post')
-                                     <div class="form-group">                
+                                    @method('post')                                     <div class="form-group">                
                                         <input  type="hidden" class="form-control" id="user_id"  name="user_id" required>
                         
                                         <label for="address">Address</label>
