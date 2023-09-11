@@ -88,7 +88,7 @@
 		<div class="features-slider-wrap" data-aos="fade-up" data-aos-delay="100">
 			<div class="features-slider" id="features-slider">
 
-				<div class="item">
+				<div class="item" >
 
 					<div class="feature bg-color-1">
 						<img src="images/team/Sereen.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
@@ -119,9 +119,9 @@
 				<div class="item">
 
 					<div class="feature bg-color-2">
-						<img src="images/person_2.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+						<img src="images/team/Malek.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
 
-						<h3 class="mb-0">Hannah White</h3>
+						<h3 class="mb-0">Malek Sawalha</h3>
 						<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
 						<p class="text-black-50"> "Driving innovation through education."</p>
 
