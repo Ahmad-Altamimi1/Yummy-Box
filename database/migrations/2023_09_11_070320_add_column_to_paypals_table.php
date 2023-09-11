@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('paypals', function (Blueprint $table) {
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->unsignedBigInteger('product_id');
+
+            // $table->foreign('product_id')->references('id')->on('products')->onDelete('CASCADE');
             
         });
     }
