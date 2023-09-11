@@ -1,13 +1,8 @@
-<!-- /*
-* Template Name: Volunteer
-* Template Author: Untree.co
-* Tempalte URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
+
 @extends('layouts.master')
 
 
-@section('title','Home')
+@section('title','about')
 
 
 
@@ -267,4 +262,4 @@
 
 </div>
 
-	@endsection	
+@endsection
