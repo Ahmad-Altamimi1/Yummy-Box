@@ -168,9 +168,9 @@
                         
                                     </div>
                                     <div class="form-group">
-                                        <label for="programmingLanguages">Proficient Frontend Programming Languages</label>
+                                        <label for="programmingLanguages">Proficient Programming Classes</label>
                                         <select class="form-control" id="programmingLanguages" name="Languages" >
-                                            <option value="Choose Language">Choose Language</option>
+                                            <option value="Choose Language">Choose Class</option>
                                             <option value="FrontEnd">FrontEnd</option>
                                             <option value="BackEnd">BackEnd</option>
                                             <option value="javascript">UX/UI</option>
@@ -250,19 +250,57 @@
                                 {{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
                             </div>
     
+                            @if(!Auth::check())
+                                
+<x-primary-button class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"
+        x-data=""
+        x-on:click.prevent="$dispatch('open-modal', 'change-password')"
+    >{{ __('donite') }}</x-primary-button>
+
+    <x-modal name="change-password" :show="$errors->changePassword->isNotEmpty()" focusable>
+<p >You Must Login </p>
+<a href="{{ route('login_1') }}">Back To Login</a>
+    </x-modal>
+                            @endif
+                            @if(Auth::check())
                             <input type="submit" value="Paypal" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75">
+
+                                
+  @endif
+
+
+
+
+
                         </form>
 
 
-                        <form action="stripe" class="  rounded donation-form" method="post" style="padding: 0px 50px">
+                        <form action="stripe/{{$id}}" class="  rounded donation-form" method="post" style="padding: 0px 50px">
                             @csrf
                                                     <h3 for="" style=" margin:0;    font-weight: bold;
                                 margin-bottom: 0px;
                                 text-transform: uppercase;
                                 font-size: 18px;">Or donate by Visa</h3> <br>
                             
-                                                     <input type="text" placeholder="0.00" class="form-control px-4" name="price" required>
+ <input type="text" placeholder="0.00" class="form-control px-4" name="price">
+ @if(!Auth::check())
+                                
+<x-primary-button class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"
+        x-data=""
+        x-on:click.prevent="$dispatch('open-modal', 'change1')"
+    >{{ __('donite') }}</x-primary-button>
+
+
+    <x-modal name="change-1" :show="$errors->changePassword->isNotEmpty()" focusable>
+<p >You Must Login </p>
+    </x-modal>
+                            @endif
+                            @if(Auth::check())
                                                      <input type="submit" value="visa" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75" >
+             
+
+                                
+  @endif
                                                 </form>
     
                 </div>  
