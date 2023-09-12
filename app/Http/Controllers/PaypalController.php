@@ -84,7 +84,8 @@ class PaypalController extends Controller
 
             ]);
             return redirect('single/paypal/success');
-        } else {
+
+        }else{
             return redirect()->route('paypal_cancel');
         }
     }

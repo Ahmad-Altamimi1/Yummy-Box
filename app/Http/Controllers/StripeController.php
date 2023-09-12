@@ -64,11 +64,11 @@ class StripeController extends Controller
                 'product_id' => $request->id,
 
             ]);
-            return redirect()->away($response->url);
-        } else {
-            return redirect()->route('success');
-        }
-    }
+        return redirect()->away($response->url);
+    } else {
+     return redirect()->route('success') ;
+       }
+}
     public function success()
     {
         return redirect()->route('finish');
