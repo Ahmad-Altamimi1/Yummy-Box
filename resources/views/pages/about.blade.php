@@ -146,30 +146,31 @@
 
 				<div class="item">
 
-					<div class="feature bg-color-4">
-						<img src="images/person_4.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+                    <div class="feature bg-color-5">
+                        <img src="images/team/Ahmad tamimi.png" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
 
-						<h3 class="mb-0">Ahmad Al-Khatatatbeh</h3>
-						<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
-						<p class="text-black-50">"Inspiring the next generation of coders."</p>
+                        <h3 class="mb-0">Ahmad Al-Tamimi</h3>
+                        <span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
+                        <p class="text-black-50">"Bringing diversity and expertise to tech education."</p>
 
-						{{-- <a href="#" class="more d-block">Learn More</a> --}}
-					</div>
+                        {{-- <a href="#" class="more d-block">Learn More</a> --}}
+                    </div>
 
-				</div>
+                </div>
 
-				<div class="item">
+                <div class="item">
 
-					<div class="feature bg-color-5">
-						<img src="images/person_4.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+                    <div class="feature bg-color-4">
+                        <img src="images/team/Ahmad.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
 
-						<h3 class="mb-0">Ahmad Al-Tamimi</h3>
-						<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
-						<p class="text-black-50">"Bringing diversity and expertise to tech education."</p>
+                        <h3 class="mb-0">Ahmad-Alkhatatbeh</h3>
+                        <span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
+                        <p class="text-black-50">"Inspiring the next generation of coders."</p>
 
-						{{-- <a href="#" class="more d-block">Learn More</a> --}}
-					</div>
+                        {{-- <a href="#" class="more d-block">Learn More</a> --}}
+                    </div>
 
+                </div>
 				</div>
 
 			

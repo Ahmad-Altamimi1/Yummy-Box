@@ -66,12 +66,12 @@ class StripeController extends Controller
             ]);
         return redirect()->away($response->url);
     } else {
-     return redirect()->route('single/stripe/success') ;
+     return redirect()->route('success') ;
        }
 }
     public function success()
     {
-        
+        return redirect()->route('finish');
     }
     public function cancel()
     {

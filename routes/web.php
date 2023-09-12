@@ -115,15 +115,16 @@ Route::get('single/paypal/cancel', [PaypalController::class, 'cancel'])->name('p
 
 
 // Define the Stripe routes with the appropriate methods
-Route::post('stripe/{id}', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe'); // Use 'store' method for POST
-Route::get('stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
-Route::get('stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
-// Define the Stripe routes with the appropriate methods
-
+Route::get('finish', function () {
+    return view('sccess');
+})->name('finish');
 Route::post('single/stripe/{id}', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe_single'); // Use 'store' method for POST
 Route::get('single/stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
 Route::get('single/stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
 
+// Route::get('/stripe/success', function () {
+//     return view('sccess');
+// });
 
     
 Route::get('contact-us', [ContactController::class, 'index']);
@@ -135,12 +136,7 @@ Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us
 
 
 
-Route::get('/stripe/success', function () {
-    return view('sccess');
-});
-Route::get('single/stripe/success', function () {
-    return view('sccess');
-});
+
 // login by google
 Route::get('auth/google',[SocialController::class,'redirectToGoogle'])->name('google') ;
 
