@@ -282,7 +282,7 @@
                                 text-transform: uppercase;
                                 font-size: 18px;">Or donate by Visa</h3> <br>
                             
- <input type="text" placeholder="0.00" class="form-control px-4" name="price">
+ <input type="text" placeholder="0.00" class="form-control px-4" name="price" required>
  @if(!Auth::check())
                                 
 <x-primary-button class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"
@@ -296,7 +296,7 @@
     </x-modal>
                             @endif
                             @if(Auth::check())
-                                                     <input type="submit" value="visa" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75" >
+                                                     <input type="submit" value="visa" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"  >
              
 
                                 
