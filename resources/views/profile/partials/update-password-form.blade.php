@@ -12,6 +12,29 @@
   <body>
     <section style="text-align: center;">
         <!-- Ensure there's no container with constraints on width around the table -->
+        <style>/* Basic button styling */
+.custom-button {
+    background-color: #59886b; /* Background color */
+    color: #ffffff; /* Text color */
+    padding: 10px 20px; /* Padding (top/bottom, left/right) */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style on hover */
+    font-size: 16px; /* Font size */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underlines */
+    display: inline-block; /* Make the button an inline block */
+    transition: background-color 0.3s ease; /* Smooth color transition on hover */
+}
+
+/* Button hover effect */
+.custom-button:hover {
+    background-color: #739680; /* New background color on hover */
+}
+</style>
+        <form action="{{ route('viewpdf') }}/{{ Auth::user()->id }}" method="post" target="_blank" >
+          @csrf
+          <input type="submit" value="view" class="custom-button">
         <h2 class="text-xl font-semibold mb-4">Volunteering Programs</h2>
         <table class="table" style="width: 100%">
             <thead style="background-color: rgb(179, 236, 164) ;">
@@ -19,7 +42,6 @@
                 <th scope="col">Program Name</th>
                 <th scope="col">Location</th>
                 <th scope="col">Experiance</th>
-                <th scope="col">CV file</th>
                 <th scope="col">Donate</th>
                 
               </tr>
@@ -31,7 +53,7 @@
        <td scope="col">{{ $item->Languages }}</td>
                 <td scope="col">{{ $item->Address }}</td>
                 <td scope="col">{{ $item->Experience }}</td>
-                <td scope="col">{{ $item->CV }}</td>
+                {{-- <td scope="col">{{ $filename }}</td> --}}
                 <td scope="col">{{ $item->day }}</td>
             
 @endforeach
@@ -52,6 +74,8 @@
           --}}
             </tbody>
           </table>
+        </form>
+
     </section>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\DB;
 
 
 class Controller extends BaseController
@@ -14,7 +15,14 @@ class Controller extends BaseController
     
   function showhome()
   {
-    return view('pages/index');
+        session(['number' => 1]);
+        $categories = DB::table('categories')->get();
+        $products = DB::table('products')->get();
+        $users = DB::table('users')->get();
+        $volanters = DB::table('paypals')->get();
+        // dd($categories);
+        return view('pages.index', compact('categories', 'products', 'users', 'volanters'));
+   
   }
     function showabout()
     {
