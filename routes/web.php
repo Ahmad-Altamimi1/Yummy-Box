@@ -213,7 +213,7 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
 
 
     Route::get('/Admin_Home', function () {
-        return view('Admin_Dashboard.Statics ')->name('Admin_Home');
+        return view('Admin_Dashboard.index');
 
     });
     Route::get('/Admin_creatuser', function () {
