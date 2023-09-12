@@ -313,7 +313,7 @@
 							<a href="#"><img  src='{{ $product->image }}' alt="Image" class="img-fluid mb-4 rounded"></a>
 							<div class="px-4 pb-5 pt-3">
 
-								<h3><a href="#">{{ $product->name }}</a></h3>
+								<h3><a href="single/{{ $product->id}}">{{ $product->name }}</a></h3>
 								<p>{{ $product->breif }}</p>
 
 														@php
