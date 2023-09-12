@@ -164,30 +164,30 @@ Route::get('auth/github/callback', [SocialController::class, 'handleGithubCallba
 
 
 Route::get('/backform', function () {
-    return view('pages.trainingForm')->middleware('auth', 'verified');
-});
+    return view('pages.trainingForm');
+})->middleware('auth', 'verified');
 
 Route::resource("volunteers", VolunteerController::class)->middleware('auth', 'verified');
 
 
 Route::get('/frontform', function () {
-    return view('pages.frontendForm')->middleware('auth', 'verified');
-});
+    return view('pages.frontendForm');
+})->middleware('auth', 'verified');
 
 Route::resource("frontvolunteers", FrontvolunteerController::class)->middleware('auth', 'verified');
 
 
 Route::get('/serviceform', function () {
-    return view('pages.donationForm')->middleware('auth', 'verified');
-});
+    return view('pages.donationForm');
+})->middleware('auth', 'verified');
 
 Route::resource("donors", DonorController::class);
 
 
 
 Route::get('/UIform', function () {
-    return view('pages.UIform')->middleware('auth', 'verified');
-});
+    return view('pages.UIform');
+})->middleware('auth', 'verified');
 
 Route::resource("uvolunteers", UvolunteerController::class)->middleware('auth', 'verified');
 
