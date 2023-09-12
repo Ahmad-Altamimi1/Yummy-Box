@@ -21,7 +21,7 @@ class LoginAdmin extends Controller
     }
     public function dashboard()
     {
-        return view('admin.Admin_Home');
+        return view('Admin_Dashboard.Admin_Home');
     }
 
     public function store(Request $request): RedirectResponse

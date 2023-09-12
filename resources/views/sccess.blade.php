@@ -248,7 +248,7 @@ body{
     <p id='message'>
      Thank you for donate
     </p>
-    <a href="home" id="contBtn">Back To Home</a>
+    <a href="{{route('home')}}" id="contBtn">Back To Home</a>
   </div>
 </div>
          <!-- END EDMO HTML (Happy Coding!)-->

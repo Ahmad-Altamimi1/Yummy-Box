@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Support\Facades\Auth;
 
 // use App\Models\Stripe;
@@ -53,9 +54,19 @@ class StripeController extends Controller
             'success_url' => route('stripe_success'),
             'cancel_url' => route('stripe_cancel'),
         ]);
+            DB::table('paypals')->insert([
+                'paymen_id' => $response['id'],
+                'user_name' => 'ahmad',
+                'user_email' => 'ahmed@gmail.com',
+                'payment_status' => 'paid',
+                'currency' => 'USD',
+                'amount' => $response['amount_total'] / 100,
+                'product_id' =>$request->id,
+
+            ]);
         return redirect()->away($response->url);
     } else {
-     return 'hi';
+     return redirect()->route('single/stripe/success') ;
        }
 }
     public function success()

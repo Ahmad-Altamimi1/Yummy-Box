@@ -275,7 +275,7 @@
                         </form>
 
 
-                        <form action="stripe" class="  rounded donation-form" method="post" style="padding: 0px 50px">
+                        <form action="stripe/{{$id}}" class="  rounded donation-form" method="post" style="padding: 0px 50px">
                             @csrf
                                                     <h3 for="" style=" margin:0;    font-weight: bold;
                                 margin-bottom: 0px;
