@@ -36,7 +36,6 @@ class CategoryController extends Controller
      */
     public function find($id)
     {
-        session(['number' => 2]);
 
         $products = products::findOrFail($id);
         $startDate = Carbon::parse($products->created_at);
@@ -47,7 +46,7 @@ class CategoryController extends Controller
         $diffInMonths = $endDate->diffInMonths($startDate);
 
         // dd($currentDateTime);
-        return  view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths'));
+        return  view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths','id'));
         // ['products' => $products]
     }
 

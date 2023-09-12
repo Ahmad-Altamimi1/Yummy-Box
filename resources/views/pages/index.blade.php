@@ -328,7 +328,8 @@ $totalsproduct +=$volanter->amount
 @endphp
 @php
 	
-$percant= ( $totalsproduct  / $product->total) * 100
+$percant= (int)(( $totalsproduct  / $product->total) * 100)
+
 @endphp
 @endif
 @endforeach
