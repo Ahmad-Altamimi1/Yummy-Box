@@ -19,7 +19,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\SocialController;
 
-
+// pdf 
+Route::post('profile/vpdf/{id?}',[VolunteerController::class, 'view'])->name('viewpdf');
+Route::post('profile/dpdf',[VolunteerController::class, 'download'])->name('download');
+Route::get('table',function(){
+    view('profile.partials.table');
+})->name('table');
 
 /*
 |--------------------------------------------------------------------------
@@ -41,11 +46,9 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('home');
-   
 });
 Route::get('/rer', function () {
     return view('pages.cliker');
-   
 });
 
 // Route::get('/home', function () {
@@ -115,40 +118,36 @@ Route::get('single/paypal/cancel', [PaypalController::class, 'cancel'])->name('p
 
 
 // Define the Stripe routes with the appropriate methods
-Route::post('stripe/{id}', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe'); // Use 'store' method for POST
-Route::get('stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
-Route::get('stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
-// Define the Stripe routes with the appropriate methods
-
+Route::get('finish', function () {
+    return view('sccess');
+})->name('finish');
 Route::post('single/stripe/{id}', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe_single'); // Use 'store' method for POST
 Route::get('single/stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
 Route::get('single/stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
 
+// Route::get('/stripe/success', function () {
+//     return view('sccess');
+// });
 
-    
+
 Route::get('contact-us', [ContactController::class, 'index']);
 Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
 
- 
 
 
 
 
 
-Route::get('/stripe/success', function () {
-    return view('sccess');
-});
-Route::get('single/stripe/success', function () {
-    return view('sccess');
-});
+
+
 // login by google
-Route::get('auth/google',[SocialController::class,'redirectToGoogle'])->name('google') ;
+Route::get('auth/google', [SocialController::class, 'redirectToGoogle'])->name('google');
 
 Route::get('auth/google/callback', [SocialController::class, 'handleGoogleCallback']);
 
 //login by facebook
 
-Route::get('auth/facebook', [SocialController::class, 'redirectToFacebook'])->name('facebook') ;
+Route::get('auth/facebook', [SocialController::class, 'redirectToFacebook'])->name('facebook');
 
 Route::get('auth/facebook/callback', [SocialController::class, 'handleFacebookCallback']);
 
@@ -168,7 +167,9 @@ Route::get('auth/github/callback', [SocialController::class, 'handleGithubCallba
 
 Route::get('/backform', function () {
     return view('pages.trainingForm');
-})->middleware('auth', 'verified');
+})->middleware('auth',
+    'verified'
+);
 
 Route::resource("volunteers", VolunteerController::class)->middleware('auth', 'verified');
 
@@ -218,19 +219,15 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
 
     Route::get('/Admin_Home', function () {
         return view('Admin_Dashboard.Statics ')->name('Admin_Home');
-
     });
     Route::get('/Admin_creatuser', function () {
         return view('Admin_Dashboard.creatuser ');
-
     });
     Route::get('/Admin_Donations', function () {
         return view('Admin_Dashboard.Donations')->name('Admin_Donations');
-
     });
     Route::get('/Admin_Volunteers', function () {
         return view('Admin_Dashboard.Volunteers')->name('Admin_Volunteers');
-
     });
 
     Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe']);
@@ -274,8 +271,6 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     Route::delete('productdelete/{id}', [ProductsController::class, 'destroy'])->name('product.destroy');
     Route::get('productedit/{id}', [ProductsController::class, 'edit'])->name('product.edit');
     Route::patch('productedit/productupdate/{id}', [ProductsController::class, 'update']);
-
-
 });
 
 
