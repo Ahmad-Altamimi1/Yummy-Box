@@ -26,14 +26,12 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="{{route('Admin_Dashboard.Admins_Data')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                  
-                        <a href="{{route('Admin_Dashboard.Admins_Data')}}" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>Admins</a>
-                  
+                    <a href="{{route('Admin_Dashboard.index')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="{{route('Admin_Dashboard.Admins_Data')}}" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>Admins</a>
                     <a href="{{route('Admin_Dashboard.User')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Users</a>
                     <a href="{{route('Admin_Dashboard.Projects')}}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Projects</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Volunteers</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Donation</a>
+                    <a href="{{route('Admin_Dashboard.Volunteers')}}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Volunteers</a>
+                    <a href="{{route('Admin_Dashboard.Payments')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Donation</a>
                     <a href="#" class="nav-item nav-link " ><i class="far fa-file-alt me-2"></i>Ressourses</a>
                      
                 </div>

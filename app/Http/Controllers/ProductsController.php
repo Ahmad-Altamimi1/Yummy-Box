@@ -27,9 +27,16 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        $products = Products::all();
+        
+        return view('Admin_Dashboard.Project_Create', ['products' => $products]);
     }
-
+    
+    public function view($id)
+    {
+        $productList= products::find($id);
+        return view('Admin_Dashboard.products_view',['products'=>$productList]);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -50,8 +57,8 @@ class ProductsController extends Controller
         $product->image= $request->image;
         $product->save();
     
-    
         return redirect()->route('Admin_Dashboard.Projects');
+    
     }
 
     /**

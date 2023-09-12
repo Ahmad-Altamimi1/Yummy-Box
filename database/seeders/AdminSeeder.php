@@ -27,11 +27,11 @@ class AdminSeeder extends Seeder
 
 
             ],
-            
+
     );
 
 
-    
+
 
             // Admin::factory()->count(1)->create();
     }

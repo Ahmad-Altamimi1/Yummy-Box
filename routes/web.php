@@ -212,29 +212,14 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
 
     //////////////////////////////// SAJEDA CODE ////////////////////////////////
 
+    // admin_home
+    Route::get('/Admin_Home', function () { return view('Admin_Dashboard.index'); })->name('Admin_Dashboard.index');;
 
-    Route::get('/Admin_Home', function () {
-        return view('Admin_Dashboard.index');
-
-    });
-    Route::get('/Admin_creatuser', function () {
-        return view('Admin_Dashboard.creatuser ');
-    });
-    Route::get('/Admin_Donations', function () {
-        return view('Admin_Dashboard.Donations')->name('Admin_Donations');
-    });
-    Route::get('/Admin_Volunteers', function () {
-        return view('Admin_Dashboard.Volunteers')->name('Admin_Volunteers');
-    });
-
-    Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe']);
-
-
-
-    Route::get('/Admins_Payment', [PaypalController::class, 'show']);
-
-
-
+    //  volunteers data
+    Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe'])->name('Admin_Dashboard.Volunteers');
+    
+    // donations data
+    Route::get('/Admins_Payment', [PaypalController::class, 'show'])->name('Admin_Dashboard.Payments');
 
     // categories data
     Route::get('/Admin_Category', [CategoryController::class, 'show'])->name('Admin_Dashboard.Category');
@@ -260,13 +245,21 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     Route::delete('userdelete/{id}', [UserController::class, 'destroy'])->name('User.destroy');
     Route::get('useredit/{id}', [UserController::class, 'edit'])->name('user.edit');
     Route::patch('useredit/userupdate/{id}', [UserController::class, 'update']);
+    Route::get('/admin/usertview/{id}', [UserController::class, 'view']);
+    Route::get('user_Create', [UserController::class, 'create']);
 
-
+    // projects data
     Route::get('/Admins_Projects', [ProductsController::class, 'show'])->name('Admin_Dashboard.Projects');
     Route::post('/Admins_Projects', [ProductsController::class, 'store']);
     Route::delete('productdelete/{id}', [ProductsController::class, 'destroy'])->name('product.destroy');
     Route::get('productedit/{id}', [ProductsController::class, 'edit'])->name('product.edit');
     Route::patch('productedit/productupdate/{id}', [ProductsController::class, 'update']);
+    Route::get('productview/{id}', [ProductsController::class, 'view']);
+    Route::get('Project_Create', [ProductsController::class, 'create']);
+
+    
+
+
 });
 
 
