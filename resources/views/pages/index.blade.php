@@ -37,22 +37,326 @@
 @section('content')
 
 
-    <div class="hero overlay" style="background-image: url('images/classroom-1.png')">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-lg-6 text-left">
-                    <span class="subheading-white text-white mb-3" data-aos="fade-up">Tech-Volunteer</span>
-                    <h1 class="heading text-white mb-2" data-aos="fade-up">Empower through Code & Giving
-                    </h1>
-                    <p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">program to help increase access to
-                        education in communities around jordan</p>
-                    <p data-aos="fade-up" data-aos-delay="100">
-                        <a href="#donite" class="btn btn-primary me-4 d-inline-flex align-items-center"> <span
-                                class="icon-attach_money me-2"></span><span>Donate Now </span></a>
-                        <a href="https://www.youtube.com/watch?v=7b1qBE_Icbw&t=911s"
-                            class="text-white glightbox d-inline-flex align-items-center"><span
-                                class="icon-play me-2"></span><span>Watch the video</span></a>
-                    </p>
+<div class="hero overlay" style="background-image: url('images/classroom-1.png')">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-lg-6 text-left">
+                <span class="subheading-white text-white mb-3" data-aos="fade-up">Tech-Volunteer</span>
+                <h1 class="heading text-white mb-2" data-aos="fade-up">Empower through Code & Giving
+                </h1>
+                <p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">program to help increase access to
+                    education in communities around jordan</p>
+                <p data-aos="fade-up" data-aos-delay="100">
+                    <a href="#donite" class="btn btn-primary me-4 d-inline-flex align-items-center"> <span
+                            class="icon-attach_money me-2"></span><span>Donate Now </span></a>
+                    <a href="https://www.youtube.com/watch?v=7b1qBE_Icbw&t=911s"
+                        class="text-white glightbox d-inline-flex align-items-center"><span
+                            class="icon-play me-2"></span><span>Watch the video</span></a>
+                </p>
+
+            </div>
+
+            <div class="col-lg-5" style="margin-top: 49px;">
+                <form action="paypal" method="POST" class="bg-white p-5 rounded donation-form" data-aos="fade-up" style="margin-bottom: 0">
+                    @csrf
+                    <h3>Quick Donation Form</h3>
+                    <div class="form-field mb-3">
+                        <label for="amount-1" class="amount js-amount" data-value="1.00">
+                            <input type="radio" id="amount-1" name="radio-amount" checked="true">
+                            <span>$1</span>
+                        </label>
+
+                        <label for="amount-2" class="amount js-amount" data-value="5.00">
+                            <input type="radio" id="amount-2" name="radio-amount">
+                            <span>$5</span>
+                        </label>
+                        <label for="amount-3" class="amount js-amount" data-value="25.00">
+                            <input type="radio" id="amount-3" name="radio-amount">
+                            <span>$25</span>
+                        </label>
+                        <label for="amount-4" class="amount js-amount" data-value="100.00">
+                            <input type="radio" id="amount-4" name="radio-amount">
+                            <span>$100</span>
+
+
+							</label>
+							<h3>And you can select custom</h3>
+
+
+                    </div>
+                    <div class="field-icon">
+                        <span>$</span>
+                        <input type="text" placeholder="0.00" class="form-control px-4" name="price"
+                            value="1.00">
+
+						</div>
+						<div class="form-field mb-3">
+							{{-- <input type="text" placeholder="Name" class="form-control px-4"> --}}
+							{{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
+						</div>
+
+						<input type="submit" value="Donate by paypal" class="btn w-100" style="background:url('images/PayPal-Logo.png')">
+                </form>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6" data-aos="fade-up">
+                <div class="vision">
+                    <h2>Our Vision</h2>
+                    <p class="mb-4 lead">Our vision is to create a world where technology education knows no boundaries.
+                         We aspire to be a beacon of empowerment, where volunteers ignite the passion for coding</p>
+                    <p><a href="{{route('about')}}" class="link-underline">Learn More</a></p>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="mission">
+                    <h2>Our Mission</h2>
+                    <p class="mb-4 lead">At Tech-Volunteer, our mission is to democratize technology education.
+                         We are dedicated to fostering a thriving community of volunteers who share their expertise.</p>
+                    <p><a href="{{route('about')}}" class="link-underline">Learn More</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+	<div class="section flip-section"  id="donite" style="background-image: url('images/classroom-1.png')">
+		<div class="blob-1">
+			<img src="images/blob.png" alt="Image" class="img-fluid">
+		</div>
+		<div class="container">
+			<div class="row justify-content-center mb-5">
+				<div class="col-lg-7 text-center" data-aos="fade-up">
+					<span class="subheading-white mb-3 text-white">Help Now</span>
+					<h2 class="heading text-white">Ways to Donation</h2>
+				</div>
+			</div>
+			<div class="row">
+				@foreach ( $categories as $categorie )
+
+				<div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="100">
+
+					<div class="card-flip">
+						<div class="flip">
+							<div class="front">
+								<!-- front content -->
+
+								<div class="flip-content-wrap">
+									{{-- class="icon-local_drink" --}}
+									<span ><img src="{{ $categorie->image  }}" width="100px" alt=""></span>
+									<h3>{{ $categorie->name }}</h3>
+								</div>
+							</div>
+							<div class="back">
+								<!-- back content -->
+								<div class="flip-content-wrap">
+                                    <h3>{{ $categorie->name }}</h3>
+
+									<p>{{ $categorie->description }}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- End Card Flip -->
+				</div>
+				@endforeach
+
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+<div class="section">
+    <div class="container">
+        <div class="row mb-5 align-items-center justify-content-between">
+            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="0">
+                <span class="subheading mb-3">Who we are</span>
+                <h2 class="heading">About Us</h2>
+                <p>Discover Tech-Volunteer, where coding fuels education and generosity fuels change. Join our community and be part of something bigger</p>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <blockquote>
+                    At Tech-Volunteer, we blend the power of code with the spirit of giving to change lives. Join us in shaping a brighter tech future.
+                </blockquote>
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-lg-5 pe-lg-5" data-aos="fade-up" data-aos-delay="200">
+
+                <ul class="nav nav-pills mb-5 custom-nav-pills" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-mission-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-mission" type="button" role="tab"
+                            aria-controls="pills-mission" aria-selected="true">Our Mission</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-values-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-values" type="button" role="tab"
+                            aria-controls="pills-values" aria-selected="false">Our Values</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-history-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-history" type="button" role="tab"
+                            aria-controls="pills-history" aria-selected="false">Our History</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-mission" role="tabpanel"
+                        aria-labelledby="pills-mission-tab">
+                        <h2 class="mb-3 text-primary fw-bold">Our Mission</h2>
+                        <p>Our mission at Tech-Volunteer is to bridge the gap between technology, education,
+                             and philanthropy. We aim to empower individuals by providing accessible coding education
+                             while fostering a culture of giving. </p>
+                        <p>Through our platform, we connect passionate volunteers
+                            with those eager to support, creating a community that thrives on the dual principles of
+                             knowledge-sharing and generosity. Together, we strive to make a lasting impact in the tech
+                              world and beyond.</p>
+                        <p class="mt-5">
+                            <a href="#services" class="btn btn-primary me-4">Donate Now</a>
+                            <a href="{{route('about')}}" class="link-more">Learn More <span
+                                    class="icon-chevron-right"></span></a>
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="pills-values" role="tabpanel"
+                        aria-labelledby="pills-values-tab">
+                        <h2 class="mb-3 text-primary fw-bold">Our Values</h2>
+                        <p>Our core values revolve around the twin principles of knowledge-sharing and generosity.
+                            We believe in the transformative power of education and its ability to open doors, and
+                            we are equally committed to fostering a spirit of giving back.</p>
+                        <p> We value inclusivity,
+                            collaboration, and the belief that technology should be accessible to all. Our community
+                            is built on trust, mutual support, and the idea that by uniting as one, we can make a
+                            significant positive impact in the world.</p>
+                        <p class="mt-5">
+                            <a href="#services" class="btn btn-primary me-4">Be A Volunteer</a>
+                            <a href="{{route('about')}}" class="link-more">Learn More <span
+                                    class="icon-chevron-right"></span></a>
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="pills-history" role="tabpanel"
+                        aria-labelledby="pills-history-tab">
+
+                        <h2 class="mb-3 text-primary fw-bold">Our History</h2>
+                        <p>Tech-Volunteer was born out of a vision to create a platform where technology enthusiasts
+                            could come together to make a difference. Founded in 2020, our journey began
+                            with a simple idea: to harness the power of coding education and philanthropy to transform
+                             lives. </p>
+                        <p>Since then, we've grown into a thriving community of volunteers and donors who have
+                            collectively impacted countless individuals through coding education and charitable giving.
+                            Our history is a testament to the belief that when passion and generosity combine, remarkable
+                             things happen. Join us as we continue to shape a brighter future for all.</p>
+                        <p class="mt-5">
+                            <a href="#services" class="btn btn-primary me-4">Be a Sponsor</a>
+                            <a href="{{route('about')}}" class="link-more">Learn More <span
+                                    class="icon-chevron-right"></span></a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="overlap-imgs">
+                    <img src="images/communitie.png" alt="Image" class="img-fluid rounded"
+                        data-aos="fade-up" data-aos="100">
+                    {{-- <img src="images/img_v_3-min.jpg" alt="Image" class="img-fluid rounded"
+                        data-aos="fade-up" data-aos="200"> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section cause-section bg-light" id="services">
+
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                <span class="subheading mb-3">Projects</span>
+                <h2 class="heading">Featured Projects</h2>
+                <p>Explore our Featured Projects and witness the impact of code and compassion in action.</p>
+
+                <div id="features-slider-nav" class="mt-5 d-flex justify-content-center">
+                    <button class="btn btn-primary prev d-flex align-items-center me-2" data-controls="prev">
+                        <span class="icon-chevron-left"></span> <span class="ms-3">Prev</span></button>
+                    <button class="btn btn-primary next d-flex align-items-center" data-controls="next"><span
+                            class="me-3">Next</span> <span class="icon-chevron-right"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+		<div class="container mb-5" >
+			<div class="features-slider-wrap position-relative" data-aos="fade-up" data-aos-delay="200">
+				<div class="features-slider" id="features-slider">
+@foreach ($products as $product )
+
+					<div class="item">
+						<div class="causes-item bg-white">
+							<a href="#"><img  src='{{ $product->image }}' alt="Image" class="img-fluid mb-4 rounded"></a>
+							<div class="px-4 pb-5 pt-3">
+
+								<h3><a href="single/{{ $product->id}}">{{ $product->name }}</a></h3>
+								<p>{{ $product->breif }}</p>
+
+														@php
+									$totalsproduct =0;
+									$percant=0;
+								@endphp
+								@foreach ($volanters as $volanter )
+@if ($volanter->product_id==$product->id)
+
+@php
+$totalsproduct +=$volanter->amount
+@endphp
+@php
+
+$percant= (int)(( $totalsproduct  / $product->total) * 100)
+
+@endphp
+@endif
+@endforeach
+
+								<div class="progress mb-2">
+									<div class="progress-bar" role="progressbar" style="width: <?php echo $percant?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> <?php echo $percant?>%</div>
+								</div>
+
+								<div class="d-flex mb-4 justify-content-between amount">
+									<div>@php
+									echo "$" .$totalsproduct
+									@endphp</div>
+
+									<div>${{ $product->total }}</div>
+								</div>
+								<div>
+									<a href="single/{{ $product->id}}" class="btn btn-primary">Volunteer Now</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					@endforeach
+
+
+
+
 
                 </div>
 

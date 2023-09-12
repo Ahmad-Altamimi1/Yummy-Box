@@ -20,7 +20,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        session(['number'=>1]);
+       
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->get();
         $users = DB::table('users')->get();
@@ -36,6 +36,10 @@ class CategoryController extends Controller
      */
     public function find($id)
     {
+        $categories = DB::table('categories')->get();
+        $products = DB::table('products')->get();
+        $users = DB::table('users')->get();
+        $volanters = DB::table('paypals')->get();
 
         $products = products::findOrFail($id);
         $startDate = Carbon::parse($products->created_at);
@@ -46,7 +50,7 @@ class CategoryController extends Controller
         $diffInMonths = $endDate->diffInMonths($startDate);
 
         // dd($currentDateTime);
-        return  view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths','id'));
+        return  view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths','id', 'categories', 'products', 'users', 'volanters'));
         // ['products' => $products]
     }
 
