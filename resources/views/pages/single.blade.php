@@ -19,18 +19,18 @@
 @section('content')
 <x-app-layout>
 
-<div class="hero overlay" style="background-image: url({{ $products->image }})">
+<div class="heros overlays" style="background-image: url({{ $products->image }})">
 	<div class="container">
 		<div class="row align-items-center justify-content-center">
 			<div class="col-lg-6 text-center">
 				<h1 class="heading text-white mb-2" data-aos="fade-up">{{ $products->name }}</h1>
 				{{-- <p data-aos="fade-up"  data-aos-delay="100">
-					<a href="#" class="btn btn-primary me-4">Donate Now</a> 
+					<a href="#" class="btn btn-primary me-4">Donate Now</a>
 				</p>		 --}}
-				
+
 			</div>
 
-			
+
 		</div>
 	</div>
 </div>
@@ -38,21 +38,21 @@
  <section class="container" style="color: black">
 
       <br><br>
- 
+
         <div class="inside-container row g-5">
 
-            
+
 <div class="col-7">
             <div class="single-product-left">
 
-                
+
 
                 <div class="single-product-left-second-div ">
                     <div class="single-product-left-second-div-image">
-                      
+
                         <h3><a href="../images/hero_1.jpg">Below you will see the details:</a></h3> <br>
                     </div>
-                    
+
                     <div>
                         <i class="fa-solid fa-location-dot fa-2xl" style="color: #318c5d;"> </i> <span> {{ $products->location }}</span>
                     </div>
@@ -66,8 +66,8 @@
                     </div>
                 </div>
               <hr >
-                
-                
+
+
             </div>
            <div >
             <h1>Role</h1>
@@ -80,15 +80,15 @@
                 <p>
                     {{ $products->description2 }}
                  </p>
-               
+
                         <h3 class="single-product-left-first-h4">Responsibilities </h3>
-    
+
                     <p>
                         {{ $products->description3 }}
                      </p>
 
                      <h3 class="single-product-left-first-h4">Prosses </h3>
-    
+
                      <p>
                         <ul style="list-style-color: green;list-style-type: disc">
                             <li>Apply Online: Fill out our quick online application form, indicating your interest in mentoring for the Front-End Foundations project.</li>
@@ -97,13 +97,13 @@
                             <li>Mentor Match: Once approved, we'll match you with learners eager to participate in the Front-End Foundations project.</li>
                             <li>Start Mentoring: Begin your volunteer journey by mentoring and sharing your expertise with aspiring web developers.</li>
                         </ul>
-                      
-                        
-                        
-                        
-                        
-                        
-                        
+
+
+
+
+
+
+
                       </p>
                     <div style="text-align:end">
                       {{-- <p>{{ $products->total }}</p> --}}
@@ -117,15 +117,15 @@
                       <p> posted before {{$diffInDays}} days</p>
                       @endif
                       @auth
-                          
+
                       @if ( Auth::user()->id ==false)
                           <div> you must log in</div>
                       @endif
                       @if ( Auth::user()->id ==true)
                       <div>{{ Auth::user()->id }}</div>
-                          
+
                       @endif
-                      
+
                       @endauth
                     </div>
 
@@ -141,11 +141,11 @@
            width: 450px;
            left:50px;
           text-align: center;
-         
-     
+
+
            ">
-                
-               <div style="border: #4a260b solid 3px ; padding : 25px 10px"> <h3>Join us, volunteer, empower</h3> 
+
+               <div style="border: #4a260b solid 3px ; padding : 25px 10px"> <h3>Join us, volunteer, empower</h3>
                 <br>
                 <div class="">
                 <x-primary-button class="btn btn-primary me-4 " style="background-color: #54ac75 ; width:75% ; height:50px"
@@ -159,13 +159,13 @@
                                 <h1> Training Volunteer Form</h1>
                                 <form action="{{ route('frontvolunteers.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
-                                    @method('post')                                     <div class="form-group">                
+                                    @method('post')                                     <div class="form-group">
                                         <input  type="hidden" class="form-control" id="user_id"  name="user_id" required>
-                        
+
                                         <label for="address">Address</label>
                                         <input type="text" class="form-control" id="address" name="Address" required>
-                        
-                        
+
+
                                     </div>
                                     <div class="form-group">
                                         <label for="programmingLanguages">Proficient Programming Classes</label>
@@ -186,7 +186,7 @@
                                             <option value="tuesday">Tuesday</option>
                                             <option value="wednesday">Wednesday</option>
                                             <option value="thursday">Thursday</option>
-                                            
+
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -206,22 +206,22 @@
                                         </ul>
                                     </div>
                                 @endif
-                                    
+
                                     <button type="submit" class="btn btn-primary" value="submit">Submit</button>
                                 </form>
-                                
+
                             </div>
                        </x-modal> <br><br>
                     <form action="paypal" method="POST" class=" p-5 rounded donation-form" data-aos="fade-up">
                         @csrf
                         <h3 >Quick Donation Form</h3>
-                      
+
                         <div class="form-field mb-3">
                             <label for="amount-1" class="amount js-amount" data-value="1.00">
                                 <input type="radio" id="amount-1" name="radio-amount" checked="true">
                                 <span>$1</span>
                             </label>
-    
+
                             <label for="amount-2" class="amount js-amount" data-value="5.00">
                                 <input type="radio" id="amount-2" name="radio-amount">
                                 <span>$5</span>
@@ -233,25 +233,25 @@
                             <label for="amount-4" class="amount js-amount" data-value="100.00">
                                 <input type="radio" id="amount-4" name="radio-amount">
                                 <span>$100</span>
-    
-                                    
+
+
                                 </label>
                                 <h3>And you can select custom</h3>
-    
+
                         </div>
                         <div class="field-icon">
                             <span>$</span>
                             <input type="text" placeholder="0.00" class="form-control px-4" name="price"
                                 value="1.00">
-    
+
                             </div>
                             <div class="form-field mb-3">
                                 {{-- <input type="text" placeholder="Name" class="form-control px-4"> --}}
                                 {{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
                             </div>
-    
+
                             @if(!Auth::check())
-                                
+
 <x-primary-button class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"
         x-data=""
         x-on:click.prevent="$dispatch('open-modal', 'change-password')"
@@ -265,7 +265,7 @@
                             @if(Auth::check())
                             <input type="submit" value="Paypal" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75">
 
-                                
+
   @endif
 
 
@@ -281,10 +281,10 @@
                                 margin-bottom: 0px;
                                 text-transform: uppercase;
                                 font-size: 18px;">Or donate by Visa</h3> <br>
-                            
+
  <input type="text" placeholder="0.00" class="form-control px-4" name="price">
  @if(!Auth::check())
-                                
+
 <x-primary-button class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"
         x-data=""
         x-on:click.prevent="$dispatch('open-modal', 'change1')"
@@ -297,28 +297,28 @@
                             @endif
                             @if(Auth::check())
                                                      <input type="submit" value="visa" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75" >
-             
 
-                                
+
+
   @endif
                                                 </form>
-    
-                </div>  
-                
-              
+
+                </div>
+
+
             </div>
             </div>
-   
-   
+
+
            </div>
 
     </div>
 
-       
+
 
 
     </section>
 
 
-   
+
 </x-app-layout>
