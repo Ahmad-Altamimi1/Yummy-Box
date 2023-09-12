@@ -7,6 +7,7 @@
                     <h3>Navigation</h3>
                     <ul class="list-unstyled float-left links">
                         <li><a href="about">About us</a></li>
+                        <li><a href="{{ route('contact') }}">Contact us</a></li>
                         <li><a href="{{ route('news') }}">News</a></li>
                     </ul>
                 </div> <!-- /.widget -->
@@ -67,7 +68,7 @@
                     <script>
                         document.write(new Date().getFullYear());
                     </script>. All Rights Reserved. &mdash; Designed with love by <a
-                        href="#">Tech-Volunteer</a>
+                        href="#">TechHub</a>
                     <!-- License information: https://untree.co/license/ -->
                 </p>
             </div>

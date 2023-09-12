@@ -21,19 +21,19 @@
 
 @section('content')
 
-<div class="hero overlay" style="background-image: url('images/about.jpg')">
+<div class="heros overlays" style="background-image: url('images/about.jpg')">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="col-lg-6 text-center">
 					<h1 class="heading text-white mb-2" data-aos="fade-up"></h1>
 					<p data-aos="fade-up" class=" mb-5 text-white lead text-white-40">Teaching is a noble art of imparting knowledge and skills, fostering growth in others. It cultivates critical thinking, inspires curiosity, and empowers individuals to reach their full potential. Ultimately, teaching enriches both the teacher and the learner, creating a brighter future for all.</p>
 					<p data-aos="fade-up"  data-aos-delay="100">
-						<a href="#" class="btn btn-primary me-4">Donate Now</a> 
-					</p>		
-					
+						<a href="#" class="btn btn-primary me-4">Donate Now</a>
+					</p>
+
 				</div>
 
-				
+
 			</div>
 		</div>
 	</div>
@@ -53,13 +53,13 @@
 						<button class="btn btn-primary next d-flex align-items-center" data-controls="next"><span class="me-3">Next</span> <span class="icon-chevron-right"></span></button>
 					</div>
 				</div>
-			</div>	
+			</div>
 		</div>
 
 
 
 
-		
+
 
 
 		<div class="container mb-5">
@@ -94,7 +94,7 @@
 
 
 
-					
+
 
 
 
@@ -103,12 +103,12 @@
 		</div>
 
 
-</div>	
+</div>
 
 
 
-  
-  
+
+
 
 
 
