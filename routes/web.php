@@ -19,7 +19,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\SocialController;
 
-
+// pdf 
+Route::post('profile/vpdf/{id?}',[VolunteerController::class, 'view'])->name('viewpdf');
+Route::post('profile/dpdf',[VolunteerController::class, 'download'])->name('download');
+Route::get('table',function(){
+    view('profile.partials.table');
+})->name('table');
 
 /*
 |--------------------------------------------------------------------------
@@ -41,11 +46,9 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('home');
-   
 });
 Route::get('/rer', function () {
     return view('pages.cliker');
-   
 });
 
 // Route::get('/home', function () {
@@ -122,11 +125,11 @@ Route::get('single/stripe/success', [StripeController::class, 'success'])->name(
 Route::get('single/stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
 
 
-    
+
 Route::get('contact-us', [ContactController::class, 'index']);
 Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
 
- 
+
 
 
 
@@ -134,13 +137,13 @@ Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us
 
 
 // login by google
-Route::get('auth/google',[SocialController::class,'redirectToGoogle'])->name('google') ;
+Route::get('auth/google', [SocialController::class, 'redirectToGoogle'])->name('google');
 
 Route::get('auth/google/callback', [SocialController::class, 'handleGoogleCallback']);
 
 //login by facebook
 
-Route::get('auth/facebook', [SocialController::class, 'redirectToFacebook'])->name('facebook') ;
+Route::get('auth/facebook', [SocialController::class, 'redirectToFacebook'])->name('facebook');
 
 Route::get('auth/facebook/callback', [SocialController::class, 'handleFacebookCallback']);
 
@@ -159,30 +162,32 @@ Route::get('auth/github/callback', [SocialController::class, 'handleGithubCallba
 
 
 Route::get('/backform', function () {
-    return view('pages.trainingForm')->middleware('auth', 'verified');
-});
+    return view('pages.trainingForm');
+})->middleware('auth',
+    'verified'
+);
 
 Route::resource("volunteers", VolunteerController::class)->middleware('auth', 'verified');
 
 
 Route::get('/frontform', function () {
-    return view('pages.frontendForm')->middleware('auth', 'verified');
-});
+    return view('pages.frontendForm');
+})->middleware('auth', 'verified');
 
 Route::resource("frontvolunteers", FrontvolunteerController::class)->middleware('auth', 'verified');
 
 
 Route::get('/serviceform', function () {
-    return view('pages.donationForm')->middleware('auth', 'verified');
-});
+    return view('pages.donationForm');
+})->middleware('auth', 'verified');
 
 Route::resource("donors", DonorController::class);
 
 
 
 Route::get('/UIform', function () {
-    return view('pages.UIform')->middleware('auth', 'verified');
-});
+    return view('pages.UIform');
+})->middleware('auth', 'verified');
 
 Route::resource("uvolunteers", UvolunteerController::class)->middleware('auth', 'verified');
 
@@ -209,20 +214,17 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
 
 
     Route::get('/Admin_Home', function () {
-        return view('Admin_Dashboard.Statics ')->name('Admin_Home');
+        return view('Admin_Dashboard.index');
 
     });
     Route::get('/Admin_creatuser', function () {
         return view('Admin_Dashboard.creatuser ');
-
     });
     Route::get('/Admin_Donations', function () {
         return view('Admin_Dashboard.Donations')->name('Admin_Donations');
-
     });
     Route::get('/Admin_Volunteers', function () {
         return view('Admin_Dashboard.Volunteers')->name('Admin_Volunteers');
-
     });
 
     Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe']);
@@ -265,8 +267,6 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     Route::delete('productdelete/{id}', [ProductsController::class, 'destroy'])->name('product.destroy');
     Route::get('productedit/{id}', [ProductsController::class, 'edit'])->name('product.edit');
     Route::patch('productedit/productupdate/{id}', [ProductsController::class, 'update']);
-
-
 });
 
 

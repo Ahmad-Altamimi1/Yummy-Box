@@ -133,7 +133,7 @@
 				<div class="item">
 
 					<div class="feature bg-color-3">
-						<img src="images/person_3.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+						<img src="images\team\Sajeda.png" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
 
 						<h3 class="mb-0">Sajeda</h3>
 						<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>

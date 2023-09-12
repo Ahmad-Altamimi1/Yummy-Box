@@ -49,8 +49,51 @@
 
                 <div class="single-product-left-second-div ">
                     <div class="single-product-left-second-div-image">
+                         @if ($diffInMinutes<60)
+                      <p> posted before {{$diffInMinutes}} Minutes</p>
+                      @endif
+                      @if ($diffInMinutes>60 &&$diffInHours <24)
+                      <p> posted before {{$diffInHours}} Hours</p>
+                      @endif
+                      @if ($diffInMinutes>60 && $diffInHours >=24)
+                      <p> posted before {{$diffInDays}} days</p>
+                      @endif
                       
                         <h3><a href="../images/hero_1.jpg">Below you will see the details:</a></h3> <br>
+                        @foreach ($products as $product )
+
+       
+									@php
+									$totalsproduct =0;
+									$percant=0;
+								@endphp
+								@foreach ($volanters as $volanter )
+@if ($volanter->product_id==$product->id)
+	
+@php
+$totalsproduct +=$volanter->amount 
+@endphp
+@php
+	
+$percant= (int)(( $totalsproduct  / $product->total) * 100)
+
+@endphp
+@endif
+@endforeach
+@endforeach
+
+								<div class="progress mb-2">
+									<div class="progress-bar" role="progressbar" style="width: <?php echo $percant?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> <?php echo $percant?>%</div>
+								</div>
+								<div class="d-flex mb-4 justify-content-between amount">
+									<div>@php
+									echo "$" .$totalsproduct 
+									@endphp
+                                    </div>
+									
+                                    <div>${{ $products->total }}</div>
+								</div>
+								{{-- <div> --}}
                     </div>
                     
                     <div>
@@ -107,7 +150,7 @@
                       </p>
                     <div style="text-align:end">
                       {{-- <p>{{ $products->total }}</p> --}}
-                      @if ($diffInMinutes<60)
+                      {{-- @if ($diffInMinutes<60)
                       <p> posted before {{$diffInMinutes}} Minutes</p>
                       @endif
                       @if ($diffInMinutes>60 &&$diffInHours <24)
@@ -115,14 +158,14 @@
                       @endif
                       @if ($diffInMinutes>60 && $diffInHours >=24)
                       <p> posted before {{$diffInDays}} days</p>
-                      @endif
+                      @endif --}}
                       @auth
                           
                       @if ( Auth::user()->id ==false)
                           <div> you must log in</div>
                       @endif
                       @if ( Auth::user()->id ==true)
-                      <div>{{ Auth::user()->id }}</div>
+                      {{-- <div>{{ Auth::user()->id }}</div> --}}
                           
                       @endif
                       
@@ -234,14 +277,26 @@
                                 <input type="radio" id="amount-4" name="radio-amount">
                                 <span>$100</span>
     
-                                    
+                                <script >
+                                    let cont=document.querySelector('.cont');
+                                    var jsAmount = document.querySelectorAll('.js-amount');
+	var inputField = document.querySelector("[name=price");
+	Array.from(jsAmount).forEach(link => {
+		link.addEventListener('click', function(event) {			
+			inputField.value = this.dataset.value;
+            cont.value=this.dataset.value;
+
+
+		});
+	});
+</script>    
                                 </label>
                                 <h3>And you can select custom</h3>
     
                         </div>
                         <div class="field-icon">
                             <span>$</span>
-                            <input type="text" placeholder="0.00" class="form-control px-4" name="price"
+                            <input type="text" placeholder="0.00" id="cont" class="form-control px-4" name="price"
                                 value="1.00">
     
                             </div>
@@ -282,7 +337,7 @@
                                 text-transform: uppercase;
                                 font-size: 18px;">Or donate by Visa</h3> <br>
                             
- <input type="text" placeholder="0.00" class="form-control px-4" name="price">
+ <input type="text" placeholder="0.00" class="form-control px-4" name="price" required>
  @if(!Auth::check())
                                 
 <x-primary-button class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"
@@ -296,7 +351,7 @@
     </x-modal>
                             @endif
                             @if(Auth::check())
-                                                     <input type="submit" value="visa" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75" >
+                                                     <input type="submit" value="visa" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"  >
              
 
                                 
@@ -314,7 +369,7 @@
 
     </div>
 
-       
+
 
 
     </section>
