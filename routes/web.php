@@ -53,7 +53,7 @@ Route::get('/rer', function () {
 // });
 Route::get('single/{id?}', [CategoryController::class, 'find']);
 // Route::get('/', [CategoryController::class, 'index']);
-Route::get('home', [CategoryController::class, 'index'])->name('home');
+// Route::get('home', [CategoryController::class, 'index'])->name('home');
 // Route::resource('pages', ProductsController::class);
 Route::resource('pages/', ProductsController::class);
 
@@ -69,11 +69,10 @@ Route::get('/dashboard', function () {
 
 
 
-// Route::get('pages/index', [App\Http\Controllers\Controller::class, 'showhome'])
-//     ->name('home');
 
-// Route::get('home', [Controller::class, 'showhome'])
-//     ->name('home');
+
+Route::get('home', [Controller::class, 'showhome'])
+    ->name('home');
 
 Route::get('/about', [Controller::class, 'showabout'])
     ->name('about');
@@ -97,7 +96,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.edit');
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.edit');
 });
 
 
@@ -122,9 +121,6 @@ Route::post('single/stripe/{id}', [StripeController::class, 'payment'])->middlew
 Route::get('single/stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
 Route::get('single/stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
 
-// Route::get('/stripe/success', function () {
-//     return view('sccess');
-// });
 
     
 Route::get('contact-us', [ContactController::class, 'index']);
@@ -232,7 +228,6 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe']);
 
 
-    // Route::get('/admins/{id}/edit', [AdminController::class, 'edit'])->name('Admin_Dashboard.Admins_Update');
 
     Route::get('/Admins_Payment', [PaypalController::class, 'show']);
 
