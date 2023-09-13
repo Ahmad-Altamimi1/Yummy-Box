@@ -25,7 +25,10 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+       
+        $admin = Admin::all();
+        
+        return view('Admin_Dashboard.Admins_Create', ['admin' => $admin]);
     }
 
     /**
@@ -37,7 +40,16 @@ class AdminController extends Controller
         $admin->name = $request->name;
         $admin->last_name = $request->last_name;
         $admin->email = $request->email;
-        $admin->password = $request->password;
+        if ($request->hasFile('image')) {
+            // Validate and store the uploaded image
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/users'), $imageName);
+
+
+            // $imagePath = $request->file('image')->store('images/users');
+            $admin->image =  $imageName;
+        }        $admin->password = $request->password;
         $admin->save();
 
 
@@ -57,6 +69,7 @@ class AdminController extends Controller
     {
 
         $AdminList = Admin::all();
+        
         return view('Admin_Dashboard.Admins_Data', ['admins' => $AdminList]);
     }
 
@@ -83,6 +96,19 @@ class AdminController extends Controller
 
         // $admin->update();
         return redirect()->route('Admin_Dashboard.Admins_Data')->with('success', 'student data dashboard successfully ');
+    }
+
+    public function updateprofile(Request $request, $id)
+    {
+        $admin = Admin::find($id);
+        $admin->name = $request->name;
+        $admin->last_name = $request->last_name;
+        $admin->email = $request->email;
+        // $admin->password = $request->password;
+        $admin->save();
+
+        // $admin->update();
+        return redirect()->route('Admin_Dashboard.profile')->with('success', 'saved');
     }
 
     /**

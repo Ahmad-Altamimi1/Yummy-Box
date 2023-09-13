@@ -28,12 +28,7 @@ class DonorController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreDonorRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(StoreDonorRequest $request)
     {
         $input = $request->all();
@@ -49,9 +44,10 @@ class DonorController extends Controller
      */
     public function show(Donor $donor)
     {
-        //
+        $Donors = Donor::all();
+       return view('Admin_Dashboard.ressourses')->with('Donors',$Donors);
     }
-
+  
     /**
      * Show the form for editing the specified resource.
      *

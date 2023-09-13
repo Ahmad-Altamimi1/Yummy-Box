@@ -14,7 +14,7 @@
 <body>
     <div class="container mt-5">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header" style="background-color: rgba(117, 192, 157, 0.489)">
                 <h5 class="card-title">Updat User Data </h5>
             </div>
             <div class="card-body">          
@@ -40,15 +40,15 @@
                         <input type="text" class="form-control" id="DescriptionOne" name="phone"  value="{{ $user->phone }}">
                     </div>
                     <div class="col-md-4 col-12">
-                      @if ($user->image)
-                          <img src="{{ asset('images/users/' . $user->image) }}" alt="{{ $user->name }}'s User Picture" class="img-fluid" style="max-width: 200px; height: auto;" requ>
-                      @endif
-      
-                      <div class="form-group mt-3">
-                          <label for="image">{{ __('Upload new image') }}</label>
-                          <input id="image" name="image" type="file" accept="image/*" class="form-control-file" :value="old('image', $user->image)" autocomplete="image" />
-                          <x-input-error class="mt-2" :messages="$errors->get('image')" />
-                      </div>
+                     <img src="{{ asset('images/users/' . $user->image) }}" alt="{{ $user->name }}'s Profile Picture" class="img-fluid" style="max-width: 200px; height: auto;">
+
+                     <div class="col-md-4 col-12">
+                        <div class="form-group mt-3">
+                            <label for="image">{{ __('Upload new image') }}</label>
+                            <input id="image" name="image" type="file" accept="image/*" class="form-control-file" autocomplete="image" />
+                            <x-input-error class="mt-2" :messages="$errors->get('image')" />
+                        </div>
+                    </div>
                   </div>
                     <button type="submit" class="btn btn-primary"> Update</button>
                 </form>

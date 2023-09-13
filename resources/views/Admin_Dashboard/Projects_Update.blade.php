@@ -14,8 +14,8 @@
 <body>
     <div class="container mt-5">
         <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">Add New Project</h5>
+            <div class="card-header" style="background-color: rgba(117, 192, 157, 0.489)">
+                <h5 class="card-title" >Add New Project</h5>
             </div>
             <div class="card-body">          
               <form action="productupdate/{{ $product->id }}" method="POST">

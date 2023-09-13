@@ -12,7 +12,7 @@
 <body>
     <div class="container mt-5">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header" style="background-color: rgba(117, 192, 157, 0.489)">
                 <h5 class="card-title">Add New User</h5>
             </div>
             <div class="card-body">
@@ -32,7 +32,7 @@
                     </div>
                     <div class="form-group">
                         <label for="DescriptionTwo">Password</label>
-                        <input type="text" class="form-control" id="DescriptionTwo" name="password">
+                        <input type="password" class="form-control" id="DescriptionTwo" name="password">
                     </div>
                     <div class="form-group">
                         <label for="ProjectsLocation">Phone</label>

@@ -2,9 +2,10 @@
 
 @section('content')
 
-    <div style="margin: 4% 1% 0px 18%">
-        <div style="width: 100%">
-
+<div class="content " >
+    <div style="margin: 0% 8%">
+      <div style="width: 100%" > 
+    <br><br>
             <h1 class="mx-auto"> Donations Data </h1>
             <br>
             <table class="table table-hover">
@@ -33,3 +34,5 @@
             </table>
         </div>
     </div>
+    </div>
+@endsection
