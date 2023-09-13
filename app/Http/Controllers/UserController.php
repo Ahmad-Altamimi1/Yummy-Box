@@ -88,6 +88,9 @@ class UserController extends Controller
 
         $UserList = User::all();
         return view('Admin_Dashboard.User', ['users' => $UserList]);
+        
+     
+
     }
 
     /**

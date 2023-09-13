@@ -36,15 +36,13 @@ Route::get('table',function(){
 */
 
 
-// Route::get('/about', function () {
-//     return view('pages.about');
-// });
+Route::get('/donate', function () {
+    return view('pages.donate');
+});
 use App\Http\Controllers\StripeController;
 use App\Models\User;
 
-Route::get('/', function () {
-    return view('home');
-});
+
 Route::get('/rer', function () {
     return view('pages.cliker');
 });
@@ -52,7 +50,8 @@ Route::get('/rer', function () {
 // Route::get('/home', function () {
 //     return view('pages.index');
 // });
-Route::get('single/{id?}', [CategoryController::class, 'find']);
+Route::get('single/{id?}', [CategoryController::class, 'find'])->name('single');
+// Route::get('/', [CategoryController::class, 'index']);
 // Route::get('/', [CategoryController::class, 'index']);
 // Route::get('home', [CategoryController::class, 'index'])->name('home');
 // Route::resource('pages', ProductsController::class);
