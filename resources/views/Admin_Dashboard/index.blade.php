@@ -71,7 +71,7 @@
                             <h6 class="mb-0">Worldwide Sales</h6>
                             <a href="" class="text-warning" >Show All</a>
                         </div>
-                        <canvas id="worldwide-sales"></canvas>
+                        <img src="{{asset('images/chart3.jpg')}}" style="width:90% ; height : 400px">
                     </div>
                 </div>
                 <div class="col-sm-12 col-xl-6">
@@ -80,7 +80,7 @@
                             <h6 class="mb-0">Salse & Revenue</h6>
                             <a href="" class="text-warning">Show All</a>
                         </div>
-                        <canvas id="salse-revenue"></canvas>
+                        <img src="{{asset('images/excel.svg')}}" style="width:90% ; height :400px" >
                     </div>
                 </div>
             </div>

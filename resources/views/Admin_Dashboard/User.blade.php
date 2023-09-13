@@ -59,7 +59,17 @@
                     <form id="edit-form" action="useredit/{{ $user['id'] }}" method="GET" style="display: none;">
                         @csrf
                     </form>
+
                     
+                    {{-- <form action="userdelete/{{$user['id'] }}" method="POST" style="margin-bottom: 2px">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit" value="DELETE" style="width:70px">Delete</button>
+                    </form >                   
+                    <form action="useredit/{{ $user['id'] }}" method="" style="margin-bottom: 2px">
+                      @csrf
+                      <button class="btn btn-primary" type="submit" value="Update" style="width:70px">Edit</button>
+                  </form>  --}}
                
                 
                   </td>

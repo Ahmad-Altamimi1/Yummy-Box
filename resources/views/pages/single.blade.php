@@ -180,9 +180,10 @@ $percant= (int)(( $totalsproduct  / $product->total) * 100)
         </div>
 
         <div class="col-5  ">
-            <div style=" position: relative;
+            <div style=" position: fixed;
            width: 450px;
-           left:50px;
+          
+           bottom:500px;
           text-align: center;
          
      
@@ -190,162 +191,9 @@ $percant= (int)(( $totalsproduct  / $product->total) * 100)
                 
                <div style="border: #4a260b solid 3px ; padding : 25px 10px"> <h3>Join us, volunteer, empower</h3> 
                 <br>
-                <div class="">
-                <x-primary-button class="btn btn-primary me-4 " style="background-color: #54ac75 ; width:75% ; height:50px"
-                            x-data=""
-                    x-on:click.prevent="$dispatch('open-modal', 'Join Us as a Trainer')"
-                       >{{ __('Join Us as a Trainer') }}</x-primary-button>
-
-                        <x-modal name="Join Us as a Trainer" :show="$errors->changePassword->isNotEmpty()" focusable>
-
-                            <div class="container mt-5">
-                                <h1> Training Volunteer Form</h1>
-                                <form action="{{ route('frontvolunteers.store') }}" method="post" enctype="multipart/form-data">
-                                    @csrf
-                                    @method('post')                                     <div class="form-group">                
-                                        <input  type="hidden" class="form-control" id="user_id"  name="user_id" required>
-                        
-                                        <label for="address">Address</label>
-                                        <input type="text" class="form-control" id="address" name="Address" required>
-                        
-                        
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="programmingLanguages">Proficient Programming Classes</label>
-                                        <select class="form-control" id="programmingLanguages" name="Languages" >
-                                            <option value="Choose Language">Choose Class</option>
-                                            <option value="FrontEnd">FrontEnd</option>
-                                            <option value="BackEnd">BackEnd</option>
-                                            <option value="javascript">UX/UI</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="day">I would like to help weekly</label>
-                                        <select class="form-control" id="day" name="day" >
-                                            <option value="Choose Day">Choose Day</option>
-                                            <option value="saturday">Saturday</option>
-                                            <option value="sunday">Sunday</option>
-                                            <option value="monday">Monday</option>
-                                            <option value="tuesday">Tuesday</option>
-                                            <option value="wednesday">Wednesday</option>
-                                            <option value="thursday">Thursday</option>
-                                            
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="experience">Experience</label>
-                                        <textarea class="form-control" id="experience" name="Experience" rows="3" required></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="cv">CV</label>
-                                        <input type="file" class="form-control-file" id="cv" name="CV" required>
-                                    </div>
-                                 @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-                                    
-                                    <button type="submit" class="btn btn-primary" value="submit">Submit</button>
-                                </form>
-                                
-                            </div>
-                       </x-modal> <br><br>
-                    <form action="paypal" method="POST" class=" p-5 rounded donation-form" data-aos="fade-up">
-                        @csrf
-                        <h3 >Quick Donation Form</h3>
-                      
-                        <div class="form-field mb-3">
-                            <label for="amount-1" class="amount js-amount" data-value="1.00">
-                                <input type="radio" id="amount-1" name="radio-amount" checked="true">
-                                <span>$1</span>
-                            </label>
-    
-                            <label for="amount-2" class="amount js-amount" data-value="5.00">
-                                <input type="radio" id="amount-2" name="radio-amount">
-                                <span>$5</span>
-                            </label>
-                            <label for="amount-3" class="amount js-amount" data-value="25.00">
-                                <input type="radio" id="amount-3" name="radio-amount">
-                                <span>$25</span>
-                            </label>
-                            <label for="amount-4" class="amount js-amount" data-value="100.00">
-                                <input type="radio" id="amount-4" name="radio-amount">
-                                <span>$100</span>
-                        </label>
-                                <h3>And you can select custom</h3>
-    
-                        </div>
-                        <div class="field-icon">
-                            <span>$</span>
-                            <input type="text" placeholder="0.00" id="cont" class="form-control px-4" name="price"
-                                value="1.00">
-    
-                            </div>
-                            <div class="form-field mb-3">
-                                {{-- <input type="text" placeholder="Name" class="form-control px-4"> --}}
-                                {{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
-                            </div>
-    
-                            @if(!Auth::check())
-                                
-<x-primary-button class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"
-        x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'change-password')"
-    >{{ __('Paypal') }}</x-primary-button>
-
-    <x-modal name="change-password" :show="$errors->changePassword->isNotEmpty()" focusable>
-<p >You Must Login </p>
-<a href="{{ route('login') }}">Back To Login</a>
-    </x-modal>
-                            @endif
-                            @if(Auth::check())
-                            <input type="submit" value="Paypal" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75">
-
-                                
-  @endif
-
-
-
-
-
-                        </form>
-
-
-                        <form action="stripe/{{$id}}" class="  rounded donation-form" method="post" style="padding: 0px 50px">
-                            @csrf
-                                                    <h3 for="" style=" margin:0;    font-weight: bold;
-                                margin-bottom: 0px;
-                                text-transform: uppercase;
-                                font-size: 18px;">Or donate by Visa</h3> <br>
-                            
- <input type="text" placeholder="0.00" class="form-control px-4" name="price" value="{{ old('price') }}" required>
- @if(!Auth::check())
-                                
-<x-primary-button class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"
-        x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'change1')"
-    >{{ __('visa') }}</x-primary-button>
-
-
-    <x-modal name="change-1" :show="$errors->changePassword->isNotEmpty()" focusable>
-<p >You Must Login </p>
-    </x-modal>
-                            @endif
-                            @if(Auth::check())
- <input type="submit" value="visa" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"  >
-             
-
-                                
-  @endif
-                                                </form>
-    
-                </div>  
-                
+                <a href="#donite" class="btn btn-primary me-4 d-inline-flex align-items-center"> <span>Join us as a trainer </span></a>
+                <a href="#donite" class="btn btn-primary me-4 d-inline-flex align-items-center"> <span>Donate </span></a>
+  
               
             </div>
             </div>
