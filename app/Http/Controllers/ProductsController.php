@@ -9,6 +9,14 @@ use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 use App\Models\Volunteer;
 class ProductsController extends Controller
 {
+
+    public function product()
+          {
+                    $products = Products::all();
+                    $volanters = Volunteer::all();
+
+                    return view('pages.products', ['products' => $products, 'volanters' => $volanters]);
+          }
     /**
      * Display a listing of the resource.
      *
