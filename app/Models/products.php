@@ -19,6 +19,7 @@ class products extends Model
         'period',
         'time',
         'image',
+        'created_at',
         
     ];
     public $timestamps =false;

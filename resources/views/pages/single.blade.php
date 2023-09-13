@@ -68,7 +68,7 @@
 									$percant=0;
 								@endphp
 								@foreach ($volanters as $volanter )
-@if ($volanter->product_id==$product->id)
+@if ($volanter->product_id==$products->image)
 	
 @php
 $totalsproduct +=$volanter->amount 
@@ -256,66 +256,19 @@ $percant= (int)(( $totalsproduct  / $product->total) * 100)
                             </div>
                        </x-modal> <br><br>
                     <form action="paypal" method="POST" class=" p-5 rounded donation-form" data-aos="fade-up">
-                        @csrf
-                        <h3 >Quick Donation Form</h3>
-                      
-                        <div class="form-field mb-3">
-                            <label for="amount-1" class="amount js-amount" data-value="1.00">
-                                <input type="radio" id="amount-1" name="radio-amount" checked="true">
-                                <span>$1</span>
-                            </label>
-    
-                            <label for="amount-2" class="amount js-amount" data-value="5.00">
-                                <input type="radio" id="amount-2" name="radio-amount">
-                                <span>$5</span>
-                            </label>
-                            <label for="amount-3" class="amount js-amount" data-value="25.00">
-                                <input type="radio" id="amount-3" name="radio-amount">
-                                <span>$25</span>
-                            </label>
-                            <label for="amount-4" class="amount js-amount" data-value="100.00">
-                                <input type="radio" id="amount-4" name="radio-amount">
-                                <span>$100</span>
-    
-                                <script >
-                                    let cont=document.querySelector('.cont');
-                                    var jsAmount = document.querySelectorAll('.js-amount');
-	var inputField = document.querySelector("[name=price");
-	Array.from(jsAmount).forEach(link => {
-		link.addEventListener('click', function(event) {			
-			inputField.value = this.dataset.value;
-            cont.value=this.dataset.value;
-
-
-		});
-	});
-</script>    
-                                </label>
-                                <h3>And you can select custom</h3>
-    
+                    @csrf
+                    @method('POST')
+                        <h3 > Donation Form</h3>    
                         </div>
                         <div class="field-icon">
                             <span>$</span>
                             <input type="text" placeholder="0.00" id="cont" class="form-control px-4" name="price"
                                 value="1.00">
-    
-                            </div>
-                            <div class="form-field mb-3">
-                                {{-- <input type="text" placeholder="Name" class="form-control px-4"> --}}
-                                {{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
-                            </div>
-    
-                            @if(!Auth::check())
-                                
-<x-primary-button class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"
-        x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'change-password')"
-    >{{ __('donite') }}</x-primary-button>
+    </div>
+                            @if(!Auth::check())   
 
-    <x-modal name="change-password" :show="$errors->changePassword->isNotEmpty()" focusable>
-<p >You Must Login </p>
-<a href="{{ route('login_1') }}">Back To Login</a>
-    </x-modal>
+<a href="{{ route('login') }}" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75">Paypal</a>
+   
                             @endif
                             @if(Auth::check())
                             <input type="submit" value="Paypal" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75">
@@ -337,21 +290,15 @@ $percant= (int)(( $totalsproduct  / $product->total) * 100)
                                 text-transform: uppercase;
                                 font-size: 18px;">Or donate by Visa</h3> <br>
                             
- <input type="text" placeholder="0.00" class="form-control px-4" name="price" required>
+ <input type="text" placeholder="0.00" class="form-control px-4" name="price" value="{{ old('price') }}" required>
+
  @if(!Auth::check())
-                                
-<x-primary-button class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"
-        x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'change1')"
-    >{{ __('donite') }}</x-primary-button>
+<a href="{{ route('login') }}" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75">Visa</a>
 
 
-    <x-modal name="change-1" :show="$errors->changePassword->isNotEmpty()" focusable>
-<p >You Must Login </p>
-    </x-modal>
                             @endif
                             @if(Auth::check())
-                                                     <input type="submit" value="visa" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"  >
+ <input type="submit" value="visa" class="btn btn-primary w-100" style="color: white ; background-color : #54ac75"  >
              
 
                                 

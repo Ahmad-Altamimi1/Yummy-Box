@@ -10,7 +10,7 @@ use App\Http\Requests\UpdateCategoryRequest;
 use Illuminate\Support\Facades\DB;
 use App\Models\products;
 use Illuminate\Support\Carbon;
-
+use Illuminate\Support\Facades\Session;
 class CategoryController extends Controller
 {
     /**
@@ -20,7 +20,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-       
+        Session::put('url.intended', url()->previous());
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->get();
         $users = DB::table('users')->get();
@@ -42,6 +42,7 @@ class CategoryController extends Controller
         $volanters = DB::table('paypals')->get();
 
         $products = products::findOrFail($id);
+
         $startDate = Carbon::parse($products->created_at);
         $endDate = Carbon::now();
         $diffInMinutes = $endDate->diffInMinutes($startDate);

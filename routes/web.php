@@ -38,15 +38,13 @@ Route::get('table',function(){
 */
 
 
-// Route::get('/about', function () {
-//     return view('pages.about');
-// });
+Route::get('/donate', function () {
+    return view('pages.donate');
+});
 use App\Http\Controllers\StripeController;
 use App\Models\User;
 
-Route::get('/', function () {
-    return view('home');
-});
+
 Route::get('/rer', function () {
     return view('pages.cliker');
 });
@@ -54,7 +52,8 @@ Route::get('/rer', function () {
 // Route::get('/home', function () {
 //     return view('pages.index');
 // });
-Route::get('single/{id?}', [CategoryController::class, 'find']);
+Route::get('single/{id?}', [CategoryController::class, 'find'])->name('single');
+// Route::get('/', [CategoryController::class, 'index']);
 // Route::get('/', [CategoryController::class, 'index']);
 Route::get('home', [CategoryController::class, 'index'])->name('home');
 // Route::resource('pages', ProductsController::class);
@@ -79,7 +78,7 @@ Route::get('/dashboard', function () {
 //     ->name('home');
 
 Route::get('/about', [Controller::class, 'showabout'])
-    ->name('about');
+    ->name('aboutone');
 
 Route::get('/contact', [Controller::class, 'showcontact'])
     ->name('contact');
@@ -107,9 +106,9 @@ Route::middleware('auth')->group(function () {
 
 
 // Define the PayPal routes with the appropriate methods
-Route::post('paypal', [PaypalController::class, 'payment'])->middleware('auth', 'verified')->name('paypal'); // Use 'store' method for POST
-Route::get('paypal/success', [PaypalController::class, 'success'])->name('success'); // Use 'success' method for GET
-Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
+// Route::post('paypal', [PaypalController::class, 'payment'])->middleware('auth', 'verified')->name('paypal'); // Use 'store' method for POST
+// Route::get('paypal/success', [PaypalController::class, 'success'])->name('success'); // Use 'success' method for GET
+// Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
 // Define the PayPal routes with the appropriate methods
 Route::post('single/paypal', [PaypalController::class, 'payment'])->middleware('auth', 'verified')->name('paypal_single'); // Use 'store' method for POST
 Route::get('single/paypal/success', [PaypalController::class, 'success'])->name('success'); // Use 'success' method for GET
@@ -120,6 +119,9 @@ Route::get('single/paypal/cancel', [PaypalController::class, 'cancel'])->name('p
 // Define the Stripe routes with the appropriate methods
 Route::get('finish', function () {
     return view('sccess');
+})->name('finish');
+Route::get('finishform', function () {
+    return view('sccessform');
 })->name('finish');
 Route::post('single/stripe/{id}', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe_single'); // Use 'store' method for POST
 Route::get('single/stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET

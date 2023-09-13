@@ -49,6 +49,9 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function ssss() {
+return redirect('home');
+}
     /**
      * Update the user's profile information.
      */
