@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="content " >
-<div style="margin: 0% 8% ">
+<div style="margin: 0% 6% ">
     <div style="width: 100%" > 
 <br><br>
-        <h1 class="mx-auto"> Manage Your Project </h1>  <a href="Project_Create"><button class="btn btn-success" type="submit" style="position:absolute ; right :8%"> + Add Project</button>
+        <h1 class="mx-auto"> Manage Your Project </h1>  <a href="Project_Create"><button class="btn btn-success" type="submit" style="position:absolute ; right :5%"> + Add Project</button>
         </a> <br><br>
       
         <table class="table table-hover">
-          <thead style="background-color: rgba(117, 192, 157, 0.489)">
+          <thead style="background-color: rgba(117, 192, 157, 0.489) ">
              <tr>
                         <th>ID</th>
                         <th>Name</th>
@@ -21,7 +21,7 @@
                         <th>Period</th>
                         <th>Total</th>
                         <th>Image</th>
-                        <th>Action</th>
+                        <th style="text-align: center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,50 +70,34 @@
                         </div>
                         </td>  
                         <td>
-                            {{-- <form action="productdelete/{{$product['id'] }}" method="POST" style="margin-bottom: 2px">
-                          @csrf
-                          @method('DELETE')
-                          <button class="btn btn-danger" type="submit" value="DELETE" style="width:70px">Delete</button>
-                      </form >                   
-                      <form action="productedit/{{ $product['id'] }}" method="" style="margin-bottom: 2px">
-                        @csrf
-                        <button class="btn btn-primary" type="submit" value="Update" style="width:70px">Edit</button>
-                    </form> 
-                    <form action="productview/{{ $product['id'] }}" method="" style="margin-bottom: 2px">
-                      @csrf
-                      <button class="btn btn-warning" type="submit" value="Update" style="width:70px">View</button>
-                  </form>  --}}
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <form action="productdelete/{{$product['id'] }}" method="POST" style="margin-bottom: 2px">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn fa fa-trash text-danger fa-lg"  type="submit" value="DELETE" ></button>
+                                    </form >                   
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <form action="productedit/{{ $product['id'] }}" method="" style="margin-bottom: 2px">
+                                        @csrf
+                                        <button class="btn fa-regular fa-pen-to-square text-warning fa-lg" type="submit" value="Update" ></button>
+                                    </form>  
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <form action="productview/{{ $product['id'] }}" method="" style="margin-bottom: 2px">
+                                        @csrf
+                                        <button class="btn  far fa-eye text-primary fa-lg" type="submit" value="Update" ></button>
+                                    </form> 
+                                </div>
+                            </div>
+                                            
+                            
+                     
                   
 
-                  <a href="productdelete/{{$product['id'] }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();" style="margin-bottom: 2px">
-                    @csrf
-                    @method('DELETE')
-                    <i class="fas fa-trash fa-xl" style="color: red;"></i>
-                </a>
-                
-                <form id="delete-form" action="productdelete/{{$product['id'] }}" method="POST" style="display: none;">
-                    @csrf
-                    @method('DELETE')
-                </form>
-                
-                <a href="productedit/{{ $product['id'] }}" onclick="event.preventDefault(); document.getElementById('edit-form').submit();" style="margin-bottom: 2px">
-                    @csrf
-                    <i class="fas fa-edit fa-xl" style="color: blue;"></i>
-                </a>
-                
-                <form id="edit-form" action="productedit/{{ $product['id'] }}" method="GET" style="display: none;">
-                    @csrf
-                </form>
-                
-                <a href="productview/{{ $product['id'] }}" onclick="event.preventDefault(); document.getElementById('view-form').submit();" style="margin-bottom: 2px">
-                    @csrf
-                    <i class="fas fa-eye fa-xl" style="color: orange;"></i>
-                </a>
-                
-                <form id="view-form" action="productview/{{ $product['id'] }}" method="GET" style="display: none;">
-                    @csrf
-                </form>
-                
 
                     </td>
                      @endforeach   

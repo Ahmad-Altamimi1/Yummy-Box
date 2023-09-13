@@ -19,7 +19,7 @@
                         {{-- <th>Password</th> --}}
                         <th>Phone</th>
                         <th>Image</th>
-                        <th>Action</th>
+                        <th style="text-align: center">Actions</th>
               </tr>
                 </thead>
                 <tbody>
@@ -36,31 +36,29 @@
                                 <div >
                                     @if ($user->image)
                                         <img src="{{ asset('images/users/' . $user->image) }}" alt="{{ $user->name }}"
-                                            width="80" height="80">
+                                            width="60" height="60">
                                     @endif
                                 </div>
                       </td>
-                      <td><a href="userdelete/{{$user['id'] }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();" style="margin-bottom: 2px">
+                      <td>
+            
+
+                        <div class="row">
+                            <div class="col-md-6">
+                 <form action="userdelete/{{$user['id'] }}" method="POST" style="margin-bottom: 2px">
                         @csrf
                         @method('DELETE')
-                        <i class="fas fa-trash fa-xl" style="color: red;"></i>
-                    </a>
-                    
-                    <form id="delete-form" action="userdelete/{{$user['id'] }}" method="POST" style="display: none;">
-                        @csrf
-                        @method('DELETE')
-                    </form>
-                    
-                    <a href="useredit/{{ $user['id'] }}" onclick="event.preventDefault(); document.getElementById('edit-form').submit();" style="margin-bottom: 2px">
-                        @csrf
-                        <i class="fas fa-edit fa-xl" style="color: blue;"></i>
-                    </a>
-                    
-                    <form id="edit-form" action="useredit/{{ $user['id'] }}" method="GET" style="display: none;">
-                        @csrf
-                    </form>
-                    
-               
+                        <button class="btn  fa fa-trash text-danger fa-lg" type="submit" value="DELETE" ></button>
+                    </form >  
+                </div>
+                                
+                <div class="col-md-6">                 
+                    <form action="useredit/{{ $user['id'] }}" method="" style="margin-bottom: 2px">
+                      @csrf
+                      <button class="btn fa-regular fa-pen-to-square text-warning fa-lg" type="submit" value="Update" ></button>
+                  </form> 
+                </div>
+            </div>
                 
                   </td>
               @endforeach

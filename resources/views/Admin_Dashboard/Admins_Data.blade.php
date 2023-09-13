@@ -52,7 +52,7 @@
                         <td>
                             <div >
                                 @if ($admin->image)
-                                    <img src="{{ asset('images/' . $admin->image) }}" alt="{{ $admin->name }}"
+                                    <img src="{{ asset('images/users/' . $admin->image) }}" alt="{{ $admin->name }}"
                                         width="80" height="80">
                                 @endif
                             </div>
@@ -81,6 +81,18 @@
                         @csrf
                         <button class="btn btn-warning" type="submit" value="Update" style="width:70px">View</button>
                     </form>  --}}
+
+
+
+                    {{-- <form action="admindelete/{{$admin['id'] }}" method="POST" style="margin-bottom: 2px">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit" value="DELETE" style="width:70px">Delete</button>
+                    </form >                   
+                    <form action="adminedit/{{ $admin['id'] }}" method="" style="margin-bottom: 2px">
+                      @csrf
+                      <button class="btn btn-primary" type="submit" value="Update" style="width:70px">Edit</button>
+                  </form>  --}}
                     
                       </td>
                        @endforeach   
