@@ -39,8 +39,16 @@ class UserController extends Controller
         $user->email= $request->email;
         $user->password= $request->password;
         $user->phone= $request->phone;
-        $user->image= $request->image;
-        $user->save();
+        if ($request->hasFile('image')) {
+            // Validate and store the uploaded image
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/users'), $imageName);
+
+
+            // $imagePath = $request->file('image')->store('images/users');
+            $user->image =  $imageName;
+        }        $user->save();
  
  
         return redirect()->route('Admin_Dashboard.User');
@@ -78,8 +86,17 @@ class UserController extends Controller
         // $user->email= $request->email;
         // $user->password= $request->password;
         $user->phone= $request->phone;
-        $user->image= $request->image;
-        $user->save();
+        if ($request->hasFile('image')) {
+            // Validate and store the uploaded image
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/users'), $imageName);
+
+
+            // $imagePath = $request->file('image')->store('images/users');
+            $user->image =  $imageName;
+        }        $user->save();
+ 
  
 
         // $admin->update();

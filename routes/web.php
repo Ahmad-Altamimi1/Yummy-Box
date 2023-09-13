@@ -239,6 +239,7 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     Route::delete('admindelete/{id}', [AdminController::class, 'destroy'])->name('Admin_Dashboard.destroy');
     Route::get('adminsedit/{id}', [AdminController::class, 'edit'])->name('Admin_Dashboard.edit');
     Route::patch('adminsedit/adminsupdate/{id}', [AdminController::class, 'update']);
+    Route::get('Admin_Create', [AdminController::class, 'create']);
 
 
 

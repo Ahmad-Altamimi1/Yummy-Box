@@ -54,8 +54,16 @@ class ProductsController extends Controller
         $product->period= $request->period;
         $product->time= $request->time;
         $product->total= $request->total;
-        $product->image= $request->image;
-        $product->save();
+        if ($request->hasFile('image')) {
+            // Validate and store the uploaded image
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+
+
+            // $imagePath = $request->file('image')->store('images/users');
+            $product->image =  $imageName;
+        }        $product->save();
     
         return redirect()->route('Admin_Dashboard.Projects');
     
@@ -107,7 +115,16 @@ class ProductsController extends Controller
         $product->period= $request->period;
         $product->time= $request->time;
         $product->total= $request->total;
-        $product->image= $request->image;
+        if ($request->hasFile('image')) {
+            // Validate and store the uploaded image
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+
+
+            // $imagePath = $request->file('image')->store('images/users');
+            $product->image =  $imageName;
+        }
         $product->save();
 
         return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');

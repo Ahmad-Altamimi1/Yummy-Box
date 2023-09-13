@@ -32,13 +32,13 @@
                       <td>{{ $user['phone'] }}</td>
 
                       <td>
-                          <div>
-                              @if ($user->image)
-                                  <img src="{{ asset('images/Users/' . $user->image) }}" alt="{{ $user->name }}"
-                                      width="200" height="200">
-                              @endif
-                          </div>
-                      </td> 
+                                <div >
+                                    @if ($user->image)
+                                        <img src="{{ asset('images/users/' . $user->image) }}" alt="{{ $user->name }}"
+                                            width="80" height="80">
+                                    @endif
+                                </div>
+                      </td>
                       <td><form action="userdelete/{{$user['id'] }}" method="POST" style="margin-bottom: 2px">
                         @csrf
                         @method('DELETE')
