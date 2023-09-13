@@ -85,6 +85,19 @@ class AdminController extends Controller
         return redirect()->route('Admin_Dashboard.Admins_Data')->with('success', 'student data dashboard successfully ');
     }
 
+    public function updateprofile(Request $request, $id)
+    {
+        $admin = Admin::find($id);
+        $admin->name = $request->name;
+        $admin->last_name = $request->last_name;
+        $admin->email = $request->email;
+        // $admin->password = $request->password;
+        $admin->save();
+
+        // $admin->update();
+        return redirect()->route('Admin_Dashboard.profile')->with('success', 'saved');
+    }
+
     /**
      * Remove the specified resource from storage.
      */

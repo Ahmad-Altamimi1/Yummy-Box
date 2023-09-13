@@ -225,6 +225,10 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     //ressourses data
     Route::get('/Admin_ressourses', [DonorController::class, 'show'])->name('Admin_Dashboard.ressourses');
     
+
+    // admin profile
+    Route::get('/Admin_profile', [AdminController::class, 'updateprofile'])->name('Admin_Dashboard.profile');
+
     // categories data
     Route::get('/Admin_Category', [CategoryController::class, 'show'])->name('Admin_Dashboard.Category');
     Route::post('/Admin_Category', [CategoryController::class, 'save']);
