@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductsController;
@@ -35,7 +35,7 @@ Route::get('/dashboard', function () {
 
 // home route 
 Route::get('/home', [CategoryController::class, 'index']);
-// Route::resource('pages/', ProductsController::class);
+Route::resource('pages/', ProductsController::class);
 
 
 

@@ -38,19 +38,19 @@
 
 
 
-	
-<div class="hero overlay" style="background-image: url('images/about.jpg')">
+
+<div class="heros overlays" style="background-image: url('images/about.jpg')">
 	<div class="container">
 		<div class="row align-items-center justify-content-center">
 			<div class="col-lg-6 text-center">
 				<h1 class="heading text-white mb-2" data-aos="fade-up">About Us</h1>
 				<p data-aos="fade-up"  data-aos-delay="100">
-					<a href="#" class="btn btn-primary me-4">Donate Now</a> 
-				</p>		
-				
+					<a href="#" class="btn btn-primary me-4">Donate Now</a>
+				</p>
+
 			</div>
 
-			
+
 		</div>
 	</div>
 </div>
@@ -65,7 +65,7 @@
 				<span class="subheading mb-3">About</span>
 				<h2 class="heading mb-4">History</h2>
 				<p>Welcome to Tech-Volunteer, where our journey began with a shared passion for technology and a deep belief in the transformative power of education. Founded by a group of dedicated volunteers, Tech-Volunteer is the culmination of our commitment to make a positive impact on the world. Our mission is simple yet profound: to provide accessible and quality tech education to aspiring learners while harnessing the strength of our volunteer community. With years of collective experience in the tech industry, we're driven by the belief that knowledge should be shared, and barriers to learning should be dismantled. Together, we strive to empower individuals with the skills to thrive in an increasingly digital world. Join us on our mission to make technology education accessible to all, one volunteer at a time.</p>
-				
+
 			</div>
 		</div>
 	</div>
@@ -79,7 +79,7 @@
 				<span class="subheading mb-3">The Team</span>
 				<h2 class="heading">Who We Are</h2>
 			</div>
-		
+
 		</div>
 	</div>
 
@@ -173,7 +173,7 @@
                 </div>
 				</div>
 
-			
+
 
 			</div>
 		</div>
@@ -211,8 +211,8 @@
 					{{-- <p><a href="#" class="link-underline">Learn More</a></p> --}}
 				</div>
 			</div>
-		</div>		
-	</div>		
+		</div>
+	</div>
 </div>
 
 
@@ -231,60 +231,53 @@
 	</div>
 
 	<div class="instagram-slider-wrap" data-aos="fade-up" data-aos-delay="200">
-		<div class="instagram-slider" id="instagram-slider">
+        <div class="instagram-slider mb-2" id="instagram-slider">
 
-			<div class="item">
-				<a class="instagram-item">
-					<span class="icon-instagram"></span>
-					<img src="images/img_v_8-min.jpg" alt="Image" class="img-fluid">		
-				</a>
-			</div>
+            <div class="item">
+                <a class="instagram-item">
+                    <span class="icon-instagram"></span>
+                    <img src="images/img_v_8-min.jpg" alt="Image" class="img-fluid"  style="border-radius: 50%">
+                </a>
+            </div>
 
-			<div class="item">
-				<a class="instagram-item">
-					<span class="icon-instagram"></span>
-					<img src="images/img_v_2-min.jpg" alt="Image" class="img-fluid">		
-				</a>
-			</div>
+            <div class="item">
+                <a class="instagram-item">
+                    <span class="icon-instagram"></span>
+                    <img src="images/img_v_2-min.jpg" alt="Image" class="img-fluid" style="border-radius: 50%">
+                </a>
+            </div>
 
-			<div class="item">
-				<a class="instagram-item">
-					<span class="icon-instagram"></span>
-					<img src="images/img_v_3-min.jpg" alt="Image" class="img-fluid">		
-				</a>
-			</div>
+            <div class="item">
+                <a class="instagram-item">
+                    <span class="icon-instagram"></span>
+                    <img src="images/partnership4.jpg" alt="Image" class="img-fluid"  style="border-radius: 50% ; height :40%">
+                </a>
+            </div>
 
-			<div class="item">
-				<a class="instagram-item">
-					<span class="icon-instagram"></span>
-					<img src="images/img_v_4-min.jpg" alt="Image" class="img-fluid">		
-				</a>
-			</div>
+            <div class="item">
+                <a class="instagram-item">
+                    <span class="icon-instagram"></span>
+                    <img src="images/img_v_4-min.jpg" alt="Image" class="img-fluid"  style="border-radius: 50%">
+                </a>
+            </div>
 
-			<div class="item">
-				<a class="instagram-item">
-					<span class="icon-instagram"></span>
-					<img src="images/img_v_5-min.jpg" alt="Image" class="img-fluid">		
-				</a>
-			</div>
+            <div class="item">
+                <a class="instagram-item">
+                    <span class="icon-instagram"></span>
+                    <img src="images/img_v_5-min.jpg" alt="Image" class="img-fluid"  style="border-radius: 50%">
+                </a>
+            </div>
 
-			<div class="item">
-				<a class="instagram-item">
-					<span class="icon-instagram"></span>
-					<img src="images/img_v_6-min.jpg" alt="Image" class="img-fluid">		
-				</a>
-			</div>
-
-			<div class="item">
-				<a class="instagram-item">
-					<span class="icon-instagram"></span>
-					<img src="images/img_v_7-min.jpg" alt="Image" class="img-fluid">		
-				</a>
-			</div>
+            <div class="item">
+                <a class="instagram-item">
+                    <span class="icon-instagram"></span>
+                    <img src="images/partnership5.jpg" alt="Image" class="img-fluid"  style="border-radius: 50% ; height :40%">
+                </a>
+            </div>
 
 
-		</div>
-	</div>
+        </div>
+    </div>
 
 </div>
 

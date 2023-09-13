@@ -29,16 +29,16 @@ use App\Http\Controllers\SocialController;
 */
 
 
-Route::get('login_admin', [LoginAdmin::class,'show'])->name('login_admin');
+// Route::get('login_admin', [LoginAdmin::class,'show'])->name('login_admin');
 
-Route::post('check', [LoginAdmin::class, 'store'])->name('check_admin');
-
-
+// Route::post('check', [LoginAdmin::class, 'store'])->name('check_admin');
 
 
-Route::prefix('admin')->middleware('IsAdmin')->group(function (){
 
-Route::get('admin_logout', [App\Http\Controllers\LoginAdmin::class, 'logout_admin'])->name('admin_logout');
+
+// Route::prefix('admin')->middleware('IsAdmin')->group(function (){
+
+// Route::get('admin_logout', [App\Http\Controllers\LoginAdmin::class, 'logout_admin'])->name('admin_logout');
    
 
 
@@ -105,9 +105,9 @@ Route::get('admin_logout', [App\Http\Controllers\LoginAdmin::class, 'logout_admi
     Route::get('productedit/{id}', [ProductsController::class, 'edit'])->name('product.edit');
     Route::patch('productedit/productupdate/{id}', [ProductsController::class, 'update']);
 
-   require __DIR__ . '/auth.php';
+//    require __DIR__ . '/auth.php';
 
-});
+// });
 
 
 

@@ -11,20 +11,20 @@
     <meta name="description" content="Volunteer work in training and education " />
     <meta name="keywords" content="Volunteer training  education" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap"
+    <link rel="preconnect" href="{{url('https://fonts.gstatic.com')}}">
+    <link href="{{url('https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap')}}"
         rel="stylesheet">
 
-    <script src="https://kit.fontawesome.com/659ed253a5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <script src="{{url('https://kit.fontawesome.com/659ed253a5.js')}}" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('fonts/flaticon/font/flaticon.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}">
-    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('css/flatpickr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/glightbox.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="css/style.css">
 
     <title>Volunteer </title>
 
@@ -69,7 +69,7 @@
                                         <a href="#">
                                             <div>{{ Auth::user()->name }}</div>
                                             <ul class="dropdown">
-                                                <li><a href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
+                                                <li><a href="{{ route('profile.show') }}">profille</a></li>
                                                 <li>
                                                     <!-- Authentication -->
                                                     <form method="POST" action="{{ route('logout') }}">

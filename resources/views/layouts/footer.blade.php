@@ -7,6 +7,7 @@
                     <h3>Navigation</h3>
                     <ul class="list-unstyled float-left links">
                         <li><a href="about">About us</a></li>
+                        <li><a href="{{ route('contact') }}">Contact us</a></li>
                         <li><a href="{{ route('news') }}">News</a></li>
                     </ul>
                 </div> <!-- /.widget -->
@@ -67,7 +68,7 @@
                     <script>
                         document.write(new Date().getFullYear());
                     </script>. All Rights Reserved. &mdash; Designed with love by <a
-                        href="#">Tech-Volunteer</a>
+                        href="#">TechHub</a>
                     <!-- License information: https://untree.co/license/ -->
                 </p>
             </div>
@@ -84,17 +85,17 @@
 <!-- Preloader -->
 
 
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/tiny-slider.js"></script>
+<script src="{{url('js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{url('js/tiny-slider.js')}}"></script>
 
-<script src="js/flatpickr.min.js"></script>
-<script src="js/glightbox.min.js"></script>
+<script src="{{url('js/flatpickr.min.js')}}"></script>
+<script src="{{url('js/glightbox.min.js')}}"></script>
 
 
-<script src="js/aos.js"></script>
-<script src="{{ asset('js/navbar.js') }}"></script>
-<script src="js/counter.js"></script>
-<script src="js/custom.js"></script>
+<script src="{{url('js/aos.js')}}"></script>
+<script src="{{url('js/navbar.js') }}"></script>
+<script src="{{url('js/counter.js')}}"></script>
+<script src="{{url('js/custom.js')}}"></script>
 </body>
 
 </html>

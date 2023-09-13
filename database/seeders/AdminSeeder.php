@@ -24,14 +24,15 @@ class AdminSeeder extends Seeder
                 'last_name' => 'admin',
                 'email' => 'admin@admin.com',
                 'password' =>Hash::make('adminadmin123456') ,
+                'image' => asset('images/blob.png')
 
 
             ],
-            
+
     );
 
 
-    
+
 
             // Admin::factory()->count(1)->create();
     }

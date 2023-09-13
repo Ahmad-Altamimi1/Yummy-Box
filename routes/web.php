@@ -3,8 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
-
-
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DonorController;
@@ -55,7 +53,7 @@ Route::get('/rer', function () {
 Route::get('single/{id?}', [CategoryController::class, 'find'])->name('single');
 // Route::get('/', [CategoryController::class, 'index']);
 // Route::get('/', [CategoryController::class, 'index']);
-Route::get('home', [CategoryController::class, 'index'])->name('home');
+// Route::get('home', [CategoryController::class, 'index'])->name('home');
 // Route::resource('pages', ProductsController::class);
 Route::resource('pages/', ProductsController::class);
 
@@ -71,14 +69,16 @@ Route::get('/dashboard', function () {
 
 
 
-// Route::get('pages/index', [App\Http\Controllers\Controller::class, 'showhome'])
-//     ->name('home');
 
-// Route::get('home', [Controller::class, 'showhome'])
-//     ->name('home');
+
+Route::get('home', [Controller::class, 'showhome'])
+    ->name('home');
 
 Route::get('/about', [Controller::class, 'showabout'])
-    ->name('aboutone');
+    ->name('about');
+
+Route::get('/single', [Controller::class, 'showsingle'])
+    ->name('single');
 
 Route::get('/contact', [Controller::class, 'showcontact'])
     ->name('contact');
@@ -89,8 +89,6 @@ Route::get('/causes', [Controller::class, 'showcauses'])
 Route::get('/news', [Controller::class, 'shownews'])
     ->name('news');
 
-Route::get('pages/about', [Controller::class, 'showabout'])
-    ->name('about');
 
 
 
@@ -99,37 +97,34 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.edit');
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+
+
 });
 
 
 
-
 // Define the PayPal routes with the appropriate methods
-// Route::post('paypal', [PaypalController::class, 'payment'])->middleware('auth', 'verified')->name('paypal'); // Use 'store' method for POST
-// Route::get('paypal/success', [PaypalController::class, 'success'])->name('success'); // Use 'success' method for GET
-// Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
+Route::post('paypal', [PaypalController::class, 'payment'])->middleware('auth', 'verified')->name('paypal'); // Use 'store' method for POST
+Route::get('paypal/success', [PaypalController::class, 'success'])->name('paypal_success'); // Use 'success' method for GET
+Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
 // Define the PayPal routes with the appropriate methods
-Route::post('single/paypal', [PaypalController::class, 'payment'])->middleware('auth', 'verified')->name('paypal_single'); // Use 'store' method for POST
-Route::get('single/paypal/success', [PaypalController::class, 'success'])->name('success'); // Use 'success' method for GET
-Route::get('single/paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
 
 
+
+
+Route::get('/payment', function () {
+    return view('pages.payment');
+})->name('payment')->middleware('auth', 'verified');
 
 // Define the Stripe routes with the appropriate methods
 Route::get('finish', function () {
     return view('sccess');
 })->name('finish');
-Route::get('finishform', function () {
-    return view('sccessform');
-})->name('finish');
-Route::post('single/stripe/{id}', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe_single'); // Use 'store' method for POST
-Route::get('single/stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
-Route::get('single/stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
+Route::post('stripe/{id}', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe_single'); // Use 'store' method for POST
+Route::get('stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
+Route::get('stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
 
-// Route::get('/stripe/success', function () {
-//     return view('sccess');
-// });
 
 
 Route::get('contact-us', [ContactController::class, 'index']);
@@ -178,7 +173,7 @@ Route::resource("volunteers", VolunteerController::class)->middleware('auth', 'v
 
 Route::get('/frontform', function () {
     return view('pages.frontendForm');
-})->middleware('auth', 'verified');
+})->name('frontform')->middleware('auth', 'verified');
 
 Route::resource("frontvolunteers", FrontvolunteerController::class)->middleware('auth', 'verified');
 
@@ -218,23 +213,19 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
 
     //////////////////////////////// SAJEDA CODE ////////////////////////////////
 
+    // admin_home
+    Route::get('/Admin_Home', function () { return view('Admin_Dashboard.index'); })->name('Admin_Dashboard.index');;
 
-    Route::get('/Admin_Home', function () {
-        return view('Admin_Dashboard.index');
+    //  volunteers data
+    Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe'])->name('Admin_Dashboard.Volunteers');
+    
+    // donations data
+    Route::get('/Admin_Payment', [PaypalController::class, 'show'])->name('Admin_Dashboard.Payments');
 
-    });
-    Route::get('/Admin_creatuser', function () {
-        return view('Admin_Dashboard.creatuser ');
-    });
-    Route::get('/Admin_Donations', function () {
-        return view('Admin_Dashboard.Donations')->name('Admin_Donations');
-    });
-    Route::get('/Admin_Volunteers', function () {
-        return view('Admin_Dashboard.Volunteers')->name('Admin_Volunteers');
-    });
 
-    Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe']);
-
+    //ressourses data
+    Route::get('/Admin_ressourses', [DonorController::class, 'show'])->name('Admin_Dashboard.ressourses');
+    
 
     // Route::get('/admins/{id}/edit', [AdminController::class, 'edit'])->name('Admin_Dashboard.Admins_Update');
 
@@ -257,6 +248,7 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     Route::delete('admindelete/{id}', [AdminController::class, 'destroy'])->name('Admin_Dashboard.destroy');
     Route::get('adminsedit/{id}', [AdminController::class, 'edit'])->name('Admin_Dashboard.edit');
     Route::patch('adminsedit/adminsupdate/{id}', [AdminController::class, 'update']);
+    Route::get('Admin_Create', [AdminController::class, 'create']);
 
 
 
@@ -267,13 +259,21 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     Route::delete('userdelete/{id}', [UserController::class, 'destroy'])->name('User.destroy');
     Route::get('useredit/{id}', [UserController::class, 'edit'])->name('user.edit');
     Route::patch('useredit/userupdate/{id}', [UserController::class, 'update']);
+    Route::get('/admin/usertview/{id}', [UserController::class, 'view']);
+    Route::get('user_Create', [UserController::class, 'create']);
 
-
+    // projects data
     Route::get('/Admins_Projects', [ProductsController::class, 'show'])->name('Admin_Dashboard.Projects');
     Route::post('/Admins_Projects', [ProductsController::class, 'store']);
     Route::delete('productdelete/{id}', [ProductsController::class, 'destroy'])->name('product.destroy');
     Route::get('productedit/{id}', [ProductsController::class, 'edit'])->name('product.edit');
     Route::patch('productedit/productupdate/{id}', [ProductsController::class, 'update']);
+    Route::get('productview/{id}', [ProductsController::class, 'view']);
+    Route::get('Project_Create', [ProductsController::class, 'create']);
+
+    
+
+
 });
 
 

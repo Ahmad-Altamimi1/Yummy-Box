@@ -13,6 +13,8 @@
         "laravel/socialite": "^5.9",
         "laravel/telescope": "*",
         "laravel/tinker": "^2.7",
+        "munafio/chatify": "^1.6",
+        "pusher/pusher-php-server": "^7.2",
         "realrashid/sweet-alert": "^7.1",
         "srmklive/paypal": "^3.0",
         "stripe/stripe-php": "^12.2"

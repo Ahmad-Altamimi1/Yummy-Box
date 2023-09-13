@@ -8,8 +8,6 @@ use App\Http\Requests\UpdatepaypalRequest;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
-
 use Illuminate\Support\Facades\Auth;
 
 class PaypalController extends Controller
@@ -21,41 +19,39 @@ class PaypalController extends Controller
      */
     public function payment(Request $request)
     {
-        if (Auth::check()) {
+        $provider = new PayPalClient;
+        $provider->setApiCredentials(config('paypal'));
+        $paypaltoken = $provider->getAccessToken();
+        $response = $provider->createOrder(
 
-            $provider = new PayPalClient;
-            $provider->setApiCredentials(config('paypal'));
-            $paypaltoken =  $provider->getAccessToken();
-            $response = $provider->createOrder(
-
-                [
-                    "intent" => "CAPTURE",
-                    "application_context" => [
-                        "return_url" => route('success'),
-                        "cancel_url" => route('paypal_cancel')
-                    ], "purchase_units" => [
-                        [
-                            "amount" => [
-                                "currency_code" => "USD",
-                                "value" =>  $request->price
-                            ]
+            [
+                "intent" => "CAPTURE",
+                "application_context" => [
+                    "return_url" => route('paypal_success'),
+                    "cancel_url" => route('paypal_cancel')
+                ]
+                ,
+                "purchase_units" => [
+                    [
+                        "amount" => [
+                            "currency_code" => "USD",
+                            "value" => $request->price
                         ]
                     ]
                 ]
-            );
-            if (isset($response['id']) && $response['id'] != null) {
-                foreach ($response['links'] as $link) {
-                    if ($link['rel'] == "approve") {
-                        return redirect()->away($link['href']);
-                    }
+            ]
+        );
+        if (isset($response['id']) && $response['id'] != null) {
+            foreach ($response['links'] as $link) {
+                if ($link['rel'] == "approve") {
+                    return redirect()->away($link['href']);
                 }
-            } else {
-                return redirect()->route('paypal_cancel');
             }
         } else {
-
-            return back()->with('message', 'You must log in');
+            return redirect()->route('paypal_cancel');
         }
+
+
     }
 
     /**
@@ -68,7 +64,7 @@ class PaypalController extends Controller
 
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
-        $paypaltoken =  $provider->getAccessToken();
+        $paypaltoken = $provider->getAccessToken();
         $response = $provider->capturePaymentOrder($request->token);
         if (isset($response['status']) && $response['status'] == "COMPLETED") {
 
@@ -83,9 +79,10 @@ class PaypalController extends Controller
 
 
             ]);
-            return redirect('single/paypal/success');
+            return redirect()->route('finish');        
+        }
 
-        }else{
+             else {
             return redirect()->route('paypal_cancel');
         }
     }

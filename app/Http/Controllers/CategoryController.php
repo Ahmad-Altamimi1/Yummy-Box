@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\products;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
+
+
 class CategoryController extends Controller
 {
     /**
@@ -20,6 +22,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
+
+        Session::put('url.intended', url()->previous());
         Session::put('url.intended', url()->previous());
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->get();
@@ -40,7 +44,6 @@ class CategoryController extends Controller
         $products = DB::table('products')->get();
         $users = DB::table('users')->get();
         $volanters = DB::table('paypals')->get();
-
         $products = products::findOrFail($id);
 
         $startDate = Carbon::parse($products->created_at);
@@ -51,7 +54,8 @@ class CategoryController extends Controller
         $diffInMonths = $endDate->diffInMonths($startDate);
 
         // dd($currentDateTime);
-        return  view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths','id', 'categories', 'products', 'users', 'volanters'));
+        return  view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths', 'id', 'categories', 'products', 'users', 'volanters'));
+        return view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths', 'id', 'categories', 'products', 'users', 'volanters'));
         // ['products' => $products]
     }
 
@@ -63,11 +67,10 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        
     }
     public function save(Request $request)
     {
-        $category =  new Category;
+        $category = new Category;
         $category->name = $request->name;
         $category->description = $request->description;
         $category->image = $request->image;
@@ -94,7 +97,7 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit( $id)
+    public function edit($id)
     {
         //
         $category = Category::find($id);
@@ -140,10 +143,10 @@ class CategoryController extends Controller
     //     ']);
     // }
 
-    public function destroy( $id)
+    public function destroy($id)
     {
-        $category= Category::find($id);
+        $category = Category::find($id);
         $category->delete();
-        return redirect()->route('Admin_Dashboard.Category')->with('success','student data dashboard successfully ');
-    } 
+        return redirect()->route('Admin_Dashboard.Category')->with('success', 'student data dashboard successfully ');
+    }
 }
