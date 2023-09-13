@@ -21,19 +21,31 @@
                     <div class="form-group">
                         <label for="ProjectsName">First Name</label>
                         <input type="text" class="form-control" id="ProjectsName" name="name">
+                        @error('name')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     </div>
                     <div class="form-group">
                         <label for="ProjectsBreif">Last Name</label>
                         <input type="text" class="form-control" id="ProjectsBreif" name="last_name">
+                        @error('last_name')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     </div>
                     <div class="form-group">
                         <label for="DescriptionOne">Email</label>
                         <input type="text" class="form-control" id="DescriptionOne" name="email">
+                        @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     </div>
                     <div class="form-group">
                         <label for="DescriptionTwo">Password</label>
                         <input type="password" class="form-control" id="DescriptionTwo" name="password">
                     </div>
+                    @error('password')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
                     <div class="col-md-4 col-12">
                         <div class="form-group mt-3">
                             <label for="image">{{ __('Upload new image') }}</label>
@@ -41,6 +53,9 @@
                             <x-input-error class="mt-2" :messages="$errors->get('image')" />
                         </div>
                     </div>
+                    @error('image')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
                     
                     
                     <button type="submit" class="btn btn-primary">Add Admin</button>

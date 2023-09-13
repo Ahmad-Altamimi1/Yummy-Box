@@ -22,22 +22,37 @@
                         <label for="ProjectsName">Name</label>
                         <input type="text" class="form-control" id="ProjectsName" name="name">
                     </div>
+                    @error('name')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <div class="form-group">
                         <label for="ProjectsBreif">Last Name</label>
                         <input type="text" class="form-control" id="ProjectsBreif" name="LastName">
                     </div>
+                    @error('LastName')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <div class="form-group">
                         <label for="DescriptionOne">Email</label>
                         <input type="text" class="form-control" id="DescriptionOne" name="email">
                     </div>
+                    @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <div class="form-group">
                         <label for="DescriptionTwo">Password</label>
                         <input type="password" class="form-control" id="DescriptionTwo" name="password">
                     </div>
+                    @error('password')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <div class="form-group">
                         <label for="ProjectsLocation">Phone</label>
                         <input type="text" class="form-control" id="ProjectsLocation" name="phone">
                     </div>
+                    @error('phone')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     
                     {{-- <div class="form-group">
                         <label for="ProjectsImage">Image</label>

@@ -1,7 +1,11 @@
 <?php
 
+
+
 namespace App\Http\Controllers;
 
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 
@@ -25,9 +29,9 @@ class AdminController extends Controller
      */
     public function create()
     {
-       
+
         $admin = Admin::all();
-        
+
         return view('Admin_Dashboard.Admins_Create', ['admin' => $admin]);
     }
 
@@ -36,25 +40,43 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $admin =  new Admin;
+        $request->validate([
+            'name' => ['required', 'regex:/^[A-Za-z\s]+$|^[\p{Arabic}\s]+$|^[\p{Hebrew}\s]+$/u', 'max:20'],
+            'last_name' => ['required', 'regex:/^[A-Za-z\s]+$|^[\p{Arabic}\s]+$|^[\p{Hebrew}\s]+$/u', 'max:20'],
+            'email' => ['required|email'],
+            'password' => ['required','regex:/^(?=.[a-z])(?=.[A-Z])(?=.*\d).{8,}$/i' ],
+        ], [
+            'name.required' => 'The name field is required.',
+            'name.regex' => 'The name field must contain valid characters. Only letters and spaces are allowed.',
+            'name.max' => 'The name field may not be greater than 255 characters.',
+            'last_name.required' => 'The last name field is required.',
+            'last_name.regex' => 'The last name field must contain valid characters. Only letters and spaces are allowed.',
+            'last_name.max' => 'The last name field may not be greater than 255 characters.',
+            'email.required' => 'The email field is required.',
+            'email.email' => 'Please enter a valid email address.',
+            'password.required' => 'The password field is required.',
+            'password.regex' => ' At least 8 characters, one lowercase letter, one uppercase letter, and one digit.',
+
+        ]);
+
+        $admin = new Admin;
         $admin->name = $request->name;
         $admin->last_name = $request->last_name;
         $admin->email = $request->email;
+
         if ($request->hasFile('image')) {
-            // Validate and store the uploaded image
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images/users'), $imageName);
+            $admin->image = $imageName;
+        }
 
-
-            // $imagePath = $request->file('image')->store('images/users');
-            $admin->image =  $imageName;
-        }        $admin->password = $request->password;
+        $admin->password = bcrypt($request->password);
         $admin->save();
-
 
         return redirect()->route('Admin_Dashboard.Admins_Data');
     }
+
     public function store_admin(Request $request, $id)
     {
 
@@ -69,7 +91,7 @@ class AdminController extends Controller
     {
 
         $AdminList = Admin::all();
-        
+
         return view('Admin_Dashboard.Admins_Data', ['admins' => $AdminList]);
     }
 
@@ -87,6 +109,25 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => ['required', 'regex:/^[A-Za-z\s]+$|^[\p{Arabic}\s]+$|^[\p{Hebrew}\s]+$/u', 'max:20'],
+            'last_name' => ['required', 'regex:/^[A-Za-z\s]+$|^[\p{Arabic}\s]+$|^[\p{Hebrew}\s]+$/u', 'max:20'],
+            'email' => ['required|email'],
+            'password' => ['required','regex:/^(?=.[a-z])(?=.[A-Z])(?=.*\d).{8,}$/i' ],
+        ], [
+            'name.required' => 'The name field is required.',
+            'name.regex' => 'The name field must contain valid characters. Only letters and spaces are allowed.',
+            'name.max' => 'The name field may not be greater than 255 characters.',
+            'last_name.required' => 'The last name field is required.',
+            'last_name.regex' => 'The last name field must contain valid characters. Only letters and spaces are allowed.',
+            'last_name.max' => 'The last name field may not be greater than 255 characters.',
+            'email.required' => 'The email field is required.',
+            'email.email' => 'Please enter a valid email address.',
+            'password.required' => 'The password field is required.',
+            'password.regex' => ' At least 8 characters, one lowercase letter, one uppercase letter, and one digit.',
+
+        ]);
+        
         $admin = Admin::find($id);
         $admin->name = $request->name;
         $admin->last_name = $request->last_name;
