@@ -1,5 +1,5 @@
-<script src="https://js.pusher.com/7.2.0/pusher.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>
+<script src="{{url('https://js.pusher.com/7.2.0/pusher.min.js')}}"></script>
+<script src="{{url('https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js')}}"></script>
 <script >
     // Gloabl Chatify variables from PHP to JS
     window.chatify = {
