@@ -19,13 +19,13 @@
     <link rel="stylesheet" href="fonts/icomoon/style.css">
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
-    <link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/flatpickr.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/glightbox.min.css') }}">
+    <link rel="stylesheet" href="{{ url ('css/tiny-slider.css') }}">
+    <link rel="stylesheet" href="{{ url ('css/aos.css') }}">
+    <link rel="stylesheet" href="{{ url ('css/flatpickr.min.css') }}">
+    <link rel="stylesheet" href="{{ url ('css/glightbox.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ url ('css/style.css') }}">
+    <link rel="stylesheet" href="{{ url ('css/home.css') }}">
 
 
 
@@ -77,12 +77,19 @@
                                 <li class="{{ request()->is('home*') ? 'active' : '' }}"><a
                                         href="{{ route('home') }}">Home</a></li>
 
+                                <li class="{{ request()->is('products.index*') ? 'active' : '' }}"><a
+                                        href="{{ route('products.index') }}">Our Projects</a></li>
+
                                 <li class="{{ request()->is('about*') ? 'active' : '' }}"><a href="about">About</a>
                                 </li>
+
                                 <li class="{{ request()->is('news*') ? 'active' : '' }}"><a
                                         href="{{ route('news') }}">News</a></li>
+
                                 <li class="{{ request()->is('contact*') ? 'active' : '' }}"><a
                                         href="{{ route('contact') }}">Contact</a></li>
+
+
                                 <li class="has-children">
                                     @if (Auth::check())
                                         <a href="#">
