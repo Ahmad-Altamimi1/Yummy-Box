@@ -23,7 +23,6 @@ class PaypalController extends Controller
         $provider->setApiCredentials(config('paypal'));
         $paypaltoken = $provider->getAccessToken();
         $response = $provider->createOrder(
-
             [
                 "intent" => "CAPTURE",
                 "application_context" => [
@@ -41,6 +40,8 @@ class PaypalController extends Controller
                 ]
             ]
         );
+        dd($response);
+
         if (isset($response['id']) && $response['id'] != null) {
             foreach ($response['links'] as $link) {
                 if ($link['rel'] == "approve") {
@@ -86,7 +87,10 @@ class PaypalController extends Controller
             return redirect()->route('paypal_cancel');
         }
     }
-
+    function cancel()
+    {
+        return 'no';
+    }
     /**
      * Store a newly created resource in storage.
      *

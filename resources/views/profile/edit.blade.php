@@ -1,3 +1,4 @@
+<x-app-layout>
 @extends('layouts.master')
 @section('title', 'Home')
 
@@ -51,4 +52,5 @@
 
         </div>
     </div>
+</x-app-layout>
 @endsection
