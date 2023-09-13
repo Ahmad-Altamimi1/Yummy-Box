@@ -46,7 +46,7 @@ class ProfileController extends Controller
 
         $file = Volunteer::findOrFail(1);
         $filename = $file->content;
-        return redirect()->route('profile.show', [
+        return redirect()->route('profile.edit', [
             'user'=>$request->Auth::user(),'volunteers'=>$users, 'filename'=> $filename
         ]);
     }

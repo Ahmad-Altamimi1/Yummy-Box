@@ -49,7 +49,7 @@
               </tr>
             </thead>
             <tbody>
-              
+              @dd($volunteers);
     
 <tr>
        <td scope="col">{{ $volunteers['Languages'] }}</td>
