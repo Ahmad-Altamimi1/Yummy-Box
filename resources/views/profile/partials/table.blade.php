@@ -24,34 +24,17 @@
            
             <tr>
 
-    </tr>
-  </thead>
-  <tbody>
-      @foreach ($volunteers as $item)
-
-<tr>
-<td scope="col">{{ $item->Languages }}</td>
-      <td scope="col">{{ $item->Address }}</td>
-      <td scope="col">{{ $item->Experience }}</td>
-      {{-- <td scope="col">{{ $item->CV }}</td> --}}
-      <td></td>
-      <td scope="col">{{ $item->day }}</td>
-
-@endforeach
-
-  <tr>
-
-  </tr>
-
-   {{-- @foreach ($volunteers as $program)
-      <tr>
-          <td>{{ $program->Languages }}</td>
-          <td>{{ $program->Address }}</td>
-          <td>{{ $program->Experiance }}</td>
-          <td>{{ $program->CV }}</td>
-
-      </tr>
-  @endforeach 
---}}
-  </tbody>
-</table>
+            </tr>
+            
+             {{-- @foreach ($volunteers as $program)
+                <tr>
+                    <td>{{ $program->Languages }}</td>
+                    <td>{{ $program->Address }}</td>
+                    <td>{{ $program->Experiance }}</td>
+                    <td>{{ $program->CV }}</td>
+            
+                </tr>
+            @endforeach 
+          --}}
+            </tbody>
+          </table>
