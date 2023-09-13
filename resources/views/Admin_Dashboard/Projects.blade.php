@@ -60,8 +60,14 @@
                       </td>
                         <td>{{ $product['total'] }}</td>
                         <td>
-                          <img src="{{ $product->image }}" class="card-img" style="width: 100px" alt="{{ $product->name }}">
-
+                          {{-- <img src="{{ $product->image }}" class="card-img" style="width: 100px" alt="{{ $product->name }}"> --}}
+                          
+                          <div >
+                            @if ($product->image)
+                                <img src="{{ asset('images/users/' . $product->image) }}" alt="{{ $product->name }}"
+                                    width="80" height="80">
+                            @endif
+                        </div>
                         </td>  
                         <td><form action="productdelete/{{$product['id'] }}" method="POST" style="margin-bottom: 2px">
                           @csrf
