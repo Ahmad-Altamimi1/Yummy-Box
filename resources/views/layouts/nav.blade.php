@@ -28,8 +28,7 @@
     <link rel="stylesheet" href=" {{ url('css/home.css') }} ">
 
 
-
-    <title>Volunteer </title>
+    <title> @yield('title')</title>
     <style>
         .logo-image {
             max-width: 100px;
@@ -77,12 +76,19 @@
                                 <li class="{{ request()->is('home*') ? 'active' : '' }}"><a
                                         href="{{ route('home') }}">Home</a></li>
 
+                                <li class="{{ request()->is('products.index*') ? 'active' : '' }}"><a
+                                        href="{{ route('products.index') }}">Our Projects</a></li>
+
                                 <li class="{{ request()->is('about*') ? 'active' : '' }}"><a href="about">About</a>
                                 </li>
+
                                 <li class="{{ request()->is('news*') ? 'active' : '' }}"><a
                                         href="{{ route('news') }}">News</a></li>
+
                                 <li class="{{ request()->is('contact*') ? 'active' : '' }}"><a
                                         href="{{ route('contact') }}">Contact</a></li>
+
+
                                 <li class="has-children">
                                     @if (Auth::check())
                                         <a href="#">

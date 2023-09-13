@@ -6,141 +6,136 @@ use App\Models\products;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Xml\Project;
-
+use App\Models\Volunteer;
 class ProductsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $products = Products::all();
-        
-        return view('Admin_Dashboard.products', ['products' => $products]);
-    }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $products = Products::all();
-        
-        return view('Admin_Dashboard.Project_Create', ['products' => $products]);
-    }
-    
-    public function view($id)
-    {
-        $productList= products::find($id);
-        return view('Admin_Dashboard.products_view',['products'=>$productList]);
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $product=  new products;
-        $product->name= $request->name;
-        $product->breif= $request->breif;
-        $product->description2= $request->description2;
-        $product->description3= $request->description3;
-        $product->location= $request->location;
-        $product->period= $request->period;
-        $product->time= $request->time;
-        $product->total= $request->total;
-        if ($request->hasFile('image')) {
-            // Validate and store the uploaded image
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
 
 
-            // $imagePath = $request->file('image')->store('images/users');
-            $product->image =  $imageName;
-        }        $product->save();
-    
-        return redirect()->route('Admin_Dashboard.Projects');
-    
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\products  $products
-     * @return \Illuminate\Http\Response
-     */
-    public function show(products $products)
-    {
-        $productList= products::all();
-        return view('Admin_Dashboard.Projects',['products'=>$productList]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\products  $products
-     * @return \Illuminate\Http\Response
-     */
-    public function edit( $id)
-    {
-        //
-        $product = products::find($id);
-        return view('Admin_Dashboard.Projects_Update')->with('product', $product);
-  
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\products  $products
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request,  $id)
-    {
-        //
-        $product = products::find($id);
-
-        $product->name= $request->name;
-        $product->breif= $request->breif;
-        $product->description2= $request->description2;
-        $product->description3= $request->description3;
-        $product->location= $request->location;
-        $product->period= $request->period;
-        $product->time= $request->time;
-        $product->total= $request->total;
-        if ($request->hasFile('image')) {
-            // Validate and store the uploaded image
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
 
 
-            // $imagePath = $request->file('image')->store('images/users');
-            $product->image =  $imageName;
-        }
-        $product->save();
+          public function product()
+          {
+                    $products = Products::all();
+                    $volanters = Volunteer::all();
 
-        return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
+                    return view('pages.products', ['products' => $products, 'volanters' => $volanters]);
+          }
 
-    }
+          /**
+           * Display a listing of the resource.
+           *
+           * @return \Illuminate\Http\Response
+           */
+          public function index()
+          {
+                    $products = Products::all();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\products  $products
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy( $id)
-    {
-        $products= Products::find($id);
-        $products->delete();
-        return redirect()->route('Admin_Dashboard.Projects')->with('success','student data dashboard successfully ');
-    } 
+                    return view('Admin_Dashboard.products', ['products' => $products]);
+          }
+          /**
+           * Show the form for creating a new resource.
+           *
+           * @return \Illuminate\Http\Response
+           */
+          public function create()
+          {
+                    $products = Products::all();
+
+                    return view('Admin_Dashboard.Project_Create', ['products' => $products]);
+          }
+
+          public function view($id)
+          {
+                    $productList = products::find($id);
+                    return view('Admin_Dashboard.products_view', ['products' => $productList]);
+          }
+          /**
+           * Store a newly created resource in storage.
+           *
+           * @param  \Illuminate\Http\Request  $request
+           * @return \Illuminate\Http\Response
+           */
+          public function store(Request $request)
+          {
+                    $product = new products;
+                    $product->name = $request->name;
+                    $product->breif = $request->breif;
+                    $product->description2 = $request->description2;
+                    $product->description3 = $request->description3;
+                    $product->location = $request->location;
+                    $product->period = $request->period;
+                    $product->time = $request->time;
+                    $product->total = $request->total;
+                    $product->image = $request->image;
+                    $product->save();
+
+                    return redirect()->route('Admin_Dashboard.Projects');
+
+          }
+
+          /**
+           * Display the specified resource.
+           *
+           * @param  \App\Models\products  $products
+           * @return \Illuminate\Http\Response
+           */
+          public function show(products $products)
+          {
+                    $productList = products::all();
+                    return view('Admin_Dashboard.Projects', ['products' => $productList]);
+          }
+
+          /**
+           * Show the form for editing the specified resource.
+           *
+           * @param  \App\Models\products  $products
+           * @return \Illuminate\Http\Response
+           */
+          public function edit($id)
+          {
+                    //
+                    $product = products::find($id);
+                    return view('Admin_Dashboard.Projects_Update')->with('product', $product);
+
+          }
+
+          /**
+           * Update the specified resource in storage.
+           *
+           * @param  \Illuminate\Http\Request  $request
+           * @param  \App\Models\products  $products
+           * @return \Illuminate\Http\Response
+           */
+          public function update(Request $request, $id)
+          {
+                    //
+                    $product = products::find($id);
+
+                    $product->name = $request->name;
+                    $product->breif = $request->breif;
+                    $product->description2 = $request->description2;
+                    $product->description3 = $request->description3;
+                    $product->location = $request->location;
+                    $product->period = $request->period;
+                    $product->time = $request->time;
+                    $product->total = $request->total;
+                    $product->image = $request->image;
+                    $product->save();
+
+                    return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
+
+          }
+
+          /**
+           * Remove the specified resource from storage.
+           *
+           * @param  \App\Models\products  $products
+           * @return \Illuminate\Http\Response
+           */
+          public function destroy($id)
+          {
+                    $products = Products::find($id);
+                    $products->delete();
+                    return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
+          }
 }

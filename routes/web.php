@@ -17,7 +17,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\SocialController;
 
-// pdf 
+// pdf
 Route::post('profile/vpdf/{id?}',[VolunteerController::class, 'view'])->name('viewpdf');
 Route::post('profile/dpdf',[VolunteerController::class, 'download'])->name('download');
 Route::get('table',function(){
@@ -59,6 +59,8 @@ Route::get('single/{id?}', [CategoryController::class, 'find']);
 Route::resource('pages/', ProductsController::class);
 
 Route::resource('product', ProductsController::class);
+
+Route::get('/products', [ProductsController::class, 'product'])->name('products.index');
 
 // Route::get('/', [CategoryController::class, 'index']);
 // Route::get('/home', [CategoryController::class, 'index']);
@@ -219,7 +221,7 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
 
     //  volunteers data
     Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe'])->name('Admin_Dashboard.Volunteers');
-    
+
     // donations data
     Route::get('/Admin_Payment', [PaypalController::class, 'show'])->name('Admin_Dashboard.Payments');
 
@@ -272,7 +274,7 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     Route::get('productview/{id}', [ProductsController::class, 'view']);
     Route::get('Project_Create', [ProductsController::class, 'create']);
 
-    
+
 
 
 });
