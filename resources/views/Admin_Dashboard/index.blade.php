@@ -11,7 +11,7 @@
                 <h1 class="text-warning" style="font-family: Georgia, 'Times New Roman', Times, serif"> TechHub </h1>
                 <div class="col-sm-6 col-xl-3">
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-line fa-3x text-success"></i>
+                        <i class="fas fa-hands-helping fa-3x text-success"></i>
                         <div class="ms-3">
                             <p class="mb-2">Volunteers</p>
                             @php
@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-sm-6 col-xl-3">
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-bar fa-3x text-success"></i>
+                        <i class="fas fa-clipboard-list fa-3x text-success"></i>
                         <div class="ms-3">
                             <p class="mb-2">Projects</p>
                             @php
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-sm-6 col-xl-3">
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-area fa-3x text-success"></i>
+                        <i class="fas fa-user-friends fa-3x text-success"></i>
                         <div class="ms-3">
                             <p class="mb-2">Users</p>
                             @php
@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-sm-6 col-xl-3">
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-pie fa-3x text-success"></i>
+                        <i class="fas fa-money-bill fa-3x text-success"></i>
                         <div class="ms-3">
                             <p class="mb-2">Donations</p>
                             @php
@@ -88,68 +88,26 @@
         <div class="container-fluid pt-4 px-4">
             <div class="bg-light text-center rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Recent Salse</h6>
+                    <h6 class="mb-0">Recent Contacts</h6>
                     <a href="" class="text-warning">Show All</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table text-start align-middle table-bordered table-hover mb-0">
                         <thead>
                             <tr class="text-dark">
-                                <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Invoice</th>
-                                <th scope="col">Customer</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">User Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Message</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($contacts as $contact)
                             <tr>
-                                <td><input class="form-check-input" type="checkbox"></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td><a class="btn btn-sm btn-success" href="">Detail</a></td>
+                                <td>{{ $contact['name'] }}</td>
+                                <td>{{ $contact['email'] }}</td>
+                                <td>{{ $contact['message'] }}</td>
                             </tr>
-                            <tr>
-                                <td><input class="form-check-input" type="checkbox"></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td><a class="btn btn-sm btn-success" href="">Detail</a></td>
-                            </tr>
-                            <tr>
-                                <td><input class="form-check-input" type="checkbox"></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td><a class="btn btn-sm btn-success" href="">Detail</a></td>
-                            </tr>
-                            <tr>
-                                <td><input class="form-check-input" type="checkbox"></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td><a class="btn btn-sm btn-success" href="">Detail</a></td>
-                            </tr>
-                            <tr>
-                                <td><input class="form-check-input" type="checkbox"></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td><a class="btn btn-sm btn-success" href="">Detail</a></td>
-                            </tr>
+                         @endforeach
                         </tbody>
                     </table>
                 </div>

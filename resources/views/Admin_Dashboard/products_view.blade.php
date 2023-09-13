@@ -49,7 +49,10 @@
         /* Customize other styles as needed */
     </style>
 </head>
+@extends('layouts.adminMaster')
 
+
+@section('content')
 <body>
     <div class="container">
         <div class="card">
@@ -97,6 +100,4 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+@endsection

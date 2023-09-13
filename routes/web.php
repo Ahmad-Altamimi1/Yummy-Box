@@ -217,7 +217,10 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     //////////////////////////////// SAJEDA CODE ////////////////////////////////
 
     // admin_home
-    Route::get('/Admin_Home', function () { return view('Admin_Dashboard.index'); })->name('Admin_Dashboard.index');;
+    // Route::get('/Admin_Home', function () { 
+    //     return view('Admin_Dashboard.index'); 
+    // });
+Route::get('/Admin_Home', [ContactController::class, 'show'])->name('Admin_Dashboard.index');
 
     //  volunteers data
     Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe'])->name('Admin_Dashboard.Volunteers');
