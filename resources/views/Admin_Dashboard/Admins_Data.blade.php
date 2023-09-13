@@ -20,11 +20,14 @@
      @extends('layouts.adminMaster')
 
      @section('content')
-<div style="margin: 4% 1% 0px 18%">
-    <div style="width: 100%">
 
+     <div class="content " >
+
+<div style="margin: 0% 8% ">
+    <div style="width: 100%">
+ <br><br>
         <h1 class="mx-auto"> Manage Your Admins </h1> <a href="Admin_Create"><button class="btn btn-success"
-                type="submit" style="position:absolute ; right :1%"> + Add Admin</button>
+                type="submit" style="position:absolute ; right :8%"> + Add Admin</button>
         </a> <br><br>
 
         <table class="table table-hover">
@@ -49,20 +52,31 @@
                         <td>
                             <div >
                                 @if ($admin->image)
-                                    <img src="{{ asset('images/users/' . $admin->image) }}" alt="{{ $admin->name }}"
+                                    <img src="{{ asset('images/' . $admin->image) }}" alt="{{ $admin->name }}"
                                         width="80" height="80">
                                 @endif
                             </div>
                         </td>
-                        <td><form action="admindelete/{{$admin['id'] }}" method="POST" style="margin-bottom: 2px">
+                        <td><a href="admindelete/{{$admin['id'] }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();" style="margin-bottom: 2px">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger" type="submit" value="DELETE" style="width:70px">Delete</button>
-                        </form >                   
-                        <form action="adminedit/{{ $admin['id'] }}" method="" style="margin-bottom: 2px">
-                          @csrf
-                          <button class="btn btn-primary" type="submit" value="Update" style="width:70px">Edit</button>
-                      </form> 
+                            <i class="fas fa-trash fa-xl" style="color: red;"></i>
+                        </a>
+                        
+                        <form id="delete-form" action="admindelete/{{$admin['id'] }}" method="POST" style="display: none;">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+                        
+                        {{-- <a href="adminedit/{{ $admin['id'] }}" onclick="event.preventDefault(); document.getElementById('edit-form').submit();" style="margin-bottom: 2px">
+                            @csrf
+                            <i class="fas fa-edit fa-2xl" style="color: blue;"></i>
+                        </a>
+                        
+                        <form id="edit-form" action="adminedit/{{ $admin['id'] }}" method="GET" style="display: none;">
+                            @csrf
+                        </form> --}}
+                        
                       {{-- <form action="adminview/{{ $admin['id'] }}" method="" style="margin-bottom: 2px">
                         @csrf
                         <button class="btn btn-warning" type="submit" value="Update" style="width:70px">View</button>
@@ -72,6 +86,7 @@
                        @endforeach   
                   </tbody>
               </table>
+          </div>
           </div>
    @endsection
   

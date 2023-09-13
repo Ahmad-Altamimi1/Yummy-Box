@@ -69,6 +69,7 @@ class AdminController extends Controller
     {
 
         $AdminList = Admin::all();
+        
         return view('Admin_Dashboard.Admins_Data', ['admins' => $AdminList]);
     }
 
