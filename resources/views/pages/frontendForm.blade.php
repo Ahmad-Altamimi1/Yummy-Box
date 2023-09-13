@@ -1,20 +1,17 @@
 
+@include('layouts.nav')
+
+    
+
+    @section('content')  
+    
+
+      
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-}
-
-.container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    margin-top: 50px;
-}
-
 h1 {
     text-align: center;
+    margin-top:120px;
 }
 
 .form-group label {
@@ -34,8 +31,12 @@ h1 {
 .btn-primary:focus {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
+button{
+margin-bottom: 20px;
+width: 200px;
+
+}
     </style>
-  <x-modal name="Join Us as a Trainer 1" :show="$errors->changePassword->isNotEmpty()" focusable>
     <div class="container mt-5">
         <h1>Frontend Training Volunteer Form</h1>
         <form action="{{ route('frontvolunteers.store') }}" method="post" enctype="multipart/form-data">
@@ -109,9 +110,13 @@ h1 {
             </div>
         @endif
             
-            <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+            <button type="submit" class="btn btn-primary  " value="submit">Submit</button>
         </form>
         
     </div>
 
-</x-modal> 
+
+
+
+
+@include('layouts.footer')

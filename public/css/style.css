@@ -13638,8 +13638,8 @@ textarea {
 
 .hero,
 .hero>.container>.row {
-  height: 100vh;
-  min-height: 780px;
+  height:300px;
+  min-height: 480px;
 }
 
 @media (max-width: 991.98px) {

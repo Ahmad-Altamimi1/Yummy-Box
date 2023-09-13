@@ -15,11 +15,11 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-    // public function show(Volunteer $volunteer)
-    // {
-    //     $volunteers = Volunteer::all();
-    //    return view('profile.edit')->with('Volunteers',$volunteers);
-    // }
+    public function show(Volunteer $volunteer)
+    {
+        $volunteers = Volunteer::all();
+       return view('profile.edit')->with('Volunteers',$volunteers);
+    }
 
 
     /**
@@ -27,7 +27,6 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-
 
         $users = DB::table('frontvolunteers as fu')
             ->select([
