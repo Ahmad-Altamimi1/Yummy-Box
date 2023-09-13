@@ -18,7 +18,19 @@ class ProfileController extends Controller
 {
     public function show(Volunteer $volunteer)
     {
-        $volunteers = Frontvolunteer::find(Auth::id());
+        // $volunteers = Frontvolunteer::find(Auth::id());
+        $volunteers = DB::table('frontvolunteers as fu')
+        ->select([
+            'u.id',
+            'fu.Languages',
+            'fu.Address',
+            'fu.Experience',
+            'fu.CV',
+            'fu.day'
+        ])
+            ->join('users as u', 'u.id', '=', 'fu.user_id')
+            ->where('u.id', '=', Auth::user()->id)
+            ->get();
         $user = User::find(Auth::id()); 
         return view('profile.edit',['user'=>$user,'volunteers'=>$volunteers]);
        
@@ -28,8 +40,7 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
-    {
+    public function edit(Request $request){
 
         $users = DB::table('frontvolunteers as fu')
             ->select([
@@ -46,11 +57,14 @@ class ProfileController extends Controller
 
         $file = Volunteer::findOrFail(1);
         $filename = $file->content;
-        return redirect()->route('profile.edit', [
+        return redirect()->route('profile.show', [
             'user'=>$request->Auth::user(),'volunteers'=>$users, 'filename'=> $filename
         ]);
     }
 
+    public function ssss() {
+return redirect('home');
+}
     /**
      * Update the user's profile information.
      */
