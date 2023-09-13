@@ -47,6 +47,18 @@
           box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+          width: 12px;
+          background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+          background-color: #ffc107;
+          border-radius: 90%;
+          height: 100px;
+          /* Set the color of the scrollbar handle */
+}
+
 @media (prefers-reduced-motion: no-preference) {
           :root {
                     scroll-behavior: smooth;
@@ -12856,13 +12868,15 @@ body {
           text-decoration: none !important;
           width: 100% !important;
           margin: auto;
+          display: flex;
+          align-items: center;
 }
 
 .logo-image {
           border-radius: 50%;
           margin: 0;
-          width: 70px;
-          height: 70px;
+          width: 60px;
+          height: 60px;
 }
 
 
@@ -12874,7 +12888,7 @@ body {
 .site-nav {
           position: fixed;
           top: 0px;
-          height: 100px;
+          height: 90px;
           align-items: center;
           display: flex;
           z-index: 9;
@@ -13648,7 +13662,7 @@ textarea {
 .hero,
 .hero>.container>.row {
   height:300px;
-  min-height: 480px;
+  min-height: 715px;
 }
 
 @media (max-width: 991.98px) {

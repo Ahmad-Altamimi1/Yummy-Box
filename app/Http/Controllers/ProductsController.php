@@ -6,7 +6,7 @@ use App\Models\products;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Xml\Project;
-
+use App\Models\Volunteer;
 class ProductsController extends Controller
 {
     /**
@@ -185,20 +185,20 @@ class ProductsController extends Controller
         }
         $product->save();
 
-        return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
+                    return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
 
-    }
+          }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\products  $products
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy( $id)
-    {
-        $products= Products::find($id);
-        $products->delete();
-        return redirect()->route('Admin_Dashboard.Projects')->with('success','student data dashboard successfully ');
-    } 
+          /**
+           * Remove the specified resource from storage.
+           *
+           * @param  \App\Models\products  $products
+           * @return \Illuminate\Http\Response
+           */
+          public function destroy($id)
+          {
+                    $products = Products::find($id);
+                    $products->delete();
+                    return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
+          }
 }

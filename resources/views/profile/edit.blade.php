@@ -14,7 +14,7 @@
 @section('content')
 
     <div class="heros overlays hero-profile"
-        style="background-image: url('{{ asset('images/bg11.png') }}'); height: 500px; background-size: cover; background-repeat: no-repeat;">
+        style="background-image: url('{{ url('images/bg11.png') }}'); height: 400px; background-size: cover; background-repeat: no-repeat;">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 text-center">
@@ -51,3 +51,4 @@
 
         </div>
     </div>
+@endsection
