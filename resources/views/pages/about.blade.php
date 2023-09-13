@@ -231,60 +231,53 @@
 	</div>
 
 	<div class="instagram-slider-wrap" data-aos="fade-up" data-aos-delay="200">
-		<div class="instagram-slider" id="instagram-slider">
+        <div class="instagram-slider mb-2" id="instagram-slider">
 
-			<div class="item">
-				<a class="instagram-item">
-					<span class="icon-instagram"></span>
-					<img src="images/img_v_8-min.jpg" alt="Image" class="img-fluid">
-				</a>
-			</div>
+            <div class="item">
+                <a class="instagram-item">
+                    <span class="icon-instagram"></span>
+                    <img src="images/img_v_8-min.jpg" alt="Image" class="img-fluid"  style="border-radius: 50%">
+                </a>
+            </div>
 
-			<div class="item">
-				<a class="instagram-item">
-					<span class="icon-instagram"></span>
-					<img src="images/img_v_2-min.jpg" alt="Image" class="img-fluid">
-				</a>
-			</div>
+            <div class="item">
+                <a class="instagram-item">
+                    <span class="icon-instagram"></span>
+                    <img src="images/img_v_2-min.jpg" alt="Image" class="img-fluid" style="border-radius: 50%">
+                </a>
+            </div>
 
-			<div class="item">
-				<a class="instagram-item">
-					<span class="icon-instagram"></span>
-					<img src="images/img_v_3-min.jpg" alt="Image" class="img-fluid">
-				</a>
-			</div>
+            <div class="item">
+                <a class="instagram-item">
+                    <span class="icon-instagram"></span>
+                    <img src="images/partnership4.jpg" alt="Image" class="img-fluid"  style="border-radius: 50% ; height :40%">
+                </a>
+            </div>
 
-			<div class="item">
-				<a class="instagram-item">
-					<span class="icon-instagram"></span>
-					<img src="images/img_v_4-min.jpg" alt="Image" class="img-fluid">
-				</a>
-			</div>
+            <div class="item">
+                <a class="instagram-item">
+                    <span class="icon-instagram"></span>
+                    <img src="images/img_v_4-min.jpg" alt="Image" class="img-fluid"  style="border-radius: 50%">
+                </a>
+            </div>
 
-			<div class="item">
-				<a class="instagram-item">
-					<span class="icon-instagram"></span>
-					<img src="images/img_v_5-min.jpg" alt="Image" class="img-fluid">
-				</a>
-			</div>
+            <div class="item">
+                <a class="instagram-item">
+                    <span class="icon-instagram"></span>
+                    <img src="images/img_v_5-min.jpg" alt="Image" class="img-fluid"  style="border-radius: 50%">
+                </a>
+            </div>
 
-			<div class="item">
-				<a class="instagram-item">
-					<span class="icon-instagram"></span>
-					<img src="images/img_v_6-min.jpg" alt="Image" class="img-fluid">
-				</a>
-			</div>
-
-			<div class="item">
-				<a class="instagram-item">
-					<span class="icon-instagram"></span>
-					<img src="images/img_v_7-min.jpg" alt="Image" class="img-fluid">
-				</a>
-			</div>
+            <div class="item">
+                <a class="instagram-item">
+                    <span class="icon-instagram"></span>
+                    <img src="images/partnership5.jpg" alt="Image" class="img-fluid"  style="border-radius: 50% ; height :40%">
+                </a>
+            </div>
 
 
-		</div>
-	</div>
+        </div>
+    </div>
 
 </div>
 

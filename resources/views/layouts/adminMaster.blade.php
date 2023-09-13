@@ -1,4 +1,4 @@
-@include('layouts.adminnav')
+
 @include('layouts.adminsider')
 
     

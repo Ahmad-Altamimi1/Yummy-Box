@@ -5,11 +5,11 @@
 <div style="margin: 4% 1% 0px 18%">
     <div style="width: 100%" > 
 
-        <h1 class="mx-auto"> Manage Your Users </h1>  <a href="user_Create"><button class="btn btn-success" type="submit" style="position:absolute ; right :1%"> + Add User</button>
+        <h1 class="mx-auto"> Manage Your Users </h1>  <a href="user_Create"><button class="btn " type="submit" style="position:absolute ; right :1%;background-color: rgba(159, 223, 255, 0.778)"> + Add User</button>
         </a> <br><br>
       
         <table class="table table-hover">
-          <thead style="background-color: rgba(117, 192, 157, 0.489)">
+          <thead style="background-color: rgba(159, 223, 255, 0.778)">
              <tr>
               <th>ID</th>
                         <th>First Name</th>
@@ -56,5 +56,4 @@
             </table>
         </div>
   
-</body>
-</html>
+@endsection

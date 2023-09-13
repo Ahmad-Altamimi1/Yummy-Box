@@ -221,6 +221,10 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     // donations data
     Route::get('/Admins_Payment', [PaypalController::class, 'show'])->name('Admin_Dashboard.Payments');
 
+
+    //ressourses data
+    Route::get('/Admin_ressourses', [DonorController::class, 'show'])->name('Admin_Dashboard.ressourses');
+    
     // categories data
     Route::get('/Admin_Category', [CategoryController::class, 'show'])->name('Admin_Dashboard.Category');
     Route::post('/Admin_Category', [CategoryController::class, 'save']);
