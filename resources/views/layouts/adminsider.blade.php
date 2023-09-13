@@ -9,28 +9,28 @@
     <meta content="" name="description">
     
     <!-- Favicon -->
-    <link href="{{ asset('img/favicon.ico') }}" rel="icon">
+    <link href="{{ url('img/favicon.ico') }}" rel="icon">
     
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="{{url('https://fonts.googleapis.com%22%3E/')}}">
+    <link rel="preconnect" href="{{url('https://fonts.gstatic.com/')}}" crossorigin>
+    <link href="{{url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap')}}" rel="stylesheet">
     
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="{{url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css')}}" rel="stylesheet">
+    <link href="{{url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css')}}" rel="stylesheet">
     
     <!-- Libraries Stylesheet -->
-    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
+    <link href="{{ url('lib/owlcarousel/urls/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ url('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
     
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
     
     <!-- Template Stylesheet -->
-    <link href="{{ asset('css/styleadmain.css') }}" rel="stylesheet">
+    <link href="{{ url('css/styleadmain.css') }}" rel="stylesheet">
 
-    <script src="https://kit.fontawesome.com/d6692547f6.js" crossorigin="anonymous"></script>
+    <script src="{{url('https://kit.fontawesome.com/d6692547f6.js')}}" crossorigin="anonymous"></script>
 </head>
  
 <body>
@@ -110,11 +110,11 @@
             </div>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle text-success" data-bs-toggle="dropdown">
-                    <img class="rounded-circle me-lg-2" src="{{asset('images/team/Sereen.jpg')}}" alt="" style="width: 40px; height: 40px;">
+                    <img class="rounded-circle me-lg-2" src="{{url('images/team/Sereen.jpg')}}" alt="" style="width: 40px; height: 40px;">
                     <span class="d-none d-lg-inline-flex">Sereen Qamhia</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                    <a href="{{route('Admin_Dashboard.profile')}}" class="dropdown-item">My Profile</a>
+                    {{-- <a href="{{route('Admin_Dashboard.profile')}}" class="dropdown-item">My Profile</a> --}}
                     <a href="#" class="dropdown-item">Settings</a>
                     <a href="#" class="dropdown-item">Log Out</a>
                 </div>
@@ -140,7 +140,7 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="{{asset('images/team/Sereen.jpg')}}" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="{{url('images/team/Sereen.jpg')}}" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">

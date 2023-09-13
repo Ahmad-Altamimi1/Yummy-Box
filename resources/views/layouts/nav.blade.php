@@ -11,21 +11,21 @@
     <meta name="description" content="Volunteer work in training and education " />
     <meta name="keywords" content="Volunteer training  education" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap"
+    <link rel="preconnect" href="{{url('https://fonts.gstatic.com')}}">
+    <link href="{{url('https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap')}}"
         rel="stylesheet">
 
-    <script src="https://kit.fontawesome.com/659ed253a5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <script src="{{url('https://kit.fontawesome.com/659ed253a5.js')}}" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url('fonts/icomoon/style.css')}}">
+    <link rel="stylesheet" href="{{url('fonts/flaticon/font/flaticon.css')}}">
 
-    <link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/flatpickr.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/glightbox.min.css') }}">
+    <link rel="stylesheet" href="{{ url('css/tiny-slider.css') }}">
+    <link rel="stylesheet" href="{{ url('css/aos.css') }}">
+    <link rel="stylesheet" href="{{ url('css/flatpickr.min.css') }}">
+    <link rel="stylesheet" href=" {{ url('css/glightbox.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ url('css/style.css') }}">
+    <link rel="stylesheet" href=" {{ url('css/home.css') }} ">
 
 
 
