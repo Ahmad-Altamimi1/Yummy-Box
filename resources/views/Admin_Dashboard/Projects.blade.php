@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="content " >
-<div style="margin: 0% 8% ">
+<div style="margin: 0% 6% ">
     <div style="width: 100%" > 
 <br><br>
-        <h1 class="mx-auto"> Manage Your Project </h1>  <a href="Project_Create"><button class="btn btn-success" type="submit" style="position:absolute ; right :8%"> + Add Project</button>
+        <h1 class="mx-auto"> Manage Your Project </h1>  <a href="Project_Create"><button class="btn btn-success" type="submit" style="position:absolute ; right :5%"> + Add Project</button>
         </a> <br><br>
       
         <table class="table table-hover">
@@ -88,7 +88,7 @@
                   <a href="productdelete/{{$product['id'] }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();" style="margin-bottom: 2px">
                     @csrf
                     @method('DELETE')
-                    <i class="fas fa-trash fa-xl" style="color: red;"></i>
+                    <i class="fas fa-trash fa" style="color: red;"></i>
                 </a>
                 
                 <form id="delete-form" action="productdelete/{{$product['id'] }}" method="POST" style="display: none;">
@@ -98,7 +98,7 @@
                 
                 <a href="productedit/{{ $product['id'] }}" onclick="event.preventDefault(); document.getElementById('edit-form').submit();" style="margin-bottom: 2px">
                     @csrf
-                    <i class="fas fa-edit fa-xl" style="color: blue;"></i>
+                    <i class="fas fa-edit fa" style="color: blue;"></i>
                 </a>
                 
                 <form id="edit-form" action="productedit/{{ $product['id'] }}" method="GET" style="display: none;">
@@ -107,7 +107,7 @@
                 
                 <a href="productview/{{ $product['id'] }}" onclick="event.preventDefault(); document.getElementById('view-form').submit();" style="margin-bottom: 2px">
                     @csrf
-                    <i class="fas fa-eye fa-xl" style="color: orange;"></i>
+                    <i class="fas fa-eye fa" style="color: orange;"></i>
                 </a>
                 
                 <form id="view-form" action="productview/{{ $product['id'] }}" method="GET" style="display: none;">

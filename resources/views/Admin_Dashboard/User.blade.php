@@ -36,14 +36,14 @@
                                 <div >
                                     @if ($user->image)
                                         <img src="{{ asset('images/users/' . $user->image) }}" alt="{{ $user->name }}"
-                                            width="80" height="80">
+                                            width="60" height="60">
                                     @endif
                                 </div>
                       </td>
                       <td><a href="userdelete/{{$user['id'] }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();" style="margin-bottom: 2px">
                         @csrf
                         @method('DELETE')
-                        <i class="fas fa-trash fa-xl" style="color: red;"></i>
+                        <i class="fas fa-trash fa" style="color: red;"></i>
                     </a>
                     
                     <form id="delete-form" action="userdelete/{{$user['id'] }}" method="POST" style="display: none;">
@@ -53,7 +53,7 @@
                     
                     <a href="useredit/{{ $user['id'] }}" onclick="event.preventDefault(); document.getElementById('edit-form').submit();" style="margin-bottom: 2px">
                         @csrf
-                        <i class="fas fa-edit fa-xl" style="color: blue;"></i>
+                        <i class="fas fa-edit fa" style="color: blue;"></i>
                     </a>
                     
                     <form id="edit-form" action="useredit/{{ $user['id'] }}" method="GET" style="display: none;">
