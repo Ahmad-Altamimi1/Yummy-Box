@@ -30,7 +30,7 @@
 @section('content')
 
 
-<div class="hero overlay" style="background-image: url('images/classroom-1.png')">
+<div class="hero overlay" style="background-image: url('images/classroom-1.png') ; margin-top:5% ; height :800px">
     <div class="container">
         <div class="row align-items-center justify-content-between">
             <div class="col-lg-8 text-left">
@@ -136,34 +136,35 @@
 			
 					
 				<div class="col-lg-4 "  data-aos="fade-up" data-aos-delay="100">
-                    <div class="card" style="width: 25rem;">
-                        <img class="card-img-top mx-auto" src="images/donate.png" alt="Card image cap" style="width: 20rem;">
-                        <div class="card-body" >
+                    <div class="card" style="width: 25rem; height:380px ;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);">
+                        <img class="card-img-top mx-auto" src="images/donate.jpg" alt="Card image cap" style="width: 22rem;">
+                        <div class="card-body text-center" >
                           <h5 class="card-title">Mony Donation</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <p class="card-text">Transform lives with your donation. Make a difference today!</p>
                           <a href="#" class="btn btn-primary"style="text-align:center" >Donate Now</a>
                         </div>
                       </div>
 					
 				</div>
                 <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
-                    <div class="card" style="width: 25rem;">
-                        <img class="card-img-top mx-auto mt-1" src="images/web-programming.png" alt="Card image cap" style="width: 20rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Ressourses Donation</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="/serviceform" class="btn btn-primary">Donate Now</a>
+                    <div class="card" style="width: 25rem; height: 380px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);">
+                        <img class="card-img-top mx-auto mt-1" src="images/it.png" alt="Card image cap" style="width: 13rem;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Resources Donation</h5>
+                            <p class="card-text">Your resource donation is a catalyst for positive change in our community.</p>
+                            <a href="/serviceform" class="btn btn-primary">Give Now</a>
                         </div>
-                      </div>
+                    </div>
+                    
 					
 				</div>
                 <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
-                    <div class="card" style="width: 25rem;">
-                        <img class="card-img-top mx-auto mt-2" src="images/ideas.png" alt="Card image cap" style="width: 20rem; ">
-                        <div class="card-body">
-                          <h5 class="card-title">Give Hope</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Donate Now</a>
+                    <div class="card" style="width: 25rem; height:380px ; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);">
+                        <img class="card-img-top mx-auto mt-2" src="images/Capture.JPG" alt="Card image cap" style="width: 20rem; ">
+                        <div class="card-body text-center">
+                          <h4 class="card-title">Volunteer with us</h4>
+                          <p class="card-text">Train with us and be part of a transformative journey.</p>
+                          <a href="#" class="btn btn-primary">Volunteer Now</a>
                         </div>
                       </div>
 					
