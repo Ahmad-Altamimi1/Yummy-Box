@@ -12,6 +12,7 @@ use App\Models\products;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
 
+
 class CategoryController extends Controller
 {
     /**
@@ -21,7 +22,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-       
+
+        Session::put('url.intended', url()->previous());
         Session::put('url.intended', url()->previous());
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->get();
@@ -43,6 +45,7 @@ class CategoryController extends Controller
         $users = DB::table('users')->get();
         $volanters = DB::table('paypals')->get();
         $products = products::findOrFail($id);
+
         $startDate = Carbon::parse($products->created_at);
         $endDate = Carbon::now();
         $diffInMinutes = $endDate->diffInMinutes($startDate);
@@ -51,7 +54,7 @@ class CategoryController extends Controller
         $diffInMonths = $endDate->diffInMonths($startDate);
 
         // dd($currentDateTime);
-        return  view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths','id', 'categories', 'products', 'users', 'volanters'));
+        return  view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths', 'id', 'categories', 'products', 'users', 'volanters'));
         return view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths', 'id', 'categories', 'products', 'users', 'volanters'));
         // ['products' => $products]
     }
@@ -64,7 +67,6 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-
     }
     public function save(Request $request)
     {

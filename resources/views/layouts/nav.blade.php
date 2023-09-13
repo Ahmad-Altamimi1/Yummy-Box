@@ -76,6 +76,8 @@
                             <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
                                 <li class="{{ request()->is('home*') ? 'active' : '' }}"><a
                                         href="{{ route('home') }}">Home</a></li>
+                                        <li class="{{ request()->is('products.index*') ? 'active' : '' }}"><a
+                                            href="{{ route('products.index') }}">Our Projects</a></li>
 
                                 <li class="{{ request()->is('about*') ? 'active' : '' }}"><a href="about">About</a>
                                 </li>

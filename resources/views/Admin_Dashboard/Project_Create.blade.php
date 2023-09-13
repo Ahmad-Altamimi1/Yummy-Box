@@ -22,34 +22,58 @@
                         <label for="ProjectsName">Name</label>
                         <input type="text" class="form-control" id="ProjectsName" name="name">
                     </div>
+                    @error('name')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <div class="form-group">
                         <label for="ProjectsBreif">Brief</label>
                         <input type="text" class="form-control" id="ProjectsBreif" name="breif">
                     </div>
+                    @error('breif')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <div class="form-group">
                         <label for="DescriptionOne">Description</label>
                         <input type="text" class="form-control" id="DescriptionOne" name="description2">
                     </div>
+                    @error('description2')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <div class="form-group">
                         <label for="DescriptionTwo">Details</label>
                         <input type="text" class="form-control" id="DescriptionTwo" name="description3">
                     </div>
+                    @error('description3')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <div class="form-group">
                         <label for="ProjectsLocation">Location</label>
                         <input type="text" class="form-control" id="ProjectsLocation" name="location">
                     </div>
+                    @error('location')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <div class="form-group">
                         <label for="ProjectsTime">Time</label>
                         <input type="text" class="form-control" id="ProjectsTime" name="time">
                     </div>
+                    @error('time')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <div class="form-group">
                         <label for="ProjectsPeriod">Period</label>
                         <input type="text" class="form-control" id="ProjectsPeriod" name="period">
                     </div>
+                    @error('period')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <div class="form-group">
                         <label for="ProjectsTotal">Total</label>
                         <input type="text" class="form-control" id="ProjectsTotal" name="total">
                     </div>
+                    @error('total')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
                     {{-- <div class="form-group">
                         <label for="ProjectsImage">Image</label>
                         <input type="file" class="form-control-file" id="ProjectsImage" name="image">

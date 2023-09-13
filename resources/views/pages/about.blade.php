@@ -44,9 +44,8 @@
 		<div class="row align-items-center justify-content-center">
 			<div class="col-lg-6 text-center">
 				<h1 class="heading text-white mb-2" data-aos="fade-up">About Us</h1>
-				<p data-aos="fade-up"  data-aos-delay="100">
-					<a href="#" class="btn btn-primary me-4">Donate Now</a>
-				</p>
+				<p data-aos="fade-up" class=" mb-5 text-white lead text-white-40">Home / About Us</p>
+
 
 			</div>
 
