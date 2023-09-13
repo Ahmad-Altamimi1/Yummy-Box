@@ -29,17 +29,29 @@ h1 {
 .btn-primary:focus {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
-button{
+#submit{
 margin-bottom: 20px;
+margin-left: 37%;
 width: 200px;
 
+}
+label{
+ margin-left: 10px;
+}
+#formdiv{
+    width: 70%;
+    margin: auto;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
 }
     </style>
 </head>
 
 <body>
     <div class="container mt-5">
+        <div id="formdiv">
         <h1>Donation Form</h1>
+        <br>
         <form action="{{ route('donors.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div>
@@ -60,7 +72,7 @@ width: 200px;
                     <label for="phoneNumber">Phone Number</label>
                     <label for="phoneNumber">{{Auth::user()->phone}}</label>
                 </div> --}}
-                <div class="form-group col-md-6">
+                <div class="form-group ">
                     <input type="hidden" class="form-control" id="user_id" name="user_id" required>
 
                     <label for="service">Service</label>
@@ -69,7 +81,7 @@ width: 200px;
 
 
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group ">
                     <label for="address">Address</label>
                     <input type="text" class="form-control" id="address" name="address" required>
                 </div>
@@ -79,9 +91,9 @@ width: 200px;
                 <textarea class="form-control" id="message" name="message" rows="3"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+            <button id="submit" type="submit" class="btn btn-primary" value="submit">Submit</button>
         </form>
-
+      </div>
     </div>
 
     @include('layouts.footer')

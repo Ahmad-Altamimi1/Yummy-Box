@@ -31,34 +31,35 @@
             box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
         }
 
-        button {
+        #submit{
             margin-bottom: 20px;
+            margin-left: 37%;
             width: 200px;
 
         }
+        @media (max-width: 425px) {
+            #submit{
+            margin-left: 14% !important ;
+        }
+        }
+        #formdiv{
+            width: 70%;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+        label{
+            margin-left: 10px;
+        }
     </style>
     <div class="container mt-5">
+        <div id="formdiv">
         <h1>Frontend Training Volunteer Form</h1>
+        <br>
         <form action="{{ route('frontvolunteers.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('post')
-            <div>
-                <label for="firstName">Name : </label>
-                <label for="firstName">{{ Auth::user()->name }}</label>
-            </div>
-
-            <div>
-                <label for="email">Email : </label>
-                <label for="email">{{ Auth::user()->email }}</label>
-            </div>
-
-
-
-
-            <div>
-                <label for="phoneNumber">Phone Number</label>
-                <label for="phoneNumber">{{ Auth::user()->phone }}</label>
-            </div>
+            
 
             <div class="form-group">
                 <input type="hidden" class="form-control" id="user_id" name="user_id" required>
@@ -110,9 +111,9 @@
                 </div>
             @endif
 
-            <button type="submit" class="btn btn-primary  " value="submit">Submit</button>
+            <button id="submit" type="submit" class="btn btn-primary  " value="submit">Submit</button>
         </form>
-
+      </div>
     </div>
 
 
