@@ -25,11 +25,10 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 text-center">
-                    <h1 class="heading text-white mb-2" data-aos="fade-up"></h1>
-                    <p data-aos="fade-up" class=" mb-5 text-white lead text-white-40">Teaching is a noble art of imparting
-                        knowledge and skills, fostering growth in others. It cultivates critical thinking, inspires
-                        curiosity, and empowers individuals to reach their full potential. Ultimately, teaching enriches
-                        both the teacher and the learner, creating a brighter future for all.</p>
+                    <h1 class="heading text-white mb-2" data-aos="fade-up">Our Projects</h1>
+                    <p data-aos="fade-up" class=" mb-5 text-white lead text-white-40">Home / Our Projects</p>
+
+                    <p data-aos="fade-up" class=" mb-5 text-white lead text-white-40">Teaching is the noble art of fostering growth through knowledge, curiosity, and empowerment.</p>
 
                 </div>
 

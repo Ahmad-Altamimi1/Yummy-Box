@@ -13662,7 +13662,7 @@ textarea {
 .hero,
 .hero>.container>.row {
   height:300px;
-  min-height: 715px;
+  min-height: 820px;
 }
 
 @media (max-width: 991.98px) {
