@@ -28,9 +28,8 @@
                     <p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">program to help increase access to
                         education in communities around jordan</p>
                     <p data-aos="fade-up" data-aos-delay="100">
-                        <a href="#donite" class="btn btn-primary me-4 d-inline-flex align-items-center"> <span
-                                class="icon-attach_money me-2"></span><span>Donate Now </span></a>
-                        <a href="https://www.youtube.com/watch?v=7b1qBE_Icbw&t=911s"
+                        <a href="#donite" class="btn btn-primary me-4 d-inline-flex align-items-center"><span>Donate Now </span></a>
+                        <a href="https://youtu.be/N7ZmPYaXoic?si=H_yHMLXbd2sQmCSv"
                             class="text-white glightbox d-inline-flex align-items-center"><span
                                 class="icon-play me-2"></span><span>Watch the video</span></a>
                     </p>
