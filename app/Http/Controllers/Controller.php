@@ -28,6 +28,10 @@ class Controller extends BaseController
     {
         return view('pages.about');
     }
+    function showsingle()
+    {
+        return view('pages.single');
+    }
     function showcontact(){
         return view('pages.contact');
     }

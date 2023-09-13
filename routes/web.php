@@ -3,8 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
-
-
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DonorController;
@@ -80,6 +78,9 @@ Route::get('home', [Controller::class, 'showhome'])
 Route::get('/about', [Controller::class, 'showabout'])
     ->name('about');
 
+Route::get('/single', [Controller::class, 'showsingle'])
+    ->name('single');
+
 Route::get('/contact', [Controller::class, 'showcontact'])
     ->name('contact');
 
@@ -89,8 +90,6 @@ Route::get('/causes', [Controller::class, 'showcauses'])
 Route::get('/news', [Controller::class, 'shownews'])
     ->name('news');
 
-Route::get('pages/about', [Controller::class, 'showabout'])
-    ->name('about');
 
 
 
@@ -106,22 +105,24 @@ Route::middleware('auth')->group(function () {
 
 // Define the PayPal routes with the appropriate methods
 Route::post('paypal', [PaypalController::class, 'payment'])->middleware('auth', 'verified')->name('paypal'); // Use 'store' method for POST
-Route::get('paypal/success', [PaypalController::class, 'success'])->name('success'); // Use 'success' method for GET
+Route::get('paypal/success', [PaypalController::class, 'success'])->name('paypal_success'); // Use 'success' method for GET
 Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
 // Define the PayPal routes with the appropriate methods
-Route::post('single/paypal', [PaypalController::class, 'payment'])->middleware('auth', 'verified')->name('paypal_single'); // Use 'store' method for POST
-Route::get('single/paypal/success', [PaypalController::class, 'success'])->name('success'); // Use 'success' method for GET
-Route::get('single/paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
 
 
+
+
+Route::get('/payment', function () {
+    return view('pages.payment');
+})->name('payment')->middleware('auth', 'verified');
 
 // Define the Stripe routes with the appropriate methods
 Route::get('finish', function () {
     return view('sccess');
 })->name('finish');
-Route::post('single/stripe/{id}', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe_single'); // Use 'store' method for POST
-Route::get('single/stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
-Route::get('single/stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
+Route::post('stripe/{id}', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe_single'); // Use 'store' method for POST
+Route::get('stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
+Route::get('stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
 
 
 
@@ -171,7 +172,7 @@ Route::resource("volunteers", VolunteerController::class)->middleware('auth', 'v
 
 Route::get('/frontform', function () {
     return view('pages.frontendForm');
-})->middleware('auth', 'verified');
+})->name('frontform')->middleware('auth', 'verified');
 
 Route::resource("frontvolunteers", FrontvolunteerController::class)->middleware('auth', 'verified');
 
@@ -218,15 +219,19 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe'])->name('Admin_Dashboard.Volunteers');
     
     // donations data
-    Route::get('/Admins_Payment', [PaypalController::class, 'show'])->name('Admin_Dashboard.Payments');
+    Route::get('/Admin_Payment', [PaypalController::class, 'show'])->name('Admin_Dashboard.Payments');
 
 
     //ressourses data
     Route::get('/Admin_ressourses', [DonorController::class, 'show'])->name('Admin_Dashboard.ressourses');
     
 
-    // admin profile
-    Route::get('/Admin_profile', [AdminController::class, 'updateprofile'])->name('Admin_Dashboard.profile');
+    // Route::get('/admins/{id}/edit', [AdminController::class, 'edit'])->name('Admin_Dashboard.Admins_Update');
+
+    Route::get('/Admins_Payment', [PaypalController::class, 'show']);
+
+
+
 
     // categories data
     Route::get('/Admin_Category', [CategoryController::class, 'show'])->name('Admin_Dashboard.Category');
