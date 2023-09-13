@@ -19,7 +19,7 @@
                         {{-- <th>Password</th> --}}
                         <th>Phone</th>
                         <th>Image</th>
-                        <th>Action</th>
+                        <th style="text-align: center">Actions</th>
               </tr>
                 </thead>
                 <tbody>
@@ -40,37 +40,25 @@
                                     @endif
                                 </div>
                       </td>
-                      <td><a href="userdelete/{{$user['id'] }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();" style="margin-bottom: 2px">
-                        @csrf
-                        @method('DELETE')
-                        <i class="fas fa-trash fa-xl" style="color: red;"></i>
-                    </a>
-                    
-                    <form id="delete-form" action="userdelete/{{$user['id'] }}" method="POST" style="display: none;">
-                        @csrf
-                        @method('DELETE')
-                    </form>
-                    
-                    <a href="useredit/{{ $user['id'] }}" onclick="event.preventDefault(); document.getElementById('edit-form').submit();" style="margin-bottom: 2px">
-                        @csrf
-                        <i class="fas fa-edit fa-xl" style="color: blue;"></i>
-                    </a>
-                    
-                    <form id="edit-form" action="useredit/{{ $user['id'] }}" method="GET" style="display: none;">
-                        @csrf
-                    </form>
+                      <td>
+            
 
-                    
-                    {{-- <form action="userdelete/{{$user['id'] }}" method="POST" style="margin-bottom: 2px">
+                        <div class="row">
+                            <div class="col-md-6">
+                 <form action="userdelete/{{$user['id'] }}" method="POST" style="margin-bottom: 2px">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger" type="submit" value="DELETE" style="width:70px">Delete</button>
-                    </form >                   
+                        <button class="btn  fa fa-trash text-danger fa-lg" type="submit" value="DELETE" ></button>
+                    </form >  
+                </div>
+                                
+                <div class="col-md-6">                 
                     <form action="useredit/{{ $user['id'] }}" method="" style="margin-bottom: 2px">
                       @csrf
-                      <button class="btn btn-primary" type="submit" value="Update" style="width:70px">Edit</button>
-                  </form>  --}}
-               
+                      <button class="btn fa-regular fa-pen-to-square text-warning fa-lg" type="submit" value="Update" ></button>
+                  </form> 
+                </div>
+            </div>
                 
                   </td>
               @endforeach

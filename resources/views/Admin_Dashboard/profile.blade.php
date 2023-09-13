@@ -33,11 +33,11 @@
                             <div class="row">
                                 <div class="col-md-4 col-12">
                                     @if ($user->image)
-                                        <img src="{{ asset('images/users/' . $user->image) }}" alt="{{ $user->name }}'s Profile Picture" class="img-fluid" style="max-width: 200px; height: auto;">
+                                        <img src="{{ asset('images/users/' . Auth::admin()->image }}" alt="{{ $user->name }}'s Profile Picture" class="img-fluid" style="max-width: 200px; height: auto;">
                                     @else
                                         <img src="{{ asset('images/users/Default_pfp.svg.png') }}" alt="Default Profile Picture" class="img-fluid" style="max-width: 200px; height: auto;">
                                     @endif
-                    
+                    5
                                     <div class="form-group mt-3">
                                         <label for="image">{{ __('Upload new image') }}</label>
                                         <input id="image" name="image" type="file" accept="image/*" class="form-control-file" :value="old('image', $user->image)" autocomplete="image" />
