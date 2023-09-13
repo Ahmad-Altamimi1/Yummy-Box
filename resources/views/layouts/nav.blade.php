@@ -19,17 +19,39 @@
     <link rel="stylesheet" href="fonts/icomoon/style.css">
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
-    <link rel="stylesheet" href="/css/tiny-slider.css ">
-    <link rel="stylesheet" href="css/aos.css') }}">
-    <link rel="stylesheet" href="/css/flatpickr.min.css">
-    <link rel="stylesheet" href="/css/glightbox.min.css ">
+    <link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/flatpickr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/glightbox.min.css') }}">
 
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 
 
 
     <title>Volunteer </title>
+    <style>
+        .logo-image {
+            max-width: 100px;
+            /* Adjust the width as needed */
+            height: auto;
+            /* Maintain the aspect ratio */
+            vertical-align: middle;
+            /* Align the image vertically */
+            margin-right: 10px;
+            /* Add some space between the image and text */
+        }
+
+        /* Style for the logo text */
+        #logo {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: x-large;
+            text-decoration: none;
+            /* Remove underline from the link */
+            color: white;
+
+        }
+    </style>
 
 </head>
 
@@ -42,16 +64,19 @@
         <div class="container">
             <div class="menu-bg-wrap">
                 <div class="site-navigation">
-                    <div class="row g-0 align-items-center">
-                        <div class="col-2"  >
-                            <a href="#" id='logo' class="logo m-0 float-start text-white" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size:x-large">Tech-Volunteer</a>
+                    <div class="row g-0 align-items-center" style="display: flex; width: 100%;">
+                        <div class="col-4 logos">
+                            <a href="#" id='logo' class="logo m-0 float-start text-white">
+                                <img src="images/logo1.png" alt="Logo Image" class="logo-image">
+                                TechHub
+                            </a>
                         </div>
-                        <div class="col-8 text-center">
+                        <div class="col-8 text-end">
 
                             <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
                                 <li class="{{ request()->is('home*') ? 'active' : '' }}"><a
                                         href="{{ route('home') }}">Home</a></li>
-                                
+
                                 <li class="{{ request()->is('about*') ? 'active' : '' }}"><a href="about">About</a>
                                 </li>
                                 <li class="{{ request()->is('news*') ? 'active' : '' }}"><a
@@ -61,7 +86,8 @@
                                 <li class="has-children">
                                     @if (Auth::check())
                                         <a href="#">
-                                            <div><i class="fa-solid fa-user " style="color: #fafafa;"></i>  {{ Auth::user()->name }}</div>
+                                            <div><i class="fa-solid fa-user " style="color: #fafafa;"></i>
+                                                {{ Auth::user()->name }}</div>
                                             <ul class="dropdown">
                                                 <li><a href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
                                                 <li>
@@ -83,13 +109,11 @@
                             </ul>
 
                         </div>
-                        <div class="col-2 text-end">
+                        <div class="text-end" style="position: fixed;right: 20px; top: 20px;">
                             <a href="#"
                                 class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
                                 <span></span>
                             </a>
-
-
                         </div>
                     </div>
 

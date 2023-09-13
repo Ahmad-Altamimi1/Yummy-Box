@@ -1,10 +1,3 @@
-<!-- /*
-* Template Name: Volunteer
-* Template Author: Untree.co
-* Tempalte URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
-
 @extends('layouts.master')
 @section('title','Home')
 
@@ -40,7 +33,7 @@
 <div class="hero overlay" style="background-image: url('images/classroom-1.png')">
     <div class="container">
         <div class="row align-items-center justify-content-between">
-            <div class="col-lg-6 text-left">
+            <div class="col-lg-8 text-left">
                 <span class="subheading-white text-white mb-3" data-aos="fade-up">Tech-Volunteer</span>
                 <h1 class="heading text-white mb-2" data-aos="fade-up">Empower through Code & Giving
                 </h1>
@@ -56,7 +49,7 @@
 
             </div>
 
-            <div class="col-lg-5" style="margin-top: 49px;">
+            {{-- <div class="col-lg-5" style="margin-top: 49px;">
                 <form action="paypal" method="POST" class="bg-white p-5 rounded donation-form" data-aos="fade-up" style="margin-bottom: 0">
                     @csrf
                     <h3>Quick Donation Form</h3>
@@ -93,7 +86,7 @@
 						<div class="form-field mb-3">
 							{{-- <input type="text" placeholder="Name" class="form-control px-4"> --}}
 							{{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
-						</div>
+						{{-- </div>
 
 						<input type="submit" value="Donate by paypal" class="btn w-100" style="background:url('images/PayPal-Logo.png')">
                 </form>
@@ -101,7 +94,7 @@
 
 
 
-            </div>
+            </div>  --}}
             
         </div>
     </div>
@@ -131,9 +124,7 @@
 </div>
 
 	<div class="section flip-section"  id="donite" style="background-image: url('images/classroom-1.png')">
-		<div class="blob-1">
-			<img src="images/blob.png" alt="Image" class="img-fluid">
-		</div>
+		
 		<div class="container">
 			<div class="row justify-content-center mb-5">
 				<div class="col-lg-7 text-center" data-aos="fade-up">
@@ -142,41 +133,132 @@
 				</div>
 			</div>
 			<div class="row">
-				@foreach ( $categories as $categorie )
+			
 					
-				<div class="col-lg-3 position-relative" data-aos="fade-up" data-aos-delay="100">
-                
-					<div class="card-flip">
-						<div class="flip">
-							<div class="front">
-								<!-- front content -->
-                                
-								<div class="flip-content-wrap">
-									{{-- class="icon-local_drink" --}}
-									<span ><img src="{{ $categorie->image  }}" width="100px" alt=""></span>
-									<h3>{{ $categorie->name }}</h3>
-								</div>
-							</div>
-							<div class="back">
-								<!-- back content -->
-								<div class="flip-content-wrap">
-                                    <h3>{{ $categorie->name }}</h3>	
-
-									<p>{{ $categorie->description }}</p>
-								</div>
-							</div>
-						</div>
-					</div>
-                    
-					<!-- End Card Flip -->
+				<div class="col-lg-4 "  data-aos="fade-up" data-aos-delay="100">
+                    <div class="card" style="width: 25rem;">
+                        <img class="card-img-top mx-auto" src="images/donate.png" alt="Card image cap" style="width: 20rem;">
+                        <div class="card-body" >
+                          <h5 class="card-title">Mony Donation</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary"style="text-align:center" >Donate Now</a>
+                        </div>
+                      </div>
+					
 				</div>
-				@endforeach
-
+                <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
+                    <div class="card" style="width: 25rem;">
+                        <img class="card-img-top mx-auto mt-1" src="images/web-programming.png" alt="Card image cap" style="width: 20rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Ressourses Donation</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="/serviceform" class="btn btn-primary">Donate Now</a>
+                        </div>
+                      </div>
+					
+				</div>
+                <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
+                    <div class="card" style="width: 25rem;">
+                        <img class="card-img-top mx-auto mt-2" src="images/ideas.png" alt="Card image cap" style="width: 20rem; ">
+                        <div class="card-body">
+                          <h5 class="card-title">Give Hope</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary">Donate Now</a>
+                        </div>
+                      </div>
+					
+				</div>
+			
 
 				
 			</div>		
 		</div>		
 	</div>
+
+
+    
+<div class="section cause-section bg-light" id="services">
+
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                <span class="subheading mb-3">Projects</span>
+                <h2 class="heading">Featured Projects</h2>
+                <p>Explore our Featured Projects and witness the impact of code and compassion in action.</p>
+
+                <div id="features-slider-nav" class="mt-5 d-flex justify-content-center">
+                    <button class="btn btn-primary prev d-flex align-items-center me-2" data-controls="prev">
+                        <span class="icon-chevron-left"></span> <span class="ms-3">Prev</span></button>
+                    <button class="btn btn-primary next d-flex align-items-center" data-controls="next"><span
+                            class="me-3">Next</span> <span class="icon-chevron-right"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+		<div class="container mb-5" >
+			<div class="features-slider-wrap position-relative" data-aos="fade-up" data-aos-delay="200">
+				<div class="features-slider" id="features-slider">
+                    @foreach ($products as $product )
+	
+					<div class="item">
+						<div class="causes-item bg-white">
+							<a href="#"><img  src='{{ $product->image }}' alt="Image" class="img-fluid mb-4 rounded"></a>
+							<div class="px-4 pb-5 pt-3">
+
+								<h3><a href="single/{{ $product->id}}">{{ $product->name }}</a></h3>
+								<p>{{ $product->breif }}</p>
+
+														@php
+									$totalsproduct =0;
+									$percant=0;
+								@endphp
+								@foreach ($volanters as $volanter )
+                            @if ($volanter->product_id==$product->id)
+	
+                                 @php
+                            $totalsproduct +=$volanter->amount 
+                           @endphp
+                            @php
+	
+                              $percant= (int)(( $totalsproduct  / $product->total) * 100)
+
+                          @endphp
+                        @endif
+                         @endforeach
+
+								<div class="progress mb-2">
+									<div class="progress-bar" role="progressbar" style="width: <?php echo $percant?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> <?php echo $percant?>%</div>
+								</div>
+
+								<div class="d-flex mb-4 justify-content-between amount">
+									<div>@php
+									echo "$" .$totalsproduct 
+									@endphp</div>
+									
+									<div>${{ $product->total }}</div>
+								</div>
+								<div>
+									<a href="single/{{ $product->id}}" class="btn btn-primary">Volunteer Now</a>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					@endforeach
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
 
 
 
@@ -281,89 +363,6 @@
         </div>
     </div>
 </div>
-
-
-<div class="section cause-section bg-light" id="services">
-
-    <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                <span class="subheading mb-3">Projects</span>
-                <h2 class="heading">Featured Projects</h2>
-                <p>Explore our Featured Projects and witness the impact of code and compassion in action.</p>
-
-                <div id="features-slider-nav" class="mt-5 d-flex justify-content-center">
-                    <button class="btn btn-primary prev d-flex align-items-center me-2" data-controls="prev">
-                        <span class="icon-chevron-left"></span> <span class="ms-3">Prev</span></button>
-                    <button class="btn btn-primary next d-flex align-items-center" data-controls="next"><span
-                            class="me-3">Next</span> <span class="icon-chevron-right"></span></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-		<div class="container mb-5" >
-			<div class="features-slider-wrap position-relative" data-aos="fade-up" data-aos-delay="200">
-				<div class="features-slider" id="features-slider">
-@foreach ($products as $product )
-	
-					<div class="item">
-						<div class="causes-item bg-white">
-							<a href="#"><img  src='{{ $product->image }}' alt="Image" class="img-fluid mb-4 rounded"></a>
-							<div class="px-4 pb-5 pt-3">
-
-								<h3><a href="#">{{ $product->name }}</a></h3>
-								<p>{{ $product->breif }}</p>
-
-														@php
-									$totalsproduct =0;
-									$percant=0;
-								@endphp
-								@foreach ($volanters as $volanter )
-@if ($volanter->product_id==$product->id)
-	
-@php
-$totalsproduct +=$volanter->amount 
-@endphp
-@php
-	
-$percant= (int)(( $totalsproduct  / $product->total) * 100)
-
-@endphp
-@endif
-@endforeach
-
-								<div class="progress mb-2">
-									<div class="progress-bar" role="progressbar" style="width: <?php echo $percant?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> <?php echo $percant?>%</div>
-								</div>
-
-								<div class="d-flex mb-4 justify-content-between amount">
-									<div>@php
-									echo "$" .$totalsproduct 
-									@endphp</div>
-									
-									<div>${{ $product->total }}</div>
-								</div>
-								<div>
-									<a href="single/{{ $product->id}}" class="btn btn-primary">Volunteer Now</a>
-								</div>
-							</div>
-						</div>
-						
-					</div>
-					@endforeach
-
-
-
-
-
-                </div>
-            </div>
-        </div>
-
-
-    </div>
 
 
 
@@ -522,54 +521,47 @@ $percant= (int)(( $totalsproduct  / $product->total) * 100)
 	</div>
 
     <div class="instagram-slider-wrap" data-aos="fade-up" data-aos-delay="200">
-        <div class="instagram-slider" id="instagram-slider">
+        <div class="instagram-slider mb-2" id="instagram-slider" >
 
             <div class="item">
                 <a class="instagram-item">
                     <span class="icon-instagram"></span>
-                    <img src="images/img_v_8-min.jpg" alt="Image" class="img-fluid">
+                    <img src="images/img_v_8-min.jpg" alt="Image" class="img-fluid"  style="border-radius: 50%">
                 </a>
             </div>
 
             <div class="item">
                 <a class="instagram-item">
                     <span class="icon-instagram"></span>
-                    <img src="images/img_v_2-min.jpg" alt="Image" class="img-fluid">
+                    <img src="images/img_v_2-min.jpg" alt="Image" class="img-fluid" style="border-radius: 50%">
                 </a>
             </div>
 
             <div class="item">
                 <a class="instagram-item">
                     <span class="icon-instagram"></span>
-                    <img src="images/img_v_3-min.jpg" alt="Image" class="img-fluid">
+                    <img src="images/partnership4.jpg" alt="Image" class="img-fluid"  style="border-radius: 50% ; height :40%">
                 </a>
             </div>
 
             <div class="item">
                 <a class="instagram-item">
                     <span class="icon-instagram"></span>
-                    <img src="images/img_v_4-min.jpg" alt="Image" class="img-fluid">
+                    <img src="images/img_v_4-min.jpg" alt="Image" class="img-fluid"  style="border-radius: 50%">
                 </a>
             </div>
 
             <div class="item">
                 <a class="instagram-item">
                     <span class="icon-instagram"></span>
-                    <img src="images/img_v_5-min.jpg" alt="Image" class="img-fluid">
+                    <img src="images/img_v_5-min.jpg" alt="Image" class="img-fluid"  style="border-radius: 50%">
                 </a>
             </div>
 
             <div class="item">
                 <a class="instagram-item">
                     <span class="icon-instagram"></span>
-                    <img src="images/img_v_6-min.jpg" alt="Image" class="img-fluid">
-                </a>
-            </div>
-
-            <div class="item">
-                <a class="instagram-item">
-                    <span class="icon-instagram"></span>
-                    <img src="images/img_v_7-min.jpg" alt="Image" class="img-fluid">
+                    <img src="images/partnership5.jpg" alt="Image" class="img-fluid"  style="border-radius: 50% ; height :40%">
                 </a>
             </div>
 
@@ -579,6 +571,3 @@ $percant= (int)(( $totalsproduct  / $product->total) * 100)
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </div>
-
-
-

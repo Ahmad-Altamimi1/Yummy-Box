@@ -49,7 +49,7 @@ h1 {
         <form action="{{ route('donors.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div >
-            <div>
+            {{-- <div>
                     <label for="firstName">Name : </label>
                     <label for="firstName">{{Auth::user()->name}}</label>
                 </div>   
@@ -65,7 +65,7 @@ h1 {
                 <div>
                     <label for="phoneNumber">Phone Number</label>
                     <label for="phoneNumber">{{Auth::user()->phone}}</label>
-                </div>
+                </div> --}}
                 <div class="form-group col-md-6">                
                     <input  type="hidden" class="form-control" id="user_id"  name="user_id" required>
 

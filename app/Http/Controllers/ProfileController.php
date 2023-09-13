@@ -40,10 +40,11 @@ class ProfileController extends Controller
             ->join('users as u', 'u.id', '=', 'fu.user_id')
             ->where('u.id', '=', Auth::user()->id)
             ->get();
-           
-      
+
+        $file = Volunteer::findOrFail(1);
+        $filename = $file->content;
         return view('profile.edit', [
-            'user' => $request->user(),'volunteers'=>$users
+            'user' => $request->user(),'volunteers'=>$users, 'filename'=> $filename
         ]);
     }
 

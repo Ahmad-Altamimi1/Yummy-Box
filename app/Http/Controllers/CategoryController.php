@@ -21,6 +21,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
+       
         Session::put('url.intended', url()->previous());
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->get();
@@ -50,6 +51,7 @@ class CategoryController extends Controller
         $diffInMonths = $endDate->diffInMonths($startDate);
 
         // dd($currentDateTime);
+        return  view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths','id', 'categories', 'products', 'users', 'volanters'));
         return view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths', 'id', 'categories', 'products', 'users', 'volanters'));
         // ['products' => $products]
     }

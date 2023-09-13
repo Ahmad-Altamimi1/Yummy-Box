@@ -17,7 +17,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\SocialController;
 
-
+// pdf 
+Route::post('profile/vpdf/{id?}',[VolunteerController::class, 'view'])->name('viewpdf');
+Route::post('profile/dpdf',[VolunteerController::class, 'download'])->name('download');
+Route::get('table',function(){
+    view('profile.partials.table');
+})->name('table');
 
 /*
 |--------------------------------------------------------------------------
@@ -39,11 +44,9 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('home');
-   
 });
 Route::get('/rer', function () {
     return view('pages.cliker');
-   
 });
 
 // Route::get('/home', function () {
@@ -51,7 +54,7 @@ Route::get('/rer', function () {
 // });
 Route::get('single/{id?}', [CategoryController::class, 'find']);
 // Route::get('/', [CategoryController::class, 'index']);
-Route::get('home', [CategoryController::class, 'index'])->name('home');
+// Route::get('home', [CategoryController::class, 'index'])->name('home');
 // Route::resource('pages', ProductsController::class);
 Route::resource('pages/', ProductsController::class);
 
@@ -69,8 +72,8 @@ Route::get('/dashboard', function () {
 
 
 
-// Route::get('home', [Controller::class, 'showhome'])
-//     ->name('home');
+Route::get('home', [Controller::class, 'showhome'])
+    ->name('home');
 
 Route::get('/about', [Controller::class, 'showabout'])
     ->name('about');
@@ -95,6 +98,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.edit');
 });
 
 
@@ -122,11 +126,11 @@ Route::get('stripe/success', [StripeController::class, 'success'])->name('stripe
 Route::get('stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
 
 
-    
+
 Route::get('contact-us', [ContactController::class, 'index']);
 Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
 
- 
+
 
 
 
@@ -134,13 +138,13 @@ Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us
 
 
 // login by google
-Route::get('auth/google',[SocialController::class,'redirectToGoogle'])->name('google') ;
+Route::get('auth/google', [SocialController::class, 'redirectToGoogle'])->name('google');
 
 Route::get('auth/google/callback', [SocialController::class, 'handleGoogleCallback']);
 
 //login by facebook
 
-Route::get('auth/facebook', [SocialController::class, 'redirectToFacebook'])->name('facebook') ;
+Route::get('auth/facebook', [SocialController::class, 'redirectToFacebook'])->name('facebook');
 
 Route::get('auth/facebook/callback', [SocialController::class, 'handleFacebookCallback']);
 
@@ -159,30 +163,32 @@ Route::get('auth/github/callback', [SocialController::class, 'handleGithubCallba
 
 
 Route::get('/backform', function () {
-    return view('pages.trainingForm')->middleware('auth', 'verified');
-});
+    return view('pages.trainingForm');
+})->middleware('auth',
+    'verified'
+);
 
 Route::resource("volunteers", VolunteerController::class)->middleware('auth', 'verified');
 
 
 Route::get('/frontform', function () {
-    return view('pages.frontendForm');
-})->name('front')->middleware('auth', 'verified');
+    return view('pages.frontendForm')->middleware('auth', 'verified');
+});
 
 Route::resource("frontvolunteers", FrontvolunteerController::class)->middleware('auth', 'verified');
 
 
 Route::get('/serviceform', function () {
-    return view('pages.donationForm')->middleware('auth', 'verified');
-});
+    return view('pages.donationForm');
+})->middleware('auth', 'verified');
 
 Route::resource("donors", DonorController::class);
 
 
 
 Route::get('/UIform', function () {
-    return view('pages.UIform')->middleware('auth', 'verified');
-});
+    return view('pages.UIform');
+})->middleware('auth', 'verified');
 
 Route::resource("uvolunteers", UvolunteerController::class)->middleware('auth', 'verified');
 
@@ -207,27 +213,21 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
 
     //////////////////////////////// SAJEDA CODE ////////////////////////////////
 
+    // admin_home
+    Route::get('/Admin_Home', function () { return view('Admin_Dashboard.index'); })->name('Admin_Dashboard.index');;
 
-    Route::get('/Admin_Home', function () {
-        return view('Admin_Dashboard.Statics ')->name('Admin_Home');
-
-    });
-    Route::get('/Admin_creatuser', function () {
-        return view('Admin_Dashboard.creatuser ');
-
-    });
-    Route::get('/Admin_Donations', function () {
-        return view('Admin_Dashboard.Donations')->name('Admin_Donations');
-
-    });
-    Route::get('/Admin_Volunteers', function () {
-        return view('Admin_Dashboard.Volunteers')->name('Admin_Volunteers');
-
-    });
-
-    Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe']);
+    //  volunteers data
+    Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe'])->name('Admin_Dashboard.Volunteers');
+    
+    // donations data
+    Route::get('/Admins_Payment', [PaypalController::class, 'show'])->name('Admin_Dashboard.Payments');
 
 
+    //ressourses data
+    Route::get('/Admin_ressourses', [DonorController::class, 'show'])->name('Admin_Dashboard.ressourses');
+    
+
+    // Route::get('/admins/{id}/edit', [AdminController::class, 'edit'])->name('Admin_Dashboard.Admins_Update');
 
     Route::get('/Admins_Payment', [PaypalController::class, 'show']);
 
@@ -248,6 +248,7 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     Route::delete('admindelete/{id}', [AdminController::class, 'destroy'])->name('Admin_Dashboard.destroy');
     Route::get('adminsedit/{id}', [AdminController::class, 'edit'])->name('Admin_Dashboard.edit');
     Route::patch('adminsedit/adminsupdate/{id}', [AdminController::class, 'update']);
+    Route::get('Admin_Create', [AdminController::class, 'create']);
 
 
 
@@ -258,13 +259,19 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     Route::delete('userdelete/{id}', [UserController::class, 'destroy'])->name('User.destroy');
     Route::get('useredit/{id}', [UserController::class, 'edit'])->name('user.edit');
     Route::patch('useredit/userupdate/{id}', [UserController::class, 'update']);
+    Route::get('/admin/usertview/{id}', [UserController::class, 'view']);
+    Route::get('user_Create', [UserController::class, 'create']);
 
-
+    // projects data
     Route::get('/Admins_Projects', [ProductsController::class, 'show'])->name('Admin_Dashboard.Projects');
     Route::post('/Admins_Projects', [ProductsController::class, 'store']);
     Route::delete('productdelete/{id}', [ProductsController::class, 'destroy'])->name('product.destroy');
     Route::get('productedit/{id}', [ProductsController::class, 'edit'])->name('product.edit');
     Route::patch('productedit/productupdate/{id}', [ProductsController::class, 'update']);
+    Route::get('productview/{id}', [ProductsController::class, 'view']);
+    Route::get('Project_Create', [ProductsController::class, 'create']);
+
+    
 
 
 });

@@ -84,7 +84,6 @@ class PaypalController extends Controller
 
              else {
             return redirect()->route('paypal_cancel');
-
         }
     }
 
@@ -96,7 +95,6 @@ class PaypalController extends Controller
      */
     public function store(StorepaypalRequest $request)
     {
-
     }
 
     /**

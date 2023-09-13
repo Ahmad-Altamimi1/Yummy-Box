@@ -33,5 +33,10 @@ class DatabaseSeeder extends Seeder
                 'price' => $faker->randomFloat(2, 10, 100),
                 'created_at' => now(),
                 'updated_at' => now(),]);
+        $this->call([
+            CategorySeeder::class,
+            AdminSeeder::class,
+            ProductTableSeeder::class,
+        ]);
     }
 }
