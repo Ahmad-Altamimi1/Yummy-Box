@@ -37,7 +37,10 @@
 
                 </div>
 
-                {{-- <div class="col-lg-5" style="margin-top: 49px;">
+
+            </div>
+
+            {{-- <div class="col-lg-5" style="margin-top: 49px;">
                 <form action="paypal" method="POST" class="bg-white p-5 rounded donation-form" data-aos="fade-up" style="margin-bottom: 0">
                     @csrf
                     <h3>Quick Donation Form</h3>
@@ -73,8 +76,8 @@
 						</div>
 						<div class="form-field mb-3">
 							{{-- <input type="text" placeholder="Name" class="form-control px-4"> --}}
-                {{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
-                {{-- </div>
+            {{-- <input type="email" placeholder="Email" class="form-control px-4"> --}}
+            {{-- </div>
 
 						<input type="submit" value="Donate by paypal" class="btn w-100" style="background:url('images/PayPal-Logo.png')">
                 </form>
@@ -84,8 +87,8 @@
 
             </div>  --}}
 
-            </div>
         </div>
+    </div>
     </div>
 
     <div class="section bg-light">
@@ -110,8 +113,10 @@
             </div>
         </div>
     </div>
+    </div>
 
     <div class="section flip-section" id="donite" style="background-image: url('images/classroom-1.png')">
+
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-7 text-center" data-aos="fade-up">
@@ -120,38 +125,42 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card" style="width: 100%;">
-                        <img class="card-img-top mx-auto" src="images/donate.png" alt="Card image cap" style="width: 100%;">
-                        <div class="card-body">
-                            <h5 class="card-title">Money Donation</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the card's content.</p>
-                            <a href="#" class="btn btn-primary" style="text-align:center">Donate Now</a>
+
+
+                <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
+                    <div class="card" style="width: 25rem; height:380px ;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);">
+                        <img class="card-img-top mx-auto" src="images/donate.jpg" alt="Card image cap"
+                            style="width: 22rem;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Mony Donation</h5>
+                            <p class="card-text">Transform lives with your donation. Make a difference today!</p>
+                            <a href="#" class="btn btn-primary"style="text-align:center">Donate Now</a>
                         </div>
                     </div>
+
                 </div>
-                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card" style="width: 100%;">
-                        <img class="card-img-top mx-auto mt-1" src="images/web-programming.png" alt="Card image cap"
-                            style="width: 100%;">
-                        <div class="card-body">
+                <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
+                    <div class="card" style="width: 25rem; height: 380px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);">
+                        <img class="card-img-top mx-auto mt-1" src="images/it.png" alt="Card image cap"
+                            style="width: 13rem;">
+                        <div class="card-body text-center">
                             <h5 class="card-title">Resources Donation</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the card's content.</p>
-                            <a href="/serviceform" class="btn btn-primary">Donate Now</a>
+                            <p class="card-text">Your resource donation is a catalyst for positive change in our community.
+                            </p>
+                            <a href="/serviceform" class="btn btn-primary">Give Now</a>
                         </div>
                     </div>
+
+
                 </div>
-                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card" style="width: 100%;">
-                        <img class="card-img-top mx-auto mt-2" src="images/ideas.png" alt="Card image cap"
-                            style="width: 100%;">
-                        <div class="card-body">
-                            <h5 class="card-title">Give Hope</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the card's content.</p>
-                            <a href="#" class="btn btn-primary">Donate Now</a>
+                <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
+                    <div class="card" style="width: 25rem; height:380px ; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);">
+                        <img class="card-img-top mx-auto mt-2" src="images/Capture.JPG" alt="Card image cap"
+                            style="width: 20rem; ">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Volunteer with us</h4>
+                            <p class="card-text">Train with us and be part of a transformative journey.</p>
+                            <a href="#" class="btn btn-primary">Volunteer Now</a>
                         </div>
                     </div>
                 </div>

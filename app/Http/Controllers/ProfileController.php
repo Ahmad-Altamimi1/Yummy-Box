@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Frontvolunteer;
 use App\Models\User;
 use App\Models\Uvolunteer;
 use App\Models\Volunteer;
@@ -15,11 +16,13 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-    // public function show(Volunteer $volunteer)
-    // {
-    //     $volunteers = Volunteer::all();
-    //    return view('profile/edit')->with('Volunteers',$volunteers);
-    // }
+    public function show(Volunteer $volunteer)
+    {
+        $volunteers = Frontvolunteer::find(Auth::id());
+        $user = User::find(Auth::id()); 
+        return view('profile.edit',['user'=>$user,'volunteers'=>$volunteers]);
+       
+    }
 
 
     /**
@@ -43,8 +46,8 @@ class ProfileController extends Controller
 
         $file = Volunteer::findOrFail(1);
         $filename = $file->content;
-        return view('profile.edit', [
-            'user' => $request->user(),'volunteers'=>$users, 'filename'=> $filename
+        return redirect()->route('profile.show', [
+            'user'=>$request->Auth::user(),'volunteers'=>$users, 'filename'=> $filename
         ]);
     }
 
@@ -81,7 +84,7 @@ class ProfileController extends Controller
         // Save the user's updated profile
         $user->save();
         $donition=DB::table(' frontvolunteers');
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.show')->with('status', 'profile-updated');
     }
 
     /**

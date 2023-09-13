@@ -69,7 +69,7 @@
                                         <a href="#">
                                             <div>{{ Auth::user()->name }}</div>
                                             <ul class="dropdown">
-                                                <li><a href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
+                                                <li><a href="{{ route('profile.show') }}">profille</a></li>
                                                 <li>
                                                     <!-- Authentication -->
                                                     <form method="POST" action="{{ route('logout') }}">

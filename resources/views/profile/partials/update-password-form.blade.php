@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')}}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
     <section style="text-align: center;">
@@ -34,8 +34,10 @@
 </style>
         <form action="{{ route('viewpdf') }}/{{ Auth::user()->id }}" method="post" target="_blank" >
           @csrf
-          <input type="submit" value="view" class="custom-button">
+        
         <h2 class="text-xl font-semibold mb-4">Volunteering Programs</h2>
+       
+       
         <table class="table" style="width: 100%">
             <thead style="background-color: rgb(179, 236, 164) ;">
               <tr>
@@ -47,16 +49,16 @@
               </tr>
             </thead>
             <tbody>
-                @foreach ($volunteers as $item)
+              
     
 <tr>
-       <td scope="col">{{ $item->Languages }}</td>
-                <td scope="col">{{ $item->Address }}</td>
-                <td scope="col">{{ $item->Experience }}</td>
+       <td scope="col">{{ $volunteers['Languages'] }}</td>
+                <td scope="col">{{ $volunteers['Address'] }}</td>
+                <td scope="col">{{ $volunteers['Experience'] }}</td>
                 {{-- <td scope="col">{{ $filename }}</td> --}}
-                <td scope="col">{{ $item->day }}</td>
+                <td scope="col">{{$volunteers['day'] }}</td>
             
-@endforeach
+
            
             <tr>
 
@@ -73,14 +75,17 @@
             @endforeach 
           --}}
             </tbody>
-          </table>
+          </table> 
+          <div style="text-align: left; width:200px">
+    <input type="submit" value="view" class="custom-button">
+</div>
         </form>
 
     </section>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{url('https://code.jquery.com/jquery-3.3.1.slim.min.js')}}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')}}" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="{{url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')}}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>

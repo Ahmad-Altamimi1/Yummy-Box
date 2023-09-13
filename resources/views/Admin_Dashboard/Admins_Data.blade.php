@@ -52,35 +52,30 @@
                         <td>
                             <div >
                                 @if ($admin->image)
-                                    <img src="{{ asset('images/' . $admin->image) }}" alt="{{ $admin->name }}"
+                                    <img src="{{ asset('images/users/' . $admin->image) }}" alt="{{ $admin->name }}"
                                         width="80" height="80">
                                 @endif
                             </div>
                         </td>
-                        <td><a href="admindelete/{{$admin['id'] }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();" style="margin-bottom: 2px">
-                            @csrf
-                            @method('DELETE')
-                            <i class="fas fa-trash fa-xl" style="color: red;"></i>
-                        </a>
+                        <td>
                         
-                        <form id="delete-form" action="admindelete/{{$admin['id'] }}" method="POST" style="display: none;">
-                            @csrf
-                            @method('DELETE')
-                        </form>
-                        
-                        {{-- <a href="adminedit/{{ $admin['id'] }}" onclick="event.preventDefault(); document.getElementById('edit-form').submit();" style="margin-bottom: 2px">
-                            @csrf
-                            <i class="fas fa-edit fa-2xl" style="color: blue;"></i>
-                        </a>
-                        
-                        <form id="edit-form" action="adminedit/{{ $admin['id'] }}" method="GET" style="display: none;">
-                            @csrf
-                        </form> --}}
-                        
+                       
                       {{-- <form action="adminview/{{ $admin['id'] }}" method="" style="margin-bottom: 2px">
                         @csrf
                         <button class="btn btn-warning" type="submit" value="Update" style="width:70px">View</button>
                     </form>  --}}
+
+
+
+                  <form action="admindelete/{{$admin['id'] }}" method="POST" style="margin-bottom: 2px">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn fa fa-trash text-danger fa-lg" type="submit" value="DELETE" ></button>
+                    </form >                   
+                    {{-- <form action="adminedit/{{ $admin['id'] }}" method="" style="margin-bottom: 2px">
+                      @csrf
+                      <button class="btn btn-primary" type="submit" value="Update" style="width:70px">Edit</button>
+                  </form>   --}}
                     
                       </td>
                        @endforeach   

@@ -95,7 +95,7 @@
                                             <div><i class="fa-solid fa-user " style="color: #fafafa;"></i>
                                                 {{ Auth::user()->name }}</div>
                                             <ul class="dropdown">
-                                                <li><a href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
+                                                <li><a href="{{route('profile.show')}}">profile</a></li>
                                                 <li>
                                                     <!-- Authentication -->
                                                     <form method="POST" action="{{ route('logout') }}">
