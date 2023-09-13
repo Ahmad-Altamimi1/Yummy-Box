@@ -36,7 +36,7 @@
                                 <div >
                                     @if ($user->image)
                                         <img src="{{ asset('images/users/' . $user->image) }}" alt="{{ $user->name }}"
-                                            width="80" height="80">
+                                            width="60" height="60">
                                     @endif
                                 </div>
                       </td>

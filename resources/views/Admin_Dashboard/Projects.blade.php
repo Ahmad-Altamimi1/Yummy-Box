@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="content " >
-<div style="margin: 0% 8% ">
+<div style="margin: 0% 6% ">
     <div style="width: 100%" > 
 <br><br>
-        <h1 class="mx-auto"> Manage Your Project </h1>  <a href="Project_Create"><button class="btn btn-success" type="submit" style="position:absolute ; right :8%"> + Add Project</button>
+        <h1 class="mx-auto"> Manage Your Project </h1>  <a href="Project_Create"><button class="btn btn-success" type="submit" style="position:absolute ; right :5%"> + Add Project</button>
         </a> <br><br>
       
         <table class="table table-hover">
