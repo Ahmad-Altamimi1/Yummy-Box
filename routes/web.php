@@ -98,7 +98,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.edit');
 });
 
 
@@ -115,7 +114,7 @@ Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_c
 
 Route::get('/payment', function () {
     return view('pages.payment');
-})->name('payment/1')->middleware('auth', 'verified');
+})->name('payment')->middleware('auth', 'verified');
 
 // Define the Stripe routes with the appropriate methods
 Route::get('finish', function () {
@@ -172,8 +171,8 @@ Route::resource("volunteers", VolunteerController::class)->middleware('auth', 'v
 
 
 Route::get('/frontform', function () {
-    return view('pages.frontendForm')->middleware('auth', 'verified');
-});
+    return view('pages.frontendForm');
+})->name('frontform')->middleware('auth', 'verified');
 
 Route::resource("frontvolunteers", FrontvolunteerController::class)->middleware('auth', 'verified');
 
@@ -220,7 +219,7 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe'])->name('Admin_Dashboard.Volunteers');
     
     // donations data
-    Route::get('/Admins_Payment', [PaypalController::class, 'show'])->name('Admin_Dashboard.Payments');
+    Route::get('/Admin_Payment', [PaypalController::class, 'show'])->name('Admin_Dashboard.Payments');
 
 
     //ressourses data

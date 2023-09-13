@@ -13,7 +13,7 @@
     </div>
     <div class="site-mobile-menu-body"></div>
 </div>
-<script src="https://kit.fontawesome.com/d6692547f6.js" crossorigin="anonymous"></script>
+<script src="{{ url('https://kit.fontawesome.com/d6692547f6.js') }}" crossorigin="anonymous"></script>
 
 @section('content')
     <x-app-layout>
@@ -64,13 +64,11 @@
                                         $totalsproduct = 0;
                                         $percant = 0;
                                     @endphp
-                                 
+
                                     @foreach ($volanters as $volanter)
-                                        @if ($volanter->product_id== $products['id'])
+                                        @if ($volanter->product_id == $products['id'])
                                             @php
                                                 $totalsproduct += $volanter->amount;
-                                        
-                                          
                                                 
                                                 $percant = (int) (($totalsproduct / $products->total) * 100);
                                                 
@@ -97,16 +95,17 @@
                             <div style="display:block;">
 
                                 <div>
-                                <i class="fa-solid fa-location-dot fa-2xl" style="color: #318c5d;"> </i> <span>
-                                    {{ $products->location }}</span>
-                           </div><br><br>
-                           <div>
-                                <i class="fa-regular fa-clock fa-2xl" style="color: #f3ec20;"> </i><span> Start
-                                    at{{ $products->time }}</span>
+                                    <i class="fa-solid fa-location-dot fa-2xl" style="color: #318c5d;"> </i> <span>
+                                        {{ $products->location }}</span>
                                 </div><br><br>
                                 <div>
-                                <i class="fa-regular fa-calendar-days fa-2xl" style="color: #fd9d17;"> </i> <span> Days of
-                                    instruction:{{ $products->period }}</span>
+                                    <i class="fa-regular fa-clock fa-2xl" style="color: #f3ec20;"> </i><span> Start
+                                        at{{ $products->time }}</span>
+                                </div><br><br>
+                                <div>
+                                    <i class="fa-regular fa-calendar-days fa-2xl" style="color: #fd9d17;"> </i> <span> Days
+                                        of
+                                        instruction:{{ $products->period }}</span>
                                 </div>
                             </div>
                         </div>
@@ -131,33 +130,33 @@
                                 <p>
                                     {{ $products->description3 }}
                                 </p>
-                                </div>
-                                <div></div>
-                                <h3 class="single-product-left-first-h4">Prosses </h3>
-
-                                <p>
-                                <ul  style="list-style-color: green;list-style-type: disc">
-                                    <li>Apply Online: Fill out our quick online application form, indicating your interest
-                                        in mentoring for the Front-End Foundations project.</li>
-                                    <li>Resume Submission: Upload your CV or resume to showcase your skills and experience
-                                        in web development.</li>
-                                    <li>Interview and Orientation: After reviewing your application, we'll schedule a brief
-                                        interview to discuss your availability and expectations. Attend an orientation to
-                                        get acquainted with our platform and guidelines.</li>
-                                    <li>Mentor Match: Once approved, we'll match you with learners eager to participate in
-                                        the Front-End Foundations project.</li>
-                                    <li>Start Mentoring: Begin your volunteer journey by mentoring and sharing your
-                                        expertise with aspiring web developers.</li>
-                                </ul>
-
-                                
                             </div>
+                            <div></div>
+                            <h3 class="single-product-left-first-h4">Prosses </h3>
+
+                            <p>
+                            <ul style="list-style-color: green;list-style-type: disc">
+                                <li>Apply Online: Fill out our quick online application form, indicating your interest
+                                    in mentoring for the Front-End Foundations project.</li>
+                                <li>Resume Submission: Upload your CV or resume to showcase your skills and experience
+                                    in web development.</li>
+                                <li>Interview and Orientation: After reviewing your application, we'll schedule a brief
+                                    interview to discuss your availability and expectations. Attend an orientation to
+                                    get acquainted with our platform and guidelines.</li>
+                                <li>Mentor Match: Once approved, we'll match you with learners eager to participate in
+                                    the Front-End Foundations project.</li>
+                                <li>Start Mentoring: Begin your volunteer journey by mentoring and sharing your
+                                    expertise with aspiring web developers.</li>
+                            </ul>
 
 
-                                </p>
-                                <div style="text-align:end">
-                                    {{-- <p>{{ $products->total }}</p> --}}
-                                    {{-- @if ($diffInMinutes < 60)
+                        </div>
+
+
+                        </p>
+                        <div style="text-align:end">
+                            {{-- <p>{{ $products->total }}</p> --}}
+                            {{-- @if ($diffInMinutes < 60)
                       <p> posted before {{$diffInMinutes}} Minutes</p>
                       @endif
                       @if ($diffInMinutes > 60 && $diffInHours < 24)
@@ -166,30 +165,28 @@
                       @if ($diffInMinutes > 60 && $diffInHours >= 24)
                       <p> posted before {{$diffInDays}} days</p>
                       @endif --}}
-                                   
-                                </div>
 
-                            </div>
                         </div>
 
                     </div>
-
                 </div>
 
-                <div class="col-5  ">
-                    <div
-                        style=" position: relative;
-           width: 450px;
-           left:50px;
-          text-align: center;
-         
-     
-           ">
+            </div>
+
+            </div>
+
+            
 
 
+                <br>
+                <a href="{{route('frontform')}}" class="btn btn-primary me-4 d-inline-flex align-items-center"> <span>Join us as a trainer </span></a>
+                <a href="{{route('payment')}}" class="btn btn-primary me-4 d-inline-flex align-items-center"> <span>Donate </span></a>
 
-                    </div>
-                </div>
+
+          
+
+               
+            </div>
 
 
             </div>
