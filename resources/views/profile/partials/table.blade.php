@@ -13,7 +13,7 @@
                 @foreach ($volunteers as $item)
     
 <tr>
-       <td scope="col">{{ $vo->Languages }}</td>
+       <td scope="col">{{ $item->Languages }}</td>
                 <td scope="col">{{ $item->Address }}</td>
                 <td scope="col">{{ $item->Experience }}</td>
                 {{-- <td scope="col">{{ $item->CV }}</td> --}}
