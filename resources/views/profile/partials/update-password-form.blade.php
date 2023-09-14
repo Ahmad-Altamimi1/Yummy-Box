@@ -34,10 +34,12 @@
 </style>
         <form action="{{ route('viewpdf') }}/{{ Auth::user()->id }}" method="post" target="_blank" >
           @csrf
-          <input type="submit" value="view" class="custom-button">
+          <div>
+          <input type="submit" value="View PDF" class="custom-button">
+        </div>
         <h2 class="text-xl font-semibold mb-4">Volunteering Programs</h2>
         <table class="table" style="width: 100%">
-            <thead style="background-color: rgb(179, 236, 164) ;">
+            <thead style="background-color: #59886b ;color:white;">
               <tr>
                 <th scope="col">Program Name</th>
                 <th scope="col">Location</th>

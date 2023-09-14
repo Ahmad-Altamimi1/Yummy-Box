@@ -89,8 +89,10 @@
                                     @if (Auth::check())
                                         <a href="#">
                                             <div><i class="fa-solid fa-user " style="color: #fafafa;"></i>
-                                                {{ Auth::user()->name }}</div>
+                                               </div>
                                             <ul class="dropdown">
+                                                
+                                                {{-- <li> <a href="{{route('profile.show')}}">{{ Auth::user()->name }}</a></li> --}}
                                                 <li><a href="{{route('profile.show')}}">profile</a></li>
                                                 <li>
                                                     <!-- Authentication -->

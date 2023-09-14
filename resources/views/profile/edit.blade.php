@@ -1,8 +1,14 @@
-<x-app-layout>
+
+
 @extends('layouts.master')
 @section('title', 'Home')
+<x-app-layout>
 
-
+<style>
+    .min-h-screen{
+        min-height: 0 !important;
+    }
+</style>
 <div class="site-mobile-menu site-navbar-target">
     <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close">
@@ -52,5 +58,6 @@
 
         </div>
     </div>
-</x-app-layout>
+
 @endsection
+</x-app-layout>
