@@ -1,6 +1,6 @@
-<x-app-layout>
 @extends('layouts.master')
 @section('title', 'Home')
+<x-app-layout>
 
 
 <div class="site-mobile-menu site-navbar-target">
@@ -52,5 +52,5 @@
 
         </div>
     </div>
+    @endsection
 </x-app-layout>
-@endsection

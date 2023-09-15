@@ -46,6 +46,9 @@ class VolunteerController extends Controller
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadView('profile.partials.table', ['volunteers'=> $volunteers])->setPaper('a4','landscape');
         return $pdf->stream();
+        //  return $pdf->download('profile.partials.table');
+        
+
 }
     public function download(){
         $pdf = App::make('dompdf.wrapper');

@@ -54,6 +54,7 @@ class StripeController extends Controller
                 'success_url' => route('stripe_success'),
                 'cancel_url' => route('stripe_cancel'),
             ]);
+            
             DB::table('paypals')->insert([
                 'paymen_id' => $response['id'],
                 'user_name' => 'ahmad',

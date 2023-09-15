@@ -39,13 +39,20 @@ class FrontvolunteerController extends Controller
         $request->validate([
             'CV' => 'required|mimes:pdf,docx',
         ]);
+        $users= Frontvolunteer::all();
+        if ($request->hasFile('CV')) {
+            $pdfFile = $request->file('CV');
+            $authPdfFile = time() . '.' . $pdfFile->getClientOriginalExtension();
+            $pdfFile->move(public_path('uplods'), $authPdfFile);
+            $users['CV'] = $authPdfFile;
+        }
         Frontvolunteer::create([
 
         'Address'=>$request->Address,
         'Languages'=>$request->Languages,
         'day'=>$request->day,
         'Experience'=>$request->Experience,
-        'CV'=>$request->CV,
+        'CV'=> $users['CV']
        
        ]);
        return redirect('home');

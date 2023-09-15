@@ -52,9 +52,11 @@ class ProfileController extends Controller
                 'fu.day'
             ])
             ->join('users as u', 'u.id', '=', 'fu.user_id')
+            ->join('users as u', 'u.id', '=', 'fu.user_id')
+
             ->where('u.id', '=', Auth::user()->id)
             ->get();
-
+     
         $file = Volunteer::findOrFail(1);
         $filename = $file->content;
         return redirect()->route('profile.show', [

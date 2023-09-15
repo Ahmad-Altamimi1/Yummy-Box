@@ -19,7 +19,7 @@ use App\Http\Controllers\SocialController;
 
 // pdf
 Route::post('profile/vpdf/{id?}',[VolunteerController::class, 'view'])->name('viewpdf');
-Route::post('profile/dpdf',[VolunteerController::class, 'download'])->name('download');
+// Route::post('profile/dpdf',[VolunteerController::class, 'download'])->name('download');
 Route::get('table',function(){
     view('profile.partials.table');
 })->name('table');
@@ -123,6 +123,9 @@ Route::get('/payment', function () {
 Route::get('finish', function () {
     return view('sccess');
 })->name('finish');
+Route::get('finishform', function () {
+    return view('sccessform');
+})->name('finishform');
 Route::post('stripe/{id}', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe_single'); // Use 'store' method for POST
 Route::get('stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
 Route::get('stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET

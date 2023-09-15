@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('Languages');
             $table->string('day');
             $table->string('Experience');
-            $table->binary('CV');
+            $table->string('CV');
             $table->timestamps();
     
             // Define the foreign key constraint
