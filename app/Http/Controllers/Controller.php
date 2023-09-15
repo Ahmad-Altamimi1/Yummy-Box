@@ -15,7 +15,7 @@ class Controller extends BaseController
     
   function showhome()
   {
-        session(['number' => 1]);
+       
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->get();
         $users = DB::table('users')->get();

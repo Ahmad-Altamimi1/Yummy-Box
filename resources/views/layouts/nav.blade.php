@@ -31,26 +31,7 @@
 
     <title>Volunteer </title>
     <style>
-        .logo-image {
-            max-width: 100px;
-            /* Adjust the width as needed */
-            height: auto;
-            /* Maintain the aspect ratio */
-            vertical-align: middle;
-            /* Align the image vertically */
-            margin-right: 10px;
-            /* Add some space between the image and text */
-        }
-
-        /* Style for the logo text */
-        #logo {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: x-large;
-            text-decoration: none;
-            /* Remove underline from the link */
-            color: white;
-
-        }
+        
     </style>
 
 </head>
@@ -67,8 +48,8 @@
                     <div class="row g-0 align-items-center" style="display: flex; width: 100%;">
                         <div class="col-4 logos">
                             <a href="#" id='logo' class="logo m-0 float-start text-white">
-                                <img src="images/logo1.png" alt="Logo Image" class="logo-image">
-                                TechHub
+                                <img src="{{url('images/logoo.png')}}" alt="Logo Image"  class="logo-image">
+                               
                             </a>
                         </div>
                         <div class="col-8 text-end">
@@ -76,7 +57,7 @@
                             <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
                                 <li class="{{ request()->is('home*') ? 'active' : '' }}"><a
                                         href="{{ route('home') }}">Home</a></li>
-                                        <li class="{{ request()->is('products.index*') ? 'active' : '' }}"><a
+                                        <li class="{{ request()->is('products*') ? 'active' : '' }}"><a
                                             href="{{ route('products.index') }}">Our Projects</a></li>
 
                                 <li class="{{ request()->is('about*') ? 'active' : '' }}"><a href="about">About</a>
@@ -94,6 +75,7 @@
                                                 
                                                 {{-- <li> <a href="{{route('profile.show')}}">{{ Auth::user()->name }}</a></li> --}}
                                                 <li><a href="{{route('profile.show')}}">profile</a></li>
+                                                <li><a href="chatify">Mess</a></li>
                                                 <li>
                                                     <!-- Authentication -->
                                                     <form method="POST" action="{{ route('logout') }}">

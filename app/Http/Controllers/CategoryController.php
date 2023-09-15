@@ -45,17 +45,28 @@ class CategoryController extends Controller
         $users = DB::table('users')->get();
         $volanters = DB::table('paypals')->get();
         $products = products::findOrFail($id);
-
         $startDate = Carbon::parse($products->created_at);
         $endDate = Carbon::now();
         $diffInMinutes = $endDate->diffInMinutes($startDate);
         $diffInHours = $endDate->diffInHours($startDate);
         $diffInDays = $endDate->diffInDays($startDate);
         $diffInMonths = $endDate->diffInMonths($startDate);
+        $data = [
+            'products' => $products,
+            'diffInMinutes' => $diffInMinutes,
+            'diffInHours' => $diffInHours,
+            'diffInDays' => $diffInDays,
+            'diffInMonths' => $diffInMonths,
+            'categories' => $categories,
+            'users' => $users,
+            'volanters' => $volanters,
+            
 
+            // Add more data as needed
+        ];
+       
         // dd($currentDateTime);
-        return  view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths', 'id', 'categories', 'products', 'users', 'volanters'));
-        return view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths', 'id', 'categories', 'products', 'users', 'volanters'));
+        return  view("pages.single", $data);
         // ['products' => $products]
     }
 

@@ -9,28 +9,24 @@
         min-height: 0 !important;
     }
 </style>
-<div class="site-mobile-menu site-navbar-target">
-    <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close">
-            <span class="icofont-close js-menu-toggle"></span>
-        </div>
-    </div>
-    <div class="site-mobile-menu-body"></div>
-</div>
 
 @section('content')
 
-    <div class="heros overlays hero-profile"
-        style="background-image: url('{{ url('images/bg11.png') }}'); height: 400px; background-size: cover; background-repeat: no-repeat;">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-6 text-center">
-                    <h1 class="heading mt-6 mb-2" style="color:#fff; font-weight: bolder;" data-aos="fade-up">Your Profile
-                    </h1>
-                </div>
-            </div>
-        </div>
-    </div>
+ 
+<div class="heros overlays" style="background-image: url('images/about.jpg')">
+	<div class="container">
+		<div class="row align-items-center justify-content-center">
+			<div class="col-lg-6 text-center">
+				<h1 class="heading text-white mb-2" data-aos="fade-up">Your Profile</h1>
+				<p data-aos="fade-up" class=" mb-5 text-white lead text-white-40">Home / Profile</p>
+
+
+			</div>
+
+
+		</div>
+	</div>
+</div>
 
 
 
