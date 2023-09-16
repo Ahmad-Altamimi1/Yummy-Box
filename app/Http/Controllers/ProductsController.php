@@ -7,15 +7,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 use App\Models\Volunteer;
+use RealRashid\SweetAlert\Facades\Alert;
 class ProductsController extends Controller
 {
 
-    public function product()
+    public function product($id)
           {
-                    $products = Products::all();
+                    $products = products::find($id);
                     $volanters = Volunteer::all();
-
-                    return view('pages.products', ['products' => $products, 'volanters' => $volanters]);
+                    return view('pages.single',compact('products' ,'volanters'));
           }
     /**
      * Display a listing of the resource.
@@ -100,6 +100,8 @@ class ProductsController extends Controller
             $product->image =  $imageName;
         }        $product->save();
     
+        Alert::success('Added Successfuly', ' ');
+        
         return redirect()->route('Admin_Dashboard.Projects');
     
     }
@@ -192,6 +194,7 @@ class ProductsController extends Controller
             $product->image =  $imageName;
         }
         $product->save();
+        Alert::success('Updated Successfuly', ' ');
 
                     return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
 

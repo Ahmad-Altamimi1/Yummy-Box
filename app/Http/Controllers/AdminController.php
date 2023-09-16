@@ -8,6 +8,8 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class AdminController extends Controller
 {
@@ -21,7 +23,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $AdminList = Admin::all();
+
+        return view('Admin_Dashboard.profile', ['admins' => $AdminList]);
     }
 
     /**
@@ -43,7 +47,7 @@ class AdminController extends Controller
         $request->validate([
             'name' => ['required', 'regex:/^[A-Za-z\s]+$|^[\p{Arabic}\s]+$|^[\p{Hebrew}\s]+$/u', 'max:20'],
             'last_name' => ['required', 'regex:/^[A-Za-z\s]+$|^[\p{Arabic}\s]+$|^[\p{Hebrew}\s]+$/u', 'max:20'],
-            'email' => ['required|email'],
+            // 'email' => ['required'|'email'],
             'password' => ['required','regex:/^(?=.[a-z])(?=.[A-Z])(?=.*\d).{8,}$/i' ],
         ], [
             'name.required' => 'The name field is required.',
@@ -73,6 +77,8 @@ class AdminController extends Controller
 
         $admin->password = bcrypt($request->password);
         $admin->save();
+
+         Alert::success('Added Successfuly', ' ');
 
         return redirect()->route('Admin_Dashboard.Admins_Data');
     }
@@ -112,7 +118,7 @@ class AdminController extends Controller
         $request->validate([
             'name' => ['required', 'regex:/^[A-Za-z\s]+$|^[\p{Arabic}\s]+$|^[\p{Hebrew}\s]+$/u', 'max:20'],
             'last_name' => ['required', 'regex:/^[A-Za-z\s]+$|^[\p{Arabic}\s]+$|^[\p{Hebrew}\s]+$/u', 'max:20'],
-            'email' => ['required|email'],
+            // 'email' => ['required|email'],
             'password' => ['required','regex:/^(?=.[a-z])(?=.[A-Z])(?=.*\d).{8,}$/i' ],
         ], [
             'name.required' => 'The name field is required.',

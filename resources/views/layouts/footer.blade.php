@@ -85,6 +85,7 @@
 
 <!-- Preloader -->
 
+<script src="{{url('js/navbar.js') }}"></script>
 
 <script src="{{url('js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{url('js/tiny-slider.js')}}"></script>
@@ -94,7 +95,6 @@
 
 
 <script src="{{url('js/aos.js')}}"></script>
-<script src="{{url('js/navbar.js') }}"></script>
 <script src="{{url('js/counter.js')}}"></script>
 <script src="{{url('js/custom.js')}}"></script>
 </body>

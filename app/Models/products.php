@@ -11,6 +11,7 @@ class products extends Model
     use HasFactory;
     protected $table = 'products';
     protected $fillable = [
+        'id',
         'name',
         'breif',
         'description2',
@@ -22,7 +23,7 @@ class products extends Model
         'created_at',
         
     ];
-    public $timestamps =false;
+    public $timestamps =true;
 
     public function pay()
     {

@@ -41,7 +41,7 @@
             <h2 class="text-success mb-0"><i class="fa fa-hashtag"></i></h2>
         </a>
         <a href="#" class="sidebar-toggler flex-shrink-0 text-warning">
-            <i class="fa fa-bars"></i>  TechHub
+            <i class="fa fa-bars"></i>  CODEMATES
         </a>
        
         <div class="navbar-nav align-items-center ms-auto">
@@ -111,12 +111,12 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle text-success" data-bs-toggle="dropdown">
                     <img class="rounded-circle me-lg-2" src="{{url('images/team/Sereen.jpg')}}" alt="" style="width: 40px; height: 40px;">
-                    <span class="d-none d-lg-inline-flex">Sereen Qamhia</span>
+                    <span class="d-none d-lg-inline-flex">ADMIN</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                    {{-- <a href="{{route('Admin_Dashboard.profile')}}" class="dropdown-item">My Profile</a> --}}
-                    <a href="#" class="dropdown-item">Settings</a>
-                    <a href="#" class="dropdown-item">Log Out</a>
+                    {{-- <a href="{{route('profile')}}" class="dropdown-item">My Profile</a> --}}
+                    
+                    <a href="{{route('admin_logout')}}" class="dropdown-item">Log Out</a>
                 </div>
             </div>
         </div>
@@ -136,7 +136,7 @@
         <div class="sidebar pe-4 pb-3 bg-light" style="border-right:2px" >
             <nav class="navbar " style="background-color: rgba(117, 192, 157, 0)">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 >TechHub</h3>
+                    <h3 >CODEMATES</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -175,5 +175,5 @@
             </nav>
         </div>
         <!-- Sidebar End -->
-
+        @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
       

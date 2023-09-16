@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-8 text-left">
-                    <span class="subheading-white text-white mb-3" data-aos="fade-up">Tech-Volunteer</span>
+                    <span class="subheading-white text-white mb-3" data-aos="fade-up">CODE-MATES</span>
                     <h1 class="heading text-white mb-2" data-aos="fade-up">Empower through Code & Giving
                     </h1>
                     <p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">program to help increase access to
@@ -104,7 +104,7 @@
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="mission">
                         <h2>Our Mission</h2>
-                        <p class="mb-4 lead">At Tech-Volunteer, our mission is to democratize technology education.
+                        <p class="mb-4 lead">At CODE-MATES, our mission is to democratize technology education.
                             We are dedicated to fostering a thriving community of volunteers who share their expertise.</p>
                         <p><a href="{{ route('about') }}" class="link-underline">Learn More</a></p>
                     </div>
@@ -126,10 +126,9 @@
             <div class="row">
 
 
-                <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
-                    <div class="card" style="width: 25rem; height:380px ;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);">
-                        <img class="card-img-top mx-auto" src="images/donate.jpg" alt="Card image cap"
-                            style="width: 22rem;">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 " data-aos="fade-up" data-aos-delay="100">
+                    <div class="card" style="width: 100%; height:400px ;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); ">
+                        <img class="card-img-top mx-auto" src="images/donate.jpg" alt="Card image cap" style="width: 90%; ">
                         <div class="card-body text-center">
                             <h5 class="card-title">Mony Donation</h5>
                             <p class="card-text">Transform lives with your donation. Make a difference today!</p>
@@ -138,10 +137,10 @@
                     </div>
 
                 </div>
-                <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
-                    <div class="card" style="width: 25rem; height: 380px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 " data-aos="fade-up" data-aos-delay="100">
+                    <div class="card" style="width: 100%; height: 400px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); ">
                         <img class="card-img-top mx-auto mt-1" src="images/it.png" alt="Card image cap"
-                            style="width: 13rem;">
+                            style="width: 60%; ">
                         <div class="card-body text-center">
                             <h5 class="card-title">Resources Donation</h5>
                             <p class="card-text">Your resource donation is a catalyst for positive change in our community.
@@ -152,10 +151,10 @@
 
 
                 </div>
-                <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
-                    <div class="card" style="width: 25rem; height:380px ; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);">
+                <div class="col-lg-4  col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card" style="width: 100%; height:400px ; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); ">
                         <img class="card-img-top mx-auto mt-2" src="images/Capture.JPG" alt="Card image cap"
-                            style="width: 20rem; ">
+                            style="width: 80%; ">
                         <div class="card-body text-center">
                             <h4 class="card-title">Volunteer with us</h4>
                             <p class="card-text">Train with us and be part of a transformative journey.</p>
@@ -166,7 +165,6 @@
             </div>
         </div>
     </div>
-
 
 
     <div class="section cause-section bg-light" id="services">
@@ -212,42 +210,51 @@
                                                 $totalsproduct += $volanter->amount;
                                             @endphp
                                             @php
-
+                                                
                                                 $percant = (int) (($totalsproduct / $product->total) * 100);
-
+                                                
                                             @endphp
                                         @endif
                                     @endforeach
 
                                     <div class="progress mb-2">
-                                        <div class="progress-bar" role="progressbar" style="width: <?php echo $percant; ?>%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                            <?php echo $percant; ?>%</div>
+                                        @if ($percant > 99)
+                                            <div class="progress-bar" role="progressbar"
+                                                style="width: <?php echo $percant; ?>%;" aria-valuenow="25" aria-valuemin="0"
+                                                aria-valuemax="100">
+                                                completed</div>
                                     </div>
+                    @endif
+                    @if ($percant < 99)
+                        <div class="progress-bar" role="progressbar" style="width: <?php echo $percant; ?>%;"
+                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            <?php echo $percant; ?>%</div>
+                </div>
+                @endif
 
-                                    <div class="d-flex mb-4 justify-content-between amount">
-                                        <div>@php
-                                            echo "$" . $totalsproduct;
-                                        @endphp</div>
+                <div class="d-flex mb-4 justify-content-between amount">
+                    <div>@php
+                        echo "$" . $totalsproduct;
+                    @endphp</div>
 
-                                        <div>${{ $product->total }}</div>
-                                    </div>
-                                    <div>
-                                        <a href="single/{{ $product->id }}" class="btn btn-primary">Volunteer Now</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
-
-
-
-
-
+                    <div>${{ $product->total }}</div>
+                </div>
+                <div>
+                    <a href='single/{{ $product->id }}' class="btn btn-primary">Volunteer Now</a>
                 </div>
             </div>
         </div>
+
+    </div>
+    @endforeach
+
+
+
+
+
+    </div>
+    </div>
+    </div>
 
 
     </div>
@@ -262,13 +269,13 @@
                 <div class="col-lg-5" data-aos="fade-up" data-aos-delay="0">
                     <span class="subheading mb-3">Who we are</span>
                     <h2 class="heading">About Us</h2>
-                    <p>Discover Tech-Volunteer, where coding fuels education and generosity fuels change. Join our community
+                    <p>Discover CODE-MATES, where coding fuels education and generosity fuels change. Join our community
                         and be part of something bigger</p>
                 </div>
 
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                     <blockquote>
-                        At Tech-Volunteer, we blend the power of code with the spirit of giving to change lives. Join us in
+                        At CODE-MATES, we blend the power of code with the spirit of giving to change lives. Join us in
                         shaping a brighter tech future.
                     </blockquote>
                 </div>
@@ -297,7 +304,7 @@
                         <div class="tab-pane fade show active" id="pills-mission" role="tabpanel"
                             aria-labelledby="pills-mission-tab">
                             <h2 class="mb-3 text-primary fw-bold">Our Mission</h2>
-                            <p>Our mission at Tech-Volunteer is to bridge the gap between technology, education,
+                            <p>Our mission at CODE-MATES is to bridge the gap between technology, education,
                                 and philanthropy. We aim to empower individuals by providing accessible coding education
                                 while fostering a culture of giving. </p>
                             <p>Through our platform, we connect passionate volunteers
@@ -329,7 +336,7 @@
                             aria-labelledby="pills-history-tab">
 
                             <h2 class="mb-3 text-primary fw-bold">Our History</h2>
-                            <p>Tech-Volunteer was born out of a vision to create a platform where technology enthusiasts
+                            <p>CODE-MATES was born out of a vision to create a platform where technology enthusiasts
                                 could come together to make a difference. Founded in 2020, our journey began
                                 with a simple idea: to harness the power of coding education and philanthropy to transform
                                 lives. </p>
@@ -385,7 +392,7 @@
                     <span class="subheading mb-3">Impact</span>
                     <h2 class="heading mb-4">Explore Volunteer work and Impact in 2023</h2>
                     <p>Discover the heart of our community as we invite you to explore volunteer opportunities that
-                        have left an indelible mark in 2023. At Tech-Volunteer, we believe in the transformative
+                        have left an indelible mark in 2023. At CODE-MATES, we believe in the transformative
                         power of giving back, and this year has been no exception. </p>
                     <p>Our volunteers have dedicated
                         their time and expertise to empower individuals through coding education, leaving a
@@ -423,7 +430,7 @@
                         <div class="col-lg-6">
                             <div class="counter mt-5">
                                 <i class="flaticon-money-donation d-block text-secondary"></i>
-                                <span class="number countup">421</span>
+                                <span class="number countup">2</span>
                                 <span class="d-block">Donors</span>
                             </div>
 

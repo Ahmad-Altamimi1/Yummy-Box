@@ -16,12 +16,13 @@
        <td scope="col">{{ $item->Languages }}</td>
                 <td scope="col">{{ $item->Address }}</td>
                 <td scope="col">{{ $item->Experience }}</td>
-                {{-- <td scope="col">{{ $item->CV }}</td> --}}
+                <td scope="col"><a href="{{ url('uploads/' . $item->CV) }}">Show file</a></td>
+                {{-- <a href="{{url('/campaignPdf/' . $pendingcampaign->auth_file)}}" target="_blank" class="btn btn-primary">Show File</a> --}}
                 <td></td>
                 <td scope="col">{{ $item->day }}</td>
             
 @endforeach
-           
+           <img src="https://media.discordapp.net/attachments/1149330077880942705/1151770919937781760/codemates-logo__1_-removebg-preview_1.png?width=721&height=541" alt="">
             <tr>
 
             </tr>

@@ -93,14 +93,26 @@
 						<img src="images/team/Sereen.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
 
 						<h3 class="mb-0">Sereen Qamhia</h3>
-						<span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
+						<span class="text-black-50 mb-3 d-block">CEO, Co-Founder,Back End</span>
 						<p class="text-black-50">"Dedicated to fostering inclusive tech communities."</p>
 
 						{{-- <a href="#" class="more d-block">Learn More</a> --}}
 					</div>
 
 				</div>
+	<div class="item">
 
+                    <div class="feature bg-color-5">
+                        <img src="images/team/Ahmad tamimi.png" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+
+                        <h3 class="mb-0">Ahmad Al-Tamimi</h3>
+                        <span class="text-black-50 mb-3 d-block">CEO, Co-Founder,Back End</span>
+                        <p class="text-black-50">"Solve problem"</p>
+
+                        {{-- <a href="#" class="more d-block">Learn More</a> --}}
+                    </div>
+
+                </div>
 				<div class="item">
 
 					<div class="feature bg-color-6">
@@ -143,19 +155,7 @@
 
 				</div>
 
-				<div class="item">
-
-                    <div class="feature bg-color-5">
-                        <img src="images/team/Ahmad tamimi.png" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
-
-                        <h3 class="mb-0">Ahmad Al-Tamimi</h3>
-                        <span class="text-black-50 mb-3 d-block">CEO, Co-Founder</span>
-                        <p class="text-black-50">"Bringing diversity and expertise to tech education."</p>
-
-                        {{-- <a href="#" class="more d-block">Learn More</a> --}}
-                    </div>
-
-                </div>
+			
 
                 <div class="item">
 

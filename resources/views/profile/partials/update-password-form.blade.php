@@ -34,16 +34,16 @@
 </style>
         <form action="{{ route('viewpdf') }}/{{ Auth::user()->id }}" method="post" target="_blank" >
           @csrf
-          <div>
-          <input type="submit" value="View PDF" class="custom-button">
-        </div>
+          <input type="submit" value="View as PDF" class="custom-button">
         <h2 class="text-xl font-semibold mb-4">Volunteering Programs</h2>
         <table class="table" style="width: 100%">
-            <thead style="background-color: #59886b ;color:white;">
+            <thead style="background-color: rgb(179, 236, 164) ;">
               <tr>
                 <th scope="col">Program Name</th>
                 <th scope="col">Location</th>
+                
                 <th scope="col">Experiance</th>
+                <th scope="col">CV file</th>
                 <th scope="col">Donate</th>
                 
               </tr>
@@ -56,6 +56,8 @@
        <td scope="col">{{ $item->Languages }}</td>
                 <td scope="col">{{ $item->Address }}</td>
                 <td scope="col">{{ $item->Experience }}</td>
+                <td scope="col"><a href="{{ url('uplods/' . $item->CV) }}">Show file</a></td>
+
                 {{-- <td scope="col">{{ $filename }}</td> --}}
                 <td scope="col">{{ $item->day }}</td>
             
