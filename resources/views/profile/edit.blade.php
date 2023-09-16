@@ -1,18 +1,21 @@
 
 
-@extends('layouts.master')
-@section('title', 'Home')
+
 <x-app-layout>
 
 <style>
     .min-h-screen{
         min-height: 0 !important;
     }
+
+
 </style>
 
-@section('content')
 
- 
+
+
+
+
 <div class="heros overlays" style="background-image: url('images/about.jpg')">
 	<div class="container">
 		<div class="row align-items-center justify-content-center">
@@ -55,5 +58,5 @@
         </div>
     </div>
 
-@endsection
+
 </x-app-layout>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VolunteerController;
+use App\Http\Controllers\TraineeController;
 use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
@@ -19,7 +20,7 @@ use App\Http\Controllers\SocialController;
 
 // pdf
 Route::post('profile/vpdf/{id?}',[VolunteerController::class, 'view'])->name('viewpdf');
-Route::post('profile/dpdf',[VolunteerController::class, 'download'])->name('download');
+// Route::post('profile/dpdf',[VolunteerController::class, 'download'])->name('download');
 Route::get('table',function(){
     view('profile.partials.table');
 })->name('table');
@@ -112,7 +113,7 @@ Route::get('paypal/success/{product_id}', [PaypalController::class, 'success'])-
 Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
 // Define the PayPal routes with the appropriate methods
 
-Route::get('single/payment/{id}', [PaypalController::class, 'showpayment']); // Use 'success' method for GET
+Route::get('single/payment/{id}', [PaypalController::class, 'showpayment'])->middleware('auth','verified'); // Use 'success' method for GET
 
 
 
@@ -209,21 +210,19 @@ Route::post('check', [App\Http\Controllers\LoginAdmin::class, 'store'])->name('c
 
 
 
+//////////////////////////////// SAJEDA CODE ////////////////////////////////
 
 Route::prefix('admin')->middleware('IsAdmin')->group(function () {
 
     Route::get('admin_logout', [App\Http\Controllers\LoginAdmin::class, 'logout_admin'])->name('admin_logout');
 
 
+    Route::get('/Admin_Home', [ContactController::class, 'show'])->name('Admin_Dashboard.index');
 
+    Route::get('/Admin_profile', [AdminController::class, 'index'])->name('Admin_Dashboard.profile');
 
-    //////////////////////////////// SAJEDA CODE ////////////////////////////////
-
-    // admin_home
-    // Route::get('/Admin_Home', function () { 
-    //     return view('Admin_Dashboard.index'); 
-    // });
-Route::get('/Admin_Home', [ContactController::class, 'show'])->name('Admin_Dashboard.index');
+   
+  
 
     //  volunteers data
     Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe'])->name('Admin_Dashboard.Volunteers');
@@ -282,8 +281,16 @@ Route::get('/Admin_Home', [ContactController::class, 'show'])->name('Admin_Dashb
 
 
 
-
+    
 });
 
-
+Route::get('/traineeForm', function () {
+        return view('pages.traineeForm');
+    })->name('traineeForm')->middleware('auth', 'verified');
+    
+    Route::resource("trainees", TraineeController::class);
+    // Route::post('/traineeForm', [TraineeController::class, 'store'])->name('traineeForm');
+    
 require __DIR__ . '/auth.php';
+
+

@@ -12,6 +12,7 @@ use App\Models\products;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
 
+use function Pest\Laravel\startSession;
 
 class CategoryController extends Controller
 {
@@ -23,12 +24,13 @@ class CategoryController extends Controller
     public function index()
     {
 
-        Session::put('url.intended', url()->previous());
-        Session::put('url.intended', url()->previous());
+        // Session::put('url.intended', url()->previous());
+        Session::put('url.single', url()->previous());
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->get();
         $users = DB::table('users')->get();
         $volanters = DB::table('paypals')->get();
+        
         // dd($categories);
         return view('pages.index', compact('categories', 'products', 'users', 'volanters'));
     }
@@ -40,6 +42,7 @@ class CategoryController extends Controller
      */
     public function find($id)
     {
+
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->get();
         $users = DB::table('users')->get();
@@ -51,6 +54,15 @@ class CategoryController extends Controller
         $diffInHours = $endDate->diffInHours($startDate);
         $diffInDays = $endDate->diffInDays($startDate);
         $diffInMonths = $endDate->diffInMonths($startDate);
+
+        $totalsproduct = 0;
+        foreach ($volanters as $volanter) {
+            if ($volanter->product_id == $products->id) {
+
+                $totalsproduct += $volanter->amount;
+            }
+        }
+        $percant = (int) (($totalsproduct / $products->total) * 100);
         $data = [
             'products' => $products,
             'diffInMinutes' => $diffInMinutes,
@@ -60,10 +72,15 @@ class CategoryController extends Controller
             'categories' => $categories,
             'users' => $users,
             'volanters' => $volanters,
-            
+            'totalsproduct' => $totalsproduct,
+            'percant'=> $percant,
+
 
             // Add more data as needed
         ];
+    
+        session(['totalsproduct' => $totalsproduct]);
+
        
         // dd($currentDateTime);
         return  view("pages.single", $data);

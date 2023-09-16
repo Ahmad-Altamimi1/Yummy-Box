@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 use App\Models\Volunteer;
+use RealRashid\SweetAlert\Facades\Alert;
 class ProductsController extends Controller
 {
 
@@ -99,6 +100,8 @@ class ProductsController extends Controller
             $product->image =  $imageName;
         }        $product->save();
     
+        Alert::success('Added Successfuly', ' ');
+        
         return redirect()->route('Admin_Dashboard.Projects');
     
     }
@@ -191,6 +194,7 @@ class ProductsController extends Controller
             $product->image =  $imageName;
         }
         $product->save();
+        Alert::success('Updated Successfuly', ' ');
 
                     return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
 

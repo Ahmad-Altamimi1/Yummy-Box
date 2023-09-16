@@ -50,10 +50,10 @@
 
                     <h3>Connect</h3>
                     <ul class="list-unstyled social">
-                        <li><a href="#"><span class="icon-instagram"></span></a></li>
-                        <li><a href="#"><span class="icon-twitter"></span></a></li>
-                        <li><a href="#"><span class="icon-facebook"></span></a></li>
-                        <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                        <li><a href="https://www.instagram.com/codematesorganization/"><span class="icon-instagram"></span></a></li>
+                        <li><a href="https://twitter.com/CodeMateOrg"><span class="icon-twitter"></span></a></li>
+                        <li><a href="https://web.facebook.com/people/CodeMates/61551414568550/?is_tour_dismissed=true&_rdc=1&_rdr"><span class="icon-facebook"></span></a></li>
+                        <li><a href="https://www.linkedin.com/in/code-mates-859a70291/"><span class="icon-linkedin"></span></a></li>
 
                     </ul>
 
@@ -85,6 +85,7 @@
 
 <!-- Preloader -->
 
+<script src="{{url('js/navbar.js') }}"></script>
 
 <script src="{{url('js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{url('js/tiny-slider.js')}}"></script>
@@ -94,7 +95,6 @@
 
 
 <script src="{{url('js/aos.js')}}"></script>
-<script src="{{url('js/navbar.js') }}"></script>
 <script src="{{url('js/counter.js')}}"></script>
 <script src="{{url('js/custom.js')}}"></script>
 </body>

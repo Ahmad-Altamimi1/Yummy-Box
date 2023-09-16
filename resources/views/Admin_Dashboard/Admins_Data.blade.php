@@ -70,7 +70,7 @@
                   <form action="admindelete/{{$admin['id'] }}" method="POST" style="margin-bottom: 2px">
                         @csrf
                         @method('DELETE')
-                        <button class="btn fa fa-trash text-danger fa-lg" type="submit" value="DELETE" ></button>
+                        <button class="btn fa fa-trash text-danger fa-lg show_confirm" type="submit" value="DELETE" ></button>
                     </form >                   
                     {{-- <form action="adminedit/{{ $admin['id'] }}" method="" style="margin-bottom: 2px">
                       @csrf
@@ -84,4 +84,28 @@
           </div>
           </div>
    @endsection
-  
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+   <script type="text/javascript">
+       document.addEventListener("DOMContentLoaded", function () {
+           var deleteButtons = document.querySelectorAll('.show_confirm');
+   
+           deleteButtons.forEach(function (button) {
+               button.addEventListener('click', function (event) {
+                   event.preventDefault();
+                   var form = button.closest("form");
+   
+                   swal({
+                       title: "Are you sure you want to delete this record?",
+                       text: "If you delete this, it will be gone forever.",
+                       icon: "warning",
+                       buttons: true,
+                       dangerMode: true,
+                   }).then(function (willDelete) {
+                       if (willDelete) {
+                           form.submit();
+                       }
+                   });
+               });
+           });
+       });
+   </script>

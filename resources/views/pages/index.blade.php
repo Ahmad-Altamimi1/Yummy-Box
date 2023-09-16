@@ -28,8 +28,7 @@
                     <p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">program to help increase access to
                         education in communities around jordan</p>
                     <p data-aos="fade-up" data-aos-delay="100">
-                        <a href="#donite" class="btn btn-primary me-4 d-inline-flex align-items-center"><span>Donate Now
-                            </span></a>
+                        <a href="{{ route('traineeForm') }}" class="btn btn-primary me-4 d-inline-flex align-items-center"><span>Be a Trainee </span></a>
                         <a href="https://youtu.be/N7ZmPYaXoic?si=H_yHMLXbd2sQmCSv"
                             class="text-white glightbox d-inline-flex align-items-center"><span
                                 class="icon-play me-2"></span><span>Watch the video</span></a>
@@ -211,9 +210,9 @@
                                                 $totalsproduct += $volanter->amount;
                                             @endphp
                                             @php
-                                                
+
                                                 $percant = (int) (($totalsproduct / $product->total) * 100);
-                                                
+
                                             @endphp
                                         @endif
                                     @endforeach
@@ -223,7 +222,7 @@
                                             <div class="progress-bar" role="progressbar"
                                                 style="width: <?php echo $percant; ?>%;" aria-valuenow="25" aria-valuemin="0"
                                                 aria-valuemax="100">
-                                                complete</div>
+                                                completed</div>
                                     </div>
                     @endif
                     @if ($percant < 99)
@@ -538,7 +537,7 @@
         <div class="instagram-slider-wrap" data-aos="fade-up" data-aos-delay="200">
             <div class="instagram-slider mb-2" id="instagram-slider">
 
-                <div class="item">
+                <div class="item" >
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
                         <img src="{{url('images/partnership4.jpg')}}" alt="Image" class="img-fluid"

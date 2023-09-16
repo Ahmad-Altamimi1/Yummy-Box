@@ -15,7 +15,7 @@
     <div class="container mt-5">
         <div class="card">
             <div class="card-header" style="background-color: rgba(117, 192, 157, 0.489)">
-                <h5 class="card-title" >Add New Project</h5>
+                <h4 class="card-title py-3" >Add New Project</h4>
             </div>
             <div class="card-body">          
               <form action="productupdate/{{ $product->id }}" method="POST">
@@ -90,7 +90,7 @@
                           <x-input-error class="mt-2" :messages="$errors->get('image')" />
                       </div>
                   </div>
-                    <button type="submit" class="btn btn-primary"> Update Project</button>
+                    <button type="submit" class="btn btn-success btn-lg " style="margin-left:45%"> Update Project</button>
                 </form>
             </div>
         </div>

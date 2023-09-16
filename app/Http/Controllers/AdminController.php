@@ -8,6 +8,8 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class AdminController extends Controller
 {
@@ -21,7 +23,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $AdminList = Admin::all();
+
+        return view('Admin_Dashboard.profile', ['admins' => $AdminList]);
     }
 
     /**
@@ -73,6 +77,8 @@ class AdminController extends Controller
 
         $admin->password = bcrypt($request->password);
         $admin->save();
+
+         Alert::success('Added Successfuly', ' ');
 
         return redirect()->route('Admin_Dashboard.Admins_Data');
     }

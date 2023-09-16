@@ -48,9 +48,10 @@
             box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
             margin-bottom: 10px;
         }
-        label{
+        label , .check{
             margin-left: 10px;
         }
+       
     </style>
     <div class="container mt-5">
         <div id="formdiv">
@@ -68,18 +69,24 @@
                 <input type="text" class="form-control" id="address" name="Address" required>
 
 
+                
+
+
             </div>
             <div class="form-group">
-                <label for="programmingLanguages">Proficient Frontend Programming Languages</label>
-                <select class="form-control" id="programmingLanguages" name="Languages">
-                    <option value="Choose Language">Choose Language</option>
-                    <option value="HTML">HTML</option>
-                    <option value="CSS">CSS</option>
-                    <option value="javascript">JavaScript</option>
-                    <option value="React">React</option>
-                    <option value="Angular">Angular</option>
-                </select>
+                <label for="programmingLanguages">Proficient Frontend Programming Languages</label><br>
+                <input type="checkbox" id="HTML" name="Languages[]" value="HTML" class="check">
+                <label for="HTML">HTML</label><br>
+                <input type="checkbox" id="CSS" name="Languages[]" value="CSS" class="check">
+                <label for="CSS">CSS</label><br>
+                <input type="checkbox" id="JavaScript" name="Languages[]" value="JavaScript" class="check">
+                <label for="JavaScript">JavaScript</label><br>
+                <input type="checkbox" id="React" name="Languages[]" value="React" class="check">
+                <label for="React">React</label><br>
+                <input type="checkbox" id="Angular" name="Languages[]" value="Angular" class="check">
+                <label for="Angular">Angular</label><br>
             </div>
+            
             <div class="form-group">
                 <label for="day">I would like to help weekly</label>
                 <select class="form-control" id="day" name="day">

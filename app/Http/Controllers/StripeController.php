@@ -55,13 +55,16 @@ class StripeController extends Controller
                 'success_url' => route('stripe_success'),
                 'cancel_url' => route('stripe_cancel'),
             ]);
+            $totalsproduct = session('totalsproduct');
+
    $products_total = products::find($id);
 
  $amountFromResponse = $response['amount_total'];
-if($amountFromResponse> $products_total->total){
+if($request->price > $request->difference){
                 return redirect()->back()->with('error', 'The amount is more than what we need ');
             }
 
+            
             DB::table('paypals')->insert([
                 'paymen_id' => $response['id'],
                 'user_name' => 'ahmad',

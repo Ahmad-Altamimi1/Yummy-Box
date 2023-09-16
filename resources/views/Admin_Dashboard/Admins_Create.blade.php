@@ -12,8 +12,8 @@
 <body>
     <div class="container mt-5">
         <div class="card">
-            <div class="card-header" style="background-color: rgba(117, 192, 157, 0.489)">
-                <h5 class="card-title">Add New Admin</h5>
+            <div class="card-header py-3" style="background-color: rgba(117, 192, 157, 0.489)">
+                <h4 class="card-title">Add New Admin</h4>
             </div>
             <div class="card-body">
                 <form action="Admins_Data" method="POST" enctype="multipart/form-data">
@@ -56,9 +56,9 @@
                     @error('image')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
+                    <br>
                     
-                    
-                    <button type="submit" class="btn btn-primary">Add Admin</button>
+                    <button type="submit" class="btn btn-success btn-lg " style="margin-left:45%">Add Admin</button>
                 </form>
             </div>
         </div>

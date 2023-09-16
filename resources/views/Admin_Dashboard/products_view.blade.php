@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Product Details</title>
     <!-- Include your CSS and JavaScript assets here -->
-    <link rel="stylesheet" href="{{url('your-custom-styles.css')}}"> <!-- Add your custom CSS file here -->
+    <link rel="stylesheet" href="your-custom-styles.css"> <!-- Add your custom CSS file here -->
     <style>
         /* Add inline CSS styles or customize the styles in your custom CSS file */
         body {
@@ -51,44 +51,44 @@
 </head>
 @extends('layouts.adminMaster')
 
-
 @section('content')
-<body>
+<div class="content " >
+
+    <div style="margin: 0% 8% ">
+        <div style="width: 100%">
+     <br><br>
+
     <div class="container">
         <div class="card">
-            <div class="card-body">
-
-                <div class="container">
-                    <div class="card">
                         <div class="card-body">
-                            <img src="{{ $products->image }}" class="card-img" alt="{{ $products->name }}">
-                            <h5 class="card-title"> {{ $products->name }}</h5>
-                            <div class="mb-3">
-                                <label class="text-muted">Brief:</label>
+                            <img src="{{ $products->image }}" class="card-img" alt="{{ $products->name }}" style="height:300px ;">
+                           <br><br> <h3 class="card-title"> {{ $products->name }}</h3>
+                            <div class="mb-3"> <br>
+                              <h5>Brief:</h5>
                                 <p class="card-text">{{ $products->breif}}</p>
                             </div>
                             <div class="mb-3">
-                                <label class="text-muted">Description:</label>
+                              <h5>Description:</h5>
                                 <p class="card-text">{{ $products->description2 }}</p>
                             </div>
                             <div class="mb-3">
-                                <label class="text-muted">Details:</label>
+                                <h5>Details:</h5>
                                 <p class="card-text">{{ $products->description3 }}</p>
                             </div>
                             <div class="mb-3">
-                                <label class="text-muted">Period:</label>
+                              <h5>Period:</h5>
                                 <p class="card-text">{{ $products->period }}</p>
                             </div>
                             <div class="mb-3">
-                                <label class="text-muted">Location:</label>
+                               <h5>Location:</h5>
                                 <p class="card-text">{{ $products->location }}</p>
                             </div>
                             <div class="mb-3">
-                                <label class="text-muted">Time:</label>
+                               <h5>Time:</h5>
                                 <p class="card-text">{{ $products->time }}</p>
                             </div>
                             <div class="mb-3">
-                                <label class="text-muted">Total:</label>
+                               <h5>Total:</h5>
                                 <p class="card-text">{{ $products->total }}</p>
                             </div>
                             <!-- Add other product details as needed -->
@@ -100,4 +100,6 @@
             </div>
         </div>
     </div>
+</div>
+</div>
 @endsection

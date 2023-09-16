@@ -84,7 +84,7 @@
                             <h3><a href="#">Project Details</a></h3>
 
                             <br>
-                            @php
+                            {{-- @php
                                 $totalsproduct = 0;
                                 $percant = 0;
                             @endphp
@@ -96,25 +96,26 @@
                                         $percant = (int) (($totalsproduct / $products->total) * 100);
                                     @endphp
                                 @endif
-                            @endforeach
+                            @endforeach --}}
+                                        
+
                             <div class="progress mb-2">
                                 @if ($percant > 99)
-                                    <div class="progress-bar" role="progressbar" style="width: <?php echo $percant; ?>%;"
+                                    <div class="progress-bar" role="progressbar" style="width: {{ $percant }}%;"
                                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                                         complete</div>
                             </div>
                             @endif
                             @if ($percant < 99)
-                                <div class="progress-bar" role="progressbar" style="width: <?php echo $percant; ?>%;"
+                                <div class="progress-bar" role="progressbar" style="width: {{ $percant }}%;"
                                     aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                    <?php echo $percant; ?>%</div>
+                                    {{ $percant }}%</div>
                         </div>
                         @endif
                         <div class="d-flex mb-4 justify-content-between amount">
-                            <div>@php
-                                echo "$" . $totalsproduct;
-                            @endphp</div>
-
+                            <div>
+      {{ $totalsproduct }}
+                            </div>
                             <div>${{ $products->total }}</div>
                         </div>
                     </div>
@@ -147,8 +148,10 @@
                     @if ($percant < 99)
                         <a href='payment/{{ $products->id }}' class="btn btn-primary d-block"
                             style="width: 80%; margin:auto">Donate</a>
+                            
                     @endif
                     @if ($percant > 99)
+                    {{-- erro  --}}
                         <a href="#" class="btn btn-primary d-block" style="width: 80%; margin:auto">Donate</a>
                     @endif
                 </div>
