@@ -6,6 +6,8 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 class UserController extends Controller
 {
 
@@ -16,6 +18,7 @@ class UserController extends Controller
     public function view($id)
     {
         $user = User::find($id);
+        
         return redirect('Admin_Dashboard.user_View', ['user' => $user]);
     }
     /**
@@ -75,7 +78,8 @@ class UserController extends Controller
             $user->image =  $imageName;
         }
         $user->save();
-
+        
+        Alert::success('Added Successfuly', ' ');
 
         return redirect()->route('Admin_Dashboard.User');
     }
@@ -87,6 +91,8 @@ class UserController extends Controller
     {
 
         $UserList = User::all();
+
+        $title = 'Delete User!';
         return view('Admin_Dashboard.User', ['users' => $UserList]);
         
      
@@ -134,11 +140,11 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->LastName = $request->LastName;
-        // $user->email= $request->email;
+         $user->email= $request->email;
         // $user->password= $request->password;
         $user->phone = $request->phone;
         if ($request->hasFile('image')) {
-            // Validate and store the uploaded image
+            //  Validate and store the uploaded image
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images/users'), $imageName);
@@ -147,9 +153,10 @@ class UserController extends Controller
             // $imagePath = $request->file('image')->store('images/users');
             $user->image =  $imageName;
         }
+       
         $user->save();
 
-
+        Alert::success('Updated Successfuly', ' ');
 
         // $admin->update();
         return redirect()->route('Admin_Dashboard.User')->with('success', 'student data dashboard successfully ');

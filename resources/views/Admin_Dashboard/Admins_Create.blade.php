@@ -1,19 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>admin Details Form</title>
-    <!-- Required meta tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')}}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
+@extends('layouts.adminMaster')
+
+@section('content')
+<div class="content " >
+
+    <div style="margin: 0% 8% ">
+        <div style="width: 100%">
+     <br><br>
+
     <div class="container mt-5">
         <div class="card">
-            <div class="card-header" style="background-color: rgba(117, 192, 157, 0.489)">
-                <h5 class="card-title">Add New Admin</h5>
+            <div class="card-header py-3" style="background-color: rgba(117, 192, 157, 0.489)">
+                <h4 class="card-title">Add New Admin</h4>
             </div>
             <div class="card-body">
                 <form action="Admins_Data" method="POST" enctype="multipart/form-data">
@@ -56,18 +53,13 @@
                     @error('image')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
+                    <br>
                     
-                    
-                    <button type="submit" class="btn btn-primary">Add Admin</button>
+                    <button type="submit" class="btn btn-success btn-lg " style="margin-left:45%">Add Admin</button>
                 </form>
             </div>
         </div>
     </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{url('https://code.jquery.com/jquery-3.3.1.slim.min.js')}}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')}}" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="{{url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')}}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-</html>
+</div>
+</div>
+@endsection

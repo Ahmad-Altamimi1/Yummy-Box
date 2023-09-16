@@ -209,21 +209,19 @@ Route::post('check', [App\Http\Controllers\LoginAdmin::class, 'store'])->name('c
 
 
 
+//////////////////////////////// SAJEDA CODE ////////////////////////////////
 
 Route::prefix('admin')->middleware('IsAdmin')->group(function () {
 
     Route::get('admin_logout', [App\Http\Controllers\LoginAdmin::class, 'logout_admin'])->name('admin_logout');
 
 
+    Route::get('/Admin_Home', [ContactController::class, 'show'])->name('Admin_Dashboard.index');
 
+    Route::get('/Admin_profile', [AdminController::class, 'index'])->name('Admin_Dashboard.profile');
 
-    //////////////////////////////// SAJEDA CODE ////////////////////////////////
-
-    // admin_home
-    // Route::get('/Admin_Home', function () { 
-    //     return view('Admin_Dashboard.index'); 
-    // });
-Route::get('/Admin_Home', [ContactController::class, 'show'])->name('Admin_Dashboard.index');
+   
+  
 
     //  volunteers data
     Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe'])->name('Admin_Dashboard.Volunteers');
