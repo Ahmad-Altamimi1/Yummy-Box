@@ -9,5 +9,5 @@ class Frontvolunteer extends Model
 {
     use HasFactory;
     protected $table = 'frontvolunteers';
-    protected $fillable = ['Address', 'Languages' , 'day' , 'Experience' , 'CV'];
+    protected $fillable = ['Address', 'Languages' , 'day' , 'Experience' , 'CV','user_id'];
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Accept;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
@@ -40,8 +41,10 @@ Route::get('/donate', function () {
     return view('pages.donate');
 });
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\VacceptController;
+use App\Mail\ContactMail;
 use App\Models\User;
-
+use App\Models\Vaccept;
 
 Route::get('/rer', function () {
     return view('pages.cliker');
@@ -51,6 +54,7 @@ Route::get('/rer', function () {
 //     return view('pages.index');
 // });
 Route::get('single/{id?}', [CategoryController::class, 'find'])->name('single');
+Route::get('ara', [ContactMail::class, 'sendmess']);
 // Route::get('/', [CategoryController::class, 'index']);
 // Route::get('/', [CategoryController::class, 'index']);
 // Route::get('home', [CategoryController::class, 'index'])->name('home');
@@ -210,6 +214,7 @@ Route::post('check', [App\Http\Controllers\LoginAdmin::class, 'store'])->name('c
 
 
 
+Route::get('accept/{id?}', [VacceptController::class,'acceptv'])->name('accept');
 Route::prefix('admin')->middleware('IsAdmin')->group(function () {
 
     Route::get('admin_logout', [App\Http\Controllers\LoginAdmin::class, 'logout_admin'])->name('admin_logout');
@@ -234,6 +239,7 @@ Route::get('/Admin_Home', [ContactController::class, 'show'])->name('Admin_Dashb
 
     //ressourses data
     Route::get('/Admin_ressourses', [DonorController::class, 'show'])->name('Admin_Dashboard.ressourses');
+    Route::get('/Admin_Dashboard_Vaccept', [VacceptController::class, 'show'])->name('Admin_Dashboard.Vaccept');
     
 
     // Route::get('/admins/{id}/edit', [AdminController::class, 'edit'])->name('Admin_Dashboard.Admins_Update');
@@ -281,9 +287,13 @@ Route::get('/Admin_Home', [ContactController::class, 'show'])->name('Admin_Dashb
     Route::get('Project_Create', [ProductsController::class, 'create']);
 
 
-
+    // email for all users 
+    Route::get('/send-email', [VacceptController::class,'showEmailForm'])->name('admin.send-email');
+    Route::post('/send-email', [VacceptController::class, 'sendEmail'])->name('admin.send-email.post');
 
 });
+
+
 
 
 require __DIR__ . '/auth.php';

@@ -67,16 +67,6 @@
 
             </tr>
             
-             {{-- @foreach ($volunteers as $program)
-                <tr>
-                    <td>{{ $program->Languages }}</td>
-                    <td>{{ $program->Address }}</td>
-                    <td>{{ $program->Experiance }}</td>
-                    <td>{{ $program->CV }}</td>
-            
-                </tr>
-            @endforeach 
-          --}}
             </tbody>
           </table>
         </form>
