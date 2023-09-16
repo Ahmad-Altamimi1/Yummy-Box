@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Product Details</title>
     <!-- Include your CSS and JavaScript assets here -->
-    <link rel="stylesheet" href="your-custom-styles.css"> <!-- Add your custom CSS file here -->
+    <link rel="stylesheet" href="{{url('your-custom-styles.css')}}"> <!-- Add your custom CSS file here -->
     <style>
         /* Add inline CSS styles or customize the styles in your custom CSS file */
         body {

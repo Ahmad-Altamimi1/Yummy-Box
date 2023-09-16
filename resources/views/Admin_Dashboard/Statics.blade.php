@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+        <link href="{{url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{url('https://getbootstrap.com/docs/5.3/assets/css/docs.css')}}" rel="stylesheet">
         <title></title>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js')}}"></script>
 
         <style>
 /* Reset some default browser styles */
@@ -96,10 +96,10 @@ body {
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-              <img src="{{ asset('assets/img/WhatsApp Image 2023-07-04 at 10.15.24 PM.jpeg') }}" class="img-circle elevation-2" alt="User Image">
+              <img src="{{ url('assets/img/WhatsApp Image 2023-07-04 at 10.15.24 PM.jpeg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-              <a href="{{ asset('/admin') }}" class="d-block" style="color:white">Anfal dherat</a>
+              <a href="{{ url('/admin') }}" class="d-block" style="color:white">Anfal dherat</a>
             </div>
           </div>
     
@@ -118,7 +118,7 @@ body {
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="{{ asset('/dash') }}" class="nav-link active" style="background-color:black">
+                    <a href="{{ url('/dash') }}" class="nav-link active" style="background-color:black">
     
                       <h5 style="text-align:center">
                       home
@@ -126,19 +126,19 @@ body {
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{ asset('/admin') }}" class="nav-link">
+                    <a href="{{ url('/admin') }}" class="nav-link">
                       <i class="far fa-circle nav-icon" style="color:white"></i>
                       <p style="color:white">Admins</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{ asset('/user') }}" class="nav-link">
+                    <a href="{{ url('/user') }}" class="nav-link">
                       <i class="far fa-circle nav-icon" style="color:white"></i>
                       <p style="color:white">Users</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{ asset('/category') }}" class="nav-link">
+                    <a href="{{ url('/category') }}" class="nav-link">
                       <i class="far fa-circle nav-icon" style="color:white"></i>
                       <p style="color:white">Categories</p>
                     </a>
@@ -146,7 +146,7 @@ body {
                 </ul>
               </li>
               <li class="nav-item">
-                <a href="{{ asset('/donatione') }}" class="nav-link">
+                <a href="{{ url('/donatione') }}" class="nav-link">
                   <i class="far fa-circle nav-icon" style="color:white"></i>
                   <p style="color:white">Donations</p>
                 </a>
@@ -154,14 +154,14 @@ body {
     
     
           <li class="nav-item">
-            <a href="{{ asset('/donateditems') }}" class="nav-link">
+            <a href="{{ url('/donateditems') }}" class="nav-link">
               <i class="far fa-circle nav-icon" style="color:white"></i>
               <p style="color:white">Donated Items</p>
             </a>
           </li>
     
       <li class="nav-item">
-        <a href="{{ asset('/donatedservives') }}" class="nav-link">
+        <a href="{{ url('/donatedservives') }}" class="nav-link">
           <i class="far fa-circle nav-icon" style="color:white"></i>
           <p style="color:white">Donated Services</p>
         </a>
@@ -178,7 +178,7 @@ body {
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ asset('/donationform') }}" class="nav-link">
+            <a href="{{ url('/donationform') }}" class="nav-link">
               <i class="far fa-circle nav-icon" style="color:white"></i>
               <p style="color:white">Donation Form</p>
             </a>
@@ -187,7 +187,7 @@ body {
         </ul>
       </li>
       <li class="nav-item">
-        <a href="{{ asset('/donationitemform') }}" class="nav-link">
+        <a href="{{ url('/donationitemform') }}" class="nav-link">
           <i class="far fa-circle nav-icon" style="color:white"></i>
           <p style="color:white">Donated Items Form</p>
         </a>
@@ -197,7 +197,7 @@ body {
     
     
     <li class="nav-item">
-    <a href="{{ asset('/donatedservicesform') }}" class="nav-link">
+    <a href="{{ url('/donatedservicesform') }}" class="nav-link">
     <i class="far fa-circle nav-icon" style="color:white"></i>
     <p style="color:white">Donated Services form</p>
     </a>

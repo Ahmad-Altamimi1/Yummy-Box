@@ -462,7 +462,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="causes-item bg-white">
-                        <a href="{{ route('news') }}"><img src="images/tech.jpg" alt="Image"
+                        <a href="{{ route('news') }}"><img src="{{url('images/tech.jpg')}}" alt="Image"
                                 class="img-fluid mb-4 rounded"></a>
                         <div class="px-4 pb-3 pt-3">
                             <span class="date">Sep 3, 2023</span>
@@ -479,7 +479,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="causes-item bg-white">
-                        <a href="{{ route('news') }}"><img src="images/kids.jpg" alt="Image"
+                        <a href="{{ route('news') }}"><img src="{{url('images/kids.jpg')}}" alt="Image"
                                 class="img-fluid mb-4 rounded"></a>
                         <div class="px-4 pb-3 pt-3">
                             <span class="date">jul 29, 2023</span>
@@ -496,7 +496,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="causes-item bg-white">
-                        <a href="{{ route('news') }}"><img src="images/communitie.png" alt="Image"
+                        <a href="{{ route('news') }}"><img src="{{url('images/communitie.png')}}" alt="Image"
                                 class="img-fluid mb-4 rounded"></a>
                         <div class="px-4 pb-3 pt-3">
                             <span class="date">Aug 18, 2023</span>
@@ -541,21 +541,7 @@
                 <div class="item">
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
-                        <img src="images/img_v_8-min.jpg" alt="Image" class="img-fluid" style="border-radius: 50%">
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a class="instagram-item">
-                        <span class="icon-instagram"></span>
-                        <img src="images/img_v_2-min.jpg" alt="Image" class="img-fluid" style="border-radius: 50%">
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a class="instagram-item">
-                        <span class="icon-instagram"></span>
-                        <img src="images/partnership4.jpg" alt="Image" class="img-fluid"
+                        <img src="{{url('images/partnership4.jpg')}}" alt="Image" class="img-fluid"
                             style="border-radius: 50% ; height :40%">
                     </a>
                 </div>
@@ -563,21 +549,37 @@
                 <div class="item">
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
-                        <img src="images/img_v_4-min.jpg" alt="Image" class="img-fluid" style="border-radius: 50%">
+                        <img src="{{url('images/img_v_8-min.jpg')}}" alt="Image" class="img-fluid" style="border-radius: 50%">
+                    </a>
+                </div>
+
+               
+                <div class="item">
+                    <a class="instagram-item">
+                        <span class="icon-instagram"></span>
+                        <img src="{{url('images/partnership4.jpg')}}" alt="Image" class="img-fluid"
+                            style="border-radius: 50% ; height :40%">
                     </a>
                 </div>
 
                 <div class="item">
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
-                        <img src="images/img_v_5-min.jpg" alt="Image" class="img-fluid" style="border-radius: 50%">
+                        <img src="{{url('images/img_v_4-min.jpg')}}" alt="Image" class="img-fluid" style="border-radius: 50%">
                     </a>
                 </div>
 
                 <div class="item">
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
-                        <img src="images/partnership5.jpg" alt="Image" class="img-fluid"
+                        <img src="{{url('images/img_v_5-min.jpg')}}" alt="Image" class="img-fluid" style="border-radius: 50%">
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a class="instagram-item">
+                        <span class="icon-instagram"></span>
+                        <img src="{{url('images/partnership5.jpg')}}" alt="Image" class="img-fluid"
                             style="border-radius: 50% ; height :40%">
                     </a>
                 </div>
