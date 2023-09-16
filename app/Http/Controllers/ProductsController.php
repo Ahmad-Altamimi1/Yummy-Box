@@ -11,6 +11,12 @@ use RealRashid\SweetAlert\Facades\Alert;
 class ProductsController extends Controller
 {
 
+    public function ourproject()
+    {
+        $products = products::all();
+        $volanters = Volunteer::all();
+        return view('pages.products', compact('products', 'volanters'));
+    }
     public function product($id)
           {
                     $products = products::find($id);

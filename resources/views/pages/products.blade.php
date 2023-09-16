@@ -38,28 +38,28 @@
     </div>
 
 
-    <div class="section cause-section bg-light">
+   
+
+
+
+<div class="section cause-section bg-light" id="services">
 
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                    <span class="subheading mb-3">Causes</span>
-                    <h2 class="heading">Featured Causes</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Animi quaerat, eaque asperiores quos
-                        natus, ratione.</p>
+                    <span class="subheading mb-3">Projects</span>
+                    <h2 class="heading">Featured Projects</h2>
+                    <p>Explore our Featured Projects and witness the impact of code and compassion in action.</p>
 
                     <div id="features-slider-nav" class="mt-5 d-flex justify-content-center">
-                        <button class="btn btn-primary prev d-flex align-items-center me-2" data-controls="prev"> <span
-                                class="icon-chevron-left"></span> <span class="ms-3">Prev</span></button>
+                        <button class="btn btn-primary prev d-flex align-items-center me-2" data-controls="prev">
+                            <span class="icon-chevron-left"></span> <span class="ms-3">Prev</span></button>
                         <button class="btn btn-primary next d-flex align-items-center" data-controls="next"><span
                                 class="me-3">Next</span> <span class="icon-chevron-right"></span></button>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
 
 
         <div class="container mb-5">
@@ -92,40 +92,43 @@
                                         @endif
                                     @endforeach
 
-                                    <div class="progress mb-2">
-                                        <div class="progress-bar" role="progressbar" style="width: <?php echo $percant; ?>%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                            <?php echo $percant; ?>%</div>
+                                   <div class="progress mb-2">
+                                        @if ($percant > 99)
+                                            <div class="progress-bar" role="progressbar"
+                                                style="width: <?php echo $percant; ?>%;" aria-valuenow="25" aria-valuemin="0"
+                                                aria-valuemax="100">
+                                                completed</div>
                                     </div>
-
-                                    <div class="d-flex mb-4 justify-content-between amount">
-                                        <div>@php
-                                            echo "$" . $totalsproduct;
-                                        @endphp</div>
-
-                                        <div>${{ $product->total }}</div>
-                                    </div>
-                                    <div>
-                                        <a href="single/{{ $product->id }}" class="btn btn-primary">Volunteer Now</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
-
-
-
-
-
+                    @endif
+                    @if ($percant < 99)
+                        <div class="progress-bar" role="progressbar" style="width: <?php echo $percant; ?>%;"
+                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            <?php echo $percant; ?>%</div>
                 </div>
+                @endif
 
-                
 
+                <div class="d-flex mb-4 justify-content-between amount">
+                    <div>@php
+                        echo "$" . $totalsproduct;
+                    @endphp</div>
+
+                    <div>${{ $product->total }}</div>
+                </div>
+                <div>
+                    <a href='single/{{ $product->id }}' class="btn btn-primary">Volunteer Now</a>
+                </div>
             </div>
         </div>
-    </div>
 
+    </div>
+    @endforeach
+
+</div>
+    </div>
+    </div>
+    
+      </div>
 
 
 
