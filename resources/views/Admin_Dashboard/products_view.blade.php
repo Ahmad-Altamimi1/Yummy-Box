@@ -1,3 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+    <!-- Include your CSS and JavaScript assets here -->
+    <link rel="stylesheet" href="your-custom-styles.css"> <!-- Add your custom CSS file here -->
+    <style>
+        /* Add inline CSS styles or customize the styles in your custom CSS file */
+        body {
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* Style for the image */
+        .card-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Customize other styles as needed */
+    </style>
+</head>
 @extends('layouts.adminMaster')
 
 @section('content')
