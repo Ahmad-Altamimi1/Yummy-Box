@@ -6,7 +6,7 @@
 
 
 
-    <link rel="stylesheet" href="{{ url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/Python/bootstrap.min.Python') }}">
     <style>
         h1 {
             text-align: center;
@@ -69,22 +69,23 @@
                 <input type="text" class="form-control" id="address" name="Address" required>
 
 
-                
-
-
             </div>
             <div class="form-group">
                 <label for="programmingLanguages">Proficient Frontend Programming Languages</label><br>
-                <input type="checkbox" id="HTML" name="Languages[]" value="HTML" class="check">
-                <label for="HTML">HTML</label><br>
-                <input type="checkbox" id="CSS" name="Languages[]" value="CSS" class="check">
-                <label for="CSS">CSS</label><br>
-                <input type="checkbox" id="JavaScript" name="Languages[]" value="JavaScript" class="check">
-                <label for="JavaScript">JavaScript</label><br>
-                <input type="checkbox" id="React" name="Languages[]" value="React" class="check">
-                <label for="React">React</label><br>
-                <input type="checkbox" id="Angular" name="Languages[]" value="Angular" class="check">
-                <label for="Angular">Angular</label><br>
+                <input type="checkbox" id="Java" name="Languages[]" value="Java" class="check">
+                <label for="Java">Java</label><br>
+                <input type="checkbox" id="Python" name="Languages[]" value="Python" class="check">
+                <label for="Python">Python</label><br>
+                <input type="checkbox" id="Ruby" name="Languages[]" value="Ruby" class="check">
+                <label for="Ruby">Ruby</label><br>
+                <input type="checkbox" id="Node.js" name="Languages[]" value="Node.js" class="check">
+                <label for="Node.js">Node.js</label><br>
+                <input type="checkbox" id="PHP" name="Languages[]" value="PHP" class="check">
+                <label for="PHP">PHP</label><br>
+                <input type="checkbox" id="C#" name="Languages[]" value="C#" class="check">
+                <label for="C#">C#</label><br>
+                <input type="checkbox" id="Go(Golang)" name="Languages[]" value="Go(Golang)" class="check">
+                <label for="Go(Golang)">Go (Golang)</label><br>
             </div>
             
             <div class="form-group">
