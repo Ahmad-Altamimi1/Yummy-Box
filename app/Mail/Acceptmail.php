@@ -18,23 +18,23 @@ class Acceptmail extends Mailable
      *
      * @return void
      */
-    public $subject;
-    public $message;
+   public $subject;
+public $message;
 
-    public function __construct($subject, $message)
-    {
-        $this->subject = $subject;
-        $this->message = $message;
-    }
+public function __construct($subject, $message)
+{
+    $this->subject = $subject;
+    $this->message = $message;
+}
 
-    public function build()
-    {
-        return $this->subject($this->subject)
-            ->markdown('emails.admin-email')
-            ->with([
-                'message' => $this->message,
-            ]);
-    }
+public function build()
+{
+    return $this->subject($this->subject)
+                ->markdown('emails.admin-email')
+                ->with([
+                    'message' => $this->message,
+                ]);
+}
 
 
     /**

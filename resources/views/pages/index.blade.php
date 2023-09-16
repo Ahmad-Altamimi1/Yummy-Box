@@ -133,7 +133,7 @@
                         <div class="card-body text-center">
                             <h5 class="card-title">Financial Donation</h5>
                             <p class="card-text">Transform lives with your donation. Make a difference today!</p>
-                            <a href="#" class="btn btn-primary"style="text-align:center">Donate Now</a>
+                            <a href="#services" class="btn btn-primary"style="text-align:center">Donate Now</a>
                         </div>
                     </div>
 
@@ -159,7 +159,7 @@
                         <div class="card-body text-center">
                             <h4 class="card-title">Volunteer with us</h4>
                             <p class="card-text">Train with us and be part of a transformative journey.</p>
-                            <a href="#" class="btn btn-primary">Volunteer Now</a>
+                            <a href="#services" class="btn btn-primary">Volunteer Now</a>
                         </div>
                     </div>
                 </div>

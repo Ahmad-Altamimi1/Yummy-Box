@@ -33,15 +33,14 @@
                   </tr>
               </thead>
               <tbody>
-                
                   @foreach ($vaccepts as $vaccept)
                 <tr>
                     <td>{{ $vaccept->id }}</td>
                     <td>{{ $vaccept->user_id }}</td>
                     <td>{{ $vaccept->Address }} </td>
-                    <td>{{ $vaccept->CV }}</td>
+                       <td scope="col"><a href="{{ url('uplods/' . $vaccept->CV) }}">Show file</a></td>
+
                     <td>{{ $vaccept->email }}</td>
-                    
                     <td>{{ $vaccept->Languages}} </td>
                     <td>{{ $vaccept->day}} </td>
                    
