@@ -13,8 +13,10 @@
     <div class="container">
         <div class="card">
                         <div class="card-body">
-                            <img src="{{ $products->image }}" class="card-img" alt="{{ $products->name }}" style="height:300px ;">
-                           <br><br> <h3 class="card-title"> {{ $products->name }}</h3>
+                            @if ($products->image)
+                            <img src="{{ asset('images/' . $products->image) }}" alt="{{ $products->name }}"
+                                width="1000">
+                        @endif                           <br><br> <h3 class="card-title"> {{ $products->name }}</h3>
                             <div class="mb-3"> <br>
                               <h5>Brief:</h5>
                                 <p class="card-text">{{ $products->breif}}</p>
