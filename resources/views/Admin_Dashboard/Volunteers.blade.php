@@ -14,6 +14,8 @@
            <tr>
                       <th>Volunteer ID</th>
                       <th>User ID</th>
+                      <th>Email</th>
+                      <th>Day</th>
                       <th>Address</th>
                       <th>Languages</th>
                       <th>Experience</th>
@@ -23,12 +25,17 @@
               <tbody>
                   @foreach ($Volunteers as $Volunteer)
                 <tr>
-                    <td>{{ $Volunteer['id'] }}</td>
-                    <td>{{ $Volunteer['user_id'] }}</td>
-                    <td>{{ $Volunteer['Address'] }} </td>
-                    <td>{{ $Volunteer['Languages'] }}</td>
-                    <td>{{ $Volunteer['Experience'] }} </td>
-                    <td>{{ $Volunteer['CV'] }}</td>
+                    <td>{{ $Volunteer->fuid }}</td>
+                    <td>{{ $Volunteer->user_id }}</td>
+                    <td>{{ $Volunteer->email}}</td>
+                    <td>{{ $Volunteer->day }}</td>
+                    
+                    <td>{{ $Volunteer->Address }} </td>
+                    <td>{{ $Volunteer->Languages }}</td>
+                    <td>{{ $Volunteer->Experience }} </td>
+                      <td scope="col"><a href="{{ url('uplods/' . $Volunteer->CV) }}">Show file</a></td>
+                      <td><a href="{{ route('accept') }}/{{ $Volunteer->fuid }}">Accept</a></td>
+
                     @endforeach
                 </tr> 
                 

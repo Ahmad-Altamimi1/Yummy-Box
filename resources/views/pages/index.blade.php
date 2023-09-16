@@ -131,7 +131,7 @@
                     <div class="card" style="width: 100%; height:400px ;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); ">
                         <img class="card-img-top mx-auto" src="images/donate.jpg" alt="Card image cap" style="width: 90%; ">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Mony Donation</h5>
+                            <h5 class="card-title">Financial Donation</h5>
                             <p class="card-text">Transform lives with your donation. Make a difference today!</p>
                             <a href="#" class="btn btn-primary"style="text-align:center">Donate Now</a>
                         </div>

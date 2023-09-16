@@ -1,5 +1,5 @@
    <table class="table" style="width: 100%">
-            <thead style="background-color: rgb(179, 236, 164) ;">
+            <thead style="background-color: #59886b;">
               <tr>
                 <th scope="col">Program Name</th>
                 <th scope="col">Location</th>

@@ -1,8 +1,9 @@
 
 
-
+@extends('layouts.master')
+@section('title', 'profile')
 <x-app-layout>
-
+{{-- @extends('layouts.app') --}}
 <style>
     .min-h-screen{
         min-height: 0 !important;

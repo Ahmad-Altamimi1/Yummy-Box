@@ -163,6 +163,9 @@
                     <a href="{{ route('Admin_Dashboard.ressourses') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.ressourses') ? 'active' : '' }}">
                         <i class="far fa-file-alt me-2"></i>Ressources
                     </a>
+                    <a href="{{ route('Admin_Dashboard.Vaccept') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.Vaccept') ? 'active' : '' }}">
+                        <i class="far fa-file-alt me-2"></i>Accept Volanteers
+                    </a>
                     
                 </div>
             </nav>

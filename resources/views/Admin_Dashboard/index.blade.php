@@ -16,7 +16,7 @@
                         <div class="ms-3">
                             <p class="mb-2">Volunteers</p>
                             @php
-                                $volunteerCount = \App\Models\Volunteer::count();
+                                $volunteerCount = \App\Models\Vaccept::count();
                             @endphp
                             <h6 class="mb-0">{{ $volunteerCount }}</h6>
                         </div>
