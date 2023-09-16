@@ -1,3 +1,6 @@
+             <center><img src="https://media.discordapp.net/attachments/1149330077880942705/1151770919937781760/codemates-logo__1_-removebg-preview_1.png?width=721&height=541" alt="">
+</center> 
+   
    <table class="table" style="width: 100%">
             <thead style="background-color: #59886b;">
               <tr>
@@ -22,7 +25,6 @@
                 <td scope="col">{{ $item->day }}</td>
             
 @endforeach
-           <img src="https://media.discordapp.net/attachments/1149330077880942705/1151770919937781760/codemates-logo__1_-removebg-preview_1.png?width=721&height=541" alt="">
             <tr>
 
             </tr>
