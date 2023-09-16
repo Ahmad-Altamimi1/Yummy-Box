@@ -3,6 +3,7 @@
 use App\Http\Controllers\Accept;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VolunteerController;
+use App\Http\Controllers\TraineeController;
 use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
@@ -213,6 +214,7 @@ Route::post('check', [App\Http\Controllers\LoginAdmin::class, 'store'])->name('c
 
 
 
+//////////////////////////////// SAJEDA CODE ////////////////////////////////
 
 Route::get('accept/{id?}', [VacceptController::class,'acceptv'])->name('accept');
 Route::prefix('admin')->middleware('IsAdmin')->group(function () {
@@ -220,15 +222,12 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     Route::get('admin_logout', [App\Http\Controllers\LoginAdmin::class, 'logout_admin'])->name('admin_logout');
 
 
+    Route::get('/Admin_Home', [ContactController::class, 'show'])->name('Admin_Dashboard.index');
 
+    Route::get('/Admin_profile', [AdminController::class, 'index'])->name('Admin_Dashboard.profile');
 
-    //////////////////////////////// SAJEDA CODE ////////////////////////////////
-
-    // admin_home
-    // Route::get('/Admin_Home', function () { 
-    //     return view('Admin_Dashboard.index'); 
-    // });
-Route::get('/Admin_Home', [ContactController::class, 'show'])->name('Admin_Dashboard.index');
+   
+  
 
     //  volunteers data
     Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe'])->name('Admin_Dashboard.Volunteers');
@@ -287,6 +286,8 @@ Route::get('/Admin_Home', [ContactController::class, 'show'])->name('Admin_Dashb
     Route::get('Project_Create', [ProductsController::class, 'create']);
 
 
+
+    
     // email for all users 
     Route::get('/send-email', [VacceptController::class,'showEmailForm'])->name('admin.send-email');
     Route::post('/send-email', [VacceptController::class, 'sendEmail'])->name('admin.send-email.post');
@@ -295,5 +296,13 @@ Route::get('/Admin_Home', [ContactController::class, 'show'])->name('Admin_Dashb
 
 
 
-
+Route::get('/traineeForm', function () {
+        return view('pages.traineeForm');
+    })->name('traineeForm')->middleware('auth', 'verified');
+    
+    Route::resource("trainees", TraineeController::class);
+    // Route::post('/traineeForm', [TraineeController::class, 'store'])->name('traineeForm');
+    
 require __DIR__ . '/auth.php';
+
+

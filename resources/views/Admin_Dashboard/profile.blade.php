@@ -32,15 +32,15 @@
                             @method('patch')
                             <div class="row">
                                 <div class="col-md-4 col-12">
-                                    @if ($user->image)
-                                        <img src="{{ asset('images/users/' . Auth::admin()->image }}" alt="{{ $user->name }}'s Profile Picture" class="img-fluid" style="max-width: 200px; height: auto;">
+                                    @if (Auth::admin()->image)
+                                        <img src="{{ asset('images/users/' . Auth::admin()->image }}" alt="{{ Auth::admin()->name }}'s Profile Picture" class="img-fluid" style="max-width: 200px; height: auto;">
                                     @else
                                         <img src="{{ asset('images/users/Default_pfp.svg.png') }}" alt="Default Profile Picture" class="img-fluid" style="max-width: 200px; height: auto;">
                                     @endif
                     5
                                     <div class="form-group mt-3">
                                         <label for="image">{{ __('Upload new image') }}</label>
-                                        <input id="image" name="image" type="file" accept="image/*" class="form-control-file" :value="old('image', $user->image)" autocomplete="image" />
+                                        <input id="image" name="image" type="file" accept="image/*" class="form-control-file" :value="old('image', Auth::admin()->image)" autocomplete="image" />
                                         <x-input-error class="mt-2" :messages="$errors->get('image')" />
                                     </div>
                                 </div>
@@ -48,16 +48,16 @@
                                 <div class="col-md-7 col-12">
                                     <div class="form-group">
                                         <label for="name">{{ __('Name') }}</label>
-                                        <x-text-input id="name" name="name" type="text" class="form-control" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+                                        <x-text-input id="name" name="name" type="text" class="form-control" :value="old('name', Auth::admin()->name)" required autofocus autocomplete="name" />
                                         <x-input-error class="mt-2" :messages="$errors->get('name')" />
                                     </div>
                     
                                     <div class="form-group">
                                         <label for="email">{{ __('Email') }}</label>
-                                        <x-text-input id="email" name="email" type="email" class="form-control" :value="old('email', $user->email)" required autocomplete="username" />
+                                        <x-text-input id="email" name="email" type="email" class="form-control" :value="old('email', Auth::admin()->email)" required autocomplete="username" />
                                         <x-input-error class="mt-2" :messages="$errors->get('email')" />
                     
-                                        @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
+                                        @if (Auth::admin() instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! Auth::admin()->hasVerifiedEmail())
                                             <div>
                                                 <p class="text-sm mt-2 text-gray-800">
                                                     {{ __('Your email address is unverified.') }}
@@ -78,7 +78,7 @@
                     
                                     <div class="form-group">
                                         <label for="phone">{{ __('Phone') }}</label>
-                                        <x-text-input id="phone" name="phone" type="text" class="form-control" :value="old('phone', $user->phone)" autofocus autocomplete="phone" />
+                                        <x-text-input id="phone" name="phone" type="text" class="form-control" :value="old('phone', Auth::admin()->phone)" autofocus autocomplete="phone" />
                                         <x-input-error class="mt-2" :messages="$errors->get('phone')" />
                                     </div>
                     

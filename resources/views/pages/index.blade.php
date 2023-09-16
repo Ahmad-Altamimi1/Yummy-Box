@@ -28,8 +28,7 @@
                     <p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">program to help increase access to
                         education in communities around jordan</p>
                     <p data-aos="fade-up" data-aos-delay="100">
-                        <a href="#donite" class="btn btn-primary me-4 d-inline-flex align-items-center"><span>Donate Now
-                            </span></a>
+                        <a href="{{ route('traineeForm') }}" class="btn btn-primary me-4 d-inline-flex align-items-center"><span>Be a Trainee </span></a>
                         <a href="https://youtu.be/N7ZmPYaXoic?si=H_yHMLXbd2sQmCSv"
                             class="text-white glightbox d-inline-flex align-items-center"><span
                                 class="icon-play me-2"></span><span>Watch the video</span></a>
@@ -131,7 +130,7 @@
                     <div class="card" style="width: 100%; height:400px ;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); ">
                         <img class="card-img-top mx-auto" src="images/donate.jpg" alt="Card image cap" style="width: 90%; ">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Mony Donation</h5>
+                            <h5 class="card-title">Financial Donation</h5>
                             <p class="card-text">Transform lives with your donation. Make a difference today!</p>
                             <a href="#" class="btn btn-primary"style="text-align:center">Donate Now</a>
                         </div>
@@ -211,9 +210,9 @@
                                                 $totalsproduct += $volanter->amount;
                                             @endphp
                                             @php
-                                                
+
                                                 $percant = (int) (($totalsproduct / $product->total) * 100);
-                                                
+
                                             @endphp
                                         @endif
                                     @endforeach
@@ -462,7 +461,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="causes-item bg-white">
-                        <a href="{{ route('news') }}"><img src="images/tech.jpg" alt="Image"
+                        <a href="{{ route('news') }}"><img src="{{url('images/tech.jpg')}}" alt="Image"
                                 class="img-fluid mb-4 rounded"></a>
                         <div class="px-4 pb-3 pt-3">
                             <span class="date">Sep 3, 2023</span>
@@ -479,7 +478,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="causes-item bg-white">
-                        <a href="{{ route('news') }}"><img src="images/kids.jpg" alt="Image"
+                        <a href="{{ route('news') }}"><img src="{{url('images/kids.jpg')}}" alt="Image"
                                 class="img-fluid mb-4 rounded"></a>
                         <div class="px-4 pb-3 pt-3">
                             <span class="date">jul 29, 2023</span>
@@ -496,7 +495,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="causes-item bg-white">
-                        <a href="{{ route('news') }}"><img src="images/communitie.png" alt="Image"
+                        <a href="{{ route('news') }}"><img src="{{url('images/communitie.png')}}" alt="Image"
                                 class="img-fluid mb-4 rounded"></a>
                         <div class="px-4 pb-3 pt-3">
                             <span class="date">Aug 18, 2023</span>
@@ -538,24 +537,10 @@
         <div class="instagram-slider-wrap" data-aos="fade-up" data-aos-delay="200">
             <div class="instagram-slider mb-2" id="instagram-slider">
 
-                <div class="item">
+                <div class="item" >
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
-                        <img src="images/img_v_8-min.jpg" alt="Image" class="img-fluid" style="border-radius: 50%">
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a class="instagram-item">
-                        <span class="icon-instagram"></span>
-                        <img src="images/img_v_2-min.jpg" alt="Image" class="img-fluid" style="border-radius: 50%">
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a class="instagram-item">
-                        <span class="icon-instagram"></span>
-                        <img src="images/partnership4.jpg" alt="Image" class="img-fluid"
+                        <img src="{{url('images/partnership4.jpg')}}" alt="Image" class="img-fluid"
                             style="border-radius: 50% ; height :40%">
                     </a>
                 </div>
@@ -563,21 +548,37 @@
                 <div class="item">
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
-                        <img src="images/img_v_4-min.jpg" alt="Image" class="img-fluid" style="border-radius: 50%">
+                        <img src="{{url('images/img_v_8-min.jpg')}}" alt="Image" class="img-fluid" style="border-radius: 50%">
+                    </a>
+                </div>
+
+               
+                <div class="item">
+                    <a class="instagram-item">
+                        <span class="icon-instagram"></span>
+                        <img src="{{url('images/partnership4.jpg')}}" alt="Image" class="img-fluid"
+                            style="border-radius: 50% ; height :40%">
                     </a>
                 </div>
 
                 <div class="item">
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
-                        <img src="images/img_v_5-min.jpg" alt="Image" class="img-fluid" style="border-radius: 50%">
+                        <img src="{{url('images/img_v_4-min.jpg')}}" alt="Image" class="img-fluid" style="border-radius: 50%">
                     </a>
                 </div>
 
                 <div class="item">
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
-                        <img src="images/partnership5.jpg" alt="Image" class="img-fluid"
+                        <img src="{{url('images/img_v_5-min.jpg')}}" alt="Image" class="img-fluid" style="border-radius: 50%">
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a class="instagram-item">
+                        <span class="icon-instagram"></span>
+                        <img src="{{url('images/partnership5.jpg')}}" alt="Image" class="img-fluid"
                             style="border-radius: 50% ; height :40%">
                     </a>
                 </div>

@@ -1,9 +1,15 @@
-@include('layouts.nav')
+@extends('layouts.master')
 
-    
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
 
     @section('content') 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
 
 
@@ -41,13 +47,12 @@ label{
 #formdiv{
     width: 70%;
     margin: auto;
+    margin-top: 20%;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
     margin-bottom: 10px;
 }
     </style>
-</head>
 
-<body>
     <div class="container mt-5">
         <div id="formdiv">
         <h1>Donation Form</h1>
@@ -75,7 +80,7 @@ label{
                 <div class="form-group ">
                     <input type="hidden" class="form-control" id="user_id" name="user_id" required>
 
-                    <label for="service">Service</label>
+                    <label for="service">Resource</label>
                     <input type="text" class="form-control" id="service" name="service">
 
 
@@ -91,9 +96,9 @@ label{
                 <textarea class="form-control" id="message" name="message" rows="3"></textarea>
             </div>
 
-            <button id="submit" type="submit" class="btn btn-primary" value="submit">Submit</button>
+            <button id="submit" type="submit" class="btn btn-primary " value="submit">Submit</button>
         </form>
       </div>
     </div>
+    <br> <br>
 
-    @include('layouts.footer')

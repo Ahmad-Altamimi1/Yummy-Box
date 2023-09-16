@@ -9,5 +9,14 @@ class Frontvolunteer extends Model
 {
     use HasFactory;
     protected $table = 'frontvolunteers';
-    protected $fillable = ['Address', 'Languages' , 'day' , 'Experience' , 'CV','user_id'];
+    protected $fillable = ['Address', 'Languages' , 'day' , 'Experience' , 'CV'];
+    public function setLanguagesAttribute($value)
+    {
+        $this->attributes['Languages'] = json_encode($value);
+    }
+    public function getLanguagesAttribute($value)
+    {
+        $this->attributes['Languages'] = json_decode($value);
+    }
+    
 }

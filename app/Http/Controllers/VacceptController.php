@@ -80,9 +80,9 @@ class VacceptController extends Controller
         $userEmails = Acceptmail::pluck('email')->all();
 
         // Send the email with BCC to all users
-        Mail::to('admin@example.com') // Admin's email address
-            ->bcc($userEmails)
-            ->send(new Acceptmailv($subject, $message));
+        // Mail::to('admin@example.com') // Admin's email address
+        //     ->bcc($userEmails)
+        //     ->send(new Acceptmailv($subject, $message));
 
         return redirect()->back()->with('success', 'Email sent successfully to all users.');
     }
