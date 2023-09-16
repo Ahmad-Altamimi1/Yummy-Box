@@ -48,7 +48,7 @@ class FrontvolunteerController extends Controller
             $users['CV'] = $authPdfFile;
         }
         Frontvolunteer::create([
-"user_id" =>Auth::user()->id,
+   "user_id" =>Auth::user()->id,
             'Address' => $request->Address,
             'Languages' => $request->Languages,
             'day' => $request->day,

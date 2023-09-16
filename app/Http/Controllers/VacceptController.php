@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\Acceptmail;
 use App\Models\Frontvolunteer;
+use App\Models\User;
 use App\Models\Vaccept;
 use App\Models\Volunteer;
 use Illuminate\Http\Request;
@@ -23,13 +24,26 @@ class VacceptController extends Controller
 
     public function acceptv($id)
     {
-        $Volunteeraccept1 = Frontvolunteer::find($id);
-        
-  
-        
+      
+        $Volunteeraccept= DB::table('frontvolunteers as fu')
+        ->select([
+            'u.id',
+            'fu.id as fuid',
+            'fu.Languages',
+            'fu.user_id',
+            'u.email',
+            'fu.Address',
+            'fu.Experience',
+            'fu.CV',
+            'fu.day'
+        ])
+            ->join('users as u', 'u.id', '=', 'fu.user_id')
+            ->get();
+        $Volunteeraccept1= $Volunteeraccept[0];  
+
         Vaccept::create([
-            'user_id' => $Volunteeraccept1->user_id,
-            'email'=> $Volunteeraccept1->user_id,
+            'user_id' => $Volunteeraccept1->fuid,
+            'email'=> $Volunteeraccept1->email,
             'Address' => $Volunteeraccept1->Address,
             'Languages' => $Volunteeraccept1->Languages,
             'day' => $Volunteeraccept1->day,
@@ -37,7 +51,8 @@ class VacceptController extends Controller
             'CV' => $Volunteeraccept1->CV
 
         ]);
-       $Volunteeraccept1->delete();
+        $frontVolunteer = Frontvolunteer::find($id);
+        $frontVolunteer->delete();
        return redirect()->route('Admin_Dashboard.Volunteers');
     }
 

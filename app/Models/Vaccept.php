@@ -9,7 +9,6 @@ use Illuminate\Notifications\Notifiable;
 class Vaccept extends Model
 {
     use HasFactory ,Notifiable;
-     protected $fillable=['user_id', 'Address', 'Languages', 'day', 'Experience', 'CV',];
-    public function acceptv(){
-    }
+    protected $fillable = ['Address', 'Languages', 'day', 'Experience', 'CV', 'user_id','email'];
+    
 }
