@@ -21,7 +21,7 @@
     <div class="hero overlay" style="background-image: url('images/classroom-1.png')">
         <div class="container">
             <div class="row align-items-center justify-content-between">
-                <div class="col-lg-8 text-left">
+                <div class="col-lg-12 text-center">
                     <span class="subheading-white text-white mb-3" data-aos="fade-up">CODE-MATES</span>
                     <h1 class="heading text-white mb-2" data-aos="fade-up">Empower through Code & Giving
                     </h1>

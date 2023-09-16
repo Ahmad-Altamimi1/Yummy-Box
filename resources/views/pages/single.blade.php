@@ -142,7 +142,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="mb-4">Support Others</h3>
-                    <a href="{{ route('frontform') }}" class="btn btn-primary mb-3 d-block "
+                    <a href="frontform/{{ $products->id }}" class="btn btn-primary mb-3 d-block "
                         style="width: 80%; margin:auto">Join us as a
                         trainer</a>
                     @if ($percant < 99)

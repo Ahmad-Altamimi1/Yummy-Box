@@ -1,6 +1,6 @@
 
 
-@extends('layouts.master')
+
 @section('title', 'profile')
 <x-app-layout>
 {{-- @extends('layouts.app') --}}

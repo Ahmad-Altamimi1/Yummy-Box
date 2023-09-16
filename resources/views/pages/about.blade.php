@@ -62,9 +62,9 @@
                 <div class="col-lg-6 align-self-center" data-aos="fade-left" data-aos-delay="100">
                     <span class="subheading mb-3">About</span>
                     <h2 class="heading mb-4">History</h2>
-                    <p>Welcome to Tech-Volunteer, where our journey began with a shared passion for technology and a deep
+                    <p>Welcome to codemate, where our journey began with a shared passion for technology and a deep
                         belief in the transformative power of education. Founded by a group of dedicated volunteers,
-                        Tech-Volunteer is the culmination of our commitment to make a positive impact on the world. Our
+                        codemate is the culmination of our commitment to make a positive impact on the world. Our
                         mission is simple yet profound: to provide accessible and quality tech education to aspiring
                         learners while harnessing the strength of our volunteer community. With years of collective
                         experience in the tech industry, we're driven by the belief that knowledge should be shared, and
@@ -219,7 +219,7 @@
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="mission">
                         <h2>Our Mission</h2>
-                        <p class="mb-4 lead">At Tech-Volunteer, our mission is to democratize technology education. We are
+                        <p class="mb-4 lead">At codemate, our mission is to democratize technology education. We are
                             dedicated to fostering a thriving community of volunteers who share their expertise to equip
                             individuals of all backgrounds with the coding skills essential for success in the digital age.
                             Through accessible and engaging courses, we aim to bridge the knowledge gap, empower learners,
@@ -242,7 +242,7 @@
                 </div>
                 <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
                     <p>
-                        Partnerships fuel our mission at Tech-Volunteer. Together with like-minded organizations, we're
+                        Partnerships fuel our mission at codemate. Together with like-minded organizations, we're
                         expanding access to tech education and building a brighter future through collaborative efforts.
                         Join us in making a global impact.</p>
                 </div>

@@ -41,11 +41,7 @@
     <div class="container">
         <div class="row justify-content-center payment">
             <div class="col-lg-6">
-                                        @if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
+                                       
                 <form action="paypal/{{$product->id}}" method="POST" class="p-5 rounded donation-form " data-aos="fade-up">
                     @csrf
                     <div class="text-center mb-4">
@@ -63,6 +59,11 @@
                      $product->total - session('totalsproduct') }}$</strong> </p>
                     <button type="submit" class="btn btn-primary w-100" style="background-color: #54ac75;">Pay with
                         PayPal</button>
+                         @if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
 
                 </form>
             </div>

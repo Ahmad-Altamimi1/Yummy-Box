@@ -9,7 +9,7 @@ class Trainee extends Model
 {
     use HasFactory;
     protected $table = 'trainees';
-    protected $fillable = ['personal_details', 'about_codemates' , 'interested_codemates' , 'Languages_learned' , 'hope' , 'years_answer' , 'About' , 'document'];
+    protected $fillable = ['user_id','personal_details', 'about_codemates' , 'interested_codemates' , 'Languages_learned' , 'hope' , 'years_answer' , 'About' , 'document'];
     public function setAboutAttribute($value)
     {
         $this->attributes['About'] = json_encode($value);

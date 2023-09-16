@@ -20,6 +20,7 @@
                       <th>Languages</th>
                       <th>Experience</th>
                       <th>CV</th>
+                      <th>Action</th>
                   </tr>
               </thead>
               <tbody>

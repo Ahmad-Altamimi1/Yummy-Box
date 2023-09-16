@@ -85,41 +85,40 @@ class PaypalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function success(Request $request,$id)
+    public function success(Request $request, $id)
     {
-        
         $totalsproduct = session('totalsproduct');
+        $product_id = $id;
+        $products_total = products::find($id);
 
-       $product_id=$id;
-       $products_total=products::find($id);
-       
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypaltoken = $provider->getAccessToken();
         $response = $provider->capturePaymentOrder($request->token);
         $amountFromResponse = $response['purchase_units'][0]['payments']['captures'][0]['amount']['value'];
-if($response['purchase_units'][0]['payments']['captures'][0]['amount']['value'] <= $response['diff']){
-        if (isset($response['status']) && $response['status'] == "COMPLETED") {
 
-            DB::table('paypals')->insert([
-                'paymen_id' => $response['id'],
-                'user_name' => $response['payment_source']['paypal']['name']['given_name'] . $response['payment_source']['paypal']['name']['surname'],
-                'user_email' => $response['payment_source']['paypal']['email_address'],
-                'payment_status' => $response['payment_source']['paypal']['account_status'],
-                'currency' => 'USD',
-                'amount' => $response['purchase_units'][0]['payments']['captures'][0]['amount']['value'],
-                'product_id' => $product_id,
+        if ($amountFromResponse >$totalsproduct) {
+                                return redirect()->back()->with('error', 'The amount is more than what we need');
 
+            }
+        if (isset($response['purchase_units'][0]['payments']['captures'][0]['amount']['value'])) {
 
-            ]);
-            return redirect()->route('finish');        
-        }
-
-             else {
-            return redirect()->route('paypal_cancel');
-        }}else{
             
-            return redirect()->back()->with('error', 'The amount is more than what we need ');        }
+                if (isset($response['status']) && $response['status'] == "COMPLETED") {
+                    DB::table('paypals')->insert([
+                        'paymen_id' => $response['id'],
+                        'user_name' => $response['payment_source']['paypal']['name']['given_name'] . $response['payment_source']['paypal']['name']['surname'],
+                        'user_email' => $response['payment_source']['paypal']['email_address'],
+                        'payment_status' => $response['payment_source']['paypal']['account_status'],
+                        'currency' => 'USD',
+                        'amount' => $amountFromResponse,
+                        'product_id' => $product_id,
+                    ]);
+                    return redirect()->route('finish');
+                } else {
+                    return redirect()->route('paypal_cancel');
+                }
+            } 
     }
     function cancel()
     {

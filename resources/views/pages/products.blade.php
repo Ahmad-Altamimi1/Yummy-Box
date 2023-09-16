@@ -92,7 +92,7 @@
                                         @endif
                                     @endforeach
 
-                                   <div class="progress mb-2">
+                                    <div class="progress mb-2">
                                         @if ($percant > 99)
                                             <div class="progress-bar" role="progressbar"
                                                 style="width: <?php echo $percant; ?>%;" aria-valuenow="25" aria-valuemin="0"
@@ -106,7 +106,6 @@
                             <?php echo $percant; ?>%</div>
                 </div>
                 @endif
-
 
                 <div class="d-flex mb-4 justify-content-between amount">
                     <div>@php

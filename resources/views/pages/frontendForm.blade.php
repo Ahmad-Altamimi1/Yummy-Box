@@ -55,9 +55,9 @@
     </style>
     <div class="container mt-5">
         <div id="formdiv">
-        <h1>Frontend Training Volunteer Form</h1>
+        <h1> Training Volunteer Form</h1>
         <br>
-        <form action="{{ route('frontvolunteers.store') }}" method="post" enctype="multipart/form-data">
+        <form action="form/{{auth::user()->id}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('post')
             
@@ -65,7 +65,7 @@
             <div class="form-group">
                 <input type="hidden" class="form-control" id="user_id" name="user_id" required>
 
-                <label for="address">Address</label>
+                <label for="address">Address :</label>
                 <input type="text" class="form-control" id="address" name="Address" required>
 
 
@@ -74,17 +74,9 @@
 
             </div>
             <div class="form-group">
-                <label for="programmingLanguages">Proficient Frontend Programming Languages</label><br>
-                <input type="checkbox" id="HTML" name="Languages[]" value="HTML" class="check">
-                <label for="HTML">HTML</label><br>
-                <input type="checkbox" id="CSS" name="Languages[]" value="CSS" class="check">
-                <label for="CSS">CSS</label><br>
-                <input type="checkbox" id="JavaScript" name="Languages[]" value="JavaScript" class="check">
-                <label for="JavaScript">JavaScript</label><br>
-                <input type="checkbox" id="React" name="Languages[]" value="React" class="check">
-                <label for="React">React</label><br>
-                <input type="checkbox" id="Angular" name="Languages[]" value="Angular" class="check">
-                <label for="Angular">Angular</label><br>
+               <label for="address">Classes : </label>
+               <p> {{$language->name}}</p>
+                <input type="text" class="form-control" value="{{$language->name}}" id="address" name="Languages" required hidden>
             </div>
             
             <div class="form-group">

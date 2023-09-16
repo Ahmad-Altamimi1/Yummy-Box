@@ -91,7 +91,7 @@
 
                                                 {{-- <li> <a href="{{route('profile.show')}}">{{ Auth::user()->name }}</a></li> --}}
                                                 <li><a href="{{ route('profile.show') }}">profile</a></li>
-                                                <li><a href="chatify">Mess</a></li>
+                                                <li><a href="chatify">Message</a></li>
                                                 <li>
                                                     <!-- Authentication -->
                                                     <form method="POST" action="{{ route('logout') }}">

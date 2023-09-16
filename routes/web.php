@@ -183,12 +183,11 @@ Route::get('/backform', function () {
 Route::resource("volunteers", VolunteerController::class)->middleware('auth', 'verified');
 
 
-Route::get('/frontform', function () {
-    return view('pages.frontendForm');
-})->name('frontform')->middleware('auth', 'verified');
 
-Route::resource("frontvolunteers", FrontvolunteerController::class)->middleware('auth', 'verified');
+Route::post("single/frontform/form/{id}",[ FrontvolunteerController::class,'store'])->middleware('auth', 'verified');
 
+
+Route::get('single/frontform/{id}', [FrontvolunteerController::class, 'show'])->middleware('auth', 'verified')->name('frontform');;
 
 Route::get('/serviceform', function () {
     return view('pages.donationForm');
