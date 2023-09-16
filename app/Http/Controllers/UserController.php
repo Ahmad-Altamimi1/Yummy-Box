@@ -110,7 +110,7 @@ class UserController extends Controller
         $request->validate([
             'name' => ['required', 'regex:/^[A-Za-z\s]+$|^[\p{Arabic}\s]+$|^[\p{Hebrew}\s]+$/u', 'max:20'],
             'LastName' => ['required', 'regex:/^[A-Za-z\s]+$|^[\p{Arabic}\s]+$|^[\p{Hebrew}\s]+$/u', 'max:20'],
-            'email' => ['required|email'],
+            // 'email' => ['required|email'],
             'password' => ['required', 'regex:/^(?=.[a-z])(?=.[A-Z])(?=.*\d).{8,}$/i'],
             'phone' => 'required|regex:/^[0-9]{10}$/|unique:users,phone',
 
