@@ -155,10 +155,10 @@
                         <i class="fa fa-keyboard me-2"></i>Projects
                     </a>
                     <a href="{{ route('Admin_Dashboard.Volunteers') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.Volunteers') ? 'active' : '' }}">
-                        <i class="fa fa-table me-2"></i>Volunteers
+                        <i class="fa fa-table me-2"></i>Pended
                     </a>
                     <a href="{{ route('Admin_Dashboard.Vaccept') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.Vaccept') ? 'active' : '' }}">
-                        <i class="far fa-file-alt me-2"></i>Accept Volanteers
+                        <i class="far fa-file-alt me-2"></i>Accepted Volanteers
                     </a>
                     <a href="{{ route('Admin_Dashboard.Payments') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.Payments') ? 'active' : '' }}">
                         <i class="fa fa-chart-bar me-2"></i>Donation
