@@ -12,6 +12,7 @@ use App\Models\products;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
 
+use function Pest\Laravel\startSession;
 
 class CategoryController extends Controller
 {
@@ -23,12 +24,13 @@ class CategoryController extends Controller
     public function index()
     {
 
-        Session::put('url.intended', url()->previous());
-        Session::put('url.intended', url()->previous());
+        // Session::put('url.intended', url()->previous());
+        Session::put('url.single', url()->previous());
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->get();
         $users = DB::table('users')->get();
         $volanters = DB::table('paypals')->get();
+        
         // dd($categories);
         return view('pages.index', compact('categories', 'products', 'users', 'volanters'));
     }
@@ -40,12 +42,12 @@ class CategoryController extends Controller
      */
     public function find($id)
     {
+
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->get();
         $users = DB::table('users')->get();
         $volanters = DB::table('paypals')->get();
         $products = products::findOrFail($id);
-
         $startDate = Carbon::parse($products->created_at);
         $endDate = Carbon::now();
         $diffInMinutes = $endDate->diffInMinutes($startDate);
@@ -53,9 +55,35 @@ class CategoryController extends Controller
         $diffInDays = $endDate->diffInDays($startDate);
         $diffInMonths = $endDate->diffInMonths($startDate);
 
+        $totalsproduct = 0;
+        foreach ($volanters as $volanter) {
+            if ($volanter->product_id == $products->id) {
+
+                $totalsproduct += $volanter->amount;
+            }
+        }
+        $percant = (int) (($totalsproduct / $products->total) * 100);
+        $data = [
+            'products' => $products,
+            'diffInMinutes' => $diffInMinutes,
+            'diffInHours' => $diffInHours,
+            'diffInDays' => $diffInDays,
+            'diffInMonths' => $diffInMonths,
+            'categories' => $categories,
+            'users' => $users,
+            'volanters' => $volanters,
+            'totalsproduct' => $totalsproduct,
+            'percant'=> $percant,
+
+
+            // Add more data as needed
+        ];
+    
+        session(['totalsproduct' => $totalsproduct]);
+
+       
         // dd($currentDateTime);
-        return  view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths', 'id', 'categories', 'products', 'users', 'volanters'));
-        return view("pages.single", compact('products', 'diffInMinutes', 'diffInHours', 'diffInDays', 'diffInMonths', 'id', 'categories', 'products', 'users', 'volanters'));
+        return  view("pages.single", $data);
         // ['products' => $products]
     }
 

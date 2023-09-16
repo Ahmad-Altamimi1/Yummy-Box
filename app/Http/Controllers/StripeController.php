@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\products;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +22,7 @@ class StripeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function payment(Request $request)
+    public function payment(Request $request,$id)
     {
         if (Auth::check()) {
 
@@ -54,6 +55,16 @@ class StripeController extends Controller
                 'success_url' => route('stripe_success'),
                 'cancel_url' => route('stripe_cancel'),
             ]);
+            $totalsproduct = session('totalsproduct');
+
+   $products_total = products::find($id);
+
+ $amountFromResponse = $response['amount_total'];
+if($request->price > $request->difference){
+                return redirect()->back()->with('error', 'The amount is more than what we need ');
+            }
+
+            
             DB::table('paypals')->insert([
                 'paymen_id' => $response['id'],
                 'user_name' => 'ahmad',
@@ -61,9 +72,10 @@ class StripeController extends Controller
                 'payment_status' => 'paid',
                 'currency' => 'USD',
                 'amount' => $response['amount_total'] / 100,
-                'product_id' => $request->id,
+                'product_id' => $id,
 
             ]);
+
         return redirect()->away($response->url);
     } else {
      return redirect()->route('success') ;

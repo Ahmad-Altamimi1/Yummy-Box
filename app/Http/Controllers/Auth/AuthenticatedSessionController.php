@@ -35,9 +35,11 @@ class AuthenticatedSessionController extends Controller
     {  
         $request->authenticate();
         $request->session()->regenerate();
-  if (session('single')=== 'single') {
-            return redirect('single'/session());
-  }
+       
+        if ($request->has('next')) {
+            return redirect($request->input('next'));
+        }
+
   else{
         return redirect()->intended(RouteServiceProvider::HOME);
         }

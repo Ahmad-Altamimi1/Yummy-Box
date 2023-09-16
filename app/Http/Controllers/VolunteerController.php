@@ -22,13 +22,14 @@ class VolunteerController extends Controller
     {
         $volunteers = Volunteer::all();
         $file = Volunteer::findOrFail(1);
-        $filename= $file->filename;
-    //    return view('profile.edit')->with(['Volunteers'=>$volunteers,'filename'=> $filename]);
-       return view('profile.edit',compact('Volunteers', 'filename'));
+        $filename = $file->filename;
+        //    return view('profile.edit')->with(['Volunteers'=>$volunteers,'filename'=> $filename]);
+        return view('profile.edit', compact('Volunteers', 'filename'));
     }
 
 
-    public function view($id){
+    public function view($id)
+    {
         // $volunteers = Volunteer::all()->where($id);
         $volunteers = DB::table('frontvolunteers as fu')
             ->select([
@@ -44,14 +45,18 @@ class VolunteerController extends Controller
             ->get();
 
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadView('profile.partials.table', ['volunteers'=> $volunteers])->setPaper('a4','landscape');
+        $pdf->loadView('profile.partials.table', ['volunteers' => $volunteers])->setPaper('a4', 'landscape');
         return $pdf->stream();
-}
-    public function download(){
+        //  return $pdf->download('profile.partials.table');
+
+
+    }
+    public function download()
+    {
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML('<h1>Test</h1>');
         return $pdf->stream();
-}
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -73,27 +78,27 @@ class VolunteerController extends Controller
         $request->validate([
             'CV' => 'required|mimes:pdf,docx',
         ]);
-       Volunteer::create([
+        Volunteer::create([
 
-        'Address'=>$request->Address,
-        'Languages'=>$request->Languages,
-        'day'=>$request->day,
-        'Experience'=>$request->Experience,
-        'CV'=>$request->CV,
-       
-       ]);
-       return redirect('home');
+            'Address' => $request->Address,
+            'Languages' => $request->Languages,
+            'day' => $request->day,
+            'Experience' => $request->Experience,
+            'CV' => $request->CV,
+
+        ]);
+        return redirect('home');
     }
 
-    
-    public function upload(Volunteer $request)
-{
-    $request->validate([
-        'file' => 'required|mimes:pdf,docx',
-    ]);
 
-    // Handle file upload logic here
-}
+    public function upload(Volunteer $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:pdf,docx',
+        ]);
+
+        // Handle file upload logic here
+    }
 
     /**
      * Display the specified resource.
@@ -104,7 +109,7 @@ class VolunteerController extends Controller
     public function show(Volunteer $volunteer)
     {
         $volunteers = Volunteer::all();
-       return view('profile.edit')->with('Volunteers',$volunteers);
+        return view('profile.edit')->with('Volunteers', $volunteers);
     }
 
     /**
@@ -144,6 +149,6 @@ class VolunteerController extends Controller
     public function showe(Volunteer $volunteer)
     {
         $volunteers = Volunteer::all();
-       return view('Admin_Dashboard.Volunteers')->with('Volunteers',$volunteers);
+        return view('Admin_Dashboard.Volunteers')->with('Volunteers', $volunteers);
     }
 }

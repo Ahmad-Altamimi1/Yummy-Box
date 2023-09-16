@@ -8,7 +8,7 @@
         <!-- Sale & Revenue Start -->
         <div class="container-fluid pt-4 px-4 ">
             <div class="row g-4 mt-4">
-                <h1 class="text-warning" style="font-family: Georgia, 'Times New Roman', Times, serif"> TechHub </h1>
+                <h1 class="text-warning" style="font-family: Georgia, 'Times New Roman', Times, serif"> CODEMATE </h1>
                 <div class="col-sm-6 col-xl-3">
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fas fa-hands-helping fa-3x text-success"></i>
@@ -69,7 +69,7 @@
                             <h6 class="mb-0">Worldwide Sales</h6>
                             <a href="" class="text-warning" >Show All</a>
                         </div>
-                        <img src="{{asset('images/chart3.jpg')}}" style="width:90% ; height : 400px">
+                        <img src="{{url('images/chart3.jpg')}}" style="width:90% ; height : 400px">
                     </div>
                 </div>
                 <div class="col-sm-12 col-xl-6">
@@ -78,7 +78,7 @@
                             <h6 class="mb-0">Salse & Revenue</h6>
                             <a href="" class="text-warning">Show All</a>
                         </div>
-                        <img src="{{asset('images/excel.svg')}}" style="width:90% ; height :400px" >
+                        <img src="{{url('images/excel.svg')}}" style="width:90% ; height :400px" >
                     </div>
                 </div>
             </div>
