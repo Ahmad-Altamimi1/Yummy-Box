@@ -3,10 +3,10 @@
 
 
 <style>
-          .site-footer{
-                    display: none
-          }
- </style>
+    .site-footer {
+        display: none
+    }
+</style>
 
 
 
@@ -21,7 +21,20 @@
 
 @section('content')
 
+    <div class="heros overlays" style="background-image: url('images/about.jpg')">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h1 class="heading text-white mb-2" data-aos="fade-up">CodeMates Register </h1>
+                    <p data-aos="fade-up" class=" mb-5 text-white lead text-white-40">Home / Register </p>
 
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -45,7 +58,8 @@
             <div class="row g-0 align-items-center">
 
                 <div class="col-lg-6 mb-5 mb-lg-0">
-                    <img src="../images/Sign up-cuate.png" class="w-100 h-100 rounded-4 shadow-4 d-none d-lg-block" alt="" />
+                    <img src="../images/Sign up-cuate.png" class="w-100 h-100 rounded-4 shadow-4 d-none d-lg-block"
+                        alt="" />
                 </div>
                 <div class="col-lg-6 mb-5 mb-lg-0">
 

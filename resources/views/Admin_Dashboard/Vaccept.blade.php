@@ -6,7 +6,7 @@
 <div style="margin: 0% 8%">
   <div style="width: 100%" > 
 <br><br>
-      <h1 class="mx-auto"> Donated Ressourses </h1>  
+      <h1 class="mx-auto"> Accepted Volunteeres </h1>  
 
       <!-- resources/views/send-email.blade.php -->
 <form action="{{ route('admin.send-email.post') }}" method="POST">
@@ -33,15 +33,14 @@
                   </tr>
               </thead>
               <tbody>
-                
                   @foreach ($vaccepts as $vaccept)
                 <tr>
                     <td>{{ $vaccept->id }}</td>
                     <td>{{ $vaccept->user_id }}</td>
                     <td>{{ $vaccept->Address }} </td>
-                    <td>{{ $vaccept->CV }}</td>
+                       <td scope="col"><a href="{{ url('uplods/' . $vaccept->CV) }}">Show file</a></td>
+
                     <td>{{ $vaccept->email }}</td>
-                    
                     <td>{{ $vaccept->Languages}} </td>
                     <td>{{ $vaccept->day}} </td>
                    

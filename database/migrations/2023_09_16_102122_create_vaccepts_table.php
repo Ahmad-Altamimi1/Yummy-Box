@@ -19,6 +19,7 @@ return new class extends Migration
                 $table->string('Address');
                 $table->string('Languages');
                 $table->string('day');
+                $table->string('email');
                 $table->string('Experience');
                 $table->string('CV');
                 $table->timestamps();

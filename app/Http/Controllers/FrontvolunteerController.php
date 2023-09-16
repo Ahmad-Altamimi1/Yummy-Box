@@ -54,7 +54,7 @@ class FrontvolunteerController extends Controller
         }
 
         Frontvolunteer::create([
-"user_id" =>Auth::user()->id,
+   "user_id" =>Auth::user()->id,
             'Address' => $request->Address,
             'Languages' => $request->Languages,
             'day' => $request->day,

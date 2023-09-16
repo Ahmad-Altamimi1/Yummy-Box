@@ -1,6 +1,17 @@
-@include('layouts.nav')
+@extends('layouts.master')
 
 
+@section('title', 'front-form')
+
+
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
 
 @section('content')
 
@@ -10,9 +21,13 @@
     <style>
         h1 {
             text-align: center;
-            margin-top: 120px;
+            padding: 20px 0;
         }
 
+        .form-group{
+          width: 80%;
+          margin: auto;
+        }
         .form-group label {
             font-weight: bold;
         }
@@ -31,28 +46,47 @@
             box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
         }
 
-        #submit{
+        #submit {
             margin-bottom: 20px;
             margin-left: 37%;
             width: 200px;
+            margin-top: 20px;
 
         }
+
         @media (max-width: 425px) {
-            #submit{
-            margin-left: 14% !important ;
+            #submit {
+                margin-left: 14% !important;
+            }
         }
-        }
-        #formdiv{
+
+        #formdiv {
             width: 70%;
             margin: auto;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-            margin-bottom: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
         }
-        label , .check{
+
+        label,
+        .check {
             margin-left: 10px;
         }
-       
     </style>
+
+    <div class="heros overlays" style="background-image: url('images/about.jpg')">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h1 class="heading text-white mb-2" data-aos="fade-up">  Volunteer </h1>
+                    <p data-aos="fade-up" class=" mb-5 text-white lead text-white-40">Home / Volunteer </p>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
     <div class="container mt-5">
         <div id="formdiv">
         <h1> Training Volunteer Form</h1>
@@ -69,7 +103,6 @@
                 <input type="text" class="form-control" id="address" name="Address" required>
 
 
-                
 
 
             </div>
@@ -90,33 +123,59 @@
                     <option value="wednesday">Wednesday</option>
                     <option value="thursday">Thursday</option>
 
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="experience">Experience</label>
-                <textarea class="form-control" id="experience" name="Experience" rows="3" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="cv">CV</label>
-                <input type="file" class="form-control-file" id="cv" name="CV" required>
-            </div>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
                 </div>
-            @endif
+                <div class="form-group">
+                    <label for="programmingLanguages">Proficient Frontend Programming Languages</label><br>
+                    <input type="checkbox" id="HTML" name="Languages[]" value="HTML" class="check">
+                    <label for="HTML">fornEnd</label><br>
+                    <input type="checkbox" id="CSS" name="Languages[]" value="CSS" class="check">
+                    <label for="CSS">CSS</label><br>
+                    <input type="checkbox" id="JavaScript" name="Languages[]" value="JavaScript" class="check">
+                    <label for="JavaScript">JavaScript</label><br>
+                    <input type="checkbox" id="React" name="Languages[]" value="React" class="check">
+                    <label for="React">React</label><br>
+                    <input type="checkbox" id="Angular" name="Languages[]" value="Angular" class="check">
+                    <label for="Angular">Angular</label><br>
+                </div>
 
-            <button id="submit" type="submit" class="btn btn-primary  " value="submit">Submit</button>
-        </form>
-      </div>
+                <div class="form-group">
+                    <label for="day">I would like to help weekly</label>
+                    <select class="form-control" id="day" name="day">
+                        <option value="Choose Day">Choose Day</option>
+                        <option value="saturday">Saturday</option>
+                        <option value="sunday">Sunday</option>
+                        <option value="monday">Monday</option>
+                        <option value="tuesday">Tuesday</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="thursday">Thursday</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Experience</label>
+                    <textarea class="form-control" id="experience" name="Experience" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="cv">CV</label>
+                    <input type="file" class="form-control-file" id="cv" name="CV" required>
+                </div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <button id="submit" type="submit" class="btn btn-primary  " value="submit">Submit</button>
+            </form>
+        </div>
     </div>
 
 
 
 
 
-    @include('layouts.footer')
+    @endsection
