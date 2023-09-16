@@ -43,7 +43,7 @@ class AdminController extends Controller
         $request->validate([
             'name' => ['required', 'regex:/^[A-Za-z\s]+$|^[\p{Arabic}\s]+$|^[\p{Hebrew}\s]+$/u', 'max:20'],
             'last_name' => ['required', 'regex:/^[A-Za-z\s]+$|^[\p{Arabic}\s]+$|^[\p{Hebrew}\s]+$/u', 'max:20'],
-            'email' => ['required|email'],
+            // 'email' => ['required'|'email'],
             'password' => ['required','regex:/^(?=.[a-z])(?=.[A-Z])(?=.*\d).{8,}$/i' ],
         ], [
             'name.required' => 'The name field is required.',
@@ -112,7 +112,7 @@ class AdminController extends Controller
         $request->validate([
             'name' => ['required', 'regex:/^[A-Za-z\s]+$|^[\p{Arabic}\s]+$|^[\p{Hebrew}\s]+$/u', 'max:20'],
             'last_name' => ['required', 'regex:/^[A-Za-z\s]+$|^[\p{Arabic}\s]+$|^[\p{Hebrew}\s]+$/u', 'max:20'],
-            'email' => ['required|email'],
+            // 'email' => ['required|email'],
             'password' => ['required','regex:/^(?=.[a-z])(?=.[A-Z])(?=.*\d).{8,}$/i' ],
         ], [
             'name.required' => 'The name field is required.',

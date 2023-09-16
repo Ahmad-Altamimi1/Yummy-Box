@@ -107,17 +107,18 @@ Route::middleware('auth')->group(function () {
 
 
 // Define the PayPal routes with the appropriate methods
-Route::post('paypal', [PaypalController::class, 'payment'])->middleware('auth', 'verified')->name('paypal'); // Use 'store' method for POST
-Route::get('paypal/success', [PaypalController::class, 'success'])->name('paypal_success'); // Use 'success' method for GET
+Route::post('single/payment/paypal/{id}', [PaypalController::class, 'payment'])->middleware('auth', 'verified')->name('paypal/{id}'); // Use 'store' method for POST
+Route::get('paypal/success/{product_id}', [PaypalController::class, 'success'])->name('paypal_success'); // Use 'success' method for GET
 Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel'); // Use 'cancel' method for GET
 // Define the PayPal routes with the appropriate methods
 
+Route::get('single/payment/{id}', [PaypalController::class, 'showpayment'])->middleware('auth','verified'); // Use 'success' method for GET
 
 
 
-Route::get('/payment', function () {
-    return view('pages.payment');
-})->name('payment')->middleware('auth', 'verified');
+// Route::get('single/payment/{id}', function () {
+//     return view('pages.payment');
+// })->name('payment')->middleware('auth', 'verified');
 
 // Define the Stripe routes with the appropriate methods
 Route::get('finish', function () {
@@ -126,7 +127,7 @@ Route::get('finish', function () {
 Route::get('finishform', function () {
     return view('sccessform');
 })->name('finishform');
-Route::post('stripe/{id}', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe_single'); // Use 'store' method for POST
+Route::post('single/payment/stripe/{id}', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe_single'); // Use 'store' method for POST
 Route::get('stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
 Route::get('stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
 

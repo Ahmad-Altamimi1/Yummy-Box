@@ -1,3 +1,4 @@
+console.log('hoiiii');
 (function(){
 
 	'use strict'
@@ -86,5 +87,81 @@
 	}; 
 	siteMenuClone();
 
+// Get a reference to the navigation bar element
+var navbar = document.querySelector('.site-nav');
 
-})()
+// Get the initial offset of the navigation bar
+var offset = navbar.offsetTop;
+
+// Function to handle the scroll event
+function handleScroll() {
+    if (window.pageYOffset >= offset) {
+        // Add the 'fixed' class to the navigation bar
+        navbar.classList.add('fixed');
+        // Set the background color to red
+        navbar.style.background = 'red';
+    } else {
+        // Remove the 'fixed' class from the navigation bar
+        navbar.classList.remove('fixed');
+        // Reset the background color
+        navbar.style.background = '';
+    }
+}
+
+// Attach the scroll event listener to the window
+window.addEventListener('scroll', handleScroll);
+
+
+
+
+// $(function () {
+//   $(document).scroll(function () {
+//     var $nav = $(".site-nav");
+//     $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+//   });
+});
+
+
+
+
+// Get a reference to the navigation bar element
+var navbar = document.querySelector('.site-nav');
+var image = document.querySelector(".logo-image");
+var lii = document.querySelectorAll( ".site-nav .site-navigation .site-menu>li>a "
+);
+
+// Get the initial offset of the navigation bar
+var offset = navbar.offsetTop;
+
+// Function to handle the scroll event
+function handleScroll() {
+	lii.forEach((li) => {
+		if (!(li.classList.contains('active'))) {
+                              if (window.scrollY < 60) {
+                                        // Add the 'fixed' class to the navigation bar
+										image.src =
+                                                                                                              "https://media.discordapp.net/attachments/1149330077880942705/1151770132192960542/codemates.png?width=721&height=541";
+                                        navbar.classList.add("fixed");
+                                        navbar.classList.remove("scrolled");
+                                        li.classList.remove("licolor");
+
+                                        // Set the background color to red
+                                        navbar.style.background = "transparent";
+                              } else {
+                                        // Remove the 'fixed' class from the navigation bar
+                                        navbar.classList.remove("fixed");
+                                        navbar.classList.add("scrolled");
+                                        li.classList.add("licolor");
+										image.src =
+                                                                                                              "https://media.discordapp.net/attachments/1149330077880942705/1151770919937781760/codemates-logo__1_-removebg-preview_1.png?width=721&height=541";
+
+
+                                        // Reset the background color
+                              }
+                    }
+          });
+
+}
+
+// Attach the scroll event listener to the window
+window.addEventListener('scroll', handleScroll);
