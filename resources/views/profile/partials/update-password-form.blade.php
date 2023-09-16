@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <section style="text-align: center;">
+    <section >
         <!-- Ensure there's no container with constraints on width around the table -->
         <style>/* Basic button styling */
 .custom-button {
@@ -34,8 +34,12 @@
 </style>
         <form action="{{ route('viewpdf') }}/{{ Auth::user()->id }}" method="post" target="_blank" >
           @csrf
-          <input type="submit" value="View as PDF" class="custom-button">
-        <h2 class="text-xl font-semibold mb-4">Volunteering Programs</h2>
+        
+        <br>  <div>
+        <h2 style="display: inline-block">Volunteering Programs</h2>
+      
+        <input type="submit" value="View as PDF" class="custom-button" style="margin-left: 85% ;position:relative ; bottom:55px" >
+        </div>
         <table class="table" style="width: 100%">
             <thead style="background-color: rgb(179, 236, 164) ;">
               <tr>
@@ -79,6 +83,8 @@
           --}}
             </tbody>
           </table>
+
+         
         </form>
 
     </section>

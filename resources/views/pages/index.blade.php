@@ -130,7 +130,7 @@
                     <div class="card" style="width: 100%; height:400px ;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); ">
                         <img class="card-img-top mx-auto" src="images/donate.jpg" alt="Card image cap" style="width: 90%; ">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Mony Donation</h5>
+                            <h5 class="card-title">Financial Donation</h5>
                             <p class="card-text">Transform lives with your donation. Make a difference today!</p>
                             <a href="#" class="btn btn-primary"style="text-align:center">Donate Now</a>
                         </div>
@@ -555,7 +555,7 @@
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
                         <img src="images/partnership4.jpg" alt="Image" class="img-fluid"
-                            style="border-radius: 50% ; height :40%">
+                            style="border-radius: 50% ; height :38%">
                     </a>
                 </div>
 
@@ -577,7 +577,7 @@
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
                         <img src="images/partnership5.jpg" alt="Image" class="img-fluid"
-                            style="border-radius: 50% ; height :40%">
+                            style="border-radius: 50% ; height :37%">
                     </a>
                 </div>
 
