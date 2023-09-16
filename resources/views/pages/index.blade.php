@@ -28,7 +28,8 @@
                     <p data-aos="fade-up" class=" mb-5 text-white lead text-white-50">program to help increase access to
                         education in communities around jordan</p>
                     <p data-aos="fade-up" data-aos-delay="100">
-                        <a href="{{ route('traineeForm') }}" class="btn btn-primary me-4 d-inline-flex align-items-center"><span>Be a Trainee </span></a>
+                        <a href="{{ route('traineeForm') }}"
+                            class="btn btn-primary me-4 d-inline-flex align-items-center"><span>Be a Trainee </span></a>
                         <a href="https://youtu.be/N7ZmPYaXoic?si=H_yHMLXbd2sQmCSv"
                             class="text-white glightbox d-inline-flex align-items-center"><span
                                 class="icon-play me-2"></span><span>Watch the video</span></a>
@@ -210,9 +211,9 @@
                                                 $totalsproduct += $volanter->amount;
                                             @endphp
                                             @php
-
+                                                
                                                 $percant = (int) (($totalsproduct / $product->total) * 100);
-
+                                                
                                             @endphp
                                         @endif
                                     @endforeach
@@ -461,7 +462,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="causes-item bg-white">
-                        <a href="{{ route('news') }}"><img src="{{url('images/tech.jpg')}}" alt="Image"
+                        <a href="{{ route('news') }}"><img src="{{ url('images/tech.jpg') }}" alt="Image"
                                 class="img-fluid mb-4 rounded"></a>
                         <div class="px-4 pb-3 pt-3">
                             <span class="date">Sep 3, 2023</span>
@@ -478,7 +479,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="causes-item bg-white">
-                        <a href="{{ route('news') }}"><img src="{{url('images/kids.jpg')}}" alt="Image"
+                        <a href="{{ route('news') }}"><img src="{{ url('images/kids.jpg') }}" alt="Image"
                                 class="img-fluid mb-4 rounded"></a>
                         <div class="px-4 pb-3 pt-3">
                             <span class="date">jul 29, 2023</span>
@@ -495,7 +496,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="causes-item bg-white">
-                        <a href="{{ route('news') }}"><img src="{{url('images/communitie.png')}}" alt="Image"
+                        <a href="{{ route('news') }}"><img src="{{ url('images/communitie.png') }}" alt="Image"
                                 class="img-fluid mb-4 rounded"></a>
                         <div class="px-4 pb-3 pt-3">
                             <span class="date">Aug 18, 2023</span>
@@ -537,10 +538,10 @@
         <div class="instagram-slider-wrap" data-aos="fade-up" data-aos-delay="200">
             <div class="instagram-slider mb-2" id="instagram-slider">
 
-                <div class="item" >
+                <div class="item">
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
-                        <img src="{{url('images/partnership4.jpg')}}" alt="Image" class="img-fluid"
+                        <img src="{{ url('images/partnership4.jpg') }}" alt="Image" class="img-fluid"
                             style="border-radius: 50% ; height :40%">
                     </a>
                 </div>
@@ -548,15 +549,16 @@
                 <div class="item">
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
-                        <img src="{{url('images/img_v_8-min.jpg')}}" alt="Image" class="img-fluid" style="border-radius: 50%">
+                        <img src="{{ url('images/img_v_8-min.jpg') }}" alt="Image" class="img-fluid"
+                            style="border-radius: 50%">
                     </a>
                 </div>
 
-               
+
                 <div class="item">
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
-                        <img src="{{url('images/partnership4.jpg')}}" alt="Image" class="img-fluid"
+                        <img src="{{ url('images/partnership4.jpg') }}" alt="Image" class="img-fluid"
                             style="border-radius: 50% ; height :40%">
                     </a>
                 </div>
@@ -564,21 +566,23 @@
                 <div class="item">
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
-                        <img src="{{url('images/img_v_4-min.jpg')}}" alt="Image" class="img-fluid" style="border-radius: 50%">
+                        <img src="{{ url('images/img_v_4-min.jpg') }}" alt="Image" class="img-fluid"
+                            style="border-radius: 50%">
                     </a>
                 </div>
 
                 <div class="item">
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
-                        <img src="{{url('images/img_v_5-min.jpg')}}" alt="Image" class="img-fluid" style="border-radius: 50%">
+                        <img src="{{ url('images/img_v_5-min.jpg') }}" alt="Image" class="img-fluid"
+                            style="border-radius: 50%">
                     </a>
                 </div>
 
                 <div class="item">
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
-                        <img src="{{url('images/partnership5.jpg')}}" alt="Image" class="img-fluid"
+                        <img src="{{ url('images/partnership5.jpg') }}" alt="Image" class="img-fluid"
                             style="border-radius: 50% ; height :40%">
                     </a>
                 </div>

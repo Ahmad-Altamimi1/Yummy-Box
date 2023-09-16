@@ -64,7 +64,8 @@ Route::resource('pages/', ProductsController::class);
 
 Route::resource('product', ProductsController::class);
 
-Route::get('/products', [ProductsController::class, 'product'])->name('products.index');
+Route::get('/products', [ProductsController::class, 'ourproject'])->name('products.index');
+
 
 // Route::get('/', [CategoryController::class, 'index']);
 // Route::get('/home', [CategoryController::class, 'index']);
