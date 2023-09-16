@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VolunteerController;
+use App\Http\Controllers\TraineeController;
 use App\Http\Controllers\Admin_Auth\AdminAuthenticatedSessionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
@@ -278,8 +279,16 @@ Route::get('/Admin_Home', [ContactController::class, 'show'])->name('Admin_Dashb
 
 
 
-
+    
 });
 
-
+Route::get('/traineeForm', function () {
+        return view('pages.traineeForm');
+    })->name('traineeForm')->middleware('auth', 'verified');
+    
+    Route::resource("trainees", TraineeController::class);
+    // Route::post('/traineeForm', [TraineeController::class, 'store'])->name('traineeForm');
+    
 require __DIR__ . '/auth.php';
+
+
