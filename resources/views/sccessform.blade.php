@@ -1,6 +1,5 @@
 {{-- @extends('layouts.nav') --}}
 @extends('layouts.master')
-    @section('content')
         
 <style>
   #alertMO{
@@ -182,6 +181,17 @@ button:hover {
   background-color: #85ddbf;
 }
 </style>
+
+
+
+
+
+@section('content')
+
+
+
+
+
 <div class="all">
 <div class="wrapperAlert">
 

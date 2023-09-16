@@ -74,7 +74,7 @@
                                 <li class="{{ request()->is('home*') ? 'active' : '' }}"><a
                                         href="{{ route('home') }}">Home</a></li>
                                 <li class="{{ request()->is('products*') ? 'active' : '' }}"><a
-                                        href="{{ route('products.index') }}">Our Projects</a></li>
+                                        href="{{ route('products.index') }}">Bootcamps</a></li>
 
                                 <li class="{{ request()->is('about*') ? 'active' : '' }}"><a href="about">About</a>
                                 </li>
@@ -91,7 +91,7 @@
 
                                                 {{-- <li> <a href="{{route('profile.show')}}">{{ Auth::user()->name }}</a></li> --}}
                                                 <li><a href="{{ route('profile.show') }}">profile</a></li>
-                                                <li><a href="chatify">Mess</a></li>
+                                                <li><a href="chatify">Message</a></li>
                                                 <li>
                                                     <!-- Authentication -->
                                                     <form method="POST" action="{{ route('logout') }}">
@@ -135,6 +135,6 @@
             color: #59886b !important;
             font-weight: 700
         }
-        
+
         </style>
     </nav>

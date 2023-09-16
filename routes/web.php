@@ -183,12 +183,11 @@ Route::get('/backform', function () {
 Route::resource("volunteers", VolunteerController::class)->middleware('auth', 'verified');
 
 
-Route::get('/frontform', function () {
-    return view('pages.frontendForm');
-})->name('frontform')->middleware('auth', 'verified');
 
-Route::resource("frontvolunteers", FrontvolunteerController::class)->middleware('auth', 'verified');
+Route::post("single/frontform/form/{id}",[ FrontvolunteerController::class,'store'])->middleware('auth', 'verified');
 
+
+Route::get('single/frontform/{id}', [FrontvolunteerController::class, 'show'])->middleware('auth', 'verified')->name('frontform');;
 
 Route::get('/serviceform', function () {
     return view('pages.donationForm');
@@ -227,8 +226,8 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
 
     Route::get('/Admin_profile', [AdminController::class, 'index'])->name('Admin_Dashboard.profile');
 
-   
-  
+
+
 
     //  volunteers data
     Route::get('/Admin_Volunteers', [VolunteerController::class, 'showe'])->name('Admin_Dashboard.Volunteers');
@@ -240,7 +239,7 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     //ressourses data
     Route::get('/Admin_ressourses', [DonorController::class, 'show'])->name('Admin_Dashboard.ressourses');
     Route::get('/Admin_Dashboard_Vaccept', [VacceptController::class, 'show'])->name('Admin_Dashboard.Vaccept');
-    
+
 
     // Route::get('/admins/{id}/edit', [AdminController::class, 'edit'])->name('Admin_Dashboard.Admins_Update');
 
@@ -288,8 +287,8 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
 
 
 
-    
-    // email for all users 
+
+    // email for all users
     Route::get('/send-email', [VacceptController::class,'showEmailForm'])->name('admin.send-email');
     Route::post('/send-email', [VacceptController::class, 'sendEmail'])->name('admin.send-email.post');
 
@@ -300,10 +299,10 @@ Route::prefix('admin')->middleware('IsAdmin')->group(function () {
 Route::get('/traineeForm', function () {
         return view('pages.traineeForm');
     })->name('traineeForm')->middleware('auth', 'verified');
-    
+
     Route::resource("trainees", TraineeController::class);
     // Route::post('/traineeForm', [TraineeController::class, 'store'])->name('traineeForm');
-    
+
 require __DIR__ . '/auth.php';
 
 

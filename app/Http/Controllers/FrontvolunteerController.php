@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\products;
+
 use App\Models\Frontvolunteer;
 use App\Http\Requests\StoreFrontvolunteerRequest;
 use App\Http\Requests\UpdateFrontvolunteerRequest;
@@ -24,9 +26,12 @@ class FrontvolunteerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function show($id)
     {
-        //
+        $language = products::find($id);
+        return view('pages.frontendForm',compact('language'));
+
+
     }
 
     /**
@@ -35,7 +40,7 @@ class FrontvolunteerController extends Controller
      * @param  \App\Http\Requests\StoreFrontvolunteerRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFrontvolunteerRequest $request)
+    public function store(StoreFrontvolunteerRequest $request,$id)
     {
         $request->validate([
             'CV' => 'required|mimes:pdf,docx',
@@ -47,6 +52,7 @@ class FrontvolunteerController extends Controller
             $pdfFile->move(public_path('uplods'), $authPdfFile);
             $users['CV'] = $authPdfFile;
         }
+
         Frontvolunteer::create([
    "user_id" =>Auth::user()->id,
             'Address' => $request->Address,
@@ -67,11 +73,7 @@ class FrontvolunteerController extends Controller
      * @param  \App\Models\Frontvolunteer  $frontvolunteer
      * @return \Illuminate\Http\Response
      */
-    public function show(Frontvolunteer $frontvolunteer)
-    {
-        //
-    }
-
+   
     /**
      * Show the form for editing the specified resource.
      *

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->string('Address');
-            $table->string('Languages');
+            $table->string('Languages')->nullable();
             $table->string('day');
             $table->string('Experience');
             $table->string('CV');

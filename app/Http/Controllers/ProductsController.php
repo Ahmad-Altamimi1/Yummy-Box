@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\products;
 use App\Http\Controllers\Controller;
+use DB;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 use App\Models\Volunteer;
@@ -13,9 +14,12 @@ class ProductsController extends Controller
 
     public function ourproject()
     {
-        $products = products::all();
-        $volanters = Volunteer::all();
-        return view('pages.products', compact('products', 'volanters'));
+        $categories = DB::table('categories')->get();
+        $products = DB::table('products')->get();
+        $users = DB::table('users')->get();
+        $volanters = DB::table('paypals')->get();
+        
+        return view('pages.products', compact('categories', 'products', 'users', 'volanters'));
     }
     public function product($id)
           {

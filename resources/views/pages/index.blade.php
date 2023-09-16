@@ -21,7 +21,7 @@
     <div class="hero overlay" style="background-image: url('images/classroom-1.png')">
         <div class="container">
             <div class="row align-items-center justify-content-between">
-                <div class="col-lg-8 text-left">
+                <div class="col-lg-12 text-center">
                     <span class="subheading-white text-white mb-3" data-aos="fade-up">CODE-MATES</span>
                     <h1 class="heading text-white mb-2" data-aos="fade-up">Empower through Code & Giving
                     </h1>
@@ -133,7 +133,7 @@
                         <div class="card-body text-center">
                             <h5 class="card-title">Financial Donation</h5>
                             <p class="card-text">Transform lives with your donation. Make a difference today!</p>
-                            <a href="#" class="btn btn-primary"style="text-align:center">Donate Now</a>
+                            <a href="#services" class="btn btn-primary"style="text-align:center">Donate Now</a>
                         </div>
                     </div>
 
@@ -159,7 +159,7 @@
                         <div class="card-body text-center">
                             <h4 class="card-title">Volunteer with us</h4>
                             <p class="card-text">Train with us and be part of a transformative journey.</p>
-                            <a href="#" class="btn btn-primary">Volunteer Now</a>
+                            <a href="#services" class="btn btn-primary">Volunteer Now</a>
                         </div>
                     </div>
                 </div>
@@ -173,9 +173,9 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                    <span class="subheading mb-3">Projects</span>
-                    <h2 class="heading">Featured Projects</h2>
-                    <p>Explore our Featured Projects and witness the impact of code and compassion in action.</p>
+                    <span class="subheading mb-3">Bootcamps</span>
+                    <h2 class="heading">Our Bootcamps</h2>
+                    <p>Explore  Our Bootcamps and witness the impact of code and compassion in action.</p>
 
                     <div id="features-slider-nav" class="mt-5 d-flex justify-content-center">
                         <button class="btn btn-primary prev d-flex align-items-center me-2" data-controls="prev">
