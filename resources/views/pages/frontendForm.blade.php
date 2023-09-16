@@ -78,7 +78,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 text-center">
                     <h1 class="heading text-white mb-2" data-aos="fade-up">  Volunteer </h1>
-                    <p data-aos="fade-up" class=" mb-5 text-white lead text-white-40">Home / Volunteer </p>
+                    <p data-aos="fade-up" class=" mb-5 text-white lead text-white-40">{{$language->name}} / Volunteer </p>
 
 
                 </div>
@@ -91,7 +91,7 @@
         <div id="formdiv">
         <h1> Training Volunteer Form</h1>
         <br>
-        <form action="form/{{auth::user()->id}}" method="post" enctype="multipart/form-data">
+        <form action='form/{{Auth::user()->id}}' method="post" enctype="multipart/form-data">
             @csrf
             @method('post')
             
@@ -107,7 +107,7 @@
 
             </div>
             <div class="form-group">
-               <label for="address">Classes : </label>
+               <label for="address">Bootcamp : </label>
                <p> {{$language->name}}</p>
                 <input type="text" class="form-control" value="{{$language->name}}" id="address" name="Languages" required hidden>
             </div>
@@ -124,33 +124,8 @@
                     <option value="thursday">Thursday</option>
 
                 </div>
-                <div class="form-group">
-                    <label for="programmingLanguages">Proficient Frontend Programming Languages</label><br>
-                    <input type="checkbox" id="HTML" name="Languages[]" value="HTML" class="check">
-                    <label for="HTML">fornEnd</label><br>
-                    <input type="checkbox" id="CSS" name="Languages[]" value="CSS" class="check">
-                    <label for="CSS">CSS</label><br>
-                    <input type="checkbox" id="JavaScript" name="Languages[]" value="JavaScript" class="check">
-                    <label for="JavaScript">JavaScript</label><br>
-                    <input type="checkbox" id="React" name="Languages[]" value="React" class="check">
-                    <label for="React">React</label><br>
-                    <input type="checkbox" id="Angular" name="Languages[]" value="Angular" class="check">
-                    <label for="Angular">Angular</label><br>
-                </div>
-
-                <div class="form-group">
-                    <label for="day">I would like to help weekly</label>
-                    <select class="form-control" id="day" name="day">
-                        <option value="Choose Day">Choose Day</option>
-                        <option value="saturday">Saturday</option>
-                        <option value="sunday">Sunday</option>
-                        <option value="monday">Monday</option>
-                        <option value="tuesday">Tuesday</option>
-                        <option value="wednesday">Wednesday</option>
-                        <option value="thursday">Thursday</option>
-
-                    </select>
-                </div>
+                
+                
                 <div class="form-group">
                     <label for="experience">Experience</label>
                     <textarea class="form-control" id="experience" name="Experience" rows="3" required></textarea>

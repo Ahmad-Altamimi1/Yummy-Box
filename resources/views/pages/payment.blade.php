@@ -25,7 +25,6 @@
 
     }
 </style>
-
 <div class="site-mobile-menu site-navbar-target">
           <div class="site-mobile-menu-header">
               <div class="site-mobile-menu-close">
@@ -34,6 +33,12 @@
           </div>
           <div class="site-mobile-menu-body"></div>
       </div>
+
+@section('content')
+
+
+
+
 
       <div class="heros overlays" style="background-image: url('../images/about.jpg')">
           <div class="container">
@@ -49,11 +54,6 @@
               </div>
           </div>
       </div>
-
-@section('content')
-
-
-
 
     <div class="container">
         <div class="row justify-content-center payment">
@@ -109,7 +109,8 @@
                 </form>
             </div>
         </div>
+      
     </div>
+ @endsection 
 
 
-@endsection

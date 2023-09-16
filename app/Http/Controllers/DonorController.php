@@ -33,7 +33,7 @@ class DonorController extends Controller
     {
         $input = $request->all();
        Donor::create($input);
-       return redirect('home');
+       return redirect('finish');
     }
 
     /**
