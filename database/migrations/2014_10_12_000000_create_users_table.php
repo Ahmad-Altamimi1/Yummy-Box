@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password'); // Use a string data type for passwords
             $table->bigInteger('phone')->nullable(); // Phone can be nullable
-            $table->mediumText('image')->nullable(); // Image can be nullable
+            $table->mediumText('image')->nullable()->default(); // Image can be nullable
             $table->rememberToken();
             $table->timestamps();
         });

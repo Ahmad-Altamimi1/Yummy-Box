@@ -1,13 +1,13 @@
 @extends('layouts.adminMaster')
 
 @section('content')
+
 <div class="content " >
 
-    <div style="margin: 0% 8% ">
-        <div style="width: 100%">
-     <br><br>
-
-    <div class="container mt-2">
+<div style="margin: 0% 8% ">
+<div style="width: 100%">
+<br><br>
+    <div class="container mt-5">
         <div class="card">
             <div class="card-header" style="background-color: rgba(117, 192, 157, 0.489)">
                 <h4 class="card-title py-3" >Add New Project</h4>
@@ -90,6 +90,7 @@
             </div>
         </div>
     </div>
+
 </div>
 </div>
 @endsection

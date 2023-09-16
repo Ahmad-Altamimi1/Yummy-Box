@@ -1,6 +1,7 @@
 
 
-
+@extends('layouts.master')
+@section('title', 'profile')
 <x-app-layout>
 
 <style>

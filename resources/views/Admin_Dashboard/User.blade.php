@@ -19,7 +19,7 @@
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Image</th>
-                        <th style="text-align: center">Actions</th>
+                        <th >Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,14 +49,14 @@
                                             type="submit" value="DELETE"></button>
                                     </form>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <form action="useredit/{{ $user['id'] }}" method=""
                                         style="margin-bottom: 2px">
                                         @csrf
                                         <button class="btn fa-regular fa-pen-to-square text-warning fa-lg"
                                             type="submit" value="Update"></button>
                                     </form>
-                                </div>
+                                </div> --}}
                             </div>
                         </td>
                     </tr>

@@ -11,15 +11,15 @@
     <!-- Favicon -->
     <link href="{{ url('img/favicon.ico') }}" rel="icon">
     
-    <!-- Google Web Fonts -->
+    {{-- <!-- Google Web Fonts -->
     <link rel="preconnect" href="{{url('https://fonts.googleapis.com%22%3E/')}}">
-    <link rel="preconnect" href="{{url('https://fonts.gstatic.com/')}}" crossorigin>
+    <link rel="preconnect" href="{{url('https://fonts.gstatic.com/')}}" >
     <link href="{{url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap')}}" rel="stylesheet">
-    
-    <!-- Icon Font Stylesheet -->
+     --}}
+    {{-- <!-- Icon Font Stylesheet -->
     <link href="{{url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css')}}" rel="stylesheet">
     <link href="{{url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css')}}" rel="stylesheet">
-    
+     --}}
     <!-- Libraries Stylesheet -->
     <link href="{{ url('lib/owlcarousel/urls/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ url('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
@@ -30,7 +30,7 @@
     <!-- Template Stylesheet -->
     <link href="{{ url('css/styleadmain.css') }}" rel="stylesheet">
 
-    <script src="{{url('https://kit.fontawesome.com/d6692547f6.js')}}" crossorigin="anonymous"></script>
+    <script src="{{url('https://kit.fontawesome.com/d6692547f6.js')}}"></script>
 </head>
  
 <body>
@@ -123,14 +123,7 @@
     </nav>
     <!-- Navbar End -->
 
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner "  style=" color: rgb(185, 205, 34); width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
-
+       
 
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3 bg-light" style="border-right:2px" >
@@ -164,12 +157,16 @@
                     <a href="{{ route('Admin_Dashboard.Volunteers') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.Volunteers') ? 'active' : '' }}">
                         <i class="fa fa-table me-2"></i>Volunteers
                     </a>
+                    <a href="{{ route('Admin_Dashboard.Vaccept') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.Vaccept') ? 'active' : '' }}">
+                        <i class="far fa-file-alt me-2"></i>Accept Volanteers
+                    </a>
                     <a href="{{ route('Admin_Dashboard.Payments') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.Payments') ? 'active' : '' }}">
                         <i class="fa fa-chart-bar me-2"></i>Donation
                     </a>
                     <a href="{{ route('Admin_Dashboard.ressourses') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.ressourses') ? 'active' : '' }}">
                         <i class="far fa-file-alt me-2"></i>Ressources
                     </a>
+                  
                     
                 </div>
             </nav>

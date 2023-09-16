@@ -11,6 +11,12 @@ use RealRashid\SweetAlert\Facades\Alert;
 class ProductsController extends Controller
 {
 
+    public function ourproject()
+    {
+        $products = products::all();
+        $volanters = Volunteer::all();
+        return view('pages.products', compact('products', 'volanters'));
+    }
     public function product($id)
           {
                     $products = products::find($id);
@@ -94,12 +100,16 @@ class ProductsController extends Controller
         $product->time= $request->time;
         $product->total= $request->total;
         if ($request->hasFile('image')) {
+            // Validate and store the uploaded image
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
+            $image->move(public_path('images/'), $imageName);
+
+
+            // $imagePath = $request->file('image')->store('images/users');
             $product->image =  $imageName;
-        }        $product->save();
-    
+        }
+        $product->save();
         Alert::success('Added Successfuly', ' ');
         
         return redirect()->route('Admin_Dashboard.Projects');
@@ -187,16 +197,17 @@ class ProductsController extends Controller
             // Validate and store the uploaded image
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
+            $image->move(public_path('images/'), $imageName);
 
 
             // $imagePath = $request->file('image')->store('images/users');
             $product->image =  $imageName;
         }
         $product->save();
+        
         Alert::success('Updated Successfuly', ' ');
 
-                    return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
+        return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
 
           }
 
@@ -208,8 +219,8 @@ class ProductsController extends Controller
            */
           public function destroy($id)
           {
-                    $products = Products::find($id);
-                    $products->delete();
-                    return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
+         $products = Products::find($id);
+          $products->delete();
+         return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
           }
 }

@@ -1,12 +1,12 @@
 @extends('layouts.adminMaster')
 
 @section('content')
+
 <div class="content " >
 
-    <div style="margin: 0% 8% ">
-        <div style="width: 100%">
-     <br><br>
-
+<div style="margin: 0% 8% ">
+<div style="width: 100%">
+<br><br>
     <div class="container mt-5">
         <div class="card">
             <div class="card-header py-3" style="background-color: rgba(117, 192, 157, 0.489)">

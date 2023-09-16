@@ -146,9 +146,24 @@ class VolunteerController extends Controller
         //
     }
 
-    public function showe(Volunteer $volunteer)
+    public function showe(Volunteer $volunteers)
     {
-        $volunteers = Volunteer::all();
+        $volunteers = DB::table('frontvolunteers as fu')
+        ->select([
+            'u.id',
+            'fu.id as fuid',
+            'fu.Languages',
+            'fu.user_id',
+            'u.email',
+            'fu.Address',
+            'fu.Experience',
+            'fu.CV',
+            'fu.day'
+            ])
+            ->join('users as u', 'u.id', '=', 'fu.user_id')
+            ->get();
+            // ->where('u.id', '=', Auth::user()->id)
+
         return view('Admin_Dashboard.Volunteers')->with('Volunteers', $volunteers);
     }
 }

@@ -5,6 +5,7 @@
     <!-- Content Start -->
     <div class="content " >
 
+        
         <!-- Sale & Revenue Start -->
         <div class="container-fluid pt-4 px-4 ">
             <div class="row g-4 mt-4">
@@ -15,7 +16,7 @@
                         <div class="ms-3">
                             <p class="mb-2">Volunteers</p>
                             @php
-                                $volunteerCount = \App\Models\Volunteer::count();
+                                $volunteerCount = \App\Models\Vaccept::count();
                             @endphp
                             <h6 class="mb-0">{{ $volunteerCount }}</h6>
                         </div>

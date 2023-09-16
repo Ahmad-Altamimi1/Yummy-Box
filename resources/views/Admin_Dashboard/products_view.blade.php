@@ -1,11 +1,14 @@
 @extends('layouts.adminMaster')
 
 @section('content')
+
 <div class="content " >
 
-    <div style="margin: 0% 8% ">
-        <div style="width: 100%">
-     <br><br>
+<div style="margin: 0% 8% ">
+<div style="width: 100%">
+<br><br>
+
+
 
     <div class="container">
         <div class="card">
