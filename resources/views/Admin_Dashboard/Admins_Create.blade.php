@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>admin Details Form</title>
-    <!-- Required meta tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- Bootstrap CSS -->
-    {{-- <link rel="stylesheet" href="{{url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')}}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"> --}}
-</head>
-<body>
+@extends('layouts.adminMaster')
+
+@section('content')
+
+<div class="content " >
+
+<div style="margin: 0% 8% ">
+<div style="width: 100%">
+<br><br>
     <div class="container mt-5">
         <div class="card">
             <div class="card-header py-3" style="background-color: rgba(117, 192, 157, 0.489)">
@@ -63,11 +60,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{url('https://code.jquery.com/jquery-3.3.1.slim.min.js')}}"  ></script>
-    <script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')}}" ></script>
-    <script src="{{url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')}}" ></script>
-</body>
-</html>
+</div>
+</div>
+@endsection

@@ -196,7 +196,7 @@ class ProductsController extends Controller
         $product->save();
         Alert::success('Updated Successfuly', ' ');
 
-                    return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
+        return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
 
           }
 
@@ -208,8 +208,8 @@ class ProductsController extends Controller
            */
           public function destroy($id)
           {
-                    $products = Products::find($id);
-                    $products->delete();
-                    return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
+         $products = Products::find($id);
+          $products->delete();
+         return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
           }
 }

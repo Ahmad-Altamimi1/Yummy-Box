@@ -19,10 +19,7 @@
 <body class="font-sans antialiased">
           @include('layouts.navigation')
     <div class="min-h-screen bg-gray-100">
-<<<<<<< HEAD
         {{-- @include('layouts.navigation') --}}
-=======
->>>>>>> d225a5d92d2df493db4bde836d94e4497e85ce4e
 
         <!-- Page Heading -->
         @if (isset($header))
