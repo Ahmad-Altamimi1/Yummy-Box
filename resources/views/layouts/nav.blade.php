@@ -11,13 +11,13 @@
     <meta name="description" content="Volunteer work in training and education " />
     <meta name="keywords" content="Volunteer training  education" />
 
-    <link rel="preconnect" href="{{url('https://fonts.gstatic.com')}}">
-    <link href="{{url('https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap')}}"
+    <link rel="preconnect" href="{{ url('https://fonts.gstatic.com') }}">
+    <link href="{{ url('https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap') }}"
         rel="stylesheet">
 
-    <script src="{{url('https://kit.fontawesome.com/659ed253a5.js')}}" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{url('fonts/icomoon/style.css')}}">
-    <link rel="stylesheet" href="{{url('fonts/flaticon/font/flaticon.css')}}">
+    <script src="{{ url('https://kit.fontawesome.com/659ed253a5.js') }}" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url('fonts/icomoon/style.css') }}">
+    <link rel="stylesheet" href="{{ url('fonts/flaticon/font/flaticon.css') }}">
 
     <link rel="stylesheet" href="{{ url('css/tiny-slider.css') }}">
     <link rel="stylesheet" href="{{ url('css/aos.css') }}">
@@ -76,8 +76,9 @@
                             <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
                                 <li class="{{ request()->is('home*') ? 'active' : '' }}"><a
                                         href="{{ route('home') }}">Home</a></li>
-                                        <li class="{{ request()->is('products.index*') ? 'active' : '' }}"><a
-                                            href="{{ route('products.index') }}">Our Projects</a></li>
+                                <li class="{{ request()->is('products*') ? 'active' : '' }}"><a
+                                        href="{{ route('products.index') }}">Our Projects</a></li>
+
 
                                 <li class="{{ request()->is('about*') ? 'active' : '' }}"><a href="about">About</a>
                                 </li>
@@ -91,7 +92,7 @@
                                             <div><i class="fa-solid fa-user " style="color: #fafafa;"></i>
                                                 {{ Auth::user()->name }}</div>
                                             <ul class="dropdown">
-                                                <li><a href="{{route('profile.show')}}">profile</a></li>
+                                                <li><a href="{{ route('profile.show') }}">profile</a></li>
                                                 <li>
                                                     <!-- Authentication -->
                                                     <form method="POST" action="{{ route('logout') }}">

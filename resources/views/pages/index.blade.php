@@ -126,10 +126,10 @@
             <div class="row">
 
 
-                <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
-                    <div class="card" style="width: 25rem; height:380px ;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 " data-aos="fade-up" data-aos-delay="100">
+                    <div class="card" style="width: 100%; height:400px ;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); ">
                         <img class="card-img-top mx-auto" src="images/donate.jpg" alt="Card image cap"
-                            style="width: 22rem;">
+                            style="width: 90%; ">
                         <div class="card-body text-center">
                             <h5 class="card-title">Mony Donation</h5>
                             <p class="card-text">Transform lives with your donation. Make a difference today!</p>
@@ -138,10 +138,10 @@
                     </div>
 
                 </div>
-                <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
-                    <div class="card" style="width: 25rem; height: 380px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 " data-aos="fade-up" data-aos-delay="100">
+                    <div class="card" style="width: 100%; height: 400px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); ">
                         <img class="card-img-top mx-auto mt-1" src="images/it.png" alt="Card image cap"
-                            style="width: 13rem;">
+                            style="width: 60%; ">
                         <div class="card-body text-center">
                             <h5 class="card-title">Resources Donation</h5>
                             <p class="card-text">Your resource donation is a catalyst for positive change in our community.
@@ -152,10 +152,10 @@
 
 
                 </div>
-                <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
-                    <div class="card" style="width: 25rem; height:380px ; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);">
+                <div class="col-lg-4  col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card" style="width: 100%; height:400px ; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); ">
                         <img class="card-img-top mx-auto mt-2" src="images/Capture.JPG" alt="Card image cap"
-                            style="width: 20rem; ">
+                            style="width: 80%; ">
                         <div class="card-body text-center">
                             <h4 class="card-title">Volunteer with us</h4>
                             <p class="card-text">Train with us and be part of a transformative journey.</p>
@@ -530,7 +530,7 @@
         <div class="instagram-slider-wrap" data-aos="fade-up" data-aos-delay="200">
             <div class="instagram-slider mb-2" id="instagram-slider">
 
-                <div class="item">
+                <div class="item" >
                     <a class="instagram-item">
                         <span class="icon-instagram"></span>
                         <img src="images/img_v_8-min.jpg" alt="Image" class="img-fluid" style="border-radius: 50%">

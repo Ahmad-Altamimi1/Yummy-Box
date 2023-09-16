@@ -233,9 +233,9 @@
         <div class="instagram-slider mb-2" id="instagram-slider">
 
             <div class="item">
-                <a class="instagram-item">
-                    <span class="icon-instagram"></span>
-                    <img src="images/img_v_8-min.jpg" alt="Image" class="img-fluid"  style="border-radius: 50%">
+                <a class="instagram-item ">
+                    <span class="icon-instagram" ></span>
+                    <img src="images/img_v_8-min.jpg" alt="Image" class="img-fluid"  style="border-radius: 50% ">
                 </a>
             </div>
 
