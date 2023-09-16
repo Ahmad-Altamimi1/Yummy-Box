@@ -15,7 +15,7 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-    //    DB::table('products')->truncate();
+       DB::table('products')->truncate();
 
         DB::table('products')->insert([
             ['id'=>1,
@@ -35,9 +35,9 @@ class ProductSeeder extends Seeder
             [
                 'id' => 2,
                 'name' => 'Back-End',
-                'description2' => 'As a volunteer in our Front-End Foundations project, you will empower individuals with the essential web development skills—HTML, CSS, and JavaScript. Our mentorship program guides you in nurturing talent, from basics to responsive design. 
+                'description2' => 'As a volunteer in our Back-End Foundations project, you will empower individuals with the essential web development skills—PHP, Java, and Node.js. Our mentorship program guides you in nurturing talent, from basics to responsive design. 
                 ',
-                'description3' => 'As a volunteer  you play a pivotal role in empowering aspiring web developers. Your responsibilities include guiding learners through the essentials of HTML, CSS, and JavaScript, fostering an understanding of responsive web design
+                'description3' => 'As a volunteer  you play a pivotal role in empowering aspiring web developers. Your responsibilities include guiding learners through the essentials of PHP, Node.Js, and Laravel, fostering an understanding of responsive web design
                 ',
                 'breif' => 'Volunteer to teach the art of building powerful server-side components and creating dynamic web applications .
                 ',
