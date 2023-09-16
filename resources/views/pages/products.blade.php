@@ -25,8 +25,8 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 text-center">
-                    <h1 class="heading text-white mb-2" data-aos="fade-up">Our Projects</h1>
-                    <p data-aos="fade-up" class=" mb-5 text-white lead text-white-40">Home / Our Projects</p>
+                    <h1 class="heading text-white mb-2" data-aos="fade-up">Bootcamps</h1>
+                    <p data-aos="fade-up" class=" mb-5 text-white lead text-white-40">Home / Bootcamps</p>
 
                     <p data-aos="fade-up" class=" mb-5 text-white lead text-white-40">Teaching is the noble art of fostering growth through knowledge, curiosity, and empowerment.</p>
 
@@ -47,9 +47,9 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                    <span class="subheading mb-3">Projects</span>
-                    <h2 class="heading">Featured Projects</h2>
-                    <p>Explore our Featured Projects and witness the impact of code and compassion in action.</p>
+                    <span class="subheading mb-3">Bootcamps</span>
+                    <h2 class="heading">Bootcamps</h2>
+                    <p>Explore our Bootcamps and witness the impact of code and compassion in action.</p>
 
                     <div id="features-slider-nav" class="mt-5 d-flex justify-content-center">
                         <button class="btn btn-primary prev d-flex align-items-center me-2" data-controls="prev">
