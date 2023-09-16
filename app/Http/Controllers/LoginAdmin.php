@@ -29,7 +29,7 @@ class LoginAdmin extends Controller
 
         $check = $request->all();
         if (Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password']])) {
-            return  redirect()->route('Admin_Dashboard.Admins_Data');
+            return  redirect()->route('Admin_Dashboard.index');
         } else {
             return redirect()->back()->with('error', 'Your Credintal is invalid');
         }

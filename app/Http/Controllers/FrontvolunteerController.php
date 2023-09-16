@@ -35,22 +35,29 @@ class FrontvolunteerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreFrontvolunteerRequest $request)
-    {   
+    {
         $request->validate([
             'CV' => 'required|mimes:pdf,docx',
         ]);
+        $users = Frontvolunteer::all();
+        if ($request->hasFile('CV')) {
+            $pdfFile = $request->file('CV');
+            $authPdfFile = time() . '.' . $pdfFile->getClientOriginalExtension();
+            $pdfFile->move(public_path('uplods'), $authPdfFile);
+            $users['CV'] = $authPdfFile;
+        }
         Frontvolunteer::create([
 
-        'Address'=>$request->Address,
-        'Languages'=>$request->Languages,
-        'day'=>$request->day,
-        'Experience'=>$request->Experience,
-        'CV'=>$request->CV,
-       
-       ]);
-       return redirect('home');
-        
-       
+            'Address' => $request->Address,
+            'Languages' => $request->Languages,
+            'day' => $request->day,
+            'Experience' => $request->Experience,
+            'CV' => $users['CV']
+
+        ]);
+        return redirect()->route('finishform');
+
+
     }
 
     /**

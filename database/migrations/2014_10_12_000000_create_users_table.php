@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name')->nullable();
            $table->string('LastName')->nullable();
-            $table->string('email')->nullable();
+            $table->string('email')->nullable()->default('facebook');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password'); // Use a string data type for passwords
             $table->bigInteger('phone')->nullable(); // Phone can be nullable

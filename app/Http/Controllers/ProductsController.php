@@ -10,12 +10,11 @@ use App\Models\Volunteer;
 class ProductsController extends Controller
 {
 
-    public function product()
+    public function product($id)
           {
-                    $products = Products::all();
+                    $products = products::find($id);
                     $volanters = Volunteer::all();
-
-                    return view('pages.products', ['products' => $products, 'volanters' => $volanters]);
+                    return view('pages.single',compact('products' ,'volanters'));
           }
     /**
      * Display a listing of the resource.
