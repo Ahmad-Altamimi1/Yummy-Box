@@ -101,7 +101,7 @@
                     </p>
                     <button type="submit" class="btn btn-primary w-100" style="background-color: #54ac75;">Pay with
                         Visa</button>
-                    @if (session('error'))
+                    @if (session('error1'))
                         <div class="alert alert-danger" style="">
                             {{ session('error1') }}
                         </div>
