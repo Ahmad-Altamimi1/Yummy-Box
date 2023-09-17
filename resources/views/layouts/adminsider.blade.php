@@ -155,7 +155,7 @@
                         <i class="fa fa-keyboard me-2"></i>Projects
                     </a>
                     <a href="{{ route('Admin_Dashboard.Volunteers') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.Volunteers') ? 'active' : '' }}">
-                        <i class="fa fa-table me-2"></i>Pended
+                        <i class="fa fa-table me-2"></i>Pended Volunteers
                     </a>
                     <a href="{{ route('Admin_Dashboard.Vaccept') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.Vaccept') ? 'active' : '' }}">
                         <i class="far fa-file-alt me-2"></i>Accepted Volanteers
