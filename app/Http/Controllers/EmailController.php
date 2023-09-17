@@ -44,15 +44,7 @@ class EmailController extends Controller
             'title'=>$request->title,
             'description'=>$request->description
         ]);
-        // $accept= Acceptmail::first();
-        // $accept->notify(new Acceptemails( $email));
-        $accept= Acceptmail::select('email');
-        foreach ($accept as $emails) {
-           Notification::route('mail', $emails)->notify(new Acceptemails($email));
-        }
-                return response()->json($email);
-            }
-
+    }
     /**
      * Display the specified resource.
      *

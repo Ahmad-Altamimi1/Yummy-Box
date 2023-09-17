@@ -1,5 +1,5 @@
 {{-- @extends('layouts.nav') --}}
-@extends('layouts.master')
+@extends('layouts.ahmadmaster')
     @section('content')
         
 <style>
