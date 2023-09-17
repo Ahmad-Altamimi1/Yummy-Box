@@ -9,7 +9,7 @@
       <h1 class="mx-auto"> Accepted Volunteeres </h1>  
 
       <!-- resources/views/send-email.blade.php -->
-<form action="{{ route('admin.send-email.post') }}" method="POST">
+<form action="{{ route('email') }}" method="POST">
     @csrf
     <label for="subject">Subject:</label>
     <input type="text" name="subject" required><br>

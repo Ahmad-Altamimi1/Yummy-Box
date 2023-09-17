@@ -61,7 +61,7 @@ class StripeController extends Controller
 
  $amountFromResponse = $response['amount_total'];
 if($request->price > $request->difference){
-                return redirect()->back()->with('error', 'The amount is more than what we need ');
+                return redirect()->back()->with('error1', 'The amount is more than what we need ');
             }
 
             

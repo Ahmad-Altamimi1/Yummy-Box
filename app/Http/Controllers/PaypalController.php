@@ -97,7 +97,7 @@ class PaypalController extends Controller
         $response = $provider->capturePaymentOrder($request->token);
         $amountFromResponse = $response['purchase_units'][0]['payments']['captures'][0]['amount']['value'];
 
-        if ($amountFromResponse >$totalsproduct) {
+        if ($amountFromResponse <=$totalsproduct) {
                                 return redirect()->back()->with('error', 'The amount is more than what we need');
 
             }
