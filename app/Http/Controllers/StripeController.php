@@ -60,9 +60,9 @@ class StripeController extends Controller
    $products_total = products::find($id);
 
  $amountFromResponse = $response['amount_total'];
-if($request->price > $request->difference){
-                return redirect()->back()->with('error1', 'The amount is more than what we need ');
-            }
+// if($request->price > $request->difference){
+//                 return redirect()->back()->with('error1', 'The amount is more than what we need ');
+//             }
 
             
             DB::table('paypals')->insert([
@@ -77,9 +77,7 @@ if($request->price > $request->difference){
             ]);
 
         return redirect()->away($response->url);
-    } else {
-     return redirect()->route('success') ;
-       }
+    } 
 }
     public function success()
     {

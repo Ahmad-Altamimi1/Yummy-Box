@@ -9,34 +9,24 @@ use Illuminate\Database\Eloquent\Model;
 class products extends Model
 {
     use HasFactory;
-    protected $table = 'products';
-    protected $fillable = [
-        'id',
-        'name',
-        'breif',
-        'description2',
-        'description3',
-        'location',
-        'period',
-        'time',
-        'image',
-        'created_at',
+   
+   
+    // public $timestamps = true;
 
-    ];
-    public $timestamps = true;
-
-    public function users()
+    public function user()
     {
-        return $this->belongsToMany(User::class);
-
+        return $this->belongsTo(User::class,'userId');
+ 
     }
-    public function volnters()
+    public function category()
     {
-        return $this->hasOne(Volunteer::class);
+        return $this->belongsTo(Category::class);
+ 
     }
-    public function acceptvolnters()
+    public function reviews()
     {
-        return $this->hasOne(Vaccept::class);
+        return $this->belongsTo(products::class);
     }
+  
     // return $this->belongsToMany(paypal::class);
 }

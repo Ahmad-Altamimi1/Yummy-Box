@@ -1,7 +1,12 @@
 <!doctype html>
 <html lang="en">
+                    
 
 <head>
+        <script src="{{ asset('js/app.js') }}" defer></script>
+   
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +15,54 @@
 
     <meta name="description" content="Volunteer work in training and education " />
     <meta name="keywords" content="Volunteer training  education" />
+     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css') }}">
+    <script src="{{ url('https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js') }}"></script>
+    <script src="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Bootstrap CSS -->
+	<!-- font awsome  -->
+	<link rel="stylesheet" href="{{ url('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- Site CSS -->
+    <link rel="stylesheet" href=" {{url('css/style.css') }}">    
+    <link rel="stylesheet" href=" {{url('css/navcart.css') }}">    
+    <link rel="stylesheet" href=" {{url('css/stylem.css') }}">    
+    <link rel="stylesheet" href="{{url ('css/menu.css') }}">    
+    <link rel="stylesheet" href="{{ url('css/pricing.css') }}">   
+    <link rel="stylesheet" href="{{ url('css/single-proudact.css') }}">    
 
+    <link rel="stylesheet" href="{{ url('css/category.css') }}">    
+    <link rel="stylesheet" href="{{ url('css/footer.css') }}">    
+    <link rel="stylesheet" href="{{ url('css/sub-category.css') }}">    
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{{url('css/responsive.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{url('css/custom.css') }}">
+<link rel="stylesheet" href="{{url('css/cart.css') }}">
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+   
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+     <!-- Site Metas -->
+    <title></title>  
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+
+	<!-- font awsome  -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<!-- Site CSS -->
+  
     <link rel="preconnect" href="{{ url('https://fonts.gstatic.com') }}">
     <link href="{{ url('https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap') }}"
         rel="stylesheet">
@@ -27,9 +79,12 @@
     <link rel="stylesheet" href="{{ url('css/style.css') }}">
     <link rel="stylesheet" href=" {{ url('css/home.css') }} ">
 
+    <link rel="stylesheet" href="{{ url('css/bootstrap.min.css') }}">    
+		{{-- <link rel="stylesheet" href="{{ url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css') }}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
+        <link rel="stylesheet" href="{{ url('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css') }}">
+        
 
-
-    <title>Volunteer </title>
+    <title>rrrr </title>
     <style>
         .site-nav .site-navigation .site-menu .has-children .dropdown {
             right: 0;
@@ -66,7 +121,7 @@ color: #ffc107 !important;
     
 </style>
 
-    <nav class="site-nav ">
+    <nav class="site-nav  ">
         <div class="container">
             <div class="menu-bg-wrap">
                 <div class="site-navigation">
@@ -83,7 +138,7 @@ color: #ffc107 !important;
                                 <li class="{{ request()->is('home*') ? 'active' : '' }}"><a
                                         href="{{ route('home') }}">Home</a></li>
                                 <li class="{{ request()->is('products*') ? 'active' : '' }}"><a
-                                        href="{{ route('products.index') }}">Bootcamps</a></li>
+                                        href="{{ route('products.index') }}">menu</a></li>
 
                                 <li class="{{ request()->is('about*') ? 'active' : '' }}"><a href="about">About</a>
                                 </li>
@@ -91,11 +146,59 @@ color: #ffc107 !important;
                                         href="{{ route('news') }}">News</a></li>
                                 <li class="{{ request()->is('contact*') ? 'active' : '' }}"><a
                                         href="{{ route('contact') }}">Contact</a></li>
+                                        <li>
+   <div class="dropdown">
+                 
+               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"    >
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge bg-danger">{{ count((array) session('cart')) }}</span>
+                </button>
+ 
+                <div class="dropdown-menu" aria-labelledby="dLabel">
+                    <div class="row total-header-section">
+                        @php $total = 0 @endphp
+
+                        @foreach((array) session('cart') as $id => $details)
+                            @php $total += $details['price'] * $details['quantity'] @endphp
+                        @endforeach
+                        <div class="col-lg-12 col-sm-12 col-12 total-section text-right">
+                            <p>Total: <span class="text-success" id="total">$ {{ $total }}</span></p>
+                        </div>
+                    </div>
+                    
+                    <div id="baba">
+                       @if(session('cart'))
+                        @foreach(session('cart') as $id => $details)
+                            <div class="row cart-detail">
+                                <div class="col-lg-4 col-sm-4 col-4 cart-detail-img ">
+                                    <img src="../{{ $details['img'] }}" />
+                                </div>
+                                <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
+                                    <p>{{ $details['name'] }}</p>
+                                    <span class="price text-success"> ${{ $details['price'] }}</span> <span class="count"> Quantity:{{ $details['quantity'] }}</span>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                        @endforeach
+                        @endif
+                    </div>
+                    <div class="row">
+                     
+                        <a href="{{ route('cart') }}" class="btn btn-primary btn-block">View all</a>
+                    </div>
+                </div>
+                 
+            </div>
+
+                                        </li>
                                 <li class="has-children">
                                     @if (Auth::check())
                                         <a href="#">
                                             <div><i class="fa-solid fa-user "></i>
                                             </div>
+
+   
                                             <ul class="dropdown">
 
                                                 {{-- <li> <a href="{{route('profile.show')}}">{{ Auth::user()->name }}</a></li> --}}
@@ -110,11 +213,14 @@ color: #ffc107 !important;
                                                 </li>
                                             </ul>
                                         </a>
+                                        
                                     @else
                                 <li class="{{ request()->is('login*') ? 'active' : '' }}"><a
                                         href="{{ route('login') }}">Login</a></li>
                                 <li class="{{ request()->is('register*') ? 'active' : '' }}"><a
                                         href="{{ route('register') }}">Register</a></li>
+                            
+                            
                                 @endif
                                 </li>
                             </ul>
@@ -146,5 +252,48 @@ color: #ffc107 !important;
         }
 
         </style>
+
+
+<script>
+      var navbar = document.querySelector('.site-nav');
+          var image = document.querySelector(".logo-image");
+          var lii = document.querySelectorAll(".site-nav .site-navigation .site-menu>li>a ");
+          // Get the initial offset of the navigation bar
+          var offset = navbar.offsetTop;
+
+          // Function to handle the scroll event
+          function handleScroll() {
+                    lii.forEach((li) => {
+                              if (!(li.classList.contains('active'))) {
+                                        if (window.scrollY < 60) {
+                                                  // Add the 'fixed' class to the navigation bar
+                                                  image.src =
+                                                            "https://media.discordapp.net/attachments/1149330077880942705/1151770132192960542/codemates.png?width=721&height=541";
+                                                  navbar.classList.add("fixed");
+                                                  navbar.classList.remove("scrolled");
+                                                  li.classList.remove("licolor");
+
+                                                  // Set the background color to red
+                                                  navbar.style.background = "transparent";
+                                        } else {
+                                                  // Remove the 'fixed' class from the navigation bar
+                                                  navbar.classList.remove("fixed");
+                                                  navbar.classList.add("scrolled");
+                                                  li.classList.add("licolor");
+                                                  image.src =
+                                                            "https://media.discordapp.net/attachments/1149330077880942705/1151770919937781760/codemates-logo__1_-removebg-preview_1.png?width=721&height=541";
+
+
+                                                  // Reset the background color
+                                        }
+                              }
+                    });
+
+          }
+
+          // Attach the scroll event listener to the window
+          window.addEventListener('scroll', handleScroll);
+        
+</script>
     </nav>
 

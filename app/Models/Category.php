@@ -14,13 +14,14 @@ class Category extends Model
         'name',
         'image',
          
-        'description'
+        // 'description'
         
     ];
 
     public function products()
     {
-        return $this->belongsTo(products::class);
+        return $this->hasMany(products::class,'categoryId','id');
 
     }
+    
 }

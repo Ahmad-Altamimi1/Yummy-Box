@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Review;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -20,8 +21,12 @@ class Controller extends BaseController
         $products = DB::table('products')->get();
         $users = DB::table('users')->get();
         $volanters = DB::table('paypals')->get();
+        // $reviews = DB::table('reviews')->get();
+        $reviews=Review::all();
+
+
         // dd($categories);
-        return view('pages.index', compact('categories', 'products', 'users', 'volanters'));
+        return view('pages.home', compact('categories', 'products', 'users', 'volanters', 'reviews'));
    
   }
     function showabout()

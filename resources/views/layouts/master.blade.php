@@ -1,5 +1,5 @@
 
-@include('layouts.nav')
+@include('layouts.ahmadnav')
 
     @yield('content')
 

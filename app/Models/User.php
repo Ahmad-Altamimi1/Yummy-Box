@@ -21,11 +21,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'LastName',
         'password',
-        'phone',
-        'social_id',
-        'social_type',
+       
     ];
     /**
      * The attributes that should be hidden for serialization.
@@ -61,6 +58,10 @@ class User extends Authenticatable
     public function products()
     {
         return $this->belongsToMany(products::class);
+    }
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 
 

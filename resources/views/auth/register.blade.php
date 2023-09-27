@@ -77,19 +77,19 @@
                                 @csrf
                                 <!-- Name -->
                                 <div class="form-group">
-                                    <label for="name">First Name</label>
+                                    <label for="name"> Name</label>
                                     <input id="name" class="form-control" type="text" name="name"
                                         :value="old('name')" required autofocus autocomplete="name" />
                                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
                                 </div>
 
                                 <!-- Last Name -->
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="last_name">Last Name</label>
                                     <input id="last_name" class="form-control" type="text" name="last_name"
                                         :value="old('last_name')" required autofocus autocomplete="name" />
                                     <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
-                                </div>
+                                </div> --}}
 
                                 <!-- Email Address -->
                                 <div class="form-group">

@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Review;
 use Illuminate\Database\Seeder;
 use Stripe\Product;
 use Faker\Factory as FakerFactory;
@@ -27,16 +29,19 @@ class DatabaseSeeder extends Seeder
 
         // Seed the 'products' table with 50 sample products
        
-            Product::create([
-                'name' => $faker->sentence(3),
-                'description' => $faker->paragraph(3),
-                'price' => $faker->randomFloat(2, 10, 100),
-                'created_at' => now(),
-                'updated_at' => now(),]);
+            // Product::create([
+            //     'name' => $faker->sentence(3),
+            //     'description' => $faker->paragraph(3),
+            //     'price' => $faker->randomFloat(2, 10, 100),
+            //     'created_at' => now(),
+            //     'updated_at' => now(),]);
         $this->call([
+            User::class,
             CategorySeeder::class,
-            AdminSeeder::class,
-            ProductTableSeeder::class,
+            DiscountSeeder::class,
+            ProductSeeder::class,
+            ReviewSeeder::class,
+
         ]);
     }
 }

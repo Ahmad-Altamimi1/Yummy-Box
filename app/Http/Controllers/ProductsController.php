@@ -4,20 +4,176 @@ namespace App\Http\Controllers;
 
 use App\Models\products;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Discount;
+use App\Models\User;
 use DB;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 use App\Models\Volunteer;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 class ProductsController extends Controller
 {
 
+    public function cart()
+    {
+        return view('pages.cart');
+    }
+    public function saveProductToSession(Request $request)
+    {
+        $valueToAdd = $request->input('data');
+
+        $cart = session()->get('cart', []);
+        $product = Products::findOrFail($valueToAdd);
+
+
+        if (isset($cart[$valueToAdd])) {
+            $cart[$valueToAdd]['quantity']++;
+        } else {
+            $cart[$valueToAdd] = [
+                "id" => $product->id,
+                "name" => $product->name,
+                "img" => $product->img,
+                "price" => $product->price,
+                'cartDescription' => $product->cartDescription,
+                "quantity" => 1
+            ];
+        }
+        if (Auth::check()) {
+        } else {
+
+            session()->put('cart', $cart);
+        }
+      
+
+        // Push $valueToAdd onto the session array
+
+        
+
+        return response()->json(['message' => 'Value added to session array successfully']);
+    }
+    public function addToCart($id)
+    {
+        $product = Products::findOrFail($id);
+
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "name" => $product->name,
+                "img" => $product->img,
+                "price" => $product->price,
+                'cartDescription'=> $product ->cartDescription,
+                "quantity" => 1
+            ];
+        }
+        if (Auth::check()) {
+
+        }else{
+
+            session()->put('cart', $cart);
+        }
+      
+        return redirect()->back()->with('success', 'Product add to cart successfully!');
+    }
+
+    public function update2(Request $request)
+    {
+        if ($request->id && $request->quantity) {
+            $cart = session()->get('cart');
+            $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'Cart successfully updated!');
+        }
+    }
+
+    public function remove(Request $request)
+    {
+        if ($request->id) {
+            $cart = session()->get('cart');
+            if (isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Product successfully removed!');
+
+        }
+        return redirect()->back();
+    }
+
+
+
+    // filter 
+    public function search_products(Request $request, $id=null)
+    {
+        $categories = Category::all();
+        $query = Products::whereBetween('price', [$request->rangemin, $request->rangemax]);
+
+        if ($id!=null) {
+            $query->where('categoryId', $id);
+        }   
+
+        $products = $query->get();
+
+        return view('pages.menu', compact('products', 'categories'));
+    }
+    public function sort_by(Request $request,$id=null)
+    {
+        // dd($request);
+        $categories = Category::all();
+
+        if ($request->lowest_price == 'A-Z') {
+            $products = Products::orderBy('name', 'asc')->get();
+            if ($id != null) {
+                $products = Products::orderBy('name', 'asc')->where('categoryId', $id)->get();
+            }
+        }
+        if ($request->highest_price == 'Z-A') {
+            $products = Products::orderBy('name', 'desc')->get();
+            if ($id != null) {
+                $products = Products::orderBy('name', 'desc')->where('categoryId', $id)->get();
+            }
+        }
+        return view('pages.menu', compact('products', 'categories'))->render();
+    }
+
+public function discount(Request $request){
+        $discounts=Discount::all();
+        $discountPercent = 1;
+        $active="tt";
+        foreach ($discounts as $value) {
+           if ($request->discount == $value->description ) {
+            if ($value->active) {
+                
+                $discountPercent = $value->discountPercent;
+                $active= 'the code has been added successfully';
+            }else{
+                    $discountPercent = 0;
+
+                    $active = 'The code has expired';
+            }
+}else{
+    
+    $discountPercent=0;
+    $active = 'The code is invalid';
+}
+        }
+        return view('pages.cart',compact('discountPercent', 'active'));
+
+}
+
+
+
+
     public function ourproject()
     {
-        $categories = DB::table('categories')->get();
-        $products = DB::table('products')->get();
-        $users = DB::table('users')->get();
-        $volanters = DB::table('paypals')->get();
+        $categories = Category::all();
+        $products = products::all();
+        $users = User::all();
+        // $volanters = DB::table('paypals')->get();
         
         return view('pages.products', compact('categories', 'products', 'users', 'volanters'));
     }

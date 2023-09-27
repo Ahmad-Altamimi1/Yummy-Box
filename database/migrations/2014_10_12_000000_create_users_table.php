@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -14,18 +15,13 @@ return new class extends Migration {
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-           $table->string('LastName')->nullable();
-            $table->string('email')->nullable()->default('facebook');
+            $table->string('name');
+            $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password'); // Use a string data type for passwords
-            $table->bigInteger('phone')->nullable(); // Phone can be nullable
-            $table->mediumText('image')->nullable()->default(); // Image can be nullable
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
-
-        
     }
 
     /**

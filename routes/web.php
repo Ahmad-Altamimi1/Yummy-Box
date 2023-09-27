@@ -15,7 +15,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\StripeController;
+use App\Http\Controllers\VacceptController;
+use App\Mail\ContactMail;
+use App\Models\User;
+use App\Models\Vaccept;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\SocialController;
 
@@ -25,6 +29,30 @@ Route::post('profile/vpdf/{id?}', [VolunteerController::class, 'view'])->name('v
 Route::get('table', function () {
     view('profile.partials.table');
 })->name('table');
+Route::get('pricing', function () {
+    view('pages.pricing');
+});
+
+
+// cart 
+
+
+Route::post('/session', [StripeController::class, 'session'])->name('session');
+Route::get('/success', [StripeController::class, 'success'])->name('success');
+Route::get('/cancel', [StripeController::class, 'cancel'])->name('cancel');
+
+// Route::get('/', [ProductsController::class, 'index']);
+Route::get('cart', [ProductsController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [ProductsController::class, 'addToCart'])->name('add_to_cart');
+Route::patch('update-cart', [ProductsController::class, 'update'])->name('update_cart');
+// Route::Delete('remove-from-cart/{id?}', [ProductsController::class, 'remove'])->name('remove_from_cart');
+Route::Delete('remove-from-cart', [ProductsController::class, 'remove'])->name('remove_from_cart');
+
+
+Route::post('/add-product-to-session-array', [ProductsController::class, 'saveProductToSession'])->name('saveProductToSession');
+Route::post('/search-product/{id?}', [ProductsController::class, 'search_products'])->name('search.products');
+Route::post('/sort-by/{id?}', [ProductsController::class, 'sort_by'])->name('sort.by');
+Route::post('/discount', [ProductsController::class, 'discount'])->name('discount');
 
 /*
 |--------------------------------------------------------------------------
@@ -41,34 +69,26 @@ Route::get('table', function () {
 Route::get('/donate', function () {
     return view('pages.donate');
 });
-use App\Http\Controllers\StripeController;
-use App\Http\Controllers\VacceptController;
-use App\Mail\ContactMail;
-use App\Models\User;
-use App\Models\Vaccept;
+
+
 
 Route::get('/rer', function () {
     return view('pages.cliker');
 });
 
-// Route::get('/home', function () {
-//     return view('pages.index');
-// });
 Route::get('single/{id?}', [CategoryController::class, 'find'])->name('single');
+Route::get('subcategories/{id?}', [CategoryController::class, 'subcategories'])->name('subcategories');
+Route::get('allproduct', [CategoryController::class, 'allproduct'])->name('allproduct');
+Route::get('rangefilter', [CategoryController::class, 'rangefilter'])->name('rangefilter');
 Route::get('ara', [ContactMail::class, 'sendmess']);
-// Route::get('/', [CategoryController::class, 'index']);
-// Route::get('/', [CategoryController::class, 'index']);
-// Route::get('home', [CategoryController::class, 'index'])->name('home');
-// Route::resource('pages', ProductsController::class);
-Route::resource('pages/', ProductsController::class);
 
-Route::resource('product', ProductsController::class);
+// Route::resource('pages/', ProductsController::class);
+
+// Route::resource('product', ProductsController::class);
 
 Route::get('/products', [ProductsController::class, 'ourproject'])->name('products.index');
 
 
-// Route::get('/', [CategoryController::class, 'index']);
-// Route::get('/home', [CategoryController::class, 'index']);
 Route::resource('pages/', ProductsController::class);
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -120,7 +140,11 @@ Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_c
 
 Route::get('single/payment/{id}', [PaypalController::class, 'showpayment'])->middleware('auth', 'verified'); // Use 'success' method for GET
 
-
+//new
+// Route::post('payment/{id?}', [PaypalController::class, 'payment'])->middleware('auth', 'verified')->name('payment'); // Use 'store' method for POST
+Route::post('payment/{id?}', [StripeController::class, 'payment'])->name('payment'); // Use 'store' method for POST
+Route::get('success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
+Route::get('cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
 
 // Route::get('single/payment/{id}', function () {
 //     return view('pages.payment');
@@ -134,8 +158,8 @@ Route::get('finishform', function () {
     return view('sccessform');
 })->name('finishform');
 Route::post('single/payment/stripe/{id}', [StripeController::class, 'payment'])->middleware('auth', 'verified')->name('stripe_single'); // Use 'store' method for POST
-Route::get('stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
-Route::get('stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
+// Route::get('stripe/success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
+// Route::get('stripe/cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
 
 
 

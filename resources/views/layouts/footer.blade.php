@@ -84,19 +84,39 @@
 
 
 <!-- Preloader -->
+    <script src="{{ url('https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js') }}"></script>
 
 <script src="{{url('js/navbar.js') }}"></script>
 
 <script src="{{url('js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{url('js/tiny-slider.js')}}"></script>
+<script src="{{url('js/menu.js')}}"></script>
 
 <script src="{{url('js/flatpickr.min.js')}}"></script>
 <script src="{{url('js/glightbox.min.js')}}"></script>
-
+<script src="{{ url('js/jquery-3.2.1.min.js') }}"></script>
+	<script src="{{ url('js/popper.min.js') }}"></script>
 
 <script src="{{url('js/aos.js')}}"></script>
 <script src="{{url('js/counter.js')}}"></script>
 <script src="{{url('js/custom.js')}}"></script>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="{{ ('js/jquery-3.2.1.min.js') }}"></script>
+	<script src="{{url ('js/popper.min.js') }}"></script>
+	<script src="{{ url('js/bootstrap.min.js') }}"></script>
+    <!-- ALL PLUGINS -->
+	<script src="{{ url('js/jquery.superslides.min.js') }}"></script>
+	<script src="{{ url('js/images-loded.min.js') }}"></script>
+	<script src="{{ url('js/isotope.min.js') }}"></script>
+	<script src="{{ url('js/baguetteBox.min.js') }}"></script>
+	<script src="{{ url('js/form-validator.min.js') }}"></script>
+    <script src="{{ url('js/contact-form-script.js') }}"></script>
 </body>
 
 </html>

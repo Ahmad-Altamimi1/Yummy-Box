@@ -7,7 +7,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Untree.co">
     <link rel="shortcut icon" href="favicon.png">
+     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">    
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- font awsome  -->
+	<link rel="stylesheet" href="{{ url('css/font-awesome.min.css') }}">
+	<!-- Site CSS -->
+    <link rel="stylesheet" href=" {{url('css/style.css') }}">    
+    <link rel="stylesheet" href="{{url ('css/menu.css') }}">    
+    <link rel="stylesheet" href="{{ url('css/pricing.css') }}">   
+    <link rel="stylesheet" href="{{ url('css/single-proudact.css') }}">    
+
+    <link rel="stylesheet" href="{{ url('css/category.css') }}">    
+    <link rel="stylesheet" href="{{ url('css/footer.css') }}">    
+    <link rel="stylesheet" href="{{ url('css/sub-category.css') }}">    
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{{url('css/responsive.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{url('css/custom.css') }}">
+<link rel="stylesheet" href="{{url('css/cart.css') }}">
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+   
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+     <!-- Site Metas -->
+    <title></title>  
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+
+	<!-- font awsome  -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<!-- Site CSS -->
+  
     <meta name="description" content="Volunteer work in training and education " />
     <meta name="keywords" content="Volunteer training  education" />
 
@@ -24,7 +67,7 @@
     <link rel="stylesheet" href="{{ url('css/flatpickr.min.css') }}">
     <link rel="stylesheet" href=" {{ url('css/glightbox.min.css') }}">
 
-    <link rel="stylesheet" href="{{ url('css/style.css') }}">
+    <link rel="stylesheet" href="{{ url('css/stylem.css') }}">
     <link rel="stylesheet" href=" {{ url('css/home.css') }} ">
 
 
@@ -64,7 +107,8 @@
                     <div class="row g-0 align-items-center" style="display: flex; width: 100%;">
                         <div class="col-2 logos">
                             <a href="{{ route('home') }}" id='logo' class="logo m-0 float-start text-white">
-                                <img src="{{ url('images/logoo.png') }}" alt="Logo Image" class="logo-image">
+                                {{-- <img src="{{ url('images/logoo.png') }}" alt="Logo Image" class="logo-image"> --}}
+                <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i><strong style="color: white;"> <span style="color:#2a722e"> Nutri</span>zen</strong></h1>
 
                             </a>
                         </div>
@@ -74,14 +118,14 @@
                                 <li class="{{ request()->is('home*') ? 'active' : '' }}"><a
                                         href="{{ route('home') }}">Home</a></li>
                                 <li class="{{ request()->is('products*') ? 'active' : '' }}"><a
-                                        href="{{ route('products.index') }}">Bootcamps</a></li>
+                                        href="{{ route('products.index') }}">Menu</a></li>
 
                                 <li class="{{ request()->is('about*') ? 'active' : '' }}"><a href="about">About</a>
                                 </li>
                                 <li class="{{ request()->is('news*') ? 'active' : '' }}"><a
                                         href="{{ route('news') }}">News</a></li>
                                 <li class="{{ request()->is('contact*') ? 'active' : '' }}"><a
-                                        href="{{ route('contact') }}">Contact</a></li>
+                                        href="{{ route('contact') }}">cart</a></li>
                                 <li class="has-children">
                                     @if (Auth::check())
                                         <a href="#">

@@ -28,11 +28,14 @@ class CategoryController extends Controller
         Session::put('url.single', url()->previous());
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->get();
-        $users = DB::table('users')->get();
-        $volanters = DB::table('paypals')->get();
+        $reviews = DB::table('reviews')->get();
+        dd($reviews);
+        // $users = DB::table('users')->get();
+        // $volanters = DB::table('paypals')->get();
+        
         
         // dd($categories);
-        return view('pages.index', compact('categories', 'products', 'users', 'volanters'));
+        return view('pages.index', compact('categories', 'products', 'users', 'reviews'));
     }
 
     /**
@@ -40,40 +43,57 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function subcategories($id = null)
+    {
+        $query = products::query();
+        $categories = DB::table('categories')->get();
+
+        if ($id !== null) {
+            $query->where('categoryId', $id);
+        }
+
+        $products = $query->get();
+
+        return view('pages.menu', ['products' => $products, 'categories' => $categories]);
+    }
+
+    public function rangefilter(){
+        
+    }
     public function find($id)
     {
 
         $categories = DB::table('categories')->get();
-        $products = DB::table('products')->get();
-        $users = DB::table('users')->get();
+        // $products = DB::table('products')->get();
+        // $users = DB::table('users')->get();
         $volanters = DB::table('paypals')->get();
-        $products = products::findOrFail($id);
-        $startDate = Carbon::parse($products->created_at);
+        $product = products::findOrFail($id);
+        $startDate = Carbon::parse($product->created_at);
         $endDate = Carbon::now();
         $diffInMinutes = $endDate->diffInMinutes($startDate);
         $diffInHours = $endDate->diffInHours($startDate);
         $diffInDays = $endDate->diffInDays($startDate);
         $diffInMonths = $endDate->diffInMonths($startDate);
-
+        $quintty=session('cart')[$id]['quantity'];
         $totalsproduct = 0;
         foreach ($volanters as $volanter) {
-            if ($volanter->product_id == $products->id) {
+            if ($volanter->product_id == $product->id) {
 
                 $totalsproduct += $volanter->amount;
             }
         }
-        $percant = (int) (($totalsproduct / $products->total) * 100);
+        // $percant = (int) (($totalsproduct / $products->total) * 100);
         $data = [
-            'products' => $products,
+            'product' => $product,
+            'quintty' =>  $quintty ,
             'diffInMinutes' => $diffInMinutes,
             'diffInHours' => $diffInHours,
             'diffInDays' => $diffInDays,
             'diffInMonths' => $diffInMonths,
             'categories' => $categories,
-            'users' => $users,
-            'volanters' => $volanters,
             'totalsproduct' => $totalsproduct,
-            'percant'=> $percant,
+            // 'percant'=> $percant,
 
 
             // Add more data as needed
@@ -83,7 +103,7 @@ class CategoryController extends Controller
 
        
         // dd($currentDateTime);
-        return  view("pages.single", $data);
+        return  view("pages.singel", $data);
         // ['products' => $products]
     }
 
