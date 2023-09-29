@@ -3,10 +3,10 @@
                     
 
 <head>
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
    
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,6 +28,7 @@
 	<!-- Site CSS -->
     <link rel="stylesheet" href=" {{url('css/style.css') }}">    
     <link rel="stylesheet" href=" {{url('css/navcart.css') }}">    
+    <link rel="stylesheet" href=" {{url('css/superslides.css') }}">    
     <link rel="stylesheet" href=" {{url('css/stylem.css') }}">    
     <link rel="stylesheet" href="{{url ('css/menu.css') }}">    
     <link rel="stylesheet" href="{{ url('css/pricing.css') }}">   
@@ -68,9 +69,10 @@
         rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="{{ url('https://kit.fontawesome.com/659ed253a5.js') }}" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ url('fonts/icomoon/style.css') }}">
-    <link rel="stylesheet" href="{{ url('fonts/flaticon/font/flaticon.css') }}">
+    {{-- <link rel="stylesheet" href="{{ url('fonts/icomoon/style.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="{{ url('fonts/flaticon/font/flaticon.css') }}"> --}}
 
+    {{-- <link rel="stylesheet" href="{{ url('css/tiny-slider.css') }}"> --}}
     <link rel="stylesheet" href="{{ url('css/tiny-slider.css') }}">
     <link rel="stylesheet" href="{{ url('css/aos.css') }}">
     <link rel="stylesheet" href="{{ url('css/flatpickr.min.css') }}">
@@ -118,17 +120,22 @@
     .site-nav .site-navigation .site-menu>li>a:hover{
 color: #ffc107 !important;
     }
+    .transparent-bg{
+        background: transparent !important;
+    }
     
 </style>
 
-    <nav class="site-nav  ">
+    <nav class="site-nav {{ request()->is('home*') ? 'transparent-bg' : '' }} ">
         <div class="container">
             <div class="menu-bg-wrap">
                 <div class="site-navigation">
                     <div class="row g-0 align-items-center" style="display: flex; width: 100%;">
                         <div class="col-2 logos">
                             <a href="{{ route('home') }}" id='logo' class="logo m-0 float-start text-white">
-                                <img src="{{ url('images/logoo.png') }}" alt="Logo Image" class="logo-image">
+                                {{-- <img src="{{ asset ('../../images/Nutrizen') }}" alt="Logo Image" class="logo-image"> --}}
+{{-- <img src="" alt=""> --}}
+                <h1 class="text-primary m-0"><strong style="color: white;"> <span style="color:#2a722e"> Nutri</span>zen</strong></h1>
 
                             </a>
                         </div>
@@ -138,19 +145,24 @@ color: #ffc107 !important;
                                 <li class="{{ request()->is('home*') ? 'active' : '' }}"><a
                                         href="{{ route('home') }}">Home</a></li>
                                 <li class="{{ request()->is('products*') ? 'active' : '' }}"><a
-                                        href="{{ route('products.index') }}">menu</a></li>
+                                        href="{{ route('subcategories') }}">menu</a></li>
 
                                 <li class="{{ request()->is('about*') ? 'active' : '' }}"><a href="about">About</a>
                                 </li>
-                                <li class="{{ request()->is('news*') ? 'active' : '' }}"><a
-                                        href="{{ route('news') }}">News</a></li>
+                                {{-- <li class="{{ request()->is('news*') ? 'active' : '' }}"><a
+                                        href="{{ route('news') }}">News</a></li> --}}
                                 <li class="{{ request()->is('contact*') ? 'active' : '' }}"><a
                                         href="{{ route('contact') }}">Contact</a></li>
                                         <li>
-   <div class="dropdown">
+   <div class="dropdown" style="padding: 0">
                  
-               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"    >
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge bg-danger">{{ count((array) session('cart')) }}</span>
+               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="    margin: 0px 0 -11px 0px !important;
+    padding: 0;
+    background: transparent;
+    border: none;"   >
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="badge bg-danger" style="    position: absolute;
+    top: -3px;
+    left: 13px;">{{ count((array) session('cart')) }}</span>
                 </button>
  
                 <div class="dropdown-menu" aria-labelledby="dLabel">
@@ -226,10 +238,10 @@ color: #ffc107 !important;
                             </ul>
 
                         </div>
-                        <div class="text-end" style="position: fixed; right: 20px; top: 20px;">
+                        {{-- <div class="text-end" style="position: fixed; right: 20px; top: 20px;">
                             <a href="#"
                                 class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
-                                <span></span>
+                                <span></span> --}}
                             </a>
                         </div>
 
@@ -267,8 +279,8 @@ color: #ffc107 !important;
                               if (!(li.classList.contains('active'))) {
                                         if (window.scrollY < 60) {
                                                   // Add the 'fixed' class to the navigation bar
-                                                  image.src =
-                                                            "https://media.discordapp.net/attachments/1149330077880942705/1151770132192960542/codemates.png?width=721&height=541";
+                                                //   image.src =
+                                                            // "https://www.canva.com/design/DAFvvMCk2jU/pfEVznJlBACby3VnAQSByQ/view?utm_content=DAFvvMCk2jU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink";
                                                   navbar.classList.add("fixed");
                                                   navbar.classList.remove("scrolled");
                                                   li.classList.remove("licolor");
@@ -280,8 +292,8 @@ color: #ffc107 !important;
                                                   navbar.classList.remove("fixed");
                                                   navbar.classList.add("scrolled");
                                                   li.classList.add("licolor");
-                                                  image.src =
-                                                            "https://media.discordapp.net/attachments/1149330077880942705/1151770919937781760/codemates-logo__1_-removebg-preview_1.png?width=721&height=541";
+                                                //   image.src =
+                                                            // "https://www.canva.com/design/DAFvvMCk2jU/pfEVznJlBACby3VnAQSByQ/view?utm_content=DAFvvMCk2jU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink";
 
 
                                                   // Reset the background color

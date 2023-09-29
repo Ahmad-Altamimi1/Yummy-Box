@@ -5,7 +5,7 @@
   display: none;
 }
 #slides .scrollable {
-  *zoom: 1;
+  zoom: 1;
   position: relative;
   top: 0;
   left: 0;
@@ -51,11 +51,11 @@
   width: 12px;
   height: 45px;
   display: -moz-inline-stack;
-  display: inline-block;
+  display: inline-block !important;
   vertical-align: middle;
-  *vertical-align: auto;
+  vertical-align: auto;
   zoom: 1;
-  *display: inline;
+  /* display: inline; */
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=");
   margin: 2px;
   overflow: hidden;

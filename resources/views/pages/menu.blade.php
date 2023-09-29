@@ -152,6 +152,9 @@
 												<a href="{{ route('cart') }}">
 													show cart
 												</a>
+												<a href="{{ route('single') }}/{{ $product->id}}">
+single
+												</a>
 											</div>
 
 										</div>

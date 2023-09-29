@@ -9,6 +9,7 @@ use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use Illuminate\Support\Facades\DB;
 use App\Models\products;
+use App\Models\Review;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
 
@@ -28,8 +29,8 @@ class CategoryController extends Controller
         Session::put('url.single', url()->previous());
         $categories = DB::table('categories')->get();
         $products = DB::table('products')->get();
-        $reviews = DB::table('reviews')->get();
-        dd($reviews);
+        // $reviews = Review::where('productId',null)->get();
+        // dd($reviews);
         // $users = DB::table('users')->get();
         // $volanters = DB::table('paypals')->get();
         
@@ -69,13 +70,20 @@ class CategoryController extends Controller
         // $users = DB::table('users')->get();
         $volanters = DB::table('paypals')->get();
         $product = products::findOrFail($id);
+        $sameproducts = products::where('categoryId', $product->categoryId)->get();
+$Reviews=Review::where('productId',$product->id)->get();
+
         $startDate = Carbon::parse($product->created_at);
         $endDate = Carbon::now();
         $diffInMinutes = $endDate->diffInMinutes($startDate);
         $diffInHours = $endDate->diffInHours($startDate);
         $diffInDays = $endDate->diffInDays($startDate);
         $diffInMonths = $endDate->diffInMonths($startDate);
-        $quintty=session('cart')[$id]['quantity'];
+       if(isset($quintty)){
+            $quintty = session('cart')[$id]['quantity'];
+       }else{
+         $quintty=0;
+       }
         $totalsproduct = 0;
         foreach ($volanters as $volanter) {
             if ($volanter->product_id == $product->id) {
@@ -87,6 +95,8 @@ class CategoryController extends Controller
         $data = [
             'product' => $product,
             'quintty' =>  $quintty ,
+            'Reviews'=> $Reviews,
+            'sameproducts'=> $sameproducts,
             'diffInMinutes' => $diffInMinutes,
             'diffInHours' => $diffInHours,
             'diffInDays' => $diffInDays,

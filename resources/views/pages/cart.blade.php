@@ -129,7 +129,18 @@
                         <div class="col text-right">$ {{ $total + 5}}</div>
                         @endif
                     </div>
-                   <a href="cheack.html" class="hrefch"> <button class="btn CHECKOUT" style="background-color: #eee;">CHECKOUT</button></a>
+                  <form action="stripe" method="POST">
+
+@csrf
+@if (isset($discountPercent))
+                        @php
+                         $totalafterdiscount= $total - ($total * $discountPercent) + 5
+                        @endphp
+                        @endif
+<input type="hidden" name="price" value="<?php echo $total  ?>">
+{{-- <input type="text" name="name1" > --}}
+<button type="submit">Cheackout</button>
+</form>
                 </div>
             </div>
             

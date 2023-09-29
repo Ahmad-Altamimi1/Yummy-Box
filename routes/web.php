@@ -99,7 +99,7 @@ Route::get('/dashboard', function () {
 
 
 
-Route::get('home', [Controller::class, 'showhome'])
+Route::get('/home', [Controller::class, 'showhome'])
     ->name('home');
 
 Route::get('/about', [Controller::class, 'showabout'])

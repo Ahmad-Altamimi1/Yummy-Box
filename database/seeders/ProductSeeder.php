@@ -27,7 +27,10 @@ class ProductSeeder extends Seeder
                 ',
                 'cartDescription' => 'Volunteer to teach the art of crafting captivating and user-friendly web experiences with our Front-End Foundations project.
                 ',
-                'img' => 'image/defultimg.jpg' ,
+                'img' => 'images/defultimg.jpg',
+                'img1' => 'images/defultimg.jpg',
+                'img2' => 'images/defultimg.jpg',
+                'img3' => 'images/defultimg.jpg',
                 'cla' => 14,
                 'price' => 140,
                 'prot' => ' sun mon thu , for two weeks' ,
@@ -43,7 +46,10 @@ class ProductSeeder extends Seeder
                 ',
                 'cartDescription' => 'Volunteer to teach the art of crafting captivating and user-friendly web experiences with our Front-End Foundations project.
                 ',
-                'img' => 'image/defultimg.jpg' ,
+                'img' => 'images/defultimg.jpg' ,
+                'img1' => 'images/defultimg.jpg',
+                'img2' => 'images/defultimg.jpg',
+                'img3' => 'images/defultimg.jpg',
                 'cla' => 184,
                 'price' => 180,
 

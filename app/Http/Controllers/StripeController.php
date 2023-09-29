@@ -54,7 +54,7 @@ class StripeController extends Controller
                 'mode' => 'payment',
                 'success_url' => route('stripe_success'),
                 'cancel_url' => route('stripe_cancel'),
-            ]);
+            ]); 
             $totalsproduct = session('totalsproduct');
 
    $products_total = products::find($id);
