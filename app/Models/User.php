@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Cashier\Billable;
 
 class User extends Authenticatable
 {
@@ -22,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'id'
        
     ];
     /**
@@ -47,13 +49,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Volunteer::class);
     }
-    public function vaccept()
+  
+    public function cartItems()
     {
-        return $this->hasMany(Vaccept::class);
-    }
-    public function Uvolunteer()
-    {
-        return $this->hasMany(Uvolunteer::class);
+        return $this->hasMany(Cart::class, 'userId');
     }
     public function products()
     {

@@ -13,37 +13,37 @@
     <div class="container">
         <div class="card">
                         <div class="card-body">
-                            @if ($products->image)
-                            <img src="{{ asset('images/' . $products->image) }}" alt="{{ $products->name }}"
-                                width="1000">
+                            @if ($products->img)
+                            <img src="{{ asset( $products->img) }}" alt="{{ $products->name }}"
+                                width="200">
                         @endif                           <br><br> <h3 class="card-title"> {{ $products->name }}</h3>
                             <div class="mb-3"> <br>
                               <h5>Brief:</h5>
-                                <p class="card-text">{{ $products->breif}}</p>
+                                <p class="card-text">{{ $products->shortDescription}}</p>
                             </div>
                             <div class="mb-3">
                               <h5>Description:</h5>
-                                <p class="card-text">{{ $products->description2 }}</p>
+                                <p class="card-text">{{ $products->longDescription }}</p>
                             </div>
                             <div class="mb-3">
-                                <h5>Details:</h5>
-                                <p class="card-text">{{ $products->description3 }}</p>
+                                <h5>Cart Des:</h5>
+                                <p class="card-text">{{ $products->cartDescription }}</p>
                             </div>
                             <div class="mb-3">
-                              <h5>Period:</h5>
-                                <p class="card-text">{{ $products->period }}</p>
+                              <h5>cla:</h5>
+                                <p class="card-text">{{ $products->cla }}</p>
                             </div>
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                <h5>Location:</h5>
                                 <p class="card-text">{{ $products->location }}</p>
+                            </div> --}}
+                            <div class="mb-3">
+                               <h5>Price:</h5>
+                                <p class="card-text">{{ $products->price }}</p>
                             </div>
                             <div class="mb-3">
-                               <h5>Time:</h5>
-                                <p class="card-text">{{ $products->time }}</p>
-                            </div>
-                            <div class="mb-3">
-                               <h5>Total:</h5>
-                                <p class="card-text">{{ $products->total }}</p>
+                               <h5>Prot:</h5>
+                                <p class="card-text">{{ $products->prot }}</p>
                             </div>
                             <!-- Add other product details as needed -->
                         </div>

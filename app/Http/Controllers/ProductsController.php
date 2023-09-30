@@ -6,6 +6,7 @@ use App\Models\products;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Discount;
+use App\Models\Cart;
 use App\Models\User;
 use DB;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class ProductsController extends Controller
 
         $cart = session()->get('cart', []);
         $product = Products::findOrFail($valueToAdd);
-
+        
 
         if (isset($cart[$valueToAdd])) {
             $cart[$valueToAdd]['quantity']++;
@@ -40,11 +41,31 @@ class ProductsController extends Controller
                 "quantity" => 1
             ];
         }
+
         if (Auth::check()) {
+            session()->put('cart', $cart);
+            $user = Auth::user();
+            $cartproducts=Cart::all();
+            foreach ($cart as $cartItem) {
+                foreach($cartproducts as $cartproduct){
+        if ($cartItem['id']== $cartproduct->productId) {
+                        $cartproduct = Cart::where('productId', $cartItem['id'])->first();;
+                        $cartproduct->quantity += $cartItem['quantity'];
+                        $cartproduct->save();
+            
+        }else{
+            Cart::create([
+                'userId' => $user->id,
+                'productId' => $cartItem['id'],
+                'quantity' => $cartItem['quantity'],
+            ]);}}
+        }
+
         } else {
 
             session()->put('cart', $cart);
         }
+        // session()->put('cart', $cart);
       
 
         // Push $valueToAdd onto the session array
@@ -63,6 +84,9 @@ class ProductsController extends Controller
             $cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
+                "id" => $product->id,
+
+                'product_id'=>$product->id,
                 "name" => $product->name,
                 "img" => $product->img,
                 "price" => $product->price,
@@ -72,7 +96,17 @@ class ProductsController extends Controller
         }
         if (Auth::check()) {
 
-        }else{
+            session()->put('cart', $cart);
+            $user = Auth::user();
+            foreach ($cart as $cartItem) {
+                dd($cartItem);
+                Cart::create([
+                    'userId' => $user,
+                    'productId' => $cartItem['id'],
+                    'quantity' => $cartItem['quantity'],
+                ]);
+            }
+        } else {
 
             session()->put('cart', $cart);
         }
@@ -163,6 +197,55 @@ public function discount(Request $request){
         }
         return view('pages.cart',compact('discountPercent', 'active'));
 
+}
+
+    public function showcheackout (){
+        //         if (count(session('cart')) > 0 && Auth::check()) {
+        //             $userId = Auth::user()->id;
+
+        //             foreach (session('cart') as $cartItem) {
+        //                 // dd($cartItem);
+        //                 Cart::create([
+        //                     'userId' => $userId,
+        //                     'productId' => $cartItem['id'],
+        //                     'quantity' => $cartItem['quantity'],
+        //                 ]);
+        //             }
+
+        //             session()->forget('cart');
+        //    session()->get('cart', []);
+
+        //         }
+        $products=[];
+        if (Auth::check()) {
+            $user = Auth::user();
+            $cartItems = Cart::where('userId', $user->id)->get();
+            $cart = [];
+
+            foreach ($cartItems as $cartItem) {
+                // Fetch the associated product details
+                $product = Products::find($cartItem->productId);
+
+                // Create an array with the desired product details
+                $products[$cartItem->productId] = [
+                    "id" => $cartItem->productId,
+                    "product_id" => $product->productId,
+                    "name" => $product->name,
+                    "img" => $product->img,
+                    "price" => $product->price,
+                    'cartDescription' => $product->cartDescription,
+                    "quantity" => $cartItem->quantity
+                ];
+            }
+
+
+
+         
+        }
+
+    
+
+            return view('pages.cheackout',compact('products'));
 }
 
 
@@ -316,10 +399,10 @@ public function discount(Request $request){
             'breif' => 'required|string',
             'description2' => 'required|string',
             'description3' => 'required|string',
-            'location' => 'required|string',
-            'period' => 'required|string',
-            'time' => 'required|string',
-            'total' => 'required|numeric',
+            // 'location' => 'required|string',
+            // 'period' => 'required|string',
+            // 'time' => 'required|string',
+            // 'total' => 'required|numeric',
         ], [
             'name.required' => 'The name field is required.',
             'name.string' => 'The name field must be a string.',
@@ -330,13 +413,13 @@ public function discount(Request $request){
             'description2.string' => 'The description2 field must be a string.',
             'description3.required' => 'The description3 field is required.',
             'description3.string' => 'The description3 field must be a string.',
-            'location.required' => 'The location field is required.',
-            'location.string' => 'The location field must be a string.',
-            'period.required' => 'The period field is required.',
-            'period.string' => 'The period field must be a string.',
-            'time.required' => 'The time field is required.',
-            'time.string' => 'The time field must be a string.',
-            'total.required' => 'The total field is required.',
+            // 'location.required' => 'The location field is required.',
+            // 'location.string' => 'The location field must be a string.',
+            // 'period.required' => 'The period field is required.',
+            // 'period.string' => 'The period field must be a string.',
+            // 'time.required' => 'The time field is required.',
+            // 'time.string' => 'The time field must be a string.',
+            // 'total.required' => 'The total field is required.',
             'total.numeric' => 'The total field must be a number.',
             'image.image' => 'The image must be a valid JPEG, PNG, JPG, or GIF file.',
             'image.mimes' => 'The image must have a valid extension (jpeg, png, jpg, gif).',
@@ -346,22 +429,22 @@ public function discount(Request $request){
         $product = products::find($id);
 
         $product->name= $request->name;
-        $product->breif= $request->breif;
-        $product->description2= $request->description2;
-        $product->description3= $request->description3;
-        $product->location= $request->location;
-        $product->period= $request->period;
-        $product->time= $request->time;
-        $product->total= $request->total;
+        $product->shortDescription= $request->breif;
+        $product->longDescription= $request->description2;
+        $product->cartDescription= $request->description3;
+        // $product->prot= $request->location;
+        $product->price= $request->price;
+        $product->cartDescription= $request->time;
+        // $product->total= $request->total;
         if ($request->hasFile('image')) {
             // Validate and store the uploaded image
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images/'), $imageName);
+            $img = $request->file('image');
+            $imageName = time() . '.' . $img->getClientOriginalExtension();
+            $img->move(public_path('images/'), $imageName);
 
 
             // $imagePath = $request->file('image')->store('images/users');
-            $product->image =  $imageName;
+            $product->image = $imageName;
         }
         $product->save();
         

@@ -9,6 +9,10 @@
     <script src="{{url('lib/tempusdominus/js/moment.min.js')}}"></script>
     <script src="{{url('lib/tempusdominus/js/moment-timezone.min.js')}}"></script>
     <script src="{{url('lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+  
+
+	<script src="{{ url('https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js') }}"></script>
+<script src="{{url('js/custom.js')}}"></script>
 
     <!-- Template Javascript -->
     <script src="{{url('js/main.js')}}"></script>

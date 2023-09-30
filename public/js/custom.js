@@ -1,11 +1,16 @@
 
-
+$(document).ready(function () {
+          $("#myTable").DataTable();
+});
 buttons = document.querySelectorAll("#cart");
+
 total=document.querySelector('#total')
 let noadd=false
 // console.log(buttons);
 buttons.forEach((el) => {
           el.addEventListener("click", () => {
+            let countcart = document.getElementById("countcart");
+            countcart.innerHTML = cart.length;
 	let allbaba = document.querySelectorAll(".cart-detail-product");
 		allbaba.forEach((baba)=>{
 			

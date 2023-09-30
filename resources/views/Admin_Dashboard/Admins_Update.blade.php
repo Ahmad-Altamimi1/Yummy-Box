@@ -18,6 +18,7 @@
             
                 <label for="FirstName">First Name</label>
                 <input type="text" id="FirstName" name="name" value="{{ $admins->name }}">
+                hhhh
                 <label for="LastName">Last Name</label>
                 <input type="text" id="LastName" name="last_name" value="{{ $admins->last_name }}">
                 <label for="userEmail">Email</label>

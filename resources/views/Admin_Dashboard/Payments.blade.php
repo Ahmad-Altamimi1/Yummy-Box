@@ -8,25 +8,27 @@
     <br><br>
             <h1 class="mx-auto"> Donations Data </h1>
             <br>
-            <table class="table table-hover">
+            <table class="display" id="myTable">
                 <thead style="background-color: rgba(117, 192, 157, 0.489)">
                     <tr>
                         <th>Payment ID</th>
-                        <th>User Name</th>
-                        <th>User Email</th>
-                        <th>Transaction Amount</th>
+                        <th>User id</th>
+                        <th> Amount</th>
+                        <th> provider</th>
                         <th>Payment status</th>
+                        <th>payment-method</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($paypals as $paypal)
+                    @foreach ($payment as $paypal)
                         <tr>
                             <td>{{ $paypal['id'] }}</td>
-                            <td>{{ $paypal['user_name'] }}</td>
-                            <td>{{ $paypal['user_email'] }}</td>
+                            <td>{{ $paypal['userId'] }}</td>
                             <td>{{ $paypal['amount'] }}</td>
-                            <td>{{ $paypal['payment_status'] }}</td>
+                            <td>{{ $paypal['provider'] }}</td>
+                            <td>{{ $paypal['status'] }}</td>
+                            <td>{{ $paypal['payment-method'] }}</td>
                         </tr>
                     @endforeach
 

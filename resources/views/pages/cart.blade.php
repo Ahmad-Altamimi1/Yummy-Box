@@ -63,6 +63,11 @@
                                 <div class="row text-muted">{{ $details['name'] }}</div>
                                 {{-- <div class="row">بلدي</div> --}}
                             </div>
+                            @if (session('success'))
+         <div class="alert alert-success">
+             {{ session('success') }}
+         </div>
+     @endif
                             <div class="col">
                                                         <div id="counter">
       
@@ -118,6 +123,7 @@
                         @endisset
                         <input type="submit" value="code">
                     </form>
+
                     <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                         <div class="col">TOTAL PRICE</div>
                         @if (isset($discountPercent))
@@ -129,7 +135,7 @@
                         <div class="col text-right">$ {{ $total + 5}}</div>
                         @endif
                     </div>
-                  <form action="stripe" method="POST">
+                  {{-- <form action="{{ route('showcheackout') }}" method="POST">
 
 @csrf
 @if (isset($discountPercent))
@@ -138,9 +144,10 @@
                         @endphp
                         @endif
 <input type="hidden" name="price" value="<?php echo $total  ?>">
-{{-- <input type="text" name="name1" > --}}
 <button type="submit">Cheackout</button>
-</form>
+</form> --}}
+
+<a href="{{ route('showcheackout') }}">Cheackout</a>
                 </div>
             </div>
             

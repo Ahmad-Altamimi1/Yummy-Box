@@ -166,7 +166,8 @@ Pure: We're dedicated to purity and the natural goodness of real food.</p>
             <!--BLOCK ROW START-->
             <div class="row pricing_click">
                
-                
+                @foreach ($plans as $plan)
+					
                 <div class="col-md-6">
                 
                 	<!--PRICE CONTENT START-->
@@ -181,7 +182,7 @@ Pure: We're dedicated to purity and the natural goodness of real food.</p>
                             	<!--HEAD START-->
                                 <div class="head_bg"></div>
                                 <div class="head">
-                                    <span>Standard</span>
+                                    <span>{{ $plan->name }}</span>
                                 </div>
                                 <!--//HEAD END-->
                                 
@@ -190,11 +191,10 @@ Pure: We're dedicated to purity and the natural goodness of real food.</p>
                             
                             <!--PRICE START-->
                             <div class="generic_price_tag clearfix">
-								<form action="{{route('payment')}}/1" method="post">
-									@csrf
+							
                                 <span class="prices">	
                                     <span class="sign">JOD</span>
-                                    <span class="price">9.99</span>
+                                    <span class="price">{{ $plan->price }}</span>
                                     {{-- <span class="cent"></span> --}}
                                     <span class="period">/Weekly</span>
                                 </span>
@@ -218,16 +218,22 @@ Pure: We're dedicated to purity and the natural goodness of real food.</p>
                         
                         <!--BUTTON START-->
                         <div class="generic_price_btn clearfix">
-                        	<a class="" href=""><input type="submit" class="btn" value="Subscribe" style="background: transparent"></a>
+                       <a class="" href="{{ route('plans.show', $plan->slug) }}"style="background: transparent"> Subscribe </a>
+                        	
                         </div>
-						</form>	
+					
                         <!--//BUTTON END-->
                         
                     </div>
                     <!--//PRICE CONTENT END-->
                         
                 </div>
-                <div class="col-md-6">
+				@endforeach
+
+		{{-- --------------- --}}
+
+
+                {{-- <div class="col-md-6">
                 
                 	<!--PRICE CONTENT START-->
                     <div class="generic_content clearfix">
@@ -277,7 +283,7 @@ Pure: We're dedicated to purity and the natural goodness of real food.</p>
                         
                         <!--BUTTON START-->
                         <div class="generic_price_btn clearfix">
-                       <a class="" href=""><input type="submit" class="btn" value="Subscribe" style="background: transparent"></a>
+                       <a class="" href=""style="background: transparent"> Subscribe </a>
 
                         </div>
                         <!--//BUTTON END-->
@@ -285,7 +291,7 @@ Pure: We're dedicated to purity and the natural goodness of real food.</p>
                     </div>
                     <!--//PRICE CONTENT END-->
                         
-                </div>
+                </div> --}}
             </div>	
             <!--//BLOCK ROW END-->
             
@@ -329,7 +335,7 @@ Pure: We're dedicated to purity and the natural goodness of real food.</p>
 												<h5>$ {{ $product->price }}</h5> 
 												<a href="{{ route('single') }}/ {{ $product->id }} ">	<i class="fa fa-cart-plus " aria-hidden="true" style="color: #2a722e"></i></a>
 												{{-- <a href="{{ route('add_to_cart', $product->id) }} ">Add to cart</a> --}}
-                        <button  id="cart" name="{{ $product->id}}" namepr="{{ $product->name}}" image="{{ $product->img}}" des="{{ $product->shortDescription}} " price="{{ $product->price}}"> <i class="fa fa-cart-plus " aria-hidden="true" ></i></button>
+                        <button  id="cart" class="cart" name="{{ $product->id}}" namepr="{{ $product->name}}" image="{{ $product->img}}" des="{{ $product->shortDescription}} " price="{{ $product->price}}"> <i class="fa fa-cart-plus " aria-hidden="true" ></i></button>
 												
 											</div>
 											

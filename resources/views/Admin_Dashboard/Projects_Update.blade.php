@@ -27,61 +27,48 @@
                     @enderror
                     <div class="form-group">
                         <label for="ProjectsBreif">Brief</label>
-                        <input type="text" class="form-control" id="ProjectsBreif" name="breif" value="{{ $product->breif }}">
+                        <input type="text" class="form-control" id="ProjectsBreif" name="breif" value="{{ $product->shortDescription }}">
                     </div>
                     @error('breif')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                     <div class="form-group">
                         <label for="DescriptionOne">Description</label>
-                        <input type="text" class="form-control" id="DescriptionOne" name="description2"  value="{{ $product->description2 }}">
+                        <input type="text" class="form-control" id="DescriptionOne" name="description2"  value="{{ $product->longDescription }}">
                     </div>
                     @error('description2')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                     <div class="form-group">
-                        <label for="DescriptionTwo">Details</label>
-                        <input type="text" class="form-control" id="DescriptionTwo" name="description3" value="{{ $product->description3 }}">
+                        <label for="DescriptionTwo">prot</label>
+                        <input type="text" class="form-control" id="DescriptionTwo" name="description3" value="{{ $product->prot }}">
                     </div>
                     @error('description3')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                     <div class="form-group">
-                        <label for="ProjectsLocation">Location</label>
-                        <input type="text" class="form-control" id="ProjectsLocation" name="location"  value="{{ $product->location }}">
+                        <label for="ProjectsLocation">price</label>
+                        <input type="text" class="form-control" id="ProjectsLocation" name="price"  value="{{ $product->price }}">
                     </div>
                     @error('location')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                     <div class="form-group">
-                        <label for="ProjectsTime">Time</label>
-                        <input type="text" class="form-control" id="ProjectsTime" name="time" value="{{ $product->time }}">
+                        <label for="ProjectsTime">cart des</label>
+                        <input type="text" class="form-control" id="ProjectsTime" name="time" value="{{ $product->cartDescription }}">
                     </div>
                     @error('time')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
-                    <div class="form-group">
-                        <label for="ProjectsPeriod">Period</label>
-                        <input type="text" class="form-control" id="ProjectsPeriod" name="period"  value="{{ $product->period }}">
-                    </div>
-                    @error('period')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                    <div class="form-group">
-                        <label for="ProjectsTotal">Total</label>
-                        <input type="text" class="form-control" id="ProjectsTotal" name="total" value="{{ $product->total }}">
-                    </div>
-                    @error('total')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                   
                     <div class="col-md-4 col-12">
-                      @if ($product->image)
-                          <img src="{{ asset('images/users/' . $product->image) }}" alt="{{ $product->name }}'s Project Picture" class="img-fluid" style="max-width: 200px; height: auto;" requ>
+                      @if ($product->img)
+                          <img src="{{ asset('images/users/' . $product->img) }}" alt="{{ $product->name }}'s Project Picture" class="img-fluid" style="max-width: 200px; height: auto;" requ>
                       @endif
       
                       <div class="form-group mt-3">
                           <label for="image">{{ __('Upload new image') }}</label>
-                          <input id="image" name="image" type="file" accept="image/*" class="form-control-file" :value="old('image', $product->image)" autocomplete="image" />
+                          <input id="image" name="image" type="file" accept="image/*" class="form-control-file" :value="old('image', $product->img)" autocomplete="image" />
                           <x-input-error class="mt-2" :messages="$errors->get('image')" />
                       </div>
                   </div>

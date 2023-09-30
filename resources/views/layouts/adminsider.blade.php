@@ -10,6 +10,7 @@
     
     <!-- Favicon -->
     <link href="{{ url('img/favicon.ico') }}" rel="icon">
+   <link rel="stylesheet" href="{{ url('https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css') }}">
     
     {{-- <!-- Google Web Fonts -->
     <link rel="preconnect" href="{{url('https://fonts.googleapis.com%22%3E/')}}">

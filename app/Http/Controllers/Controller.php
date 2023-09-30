@@ -8,6 +8,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
+use App\Models\Plan;
 
 
 class Controller extends BaseController
@@ -23,10 +24,12 @@ class Controller extends BaseController
         $volanters = DB::table('paypals')->get();
         // $reviews = DB::table('reviews')->get();
         $reviews=Review::all();
+        $plans = Plan::get();
+
 
 
         // dd($categories);
-        return view('pages.home', compact('categories', 'products', 'users', 'volanters', 'reviews'));
+        return view('pages.home', compact('categories', 'products', 'users', 'volanters', 'reviews','plans'));
    
   }
     function showabout()

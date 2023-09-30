@@ -16,7 +16,7 @@ use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StripeController;
-use App\Http\Controllers\VacceptController;
+use App\Http\Controllers\PlanController;
 use App\Mail\ContactMail;
 use App\Models\User;
 use App\Models\Vaccept;
@@ -43,10 +43,10 @@ Route::get('/cancel', [StripeController::class, 'cancel'])->name('cancel');
 
 // Route::get('/', [ProductsController::class, 'index']);
 Route::get('cart', [ProductsController::class, 'cart'])->name('cart');
-Route::get('add-to-cart/{id}', [ProductsController::class, 'addToCart'])->name('add_to_cart');
+Route::get('add-to-cart/{id}', [ProductsController::class, 'saveProductToSession'])->name('add_to_cart');
 Route::patch('update-cart', [ProductsController::class, 'update'])->name('update_cart');
 // Route::Delete('remove-from-cart/{id?}', [ProductsController::class, 'remove'])->name('remove_from_cart');
-Route::Delete('remove-from-cart', [ProductsController::class, 'remove'])->name('remove_from_cart');
+Route::Delete('remove-from-cart/{id?}', [ProductsController::class, 'remove'])->name('remove_from_cart');
 
 
 Route::post('/add-product-to-session-array', [ProductsController::class, 'saveProductToSession'])->name('saveProductToSession');
@@ -100,7 +100,7 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/home', [Controller::class, 'showhome'])
-    ->name('home');
+    ->name('home')->middleware('moveproduct');
 
 Route::get('/about', [Controller::class, 'showabout'])
     ->name('about');
@@ -116,10 +116,12 @@ Route::get('/causes', [Controller::class, 'showcauses'])
 
 Route::get('/news', [Controller::class, 'shownews'])
     ->name('news');
+    Route::get('cheackout',[ProductsController::class,'showcheackout'])->middleware(['auth','moveproduct'])->name('showcheackout');
 
 
 
 
+Route::get('plans/{plan}', [PlanController::class, 'show'])->name("plans.show");
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -142,7 +144,7 @@ Route::get('single/payment/{id}', [PaypalController::class, 'showpayment'])->mid
 
 //new
 // Route::post('payment/{id?}', [PaypalController::class, 'payment'])->middleware('auth', 'verified')->name('payment'); // Use 'store' method for POST
-Route::post('payment/{id?}', [StripeController::class, 'payment'])->name('payment'); // Use 'store' method for POST
+Route::post('payment/{id?}', [StripeController::class, 'payment'])->name('stripe'); // Use 'store' method for POST
 Route::get('success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
 Route::get('cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
 

@@ -146,7 +146,7 @@
 											<p>{{ $product->shortDescription}}</p>
 											<div class="why-text-footer d-flex justify-content-between align-items-center">
 												<h5>{{ $product->price}}</h5> 
-												<button  id="cart" name="{{ $product->id}}" namepr="{{ $product->name}}" image="{{ $product->img}}" des="{{ $product->shortDescription}} " price="{{ $product->price}}"> <i class="fa fa-cart-plus " aria-hidden="true" ></i></button>
+												<button  id="cart" class="cart" name="{{ $product->id}}" namepr="{{ $product->name}}" image="{{ $product->img}}" des="{{ $product->shortDescription}} " price="{{ $product->price}}"> <i class="fa fa-cart-plus " aria-hidden="true" ></i></button>
 												{{-- <button href="{{ route('add_to_cart', $product->id) }}"> <i class="fa fa-cart-plus " aria-hidden="true" ></i></button> --}}
 												
 												<a href="{{ route('cart') }}">

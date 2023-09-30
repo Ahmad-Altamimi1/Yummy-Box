@@ -44,7 +44,7 @@
 <link rel="stylesheet" href="{{url('css/cart.css') }}">
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">   
-   
+   <link rel="stylesheet" href="{{url ('//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css') }}">
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
@@ -160,7 +160,7 @@ color: #ffc107 !important;
     padding: 0;
     background: transparent;
     border: none;"   >
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="badge bg-danger" style="    position: absolute;
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="countcart" class="badge bg-danger" style="    position: absolute;
     top: -3px;
     left: 13px;">{{ count((array) session('cart')) }}</span>
                 </button>

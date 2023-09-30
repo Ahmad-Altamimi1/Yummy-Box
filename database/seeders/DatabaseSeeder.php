@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Admin;
 use App\Models\Review;
 use Illuminate\Database\Seeder;
 use Stripe\Product;
@@ -41,6 +42,8 @@ class DatabaseSeeder extends Seeder
             DiscountSeeder::class,
             ProductSeeder::class,
             ReviewSeeder::class,
+            PlanSeeder::class,
+            AdminSeeder::class,
 
         ]);
     }

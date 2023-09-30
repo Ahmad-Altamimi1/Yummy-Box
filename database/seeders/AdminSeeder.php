@@ -23,7 +23,7 @@ class AdminSeeder extends Seeder
             'name' => 'Admin',
                 'last_name' => 'admin',
                 'email' => 'admin@admin.com',
-                'password' =>Hash::make('adminadmin123456') ,
+                'password' =>Hash::make('admin123456$$') ,
                 'image' =>   'https://i.pinimg.com/564x/e4/ae/91/e4ae913770319fc3230da7b28530d82c.jpg'
 
 

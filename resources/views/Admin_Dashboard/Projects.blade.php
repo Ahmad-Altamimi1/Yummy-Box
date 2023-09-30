@@ -8,18 +8,17 @@
         <h1 class="mx-auto"> Manage Your Project </h1>  <a href="Project_Create"><button class="btn btn-success" type="submit" style="position:absolute ; right :5%"> + Add Project</button>
         </a> <br><br>
       
-        <table class="table table-hover">
+        <table class="display" id="myTable">
           <thead style="background-color: rgba(117, 192, 157, 0.489) ">
              <tr>
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Breif</th>
                         <th>Description</th>
-                        <th>Details</th>
-                        <th>Location</th>
-                        <th>Time</th>
-                        <th>Period</th>
-                        <th>Total</th>
+                        <th>cart des</th>
+                        <th>cla</th>
+                        <th>prot</th>
+                        <th>price</th>
+                        {{-- <th>Total</th> --}}
                         <th>Image</th>
                         <th style="text-align: center">Actions</th>
                     </tr>
@@ -27,44 +26,62 @@
                 <tbody>
                     @foreach ($products as $product)
                     <tr class="custom-element">
-                        <td>{{ $product['id'] }}</td>
+                        {{-- <td>{{ $product['id'] }}</td> --}}
                         <td>{{ $product['name'] }}</td>
                         {{-- <td>{{ $product['breif'] }}</td> --}}
                         <td>
-                          {!! Illuminate\Support\Str::limit($product['breif'], 20) !!}
-                          @if (str_word_count($product['breif']) > 20)
+                          {!! Illuminate\Support\Str::limit($product['shortDescription'], 20) !!}
+                          @if (str_word_count($product['shortDescription']) > 20)
                               <a href="{{ url()->current() . '?page=more' }}"></a>
                           @endif
                       </td>
                         <td>
-                          {!! Illuminate\Support\Str::limit($product['description2'], 20) !!}
-                          @if (str_word_count($product['description2']) > 20)
+                          {!! Illuminate\Support\Str::limit($product['longDescription'], 20) !!}
+                          @if (str_word_count($product['longDescription']) > 20)
                               <a href="{{ url()->current() . '?page=more' }}"></a>
                           @endif
                       </td>
                       <td>
-                        {!! Illuminate\Support\Str::limit($product['description3'], 20) !!}
-                        @if (str_word_count($product['description3']) > 20)
+                        {!! Illuminate\Support\Str::limit($product['cartDescription'], 20) !!}
+                        @if (str_word_count($product['cartDescription']) > 20)
                             <a href="{{ url()->current() . '?page=more' }}"></a>
                         @endif
                     </td>
                         {{-- <td>{{ $product['description3'] }}</td> --}}
-                        <td>{{ $product['location'] }}</td>
-                        <td>{{ $product['time'] }}</td>
+                        {{-- <td>{{ $product['price'] }}</td> --}}
+                        <td>{{ $product['cla'] }}</td>
+                        <td>{{ $product['prot'] }}</td>
                         {{-- <td>{{ $product['period'] }}</td> --}}
                         <td>
-                          {!! Illuminate\Support\Str::limit($product['period'], 10) !!}
-                          @if (str_word_count($product['period']) > 10)
+                          {!! Illuminate\Support\Str::limit($product['price'], 10) !!}
+                          @if (str_word_count($product['price']) > 10)
                               <a href="{{ url()->current() . '?page=more' }}"></a>
                           @endif
+
+
+
+
+
+
+
+
+
+
+                          
                       </td>
-                        <td>{{ $product['total'] }}</td>
+                        {{-- <td>{{ $product['total'] }}</td> --}}
                         <td>
                           {{-- <img src="{{ $product->image }}" class="card-img" style="width: 100px" alt="{{ $product->name }}"> --}}
                           
                           <div >
-                            @if ($product->image)
-                                <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}"
+                            @if ($product->img)
+                                <img src="{{ asset($product->img) }}" alt="{{ $product->name }}"
+                                    width="80" height="80">
+                                <img src="{{ asset($product->img1) }}" alt="{{ $product->name }}"
+                                    width="80" height="80">
+                                <img src="{{ asset($product->img2) }}" alt="{{ $product->name }}"
+                                    width="80" height="80">
+                                <img src="{{ asset($product->img3) }}" alt="{{ $product->name }}"
                                     width="80" height="80">
                             @endif
                         </div>

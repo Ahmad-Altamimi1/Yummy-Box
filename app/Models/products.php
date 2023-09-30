@@ -27,6 +27,10 @@ class products extends Model
     {
         return $this->belongsTo(products::class);
     }
+    public function cartItems()
+    {
+        return $this->hasMany(Cart::class, 'productId');
+    }
   
     // return $this->belongsToMany(paypal::class);
 }

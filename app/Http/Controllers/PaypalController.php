@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+// use App\Http\Middleware\payment;
+use App\Models\payment;
 use App\Models\paypal;
 use App\Http\Requests\StorepaypalRequest;
 use App\Http\Requests\UpdatepaypalRequest;
@@ -140,10 +142,10 @@ class PaypalController extends Controller
      * @param  \App\Models\paypal  $paypal
      * @return \Illuminate\Http\Response
      */
-    public function show(paypal $paypal)
+    public function show()
     {
-        $paypalList = paypal::all();
-        return view('Admin_Dashboard.Payments', ['paypals' => $paypalList]);
+        $paypalList = payment::all();
+        return view('Admin_Dashboard.Payments', ['payment' => $paypalList]);
     }
 
     /**
@@ -152,10 +154,7 @@ class PaypalController extends Controller
      * @param  \App\Models\paypal  $paypal
      * @return \Illuminate\Http\Response
      */
-    public function edit(paypal $paypal)
-    {
-        //
-    }
+   
 
     /**
      * Update the specified resource in storage.
@@ -175,7 +174,7 @@ class PaypalController extends Controller
      * @param  \App\Models\paypal  $paypal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(paypal $paypal)
+    public function destroy(payment $paypal)
     {
         //
     }

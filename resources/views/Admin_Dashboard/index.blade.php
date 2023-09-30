@@ -16,9 +16,9 @@
                         <div class="ms-3">
                             <p class="mb-2">Volunteers</p>
                             @php
-                                $volunteerCount = \App\Models\Vaccept::count();
+                                // $volunteerCount = \App\Models\Vaccept::count();
                             @endphp
-                            <h6 class="mb-0">{{ $volunteerCount }}</h6>
+                            {{-- <h6 class="mb-0">{{ $volunteerCount }}</h6> --}}
                         </div>
                     </div>
                 </div>
@@ -52,9 +52,9 @@
                         <div class="ms-3">
                             <p class="mb-2">Donations</p>
                             @php
-                                $donationCount = \App\Models\paypal::count();
+                                // $donationCount = \App\Models\paypal::count();
                             @endphp
-                            <h6 class="mb-0">{{ $donationCount }}</h6>
+                            {{-- <h6 class="mb-0">{{ $donationCount }}</h6> --}}
                         </div>
                     </div>
                 </div>
@@ -102,13 +102,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($contacts as $contact)
+                            {{-- @foreach ($contacts as $contact)
                             <tr>
                                 <td>{{ $contact['name'] }}</td>
                                 <td>{{ $contact['email'] }}</td>
                                 <td>{{ $contact['message'] }}</td>
                             </tr>
-                         @endforeach
+                         @endforeach --}}
                         </tbody>
                     </table>
                 </div>

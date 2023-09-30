@@ -158,6 +158,8 @@
 	<script src="{{ url('js/form-validator.min.js') }}"></script>
     <script src="{{ url('js/contact-form-script.js') }}"></script>
 	<script src="{{ url('js/popper.min.js') }}"></script>
+	<script src="{{ url('//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js') }}"></script>
+
 
 </body>
 

@@ -31,8 +31,8 @@ class ContactController extends Controller
     public function show()
     {
 
-        $contacts = Contact::all(); 
-        return view('Admin_Dashboard.index', compact('contacts')); }
+        // $contacts = Contact::all(); 
+        return view('Admin_Dashboard.index'); }
 
 
 }
