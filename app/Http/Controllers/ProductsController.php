@@ -43,25 +43,27 @@ class ProductsController extends Controller
         }
 
         if (Auth::check()) {
-            session()->put('cart', $cart);
             $user = Auth::user();
-            $cartproducts=Cart::all();
-            foreach ($cart as $cartItem) {
-                foreach($cartproducts as $cartproduct){
-        if ($cartItem['id']== $cartproduct->productId) {
-                        $cartproduct = Cart::where('productId', $cartItem['id'])->first();;
-                        $cartproduct->quantity += $cartItem['quantity'];
-                        $cartproduct->save();
-            
-        }else{
-            Cart::create([
-                'userId' => $user->id,
-                'productId' => $cartItem['id'],
-                'quantity' => $cartItem['quantity'],
-            ]);}}
-        }
+            $cartproducts = Cart::where('userId', $user->id)->get();
 
-        } else {
+            foreach ($cart as $cartItem) {
+                $existingCartItem = $cartproducts->where('productId', $cartItem['id'])->first();
+
+                if ($existingCartItem) {
+                    // Update the quantity of the existing cart item
+                    $existingCartItem->quantity += $cartItem['quantity'];
+                    $existingCartItem->save();
+                } else {
+                    // Create a new cart item
+                    Cart::create([
+                        'userId' => $user->id,
+                        'productId' => $cartItem['id'],
+                        'quantity' => $cartItem['quantity'],
+                    ]);
+                }
+            }
+        }
+        else {
 
             session()->put('cart', $cart);
         }

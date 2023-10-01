@@ -66,6 +66,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->forget('web');
 
         $request->session()->regenerateToken();
+        session()->flush();
 
         return back();
 

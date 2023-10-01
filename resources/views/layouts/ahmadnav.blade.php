@@ -125,7 +125,41 @@ color: #ffc107 !important;
     }
     
 </style>
+<?php 
 
+use App\Models\Cart;
+use App\Models\Products;
+    if (Auth::check()) {
+            $user = Auth::user();
+            $cartItems = Cart::where('userId', $user->id)->get();
+            $cart = [];
+
+            foreach ($cartItems as $cartItem) {
+                // Fetch the associated product details
+                $product = Products::find($cartItem->productId);
+
+                // Create an array with the desired product details
+                $cart[$cartItem->productId] = [
+                    "id" => $cartItem->productId,
+                    "product_id" => $product->productId,
+                    "name" => $product->name,
+                    "img" => $product->img  ,
+                    "price" => $product->price,
+                    'cartDescription' => $product->cartDescription,
+                    "quantity" => $cartItem->quantity
+                    // Add other product details if needed
+                ];
+            }
+        
+
+
+            session()->put('cart', $cart);
+        }
+
+      
+    
+?>
+{{-- @dd(session('cart')) --}}
     <nav class="site-nav {{ request()->is('home*') ? 'transparent-bg' : '' }} ">
         <div class="container">
             <div class="menu-bg-wrap">
@@ -180,6 +214,7 @@ color: #ffc107 !important;
                     <div id="baba">
                        @if(session('cart'))
                         @foreach(session('cart') as $id => $details)
+                        <a href="{{ route('single') }}/{{ $details['id'] }}">
                             <div class="row cart-detail">
                                 <div class="col-lg-4 col-sm-4 col-4 cart-detail-img ">
                                     <img src="../{{ $details['img'] }}" />
@@ -191,7 +226,7 @@ color: #ffc107 !important;
                                 </div>
                                 
                             </div>
-                            
+                            </a>
                         @endforeach
                         @endif
                     </div>

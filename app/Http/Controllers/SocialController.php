@@ -38,7 +38,7 @@ class SocialController extends Controller
         try {
 
             $user = Socialite::driver('google')->user();
-            $finduser = User::where('social_id', $user->id)->first();
+            $finduser = User::where('email', $user->email)->first();
 
             if ($finduser) {
                 Auth::login($finduser);

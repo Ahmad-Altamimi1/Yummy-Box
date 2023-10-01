@@ -10,7 +10,8 @@ let noadd=false
 buttons.forEach((el) => {
           el.addEventListener("click", () => {
             let countcart = document.getElementById("countcart");
-            countcart.innerHTML = cart.length;
+            countcart.innerHTML = cart.length ;
+            console.log(countcart.innerHTML -1);
 	let allbaba = document.querySelectorAll(".cart-detail-product");
 		allbaba.forEach((baba)=>{
 			

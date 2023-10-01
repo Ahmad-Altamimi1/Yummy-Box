@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-    
+   
     <!-- Favicon -->
     <link href="{{ url('img/favicon.ico') }}" rel="icon">
    <link rel="stylesheet" href="{{ url('https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css') }}">
@@ -42,7 +42,7 @@
             <h2 class="text-success mb-0"><i class="fa fa-hashtag"></i></h2>
         </a>
         <a href="#" class="sidebar-toggler flex-shrink-0 text-warning">
-            <i class="fa fa-bars"></i>  CODEMATES
+            <i class="fa fa-bars"></i>  Nutrizen
         </a>
        
         <div class="navbar-nav align-items-center ms-auto">
@@ -153,17 +153,21 @@
                         <i class="fa fa-th me-2"></i>Users
                     </a>
                     <a href="{{ route('Admin_Dashboard.Projects') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.Projects') ? 'active' : '' }}">
-                        <i class="fa fa-keyboard me-2"></i>Projects
+                        <i class="fa fa-keyboard me-2"></i>Product
+                    </a>
+                    <a href="{{ route('Admin_Dashboard.Projects') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.Projects') ? 'active' : '' }}">
+                        <i class="fa fa-keyboard me-2"></i>Categoreis
                     </a>
                     <a href="{{ route('Admin_Dashboard.Volunteers') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.Volunteers') ? 'active' : '' }}">
-                        <i class="fa fa-table me-2"></i>Pended Volunteers
+                        <i class="fa fa-table me-2"></i>P
                     </a>
                     <a href="{{ route('Admin_Dashboard.Vaccept') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.Vaccept') ? 'active' : '' }}">
                         <i class="far fa-file-alt me-2"></i>Accepted Volanteers
                     </a>
                     <a href="{{ route('Admin_Dashboard.Payments') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.Payments') ? 'active' : '' }}">
-                        <i class="fa fa-chart-bar me-2"></i>Donation
+                        <i class="fa fa-chart-bar me-2"></i>Payment
                     </a>
+   
                     <a href="{{ route('Admin_Dashboard.ressourses') }}" class="nav-item nav-link {{ request()->routeIs('Admin_Dashboard.ressourses') ? 'active' : '' }}">
                         <i class="far fa-file-alt me-2"></i>Ressources
                     </a>

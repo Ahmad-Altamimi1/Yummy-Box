@@ -6,7 +6,7 @@
     <div style="margin: 0% 8%">
       <div style="width: 100%" > 
     <br><br>
-            <h1 class="mx-auto"> Donations Data </h1>
+            <h1 class="mx-auto"> Payment </h1>
             <br>
             <table class="display" id="myTable">
                 <thead style="background-color: rgba(117, 192, 157, 0.489)">
