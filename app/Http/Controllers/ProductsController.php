@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Discount;
 use App\Models\Cart;
+use App\Models\Review;
 use App\Models\User;
 use DB;
 use Illuminate\Http\Request;
@@ -140,22 +141,32 @@ class ProductsController extends Controller
         return redirect()->back();
     }
 
-
+    public function review(Request $request)
+    {
+        Review::create([
+            "userId" => Auth::user()->id,
+            "productId" => $request->product,
+            "review" => $request->review,
+            "description" => $request->description,
+        ]);
+        return redirect()->back();
+    }
 
     // filter 
-    public function search_products(Request $request, $id=null)
-    {
-        $categories = Category::all();
-        $query = Products::whereBetween('price', [$request->rangemin, $request->rangemax]);
+    // public function search_products(Request $request, $id=null)
+    // {
+    //     $categories = Category::all();
+    //     $query = Products::whereBetween('price', [$request->rangemin, $request->rangemax]);
 
-        if ($id!=null) {
-            $query->where('categoryId', $id);
-        }   
+    //     if ($id!=null) {
+    //         $query->where('categoryId', $id);
+    //     }   
 
-        $products = $query->get();
+    //     $products = $query->get();
 
-        return view('pages.menu', compact('products', 'categories'));
-    }
+    //     return view('pages.menu', compact('products', 'categories'));
+    // }
+    
     public function sort_by(Request $request,$id=null)
     {
         // dd($request);
@@ -175,6 +186,35 @@ class ProductsController extends Controller
         }
         return view('pages.menu', compact('products', 'categories'))->render();
     }
+    public function search_products(Request $request, $id = null)
+    {
+        $categories = Category::all();
+        $query = Products::where('name', 'like', '%' . $request->search . '%');;
+
+        if ($id != null) {
+            $query->where('categoryId', $id);
+        }
+
+        $products = $query->get();
+
+        return view('pages.menu', ['products' => $products, 'categories' => $categories]);
+    }
+    
+    public function price_products(Request $request, $id = null)
+    {
+        $categories = Category::all();
+        $query = Products::whereBetween('price', [$request->rangemin, $request->rangemax]);
+
+        if ($id != null) {
+            $query->where('categoryId', $id);
+        }
+
+        $products = $query->get();
+
+        return view('pages.menu', ['products' => $products, 'categories' => $categories]);
+    }
+
+    
 
 public function discount(Request $request){
         $discounts=Discount::all();
@@ -468,4 +508,27 @@ public function discount(Request $request){
           $products->delete();
          return redirect()->route('Admin_Dashboard.Projects')->with('success', 'student data dashboard successfully ');
           }
+
+
+
+
+    public function removeProductFromCart(Request $request)
+    { {
+            $productIdToRemove = $request->input('productId');
+
+            // Retrieve the cart array from the session
+            $cart = session('cart', []);
+
+            // Use array_filter to filter the cart array and remove the product ID
+            $cart = array_filter($cart, function ($productId) use ($productIdToRemove) {
+                return $productId != $productIdToRemove;
+            });
+
+            // Store the updated cart array back in the session
+            session(['cart' => $cart]);
+
+            // You can also perform additional logic here and return a success response if removal was successful
+            return response()->json(['success' => true]);
+        }
+    }
 }

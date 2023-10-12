@@ -30,7 +30,6 @@ class StripeController extends Controller
 $userid= Auth::user()->id;
         $products = Cart::where('userId', $userid)->get();
         foreach ($products as $product) {
-            dd($product['quantity']);
             $lineItems[] = [
                 'price_data' => [
                     'currency' => 'usd',
@@ -58,6 +57,12 @@ $userid= Auth::user()->id;
 
    $products_total = products::find($id);
 
+        $products = Cart::where('userId', $userid)->get();
+        foreach ($products as $product) {
+            $product->delete();
+        }
+
+
 
             
             DB::table('payments')->insert([
@@ -75,6 +80,7 @@ $userid= Auth::user()->id;
 }
     public function success()
     {
+        
         return redirect()->route('finish');
     }
     public function cancel()

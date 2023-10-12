@@ -22,7 +22,7 @@
                                 $total += $product['price'] * $product['quantity'];
                             @endphp
                             <div class="order">
-                                <img src="/image/form room.jpg" alt="" />
+                                <img src=" {{ $product['img'] }} " alt="" />
                                 <h4 class="name1">{{ $product['name'] }}</h4>
                                 <h5 class="price">${{ $product['price'] * $product['quantity'] }}</h5>
 

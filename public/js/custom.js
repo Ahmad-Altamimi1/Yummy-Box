@@ -12,7 +12,7 @@ buttons.forEach((el) => {
             let countcart = document.getElementById("countcart");
             countcart.innerHTML = cart.length ;
             console.log(countcart.innerHTML -1);
-	let allbaba = document.querySelectorAll(".cart-detail-product");
+	let allbaba = document.querySelectorAll(".mini-cart__item");
 		allbaba.forEach((baba)=>{
 			
 if (el.getAttribute("namepr") === baba.childNodes[1].innerHTML) {
@@ -33,15 +33,24 @@ if (!noadd) {
 			productcart.classList.add("row");
 		
                   productcart.innerHTML = `
-      <div class="col-lg-4 col-sm-4 col-4 cart-detail-img ">
-                                    <img src="../${el.getAttribute("image")}" />
-                                </div>
-                                <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
-                                    <p>${el.getAttribute("namepr")}</p>
-                                    <span class="price text-success"> ${el.getAttribute(
-                                              "price"
-                                    )}</span> <span class="count">Quantity: 1</span>
-                                </div>`;
+
+
+     <div class="mini-cart__item">
+                <img src="../${el.getAttribute("image")}" alt="">
+                <div class="mini-cart__item-content">
+                    <div class="mini-cart__item-top">
+                        <h3><a href="product-details.html">${el.getAttribute(
+                                  "namepr"
+                        )}</a></h3>
+                        <p> ${el.getAttribute("price")}</p>
+                    </div><!-- /.mini-cart__item-top -->
+                    <div class="quantity-box">
+                        <p >1</p>
+                    </div>
+                </div><!-- /.mini-cart__item-content -->
+            </div>
+
+       `;
 								
                     let cart = document.querySelector("#baba");
 					

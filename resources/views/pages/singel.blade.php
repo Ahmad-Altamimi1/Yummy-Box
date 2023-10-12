@@ -1,188 +1,290 @@
 @extends('layouts.master')
 @section('content')
-    
-<style>.all-page-title::before{
-	background: rgb(0, 0, 0);
-	content: "";
-	height: 100%;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	z-index: 1;
-	opacity: 0.8;	
-}</style>
-</head>
-
-<body>
-	<!-- Start header -->
-
-	<!-- End header -->
-	
-	<!-- Start header -->
-	<div class="all-page-title page-breadcrumb " style=" padding-top: 100px;">
-		<div class="container text-center" >
-			<div class="row">
-				<div class="col-lg-12">
-				
-				</div></div>
-			</div>
-		</div>
-	<!-- End header -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="single-prodact">
-    <div class="container single ">
-
-        <div class="left-single">
-        <img src="{{url ( $product->img) }}" alt="">
-        <div class="more-pic-in-single-proudact">
-          <img name="slide">
-        <img src="{{url ($product->img1) }}" alt="">
-        <img src="{{url ($product->img2) }}" alt="">
-        <img src="{{url ($product->img3) }}" alt="">
-        <!-- <img src="images/single-proudact.jpg" alt=""> -->
-          </div>
-          </div>
-
-        <div class="right-single">
-<!-- <span class="company-name" >Nutri<span style="color: black;">zen</span></span> -->
-<h5 class="proudact-name" >{{ $product->name}}</h5>
-<p id="proudact-description">{{ $product->longDescription}}</p>
-   <span id="price">${{ $product->price}}</span>
-   <div>
-    <div id="counter">
-      
-      <span id="minus">-</span> <span id="number"><span class="count">:{{ $quintty }}</span></span> <span id="plus">+</span>
-    </div>
-  </div>
-    <div  class="add_to_cart d-flex flex-column"> 	<button  id="cart" name="{{ $product->id}}" namepr="{{ $product->name}}" image="{{ $product->img}}" des="{{ $product->shortDescription}} " price="{{ $product->price}}"> <i class="fa fa-cart-plus " aria-hidden="true" ></i></button>
-</div>
-
-    </div>
-  </div>
-</div>
-<!-- ______________  -->
-    <div id="more_proudact_in_single" class="d-flex">
-      <div class="container d-flex ">
-        @foreach ($sameproducts as $sameproduct )
-          
-      <div id="more_proudact" class="d-flex flex-column justify-content-center">
-        <img src=" {{url ($sameproduct->img)}}" alt="">
-        <h4>{{ $sameproduct->name}}</h4>
-       
-        <p>{{ $sameproduct->shortDescription}} </p>
-            <div  class="d-flex flex-column"> 	<button  id="cart" name="{{ $sameproduct->id}}" namepr="{{ $sameproduct->name}}" image="{{ $sameproduct->img}}" des="{{ $sameproduct->shortDescription}} " price="{{ $sameproduct->price}}"> Add TO Cart</button>
-
-         
-        </span>
-        <!-- <span class="cart_icon"></a></span> -->
-      </div> 
-      </div>
-        @endforeach
-      
-      
-      
-  
-     
-      
-      
- 
-  
-   
-    </div>
-    </div>
-    {{-- </div> --}}
-    
-  
-  </div>
-	</div>
-
-
-  
-<div class="customer-reviews-box">
-		<div class="container">
-			<div class="row" style="padding-bottom: 70px;">
-				<div class="col-lg-12">
-					<div class="heading-title text-center">
-						<h2>Customer Reviews</h2>
-					</div>
-				</div>
-			
-			<div class="row">
-			<div class="col-md-8 mr-auto ml-auto text-center">
-    <div id="reviews" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner mt-4">
-            @foreach($Reviews as $key => $review)
-                <div class="carousel-item text-center{{ $key === 0 ? ' active' : '' }}">
-                    <div class="img-box p-1 border rounded-circle m-auto">
-                        <img class="d-block w-100 rounded-circle" src="{{ url($review->user->image) }}" alt="" style="height: 128px;">
+  <section class="product_detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="product_detail_image">
+                        <img src="{{ asset('assets/images/products/product-d-1.jpg') }}" alt="">
                     </div>
-                    <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase" style="color: #2a722e !important">{{ $review->user->name }}</strong></h5>
-                    <h6 class="text-dark m-0">
-                        @for ($i = 0; $i < $review->Star; $i++)
-                            <span class="star" data-star="{{ $i + 1 }}" style="color: gold">&#9733;</span>
-                        @endfor
-                    </h6>
-                    <p class="m-0 pt-3">{{ $review->description }}</p>
                 </div>
-            @endforeach
+                <div class="col-xl-6 col-lg-6">
+                    <div class="product_detail_content">
+                        <h2>{{ $product->name }}</h2>
+                        <div class="product_detail_review_box">
+                            <div class="product_detail_price_box">
+                                <p>${{ $product->price }}</p>
+                            </div>
+                            <div class="product_detail_review">
+                                @for ($i = 1; $i <= 5; $i++)
+                                    <a href="#">
+                                        @if ($i <= $averageRating)
+                                            <a href="#"><i class="fa fa-star"></i></a>
+                                        @else
+                                            <a href="#"><i class="far fa-star"></i></a>
+                                        @endif
+                                    </a>
+                                @endfor
+                                <span>{{ count($productRatings) }} Customer Reviews</span>
+                            </div>
+                        </div>
+                        <div class="product_detail_text">
+                            <p>{{ $product->shortDescription }}</p>
+                        </div>
+
+                        <div class="product-quantity-box">
+
+                            <div class="addto-cart-box">
+                                {{-- <a href="{{ route('add_to_cart', ['id' => $product->id]) }}" class="thm-btn">Add to Cart</a> --}}
+												<a id="cart" class="cart thm-btn" name="{{ $product->id}}" namepr="{{ $product->name}}" image="{{ $product->img}}" des="{{ $product->shortDescription}} " price="{{ $product->price}}"><i style="padding: 13px 50px !important ; border-radius:0 !important " class="organik-icon-shopping-cart"></i></a>
+
+                            </div>
+
+                        </div>
+                        <ul class="list-unstyled category_tag_list">
+                            <li><span>Category:</span>{{ $product->category->name }}</li>
+                            {{-- <li><span>style:</span>{{ $product->style->name }}</li> --}}
+                        </ul>
+                        <div class="product_detail_share_box">
+                            <div class="share_box_title">
+                                <h2>Share with friends</h2>
+                            </div>
+                            <div class="share_box_social">
+                                <a href="https://www.facebook.com/"><i class="fab fa-facebook-square"></i></a>
+                                <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="product-tab-box tabs-box">
+                        <ul class="tab-btns tab-buttons clearfix list-unstyled">
+                            <li data-tab="#desc" class="tab-btn"><span>description</span></li>
+                            <li data-tab="#addi__info" class="tab-btn"><span>Additional info</span></li>
+                            <li data-tab="#review" class="tab-btn active-btn"><span>reviews</span></li>
+                        </ul>
+                        <div class="tabs-content">
+                            <div class="tab" id="desc">
+                                <div class="product-details-content">
+                                    <div class="desc-content-box">
+                                        <p> {{ $product->longDescription }} </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab" id="addi__info">
+                                <ul class="additionali_nfo list-unstyled">
+                                    <li><span>cal:</span>{{ $product->cla }}cal</li>
+                                    <li><span>Category:</span>{{ $product->category->name }}</li>
+                                    <li><span>protien:</span>{{ $product->prot }}</li>
+                                </ul>
+                            </div>
+
+                            <div class="tab active-tab" id="review">
+                                <div class="reviews-box">
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <div class="product_reviews_box">
+                                                <h3 class="product_reviews_title"> {{ count($productRatings) }} Product
+                                                    reviews</h3>
+                                                    @php
+                                                    if ( $product->reviews) {
+                                                    
+                                                      $reviews = $product->reviews->reverse()->take(2);
+                                                    }else {
+                                                       $reviews=[];
+                                                    }
+                                                @endphp
+                                                    @foreach ($reviews as $review)
+                                                      
+                                                            <div class="product_reviews_single">
+                                                                <div class="product_reviews_image">
+                                                                    <img src={{ asset('assets/images/products/review-1.jpg') }}
+                                                                        alt="">
+                                                                </div>
+                                                                <div class="product_reviews_content">
+                                                                    <h3>{{ $review->user->name }}<span>{{ $review->created_at }}</span>
+                                                                    </h3>
+                                                                    <p style="width: 58vw">{{ $review->description }}</p>
+                                                                    <div
+                                                                        class="product_reviews_rating product_detail_review">
+                                                                        @for ($i = 1; $i <= 5; $i++)
+                                                                            <a href="#">
+                                                                                @if ($i <= $review->review)
+                                                                                    <a href="#"><i
+                                                                                            class="fa fa-star"></i></a>
+                                                                                @else
+                                                                                    <a href="#">
+                                                                                        <i class="far fa-star"></i> </a>
+                                                                                @endif
+                                                                            </a>
+                                                                        @endfor
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        
+                                                    @endforeach
+                                            </div>
+                                            {{-- /// --}}
+
+
+                                        </div>
+                                        @if (Auth::check())
+                                            <div class="col-xl-12">
+                                                <div class="add_review_box">
+                                                    <h3 class="add_review_title">Add a review</h3>
+                                                    <div class="add_review_rating">
+                                                        <span>Rate this Product?</span>
+                                                        <a href="#"><i class="fa fa-star"></i></a>
+                                                        <a href="#"><i class="fa fa-star"></i></a>
+                                                        <a href="#"><i class="fa fa-star"></i></a>
+                                                        <a href="#"><i class="fa fa-star"></i></a>
+                                                        <a href="#" class="deactive"><i class="fa fa-star"></i></a>
+                                                    </div>
+                                                    <form class="add_review_form" method="POST"
+                                                        action="{{ route('review') }}">
+                                                        @csrf
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="input-box">
+                                                                    <textarea name="description" placeholder="Write review" required=""></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="input-box">
+                                                                    <input type="text"
+                                                                        value="{{ Auth::user()->name }}" name="name"
+                                                                        placeholder="Full name" required="">
+                                                                </div>
+                                                            </div>
+                                                            {{--  --}}
+                                                            <div class="col-md-6">
+                                                                <div class="input-box">
+                                                                    <input type="text" name="review"
+                                                                        placeholder="Full name" required>
+                                                                </div>
+                                                            </div>
+                                                            {{--  --}}
+                                                            <div class="col-md-6">
+                                                                <div class="input-box">
+                                                                    <input value="{{ Auth::user()->email }}"
+                                                                        type="email" name="email"
+                                                                        placeholder="Email address" required>
+                                                                    <input value="{{ $product->id }}" type="text"
+                                                                        name="product" placeholder="Email address" hidden>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <div class="review_submit_btn">
+                                                                    <input value="Submit Review" type="submit"
+                                                                        class="thm-btn">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <a class="carousel-control-prev" href="#reviews" role="button" data-slide="prev">
-            <i class="fa fa-angle-left" aria-hidden="true"></i>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#reviews" role="button" data-slide="next">
-            <i class="fa fa-angle-right" aria-hidden="true"></i>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</div>
+    </section>
 
-			</div>
-		</div>
-	</div>
-</div>
+    <section class="product-two">
+        <div class="container">
+            <div class="block-title text-center">
+                <div class="block-title__decor"></div><!-- /.block-title__decor -->
+                <p>Recently Added</p>
+                <h3>Similar Products</h3>
+            </div><!-- /.block-title -->
+            <div class="thm-tiny__slider" id="product-two__carousel"
+                data-tiny-options='{
+            "container": "#product-two__carousel",
+            "items": 1,
+            "slideBy": "page",
+            "gutter": 0,
+            "mouseDrag": true,
+            "autoplay": true,
+            "nav": false,
+            "controlsPosition": "bottom",
+            "controlsText": ["<i class=\"fa fa-angle-left\"></i>", "<i class=\"fa fa-angle-right\"></i>"],
+            "autoplayButtonOutput": false,
+            "responsive": {
+                "640": {
+                  "items": 2,
+                  "gutter": 30
+                },
+                "992": {
+                  "gutter": 30,
+                  "items": 3
+                },
+                "1200": {
+                  "disable": true
+                }
+              }
+        }'>
+        @foreach ($relatedProducts as $product)
+            
+        <div>
+            <div class="product-card__two">
+                <div class="product-card__two-image">
+                    
+                    <img src="{{ asset("assets/images/products/product-2-1.jpg") }}" alt="">
+                    <div class="{{ $product->img}}">
+                        <a href={{ route('single', ['id' => $product->id]) }}><i class="organik-icon-visibility"></i></a>
+												<a id="cart" class="cart" name="{{ $product->id}}" namepr="{{ $product->name}}" image="{{ $product->img}}" des="{{ $product->shortDescription}} " price="{{ $product->price}}"><i class="organik-icon-shopping-cart"></i></a>
 
+                                    {{-- <a href="{{ route('add_to_cart', ['id' => $product->id]) }}"></a> --}}
+                    </div><!-- /.product-card__two-image-content -->
+                </div><!-- /.product-card__two-image -->
+                <div class="product-card__two-content">
+                    <h3><a href={{ route('single', ['id' => $product->id]) }}>{{ $product->name }}</a></h3>
+                    <div class="product-card__two-stars">
+                        @php
+                        $reviews = $product->reviews;
+
+
+   if (!is_null($reviews) && count($reviews) > 0) {
+            $productRatings = $reviews->pluck('review')->toArray();
+            $averageRating = count($productRatings) > 0 ? array_sum($productRatings) / count($productRatings) : 0;
+        } else {
+            // Handle the case where there are no reviews
+            $averageRating = 0;
+           
+        }
+                    @endphp
+                         @for ($i = 1; $i <= 5; $i++)
+                                    
+                         @if ($i <= $averageRating)
+                             <i class="fa fa-star"></i>
+                         @else
+                         <i class="far fa-star"></i> 
+                         @endif
+                     </a>
+                 @endfor
+                    </div><!-- /.product-card__two-stars -->
+                    <p>${{ $product->price }}</p>
+
+                </div><!-- /.product-card__two-content -->
+            </div><!-- /.product-card__two -->
+        </div>
+        @endforeach
+
+            </div>
+        </div><!-- /.container -->
+    </section><!-- /.product-two -->
 @endsection
-
-
-
-
-
-
-<!-- Footer -->
-<!-- Footer -->
-	<!-- End Footer -->
-{{-- 	
-	<a href="#" id="back-to-top" title="Back to top" style="display: none;"><i class="fa fa-arrow-up" aria-hidden="true"></i></i></a>
-<!-- jQuery JS -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-<!-- Slick Carousel JS -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js'></script>
-<!-- Bootstrap 5 JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-	<!-- ALL JS FILES -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-    <!-- ALL PLUGINS -->
-	<script src="js/jquery.superslides.min.js"></script>
-	<script src="js/images-loded.min.js"></script>
-	<script src="js/isotope.min.js"></script>
-	<script src="js/baguetteBox.min.js"></script>
-	<script src="js/form-validator.min.js"></script>
-    <script src="js/contact-form-script.js"></script>
-    <script src="js/single.js"></script>
-     --}}
+    {{-- @endsection --}}

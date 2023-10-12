@@ -71,16 +71,26 @@
                             <div class="col">
                                                         <div id="counter">
       
-      <span id="minus">-</span> <span  id="number" class="cart_update" >{{ $details['quantity'] }}</span> <span id="plus">+</span>
+      <span class="qt-minus">-</span> <span  class="qt" class="cart_update" >{{ $details['quantity'] }}</span> <span class="qt-plus">+</span>
                                                         </div>
                             </div>
                             {{-- @dd($details) --}}
                             <div class="col">${{ $details['price'] }}
-                                <form action="{{ route('remove_from_cart') }}/{{ $details['id']  }}" method="post">
+                                {{-- <form action="{{ route('remove_from_cart') }}/{{ $details['id']  }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <input type="submit" value="&#10005;" class="close"></span></div>
-                                </form>
+                                </form> --}}
+                                <article class="product" data-product-id="{{  $details['id']}}">
+                        <header>
+                            <a class="remove">
+                                {{-- <img src="http://www.astudio.si/preview/blockedwp/wp-content/uploads/2012/08/1.jpg"
+                                    alt=""> --}}
+
+                                <h3>&#10005;</h3>
+                            </a>
+                        </header>
+                                </article> 
                             </div>
                                 {{-- <div class="actions" data-th="">
                         <button class="btn btn-danger btn-sm cart_remove"><i class="fa fa-trash-o"></i> Delete</button>
@@ -200,4 +210,6 @@
     });
     
 </script>
+
 @endsection
+<script src="{{url('js/custom.js')}}"></script>

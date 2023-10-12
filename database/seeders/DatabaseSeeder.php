@@ -40,10 +40,13 @@ class DatabaseSeeder extends Seeder
             User::class,
             CategorySeeder::class,
             DiscountSeeder::class,
+            DaySeeder::class,
+
             ProductSeeder::class,
             ReviewSeeder::class,
             PlanSeeder::class,
             AdminSeeder::class,
+           
 
         ]);
     }

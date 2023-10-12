@@ -20,12 +20,17 @@ class products extends Model
     }
     public function category()
     {
+        return $this->belongsTo(Category::class,'categoryId');
+ 
+    }
+    public function day()
+    {
         return $this->belongsTo(Category::class);
  
     }
     public function reviews()
     {
-        return $this->belongsTo(products::class);
+        return $this->belongsTo(products::class, "productId");
     }
     public function cartItems()
     {

@@ -1,10 +1,9 @@
 @extends('layouts.master')
 @section('content')
-    
-	<!-- End header -->
-	<main>
-	<!-- Start slides -->
-	<div id="slides" class="cover-slides">
+    <!-- End header -->
+    <main>
+        <!-- Start slides -->
+        {{-- <div id="slides" class="cover-slides">
 		<ul class="slides-container">
 			<li class="text-left">
 				<img src="{{ url('images/slider-01.jpg') }}" alt="">
@@ -50,11 +49,193 @@
 			<a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 			<a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
 		</div>
-	</div>
-	<!-- End slides -->
-	
-	<!-- Start About -->
-	<div class="about-section-box">
+	</div> --}}
+
+        <section class="main-slider">
+            <div class="swiper-container thm-swiper__slider"
+                data-swiper-options='{
+    "slidesPerView": 1,
+    "loop": true,
+    "effect": "fade",
+    "autoplay": {
+        "delay": 5000
+    },
+    "navigation": {
+        "nextEl": "#main-slider__swiper-button-next",
+        "prevEl": "#main-slider__swiper-button-prev"
+    }
+    }'>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="image-layer"
+                            style="background-image: url(assets/images/main-slider/main-slider-1-1.jpg);">
+                        </div>
+                        <!-- /.image-layer -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 text-center">
+                                    <h2><span>Oragnic</span> <br>
+                                        Food Market</h2>
+                                    <a href="products.html" class=" thm-btn">Order Now</a>
+                                    <!-- /.thm-btn dynamic-radius -->
+                                </div><!-- /.col-lg-7 text-right -->
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <div class="image-layer"
+                            style="background-image: url(assets/images/main-slider/main-slider-1-2.jpg);">
+                        </div>
+                        <!-- /.image-layer -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 text-center">
+                                    <h2><span>Oragnic</span> <br>
+                                        Food Market</h2>
+                                    <a href="products.html" class=" thm-btn">Order Now</a>
+                                    <!-- /.thm-btn dynamic-radius -->
+                                </div><!-- /.col-lg-7 text-right -->
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </div><!-- /.swiper-slide -->
+                </div><!-- /.swiper-wrapper -->
+
+                <!-- If we need navigation buttons -->
+                <div class="main-slider__nav">
+                    <div class="swiper-button-prev" id="main-slider__swiper-button-next"><i
+                            class="organik-icon-left-arrow"></i>
+                    </div>
+                    <div class="swiper-button-next" id="main-slider__swiper-button-prev"><i
+                            class="organik-icon-right-arrow"></i></div>
+                </div><!-- /.main-slider__nav -->
+
+            </div><!-- /.swiper-container thm-swiper__slider -->
+        </section>
+        <section class="feature-box">
+            <div class="container">
+                <div class="inner-container wow fadeInUp" data-wow-duration="1500ms">
+                    <div class="thm-tiny__slider" id="contact-infos-box"
+                        data-tiny-options='{
+            "container": "#contact-infos-box",
+            "items": 1,
+            "slideBy": "page",
+            "gutter": 0,
+            "mouseDrag": true,
+            "autoplay": true,
+            "nav": false,
+            "controlsPosition": "bottom",
+            "controlsText": ["<i class=\"fa fa-angle-left\"></i>", "<i class=\"fa fa-angle-right\"></i>"],
+            "autoplayButtonOutput": false,
+            "responsive": {
+                "640": {
+                  "items": 2,
+                  "gutter": 30
+                },
+                "992": {
+                  "gutter": 30,
+                  "items": 3
+                },
+                "1200": {
+                  "disable": true
+                }
+              }
+        }'>
+                        <div>
+                            <div class="feature-box__single">
+                                <i class="organik-icon-global-shipping feature-box__icon"></i>
+                                <div class="feature-box__content">
+                                    <h3>Return Policy</h3>
+                                    <p>Money back guarantee</p>
+                                </div><!-- /.feature-box__content -->
+                            </div><!-- /.feature-box__single -->
+                        </div>
+                        <div>
+                            <div class="feature-box__single">
+                                <i class="organik-icon-delivery-truck feature-box__icon"></i>
+                                <div class="feature-box__content">
+                                    <h3>Free Shipping</h3>
+                                    <p>On all orders over $25.00</p>
+                                </div><!-- /.feature-box__content -->
+                            </div><!-- /.feature-box__single -->
+                        </div>
+                        <div>
+                            <div class="feature-box__single">
+                                <i class="organik-icon-online-store feature-box__icon"></i>
+                                <div class="feature-box__content">
+                                    <h3>Store Locator</h3>
+                                    <p>Find your nearest store</p>
+                                </div><!-- /.feature-box__content -->
+                            </div><!-- /.feature-box__single -->
+                        </div>
+                    </div>
+                </div><!-- /.inner-container -->
+            </div><!-- /.container -->
+        </section><!-- /.feature-box -->
+        <!-- End slides -->
+<section class="offer-banner">
+    <div class="container">
+        <div class="block-title text-center">
+            <div class="block-title__decor"></div><!-- /.block-title__decor -->
+            <p>From the Blog</p>
+            <h3>News & Articles</h3>
+        </div>
+        <div class="row" style="justify-content:space-around">
+        
+        @foreach ($categories as $category)
+        <div class="col-4">
+            <div class="blog-card">
+                <div class="blog-card__image">
+                    {{-- <div class="blog-card__date">18 Nov</div><!-- /.blog-card__date --> --}}
+                    <img src="{{ $category->img }}" alt="">
+                    <a href="{{ route('subcategories') }}/{{ $category->id }}"></a>
+                </div><!-- /.blog-card__image -->
+                <div class="blog-card__content">
+                    <!-- /.blog-card__meta -->
+                    <h3><a href="{{ route('subcategories') }}/{{ $category->id }}">{{ $category->name }}</a></h3>
+                    <p>{{ $category->description }}</p>
+                </div><!-- /.blog-card__content -->
+            </div><!-- /.blog-card -->
+        </div>
+        @endforeach
+    </div>
+
+    </div><!-- /.container -->
+</section>
+<section class="blog-two">
+    <div class="container">
+        <div class="block-title text-center">
+            <div class="block-title__decor"></div><!-- /.block-title__decor -->
+            <p>From the Blog</p>
+            <h3>News & Articles</h3>
+        </div>
+     {{-- <div class="container"> --}}
+                <div class="row">
+                    <div class="col-md-6 wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="offer-banner__box" style="background-image: url(assets/images/resources/offer-banner-1-1.jpg);">
+                            <div class="offer-banner__content">
+                                <h3><span>100%</span> <br>Organic</h3>
+                                <p>Kids </p>
+                                <a href="{{ route('kidspricing') }}" class="thm-btn">Subscribe Now</a><!-- /.thm-btn -->
+                            </div><!-- /.offer-banner__content -->
+                        </div><!-- /.offer-banner__box -->
+                    </div><!-- /.col-md-6 -->
+                    <div class="col-md-6 wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="offer-banner__box" style="background-image: url(assets/images/resources/offer-banner-1-2.jpg);">
+                            <div class="offer-banner__content">
+                                <h3><span>100%</span> <br>Organic</h3>
+                                <p>Emploeyy</p>
+                                <a href="{{ route('employpricing') }}" class="thm-btn">Subscribe Now</a><!-- /.thm-btn -->
+                            </div><!-- /.offer-banner__content -->
+                        </div><!-- /.offer-banner__box -->
+                    </div><!-- /.col-md-6 -->
+                </div><!-- /.row -->
+            {{-- </div><!-- /.container --> --}}
+
+    </div><!-- /.container -->
+</section>
+
+        <!-- Start About -->
+        {{-- <div class="about-section-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
@@ -79,332 +260,229 @@ Pure: We're dedicated to purity and the natural goodness of real food.</p>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- End About -->
-	
-	<!-- Start QT -->
-	<div class="qt-box qt-background">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 ml-auto mr-auto text-center">
-					<p class="lead ">
-						" If you're not the one cooking, stay out of the way and compliment the chef. "
-					</p>
-					<span class="lead">Michael Strahan</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End QT -->
-	
-	<!-- Start Menu -->
-				{{-- @dd($categories) --}}
-	
-	
-<div class="container">
-    <div class="row category" id="category">
-	
-			<div class="col-lg-12">
-					<div class="heading-title text-center">
-						<h2>Our Category </h2>
-						<!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p> -->
-					</div>
-				</div>
-			<div class="category-content d-flex">
-@foreach ( $categories as $category )
-	
-        <div class="col-sm-6 category1">
-          <span>{{ $category->name }}</span> 
-			<a href="{{ route('subcategories') }}/{{ $category->id  }}"><img src="{{ $category->img }}" alt=""></a>
-        </div>
-@endforeach
+	</div> --}}
+        <!-- End About -->
 
-       
-    </div>
-    </div>
-</div>
-@php
-	
-@endphp
-	
-	<!-- End Gallery -->
-	<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="author" content="CodeHim">
-      <!-- Style CSS -->
-      <link rel="stylesheet" href="./css/pricing.css">
-      <!-- Demo CSS (No need to include it into your project) -->
-      <link rel="stylesheet" href="./css/demo.css">
-      <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  
-      <main class="cd__main">
- <div class="col-lg-12">
-					<div class="heading-title text-center">
-						<h2>Pricing </h2>
-					</div>
-				</div> 
-<div id="generic_price_table"> 
-   
-<section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <!--PRICE HEADING START-->
-                    <div class="price-heading clearfix">
+        <!-- Start QT -->
+        <div class="qt-box qt-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto text-center">
+                        <p class="lead ">
+                            " If you're not the one cooking, stay out of the way and compliment the chef. "
+                        </p>
+                        <span class="lead">Michael Strahan</span>
                     </div>
-                    <!--//PRICE HEADING END-->
                 </div>
             </div>
         </div>
-        <div class="container contpricing">
-            <span class="kidsoption">Kids</span>
-            <span class="employeeoption" >Employee</span>
-            <!--BLOCK ROW START-->
-            <div class="row pricing_click">
-               
-                @foreach ($plans as $plan)
-					
-                <div class="col-md-6">
-                
-                	<!--PRICE CONTENT START-->
-                    <div class="generic_content active clearfix">
-                        
-                        <!--HEAD PRICE DETAIL START-->
-                        <div class="generic_head_price clearfix">
-                        
-                            <!--HEAD CONTENT START-->
-                            <div class="generic_head_content clearfix">
-                            
-                            	<!--HEAD START-->
-                                <div class="head_bg"></div>
-                                <div class="head">
-                                    <span>{{ $plan->name }}</span>
-                                </div>
-                                <!--//HEAD END-->
-                                
-                            </div>
-                            <!--//HEAD CONTENT END-->
-                            
-                            <!--PRICE START-->
-                            <div class="generic_price_tag clearfix">
-							
-                                <span class="prices">	
-                                    <span class="sign">JOD</span>
-                                    <span class="price">{{ $plan->price }}</span>
-                                    {{-- <span class="cent"></span> --}}
-                                    <span class="period">/Weekly</span>
-                                </span>
-                            </div>
-                            <!--//PRICE END-->
-                            
-                        </div>                            
-                        <!--//HEAD PRICE DETAIL END-->
-                        
-                        <!--FEATURE LIST START-->
-                        <div class="generic_feature_list">
-                        	<ul>
-                            	<li><span>5</span> Meals</li>
-                                                                <li><span></span> Free Delivery</li>
-                                <li><span>12</span> Accounts</li>
-                                <li><span>7</span> Host Domain</li>
-                                <li><span>24/7</span> Support</li>
-                            </ul>
-                        </div>
-                        <!--//FEATURE LIST END-->
-                        
-                        <!--BUTTON START-->
-                        <div class="generic_price_btn clearfix">
-                       <a class="" href="{{ route('plans.show', $plan->slug) }}"style="background: transparent"> Subscribe </a>
-                        	
-                        </div>
-					
-                        <!--//BUTTON END-->
-                        
+        <!-- End QT -->
+
+        <!-- Start Menu -->
+        {{-- @dd($categories) --}}
+
+
+        <div class="container">
+
+
+
+    
+
+      <section class="new-products">
+            <img src="assets/images/shapes/new-product-shape-1.png" alt="" class="new-products__shape-1">
+            <div class="container">
+                <div class="new-products__top">
+                    <div class="block-title ">
+                        <div class="block-title__decor"></div><!-- /.block-title__decor -->
+                        <p>Recently Added</p>
+                        <h3>New Products</h3>
+                    </div><!-- /.block-title -->
+
+                    <ul class="post-filter filters list-unstyled">
+                        <li class="active filter" data-filter=".filter-item">All</li>
+                        <li class="filter" data-filter=".dairy">Dairy</li>
+                        <li class="filter" data-filter=".pantry">Pantry
+                        </li>
+                        <li class="filter" data-filter=".meat">Meat
+                        </li>
+                        <li class="filter" data-filter=".fruits">Fruits
+                        </li>
+                        <li class="filter" data-filter=".veg">Vagetables
+                        </li>
+                    </ul>
+                </div><!-- /.new-products__top -->
+                <div class="row filter-layout">
+                                            @foreach ($products as $product)
+
+                    <div class="col-lg-4 col-md-6 filter-item dairy">
+                        <div class="product-card__two">
+                            <div class="product-card__two-image">
+                                <span class="product-card__two-sale">sale</span>
+                                <img src="{{ $product->img }}" alt="">
+                                <div class="product-card__two-image-content">
+                                    <a href="{{ route('single') }}/ {{ $product->id }} "><i class="organik-icon-visibility"></i></a>
+                                    <a href="#"><i class="organik-icon-heart"></i></a>
+                                       <button id="cart" class="cart"
+                                                                    name="{{ $product->id }}"
+                                                                    namepr="{{ $product->name }}"
+                                                                    image="{{ $product->img }}"
+                                                                    des="{{ $product->shortDescription }} "
+                                                                    price="{{ $product->price }}"><i class="organik-icon-shopping-cart"></i> </button>
+                                    {{-- <a href="cart.html"></a> --}}
+                                </div><!-- /.product-card__two-image-content -->
+                            </div><!-- /.product-card__two-image -->
+                            <div class="product-card__two-content">
+                                <h3><a href="product-details.html">{{ $product->name }}</a></h3>
+                                <div class="product-card__two-stars">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div><!-- /.product-card__two-stars -->
+                                <p>${{ $product->price }}</p>
+                            </div><!-- /.product-card__two-content -->
+                        </div><!-- /.product-card__two -->
                     </div>
-                    <!--//PRICE CONTENT END-->
-                        
-                </div>
-				@endforeach
-
-		{{-- --------------- --}}
-
-
-                {{-- <div class="col-md-6">
-                
-                	<!--PRICE CONTENT START-->
-                    <div class="generic_content clearfix">
-                        
-                        <!--HEAD PRICE DETAIL START-->
-                        <div class="generic_head_price clearfix">
-                        
-                            <!--HEAD CONTENT START-->
-                            <div class="generic_head_content clearfix">
-                            
-                            	<!--HEAD START-->
-                                <div class="head_bg"></div>
-                                <div class="head">
-                                    <span>Unlimited</span>
-                                </div>
-                                <!--//HEAD END-->
-                                
-                            </div>
-                            <!--//HEAD CONTENT END-->
-                            
-                            <!--PRICE START-->
-                            <div class="generic_price_tag clearfix">
-								<form action="" method="post">
-
-                                <span class="prices">
-                                    <span class="sign">JOD</span>
-                                    <span class="price">29.99</span>
-                                    <span class="period">/MON</span>
-                                </span>
-                            </div>
-                            <!--//PRICE END-->
-                            
-                        </div>                            
-                        <!--//HEAD PRICE DETAIL END-->
-                        
-                        <!--FEATURE LIST START-->
-                        <div class="generic_feature_list">
-                        	<ul>
-                              	<li><span>20</span> Meals</li>
-                                <li><span></span> Free Delivery</li>
-                                <li><span>12</span> Accounts</li>
-                                <li><span>7</span> Host Domain</li>
-                                <li><span>24/7</span> Support</li>
-                            </ul>
-                        </div>
-                        <!--//FEATURE LIST END-->
-                        
-                        <!--BUTTON START-->
-                        <div class="generic_price_btn clearfix">
-                       <a class="" href=""style="background: transparent"> Subscribe </a>
-
-                        </div>
-                        <!--//BUTTON END-->
-                        
-                    </div>
-                    <!--//PRICE CONTENT END-->
-                        
-                </div> --}}
-            </div>	
-            <!--//BLOCK ROW END-->
+                    @endforeach
+                    <!-- /.col-lg-4 -->
             
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section>
         </div>
-    </section>             
-	
-</div>
-         <!-- END EDMO HTML (Happy Coding!)-->
-      </main>
-      
-      <!-- Script JS -->
-      <script src="./js/script.js"></script>
-   
-<div class="cardds">
-   <div class="menu-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="heading-title text-center">
-						<h2> Most popular</h2>
-					</div>
-				</div>
-			</div>
-			
+   <section class="call-to-action-two">
+            <img src="assets/images/shapes/call-shape-2-1.png" alt="" class="call-to-action-two__shape-1">
+            <img src="assets/images/shapes/call-shape-2-2.png" alt="" class="call-to-action-two__shape-2">
+            <img src="assets/images/shapes/call-shape-2-3.png" alt="" class="call-to-action-two__shape-3">
+            <img src="assets/images/shapes/call-shape-2-4.png" alt="" class="call-to-action-two__shape-4">
+            <img src="assets/images/shapes/call-shape-2-5.png" alt="" class="call-to-action-two__shape-5">
+            <img src="assets/images/shapes/call-shape-2-6.png" alt="" class="call-to-action-two__shape-6">
+            <div class="container">
+                <div class="row flex-xl-row-reverse">
+                    <div class="col-lg-12 col-xl-6">
+                        <div class="call-to-action-two__image">
+                            <h2 class="floated-text">Healthy</h2><!-- /.floated-text -->
+                            <img src="assets/images/resources/call-2-1.png" alt="">
+                        </div><!-- /.call-to-action-two__image -->
+                    </div><!-- /.col-md-6 -->
+                    <div class="col-lg-12 col-xl-6">
+                        <div class="call-to-action-two__content">
+                            <div class="block-title text-left">
+                                <div class="block-title__decor"></div><!-- /.block-title__decor -->
+                                <p>Pure Organic Products</p>
+                                <h3>Everyday Fresh Food</h3>
+                            </div><!-- /.block-title -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>Duis aute irure dolor in reprehen in derit.</h4>
+                                    <p>Voluptate velit essects quis tempor orci. Suspendisse that potenti faucibus.</p>
+                                </div><!-- /.col-md-6 -->
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="far fa-check-circle"></i>
+                                            Refresing to get such a touch
+                                        </li>
+                                        <li>
+                                            <i class="far fa-check-circle"></i>
+                                            Duis aute irure dolor in
+                                        </li>
+                                        <li>
+                                            <i class="far fa-check-circle"></i>
+                                            Reprehenderit in voluptate
+                                        </li>
+                                        <li>
+                                            <i class="far fa-check-circle"></i>
+                                            Velit esse cillum dolore eu
+                                        </li>
+                                        <li>
+                                            <i class="far fa-check-circle"></i>
+                                            Fugiat nulla pariatur
+                                        </li>
+                                    </ul><!-- /.list-unstyled -->
+                                </div><!-- /.col-md-6 -->
+                            </div><!-- /.row -->
+                            <a href="products.html" class="thm-btn">Order Now</a><!-- /.thm-btn -->
+                        </div><!-- /.call-to-action-two__content -->
+                    </div><!-- /.col-md-6 -->
 
-				<div class="col-12">
-					<div class="tab-content" id="v-pills-tabContent">
-						<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-							<div class="row">
-								@foreach ($products as $product )
-									@if($product)
-										
-									@endif
-								<div class="col-lg-4 col-md-6 special-grid drinks">
-									<div class="gallery-single fix">
-										<img src="images/img-01.jpg" class="img-fluid" alt="Image">
-										<div class="why-text">
-											<h4>{{ $product->name }}</h4>
-											<p>{{ $product->shortDescription }}</p>
-											<div class="why-text-footer d-flex justify-content-between align-items-center">
-												<h5>$ {{ $product->price }}</h5> 
-												<a href="{{ route('single') }}/ {{ $product->id }} ">	<i class="fa fa-cart-plus " aria-hidden="true" style="color: #2a722e"></i></a>
-												{{-- <a href="{{ route('add_to_cart', $product->id) }} ">Add to cart</a> --}}
-                        <button  id="cart" class="cart" name="{{ $product->id}}" namepr="{{ $product->name}}" image="{{ $product->img}}" des="{{ $product->shortDescription}} " price="{{ $product->price}}"> <i class="fa fa-cart-plus " aria-hidden="true" ></i></button>
-												
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								@endforeach
-								
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-
+          
 
-<!-- /flip-card-container -->
+                <!-- /flip-card-container -->
 
 
-	<!-- Start Customer Reviews -->
-	<div class="customer-reviews-box">
-		<div class="container">
-			<div class="row" style="padding-bottom: 70px;">
-				<div class="col-lg-12">
-					<div class="heading-title text-center">
-						<h2>Customer Reviews</h2>
-  					</div>
-				</div>
-			
-			<div class="row">
-				<div class="col-md-8 mr-auto ml-auto text-center">
-					<div id="reviews" class="carousel slide" data-ride="carousel">
-						<div class="carousel-inner mt-4">
-							@foreach ( $reviews as $key => $review)
-             <div class="carousel-item text-center{{ $key === 0 ? ' active' : '' }}">
-                    <div class="img-box p-1 border rounded-circle m-auto">
-                        <img class="d-block w-100 rounded-circle" src="{{ url($review->user->image) }}" alt="" style="height: 128px;">
+   <section class="testimonials-one">
+            <div class="testimonials-one__head">
+                <div class="container">
+                    <div class="block-title text-center">
+                        <div class="block-title__decor"></div><!-- /.block-title__decor -->
+                        <p>Our Testimonials</p>
+                        <h3>What People Say?</h3>
+                    </div><!-- /.block-title -->
+                </div><!-- /.container -->
+            </div><!-- /.testimonials-one__head -->
+            <div class="container">
+                <div class="thm-tiny__slider" id="testimonials-one-box" data-tiny-options='{
+            "container": "#testimonials-one-box",
+            "items": 1,
+            "slideBy": "page",
+            "gutter": 0,
+            "mouseDrag": true,
+            "autoplay": true,
+            "nav": false,
+            "controlsPosition": "bottom",
+            "controlsText": ["<i class=\"fa fa-angle-left\"></i>", "<i class=\"fa fa-angle-right\"></i>"],
+            "autoplayButtonOutput": false,
+            "responsive": {
+                "640": {
+                  "items": 2,
+                  "gutter": 30
+                },
+                "992": {
+                  "gutter": 30,
+                  "items": 3
+                },
+                "1200": {
+                  "disable": true
+                }
+              }
+        }'>
+                                            @foreach ($reviews as $key => $review)
+
+                    <div>
+                        
+                        <div class="testimonials-one__single">
+                            <div class="testimonials-one__image">
+                                <img src="{{ url($review->user->image) }}" alt="">
+                            </div><!-- /.testimonials-one__image -->
+                            <div class="testimonials-one__content">
+                                <p>{{ $review->description }}</p>
+                                <h3>{{ $review->user->name }}</h3>
+                                <span>Customer</span>
+                                 @for ($i = 0; $i < $review->Star; $i++)
+                                                            <span class="star" data-star="{{ $i + 1 }}"
+                                                                style="color: gold">&#9733;</span>
+                                                        @endfor
+                            </div><!-- /.testimonials-one__content -->
+                        </div><!-- /.testimonials-one__single -->
                     </div>
-                    <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase" style="color: #2a722e !important">{{ $review->user->name }}</strong></h5>
-                    <h6 class="text-dark m-0">
-                        @for ($i = 0; $i < $review->Star; $i++)
-                            <span class="star" data-star="{{ $i + 1 }}" style="color: gold">&#9733;</span>
-                        @endfor
-                    </h6>
-                    <p class="m-0 pt-3">{{ $review->description }}</p>
+                                            @endforeach
+                 
                 </div>
-							@endforeach
+            </div><!-- /.container -->
+        </section>
 
 
 
+                <!-- Start Customer Reviews -->
+               
+            @endsection
 
-						</div>
-						<a class="carousel-control-prev" href="#reviews" role="button" data-slide="prev">
-							<i class="fa fa-angle-left" aria-hidden="true"></i>
-							<span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next" href="#reviews" role="button" data-slide="next">
-							<i class="fa fa-angle-right" aria-hidden="true"></i>
-							<span class="sr-only">Next</span>
-						</a>
-                    </div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-@endsection
-	
 
-</body>
-</html>
+            </body>
+
+        </html>

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Plan;
+use Illuminate\Support\Facades\DB;
 
 class PlanSeeder extends Seeder
 {
@@ -15,25 +16,41 @@ class PlanSeeder extends Seeder
      */
     public function run()
     {
-        $plans = [
+        DB::table('plans')->insert([
             [
                 'name' => 'Kids Standard Plan',
-                'slug' => 'KidsStandard',
-                'stripe_plan' => 'price_1NvjMDKjD3e5Hnk5PSLJfOPS',
                 'price' => 10,
-                'description' => 'Business Plan'
+                'description' => 'Business Plan',
+                'meals'=>5,
+                "delivery" => 'Free Delivery'
+
             ],
             [
                 'name' => 'Kids Premium plan',
-                'slug' => 'kidsPremium',
-                'stripe_plan' => 'price_1NvjO0KjD3e5Hnk5XCnxIsTf',
                 'price' => 30,
-                'description' => 'Premium'
+                'description' => 'Premium',
+                'meals' => 20,
+                "delivery"=> 'Free Delivery'
+            ],
+            [
+                'name' => 'Employee Premium plan',
+                
+                'price' => 19.99,
+                'description' => 'Premium',
+                'meals' => 5,
+                "delivery" => 'Free Delivery'
+            ],
+            [
+                'name' => 'Employee Premium plan',
+                'price' => 59,
+                'description' => 'Premium', 
+                 'meals' => 20,
+                "delivery" => 'Free Delivery'
             ]
-        ];
-
-        foreach ($plans as $plan) {
-            Plan::create($plan);
-        }
+            ]
+        );
+        // foreach ($plans as $plan) {
+        //     Plan::create($plan);
+        // }
     }
 }

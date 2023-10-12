@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('styleId')->default(0);
-            // $table->foreign('styleId')->references('id')->on('styles');
+            $table->unsignedBigInteger('dayId')->nullable();
+            $table->foreign('dayId')->references('id')->on('days');
+            $table->unsignedBigInteger('planId')->nullable();
+            $table->foreign('planId')->references('id')->on('plans');
             $table->unsignedBigInteger('categoryId');
             $table->foreign('categoryId')->references('id')->on('categories');
             $table->unsignedBigInteger('discountId');

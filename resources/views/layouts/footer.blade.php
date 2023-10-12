@@ -1,120 +1,106 @@
-<footer class="text-center text-lg-start bg-f text-white">
-  <!-- Section: Social media -->
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <!-- Left -->
-    <div class="me-5 d-none d-lg-block">
-      <span>Get connected with us on social networks:</span>
-    </div>
-    <!-- Left -->
-
-    <!-- Right -->
-    <div id="icons">
-      <a href="" class="me-4 link-secondary">
-     <i class="fa fa-faceAdd to Cart-official" aria-hidden="true"></i>
-
-      </a>
-      <a href="" class="me-4 link-secondary">
-        <i class="fa fa-twitter"></i>
-      </a>
-      <a href="" class="me-4 link-secondary">
-        <i class="fa fa-google"></i>
-      </a>
-      <a href="" class="me-4 link-secondary">
-        <i class="fa fa-instagram"></i>
-      </a>
-      <a href="" class="me-4 link-secondary">
-        <i class="fa fa-linkedin"></i>
-      </a>
-      <a href="" class="me-4 link-secondary">
-        <i class="fa fa-github"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
-
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4">
-                <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i><strong style="color: white;"> <span style="color:#2a722e"> Nutri</span>zen</strong></h1>
-            <i class="fa fa-gem me-3 text-secondary"></i>
-          </h6>
-          <p>
-         
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Products
-          </h6>
-          <p>
-            <a href="menu.html" class="text-reset">Kids</a>
-          </p>
-          <p>
-            <a href="menu.html" class="text-reset">Employee</a>
-          </p>
-         
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Pricing</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Orders</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">About us</a>
-          </p>
-          
-          <p>
-            <a href="#!" class="text-reset">Help</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="fa fa-home me-3 text-secondary"></i> Irbid , Jordan</p>
-          <p>
-            <i class="fa fa-envelope me-3 text-secondary"></i>
-            nutrizen@gmail.com
-          </p>
-          <p><i class="fa fa-phone me-3 text-secondary"></i> +962 79 8540 904</p>
-          <!-- <p><i class="fa fa-print me-3 text-secondary"></i> + 01 234 567 89</p> -->
-        </div>
-        <!-- Grid column -->
-      </div>
-      <!-- Grid row -->
-    </div>
-  </section>
-  <!-- Section: Links  -->
-
-  <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025); color: white; z-index: 19; position: relative;">
-    © 2021 Copyright:
-    <a class="text-reset fw-bold" href="">Ahmad Altamimi</a>
-  </div>
-  <!-- Copyright -->
-</footer>
+   <footer class="site-footer background-black-2">
+            <img src="assets/images/shapes/footer-bg-1-1.png" alt="" class="site-footer__shape-1">
+            <img src="assets/images/shapes/footer-bg-1-2.png" alt="" class="site-footer__shape-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-widget footer-widget__about-widget">
+                            <a href="index.html" class="footer-widget__logo">
+                                <img src="assets/images/logo-light.png" alt="" width="105" height="43">
+                            </a>
+                            <p class="thm-text-dark">Atiam rhoncus sit amet adip
+                                scing sed ipsum. Lorem ipsum
+                                dolor sit amet adipiscing <br>
+                                sem neque.</p>
+                        </div><!-- /.footer-widget -->
+                    </div><!-- /.col-sm-12 col-md-6 -->
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
+                        <div class="footer-widget footer-widget__contact-widget">
+                            <h3 class="footer-widget__title">Contact</h3><!-- /.footer-widget__title -->
+                            <ul class="list-unstyled footer-widget__contact">
+                                <li>
+                                    <i class="fa fa-phone-square"></i>
+                                    <a href="tel:666-888-0000">666 888 0000</a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope"></i>
+                                    <a href="mailto:info@company.com">info@company.com</a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-map-marker-alt"></i>
+                                    <a href="#">66 top broklyn street.
+                                        New York</a>
+                                </li>
+                            </ul><!-- /.list-unstyled footer-widget__contact -->
+                        </div><!-- /.footer-widget -->
+                    </div><!-- /.col-sm-12 col-md-6 col-lg-2 -->
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
+                        <div class="footer-widget footer-widget__links-widget">
+                            <h3 class="footer-widget__title">Links</h3><!-- /.footer-widget__title -->
+                            <ul class="list-unstyled footer-widget__links">
+                                <li>
+                                    <a href="index.html">Top Sellers</a>
+                                </li>
+                                <li>
+                                    <a href="products.html">Shopping</a>
+                                </li>
+                                <li>
+                                    <a href="about.html">About Store</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">Contact</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">Help</a>
+                                </li>
+                            </ul><!-- /.list-unstyled footer-widget__contact -->
+                        </div><!-- /.footer-widget -->
+                    </div><!-- /.col-sm-12 col-md-6 col-lg-2 -->
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
+                        <div class="footer-widget">
+                            <h3 class="footer-widget__title">Explore</h3><!-- /.footer-widget__title -->
+                            <ul class="list-unstyled footer-widget__links">
+                                <li>
+                                    <a href="products.html">New Products</a>
+                                </li>
+                                <li>
+                                    <a href="checkout.html">My Account</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">Support</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">FAQs</a>
+                                </li>
+                            </ul><!-- /.list-unstyled footer-widget__contact -->
+                        </div><!-- /.footer-widget -->
+                    </div><!-- /.col-sm-12 col-md-6 col-lg-2 -->
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-widget">
+                            <h3 class="footer-widget__title">Newsletter</h3><!-- /.footer-widget__title -->
+                            <form action="#" data-url="YOUR_MAILCHIMP_URL" class="mc-form">
+                                <input type="email" name="EMAIL" id="mc-email" placeholder="Email Address">
+                                <button type="submit">Subscribe</button>
+                            </form>
+                            <div class="mc-form__response"></div><!-- /.mc-form__response -->
+                        </div><!-- /.footer-widget -->
+                    </div><!-- /.col-sm-12 col-md-6 col-lg-2 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+            <div class="bottom-footer">
+                <div class="container">
+                    <hr>
+                    <div class="inner-container text-center">
+                        <div class="bottom-footer__social">
+                            <a href="#" class="fab fa-twitter"></a>
+                            <a href="#" class="fab fa-facebook-square"></a>
+                            <a href="#" class="fab fa-instagram"></a>
+                        </div><!-- /.bottom-footer__social -->
+                        <p class="thm-text-dark">© Copyright <span class="dynamic-year"></span> by Company.com</p>
+                    </div><!-- /.inner-container -->
+                </div><!-- /.container -->
+            </div><!-- /.bottom-footer -->
+        </footer><!-- /.site-footer --
 <a href="#" id="back-to-top" title="Back to top" style="display: none;"><i class="fa fa-arrow-up" aria-hidden="true"></i></i></a>
 </main>
 
@@ -133,33 +119,52 @@
 
 {{-- <script src="{{url('js/flatpickr.min.js')}}"></script> --}}
 {{-- <script src="{{url('js/glightbox.min.js')}}"></script> --}}
-<script src="{{ url('js/jquery-3.2.1.min.js') }}"></script>
+{{-- <script src="{{ url('js/jquery-3.2.1.min.js') }}"></script> --}}
 
 {{-- <script src="{{url('js/aos.js')}}"></script> --}}
 {{-- <script src="{{url('js/counter.js')}}"></script>    --}}
 
 <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 
 <!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
 
 <script src="{{ ('js/jquery-3.2.1.min.js') }}"></script>
 	<script src="{{url ('js/popper.min.js') }}"></script>
-	<script src="{{ url('js/bootstrap.min.js') }}"></script>
+	{{-- <script src="{{ url('js/bootstrap.min.js') }}"></script> --}}
     <!-- ALL PLUGINS -->
 <script src="{{url('js/custom.js')}}"></script>
 <script src="{{url('js/pricing.js')}}"></script>
 
-	<script src="{{ url('js/jquery.superslides.min.js') }}"></script>
-	<script src="{{ url('js/images-loded.min.js') }}"></script>
-	<script src="{{ url('js/isotope.min.js') }}"></script>
+	<script src="{{ url('js/jquery.superslides.min.js') }}">
+  </script>
+	<scr  ipt src="{{ url('js/images-loded.min.js') }}"></script>
+	{{-- <script src="{{ url('js/isotope.min.js') }}"></script>
 	<script src="{{ url('js/baguetteBox.min.js') }}"></script>
 	<script src="{{ url('js/form-validator.min.js') }}"></script>
-    <script src="{{ url('js/contact-form-script.js') }}"></script>
-	<script src="{{ url('js/popper.min.js') }}"></script>
+    <script src="{{ url('js/contact-form-script.js') }}"></script>  --}}
+	{{-- <script src="{{ url('js/popper.min.js') }}"></script>
 	<script src="{{ url('//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js') }}"></script>
+ {{-- <script src={{ asset('assets/vendors/jquery/jquery-3.5.1.min.js') }}></script> --}}
+    <script src={{ asset('assets/vendors/bootstrap/bootstrap.bundle.min.js') }}></script>
+    <script src={{ asset('assets/vendors/bootstrap-select/bootstrap-select.min.js') }}></script>
+    <script src={{ asset('assets/vendors/jarallax/jarallax.min.js') }}></script>
+    <script src={{ asset('assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js') }}></script>
+    <script src={{ asset('assets/vendors/jquery-appear/jquery.appear.min.js') }}></script>
+    <script src={{ asset('assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js') }}></script>
+    <script src={{ asset('assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js') }}></script>
+    <script src={{ asset('assets/vendors/jquery-validate/jquery.validate.min.js') }}></script>
+    <script src={{ asset('assets/vendors/nouislider/nouislider.min.js') }}></script>
+    <script src={{ asset('assets/vendors/odometer/odometer.min.js') }}></script>
+    <script src={{ asset('assets/vendors/swiper/swiper.min.js') }}></script>
+    <script src={{ asset('assets/vendors/tiny-slider/tiny-slider.min.js') }}></script>
+    <script src={{ asset('assets/vendors/wnumb/wNumb.min.js') }}></script>
+    <script src={{ asset('assets/vendors/wow/wow.js') }}></script>
+    <script src={{ asset('assets/vendors/isotope/isotope.js') }}></script>
+    <script src={{ asset('assets/vendors/countdown/countdown.min.js') }}></script>
 
+    <script src={{ asset('assets/js/organik.js') }}></script>
 
 </body>
 

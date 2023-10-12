@@ -21,6 +21,7 @@ use App\Mail\ContactMail;
 use App\Models\User;
 use App\Models\Vaccept;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\DayController;
 use App\Http\Controllers\SocialController;
 
 // pdf
@@ -29,9 +30,20 @@ Route::post('profile/vpdf/{id?}', [VolunteerController::class, 'view'])->name('v
 Route::get('table', function () {
     view('profile.partials.table');
 })->name('table');
-Route::get('pricing', function () {
-    view('pages.pricing');
-});
+Route::get('kidspricing', function () {
+   return view('pages.kidspricing');
+})->name('kidspricing');
+Route::get('employpricing', function () {
+   return view('pages.employpricing');
+})->name('employpricing');
+Route::get('twobuttons', function () {
+   return view('pages.twobuttons');
+})->name('twobuttons');
+Route::get('new', function () {
+   return view('layouts.newnav');
+})->name('newnav');
+Route::get('afterselect/{id?}', [DayController::class,'index'])->name('afterselect');
+Route::get('Doneselect', [DayController::class, 'Doneselect'])->name('Doneselect');
 
 
 // cart 
@@ -46,7 +58,8 @@ Route::get('cart', [ProductsController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [ProductsController::class, 'saveProductToSession'])->name('add_to_cart');
 Route::patch('update-cart', [ProductsController::class, 'update'])->name('update_cart');
 // Route::Delete('remove-from-cart/{id?}', [ProductsController::class, 'remove'])->name('remove_from_cart');
-Route::Delete('remove-from-cart/{id?}', [ProductsController::class, 'remove'])->name('remove_from_cart');
+// Route::Delete('remove-from-cart/{id?}', [ProductsController::class, 'remove'])->name('remove_from_cart');
+Route::post('/remove-product-from-cart', [ProductsController::class, 'removeProductFromCart'])->name('remove_from_cart');
 
 
 Route::post('/add-product-to-session-array', [ProductsController::class, 'saveProductToSession'])->name('saveProductToSession');
@@ -76,11 +89,15 @@ Route::get('/rer', function () {
     return view('pages.cliker');
 });
 
-Route::get('single/{id?}', [CategoryController::class, 'find'])->name('single');
+Route::get('single/{id?}', [CategoryController::class, 'product_details'])->name('single');
 Route::get('subcategories/{id?}', [CategoryController::class, 'subcategories'])->name('subcategories');
 Route::get('allproduct', [CategoryController::class, 'allproduct'])->name('allproduct');
 Route::get('rangefilter', [CategoryController::class, 'rangefilter'])->name('rangefilter');
 Route::get('ara', [ContactMail::class, 'sendmess']);
+Route::post('price_products', [ProductsController::class, 'price_products'])->name('price_products');
+Route::get('search_products', [ProductsController::class, 'search_products'])->name('search_products');
+Route::get('addproducts/{id?}', [ProductsController::class, 'addproducts'])->name('add');
+Route::post('review', [ProductsController::class, 'review'])->name('review');
 
 // Route::resource('pages/', ProductsController::class);
 
@@ -105,8 +122,8 @@ Route::get('/home', [Controller::class, 'showhome'])
 Route::get('/about', [Controller::class, 'showabout'])
     ->name('about');
 
-Route::get('/single', [Controller::class, 'showsingle'])
-    ->name('single');
+// Route::get('/single', [Controller::class, 'showsingle'])
+//     ->name('single');
 
 Route::get('/contact', [Controller::class, 'showcontact'])
     ->name('contact');
@@ -148,11 +165,7 @@ Route::post('payment/{id?}', [StripeController::class, 'payment'])->name('stripe
 Route::get('success', [StripeController::class, 'success'])->name('stripe_success'); // Use 'success' method for GET
 Route::get('cancel', [StripeController::class, 'cancel'])->name('stripe_cancel'); // Use 'cancel' method for GET
 
-// Route::get('single/payment/{id}', function () {
-//     return view('pages.payment');
-// })->name('payment')->middleware('auth', 'verified');
 
-// Define the Stripe routes with the appropriate methods
 Route::get('finish', function () {
     return view('sccess');
 })->name('finish');
@@ -242,7 +255,7 @@ Route::post('check', [App\Http\Controllers\LoginAdmin::class, 'store'])->name('c
 
 
 
-//////////////////////////////// SAJEDA CODE ////////////////////////////////
+////////////////////////////////  CODE ////////////////////////////////
 
 Route::get('accept/{id?}', [VacceptController::class, 'acceptv'])->name('accept');
 Route::prefix('admin')->middleware('IsAdmin')->group(function () {

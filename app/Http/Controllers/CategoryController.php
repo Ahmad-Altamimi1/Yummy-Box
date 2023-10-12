@@ -49,6 +49,7 @@ class CategoryController extends Controller
     {
         $query = products::query();
         $categories = DB::table('categories')->get();
+        
 
         if ($id !== null) {
             $query->where('categoryId', $id);
@@ -62,60 +63,85 @@ class CategoryController extends Controller
     public function rangefilter(){
         
     }
-    public function find($id)
+
+    public function product_details($id)
     {
+        $product = Products::findOrFail($id);
 
-        $categories = DB::table('categories')->get();
-        // $products = DB::table('products')->get();
-        // $users = DB::table('users')->get();
-        $volanters = DB::table('paypals')->get();
-        $product = products::findOrFail($id);
-        $sameproducts = products::where('categoryId', $product->categoryId)->get();
-$Reviews=Review::where('productId',$product->id)->get();
+        $reviews = $product->reviews;
 
-        $startDate = Carbon::parse($product->created_at);
-        $endDate = Carbon::now();
-        $diffInMinutes = $endDate->diffInMinutes($startDate);
-        $diffInHours = $endDate->diffInHours($startDate);
-        $diffInDays = $endDate->diffInDays($startDate);
-        $diffInMonths = $endDate->diffInMonths($startDate);
-       if(isset($quintty)){
-            $quintty = session('cart')[$id]['quantity'];
-       }else{
-         $quintty=0;
-       }
-        $totalsproduct = 0;
-        foreach ($volanters as $volanter) {
-            if ($volanter->product_id == $product->id) {
-
-                $totalsproduct += $volanter->amount;
-            }
+        // Extract the rating values from the reviews.
+        if (!is_null($reviews) && count($reviews) > 0) {
+            $productRatings = $reviews->pluck('review')->toArray();
+            $averageRating = count($productRatings) > 0 ? array_sum($productRatings) / count($productRatings) : 0;
+        } else {
+            // Handle the case where there are no reviews
+            $averageRating = 0;
+            $productRatings= [1,2];
         }
-        // $percant = (int) (($totalsproduct / $products->total) * 100);
-        $data = [
+
+        // Retrieve three products with the same styleId
+        $relatedProducts = Products::where('categoryId', $product->categoryId)
+            ->where('id', '!=', $id) // Exclude the currently loaded product
+            ->take(3) // Limit to three products
+            ->get();
+
+        return view('pages.singel', [
             'product' => $product,
-            'quintty' =>  $quintty ,
-            'Reviews'=> $Reviews,
-            'sameproducts'=> $sameproducts,
-            'diffInMinutes' => $diffInMinutes,
-            'diffInHours' => $diffInHours,
-            'diffInDays' => $diffInDays,
-            'diffInMonths' => $diffInMonths,
-            'categories' => $categories,
-            'totalsproduct' => $totalsproduct,
-            // 'percant'=> $percant,
+            'averageRating' => $averageRating,
+            'productRatings' => $productRatings,
+            'relatedProducts' => $relatedProducts,
+        ]);
+    }
+//     public function find($id)
+//     {
+
+//         $categories = DB::table('categories')->get();
+//         // $products = DB::table('products')->get();
+//         // $users = DB::table('users')->get();
+//         $volanters = DB::table('paypals')->get();
+//         $product = products::findOrFail($id);
+//         $sameproducts = products::where('categoryId', $product->categoryId)->get();
+// $Reviews=Review::where('productId',$product->id)->get();
+
+//         $startDate = Carbon::parse($product->created_at);
+//         $endDate = Carbon::now();
+//         $diffInMinutes = $endDate->diffInMinutes($startDate);
+//         $diffInHours = $endDate->diffInHours($startDate);
+//         $diffInDays = $endDate->diffInDays($startDate);
+//         $diffInMonths = $endDate->diffInMonths($startDate);
+//        if(isset($quintty)){
+//             $quintty = session('cart')[$id]['quantity'];
+//        }else{
+//          $quintty=0;
+//        }
+//         $totalsproduct = 0;
+     
+//         // $percant = (int) (($totalsproduct / $products->total) * 100);
+//         $data = [
+//             'product' => $product,
+//             'quintty' =>  $quintty ,
+//             'Reviews'=> $Reviews,
+//             'sameproducts'=> $sameproducts,
+//             'diffInMinutes' => $diffInMinutes,
+//             'diffInHours' => $diffInHours,
+//             'diffInDays' => $diffInDays,
+//             'diffInMonths' => $diffInMonths,
+//             'categories' => $categories,
+//             'totalsproduct' => $totalsproduct,
+//             // 'percant'=> $percant,
 
 
-            // Add more data as needed
-        ];
+//             // Add more data as needed
+//         ];
     
-        session(['totalsproduct' => $totalsproduct]);
+//         session(['totalsproduct' => $totalsproduct]);
 
        
-        // dd($currentDateTime);
-        return  view("pages.singel", $data);
-        // ['products' => $products]
-    }
+//         // dd($currentDateTime);
+//         return  view("pages.singel", $data);
+//         // ['products' => $products]
+//     }
 
     /**
      * Store a newly created resource in storage.
