@@ -27,12 +27,27 @@ class LoginAdmin extends Controller
     public function store(Request $request): RedirectResponse
     {
 
-        $check = $request->all();
-        if (Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password']])) {
-            return  redirect()->route('Admin_Dashboard.index');
-        } else {
-            return redirect()->back()->with('error', 'Your Credintal is invalid');
-        }
+$check = $request->all();
+
+if (Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password']])) {
+    return redirect()->route('Admin_Dashboard.index');
+} else {
+    $errors = [];
+
+    if (!filter_var($check['email'], FILTER_VALIDATE_EMAIL)) {
+        $errors[] = 'Invalid email';
+    }
+
+    // Add your password validation logic here, e.g., checking length or complexity
+    // If the password is invalid, add it to the $errors array
+
+    if (count($errors) > 0) {
+        return redirect()->back()->with('error', "invaild email");
+    } else {
+        return redirect()->back()->with('error', 'invaild Email Or Password');
+    }
+}
+
 
 
     }

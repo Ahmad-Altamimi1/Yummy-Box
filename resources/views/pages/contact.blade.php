@@ -7,76 +7,137 @@
 	<!-- Start header -->
 	
 
-	<!-- End header -->
 	
-	<!-- Start header -->
-	<div class="all-page-title page-breadcrumb " style=" padding-top: 100px;">
-		<div class="container text-center" >
-			<div class="row">
-				<div class="col-lg-12">
-				
-				</div></div>
-			</div>
-		</div>
-	<!-- End header -->
-	<!-- End header -->
-	
-	<!-- Start All Pages -->
-	
-	<!-- End All Pages -->
-	
-	<!-- Start Contact -->
-	<div class=""><iframe s src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3364.026402418738!2d35.842011224586955!3d32.52544179680065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c7727e2d21ea5%3A0xee3f8b9f68c773f5!2z2LPZiNio2LEg2YXYp9ix2YPYqiDYp9mE2KrZhdmK2YXZig!5e0!3m2!1sar!2sjo!4v1691433054486!5m2!1sar!2sjo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" style="width: 100%;" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-	<div class="contact-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="heading-title text-center">
-						<h2>Contact</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<form id="contactForm">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
-									<div class="help-block with-errors"></div>
-								</div>                                 
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
-									<div class="help-block with-errors"></div>
-								</div> 
-							</div>
-							<div class="col-md-12">
-									<div class="help-block with-errors"></div>
-								</div> 
-							</div>
-							<div class="col-md-12">
-								<div class="form-group"> 
-									<textarea class="form-control" id="message" placeholder="Your Message" rows="4" data-error="Write your message" required></textarea>
-									<div class="help-block with-errors"></div>
-								</div>
-								<div class="submit-button text-center">
-									<button class="btn btn-common" id="submit" type="submit">Send Message</button>
-									<div id="msgSubmit" class="h3 text-center hidden"></div> 
-									<div class="clearfix"></div> 
-								</div>
-							</div>
-						</div>            
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	
-	
-</body>
-</html>
+
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+        </div><!-- /.stricky-header -->
+        <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);"></div>
+            <!-- /.page-header__bg -->
+            <div class="container">
+                <h2>Contact</h2>
+                <ul class="thm-breadcrumb list-unstyled">
+                    <li><a href="index.html">Home</a></li>
+                    <li>/</li>
+                    <li><span>Contact</span></li>
+                </ul><!-- /.thm-breadcrumb list-unstyled -->
+            </div><!-- /.container -->
+        </section><!-- /.page-header -->
+
+
+        <section class="contact-one">
+            <img src="assets/images/shapes/contact-bg-1-1.png" alt="" class="contact-one__shape-1">
+            <img src="assets/images/shapes/contact-bg-1-2.png" alt="" class="contact-one__shape-2">
+            <div class="container">
+                <div class="block-title text-center">
+                    <div class="block-title__decor"></div><!-- /.block-title__decor -->
+                    <p>Get in Touch With Us</p>
+                    <h3>Do You’ve Any Question? <br>
+                        Write us a Message</h3>
+                </div><!-- /.block-title -->
+                <form action="assets/inc/sendemail.php" class="contact-form-validated contact-one__form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" name="name" placeholder="Your Name">
+                        </div><!-- /.col-md-6 -->
+                        <div class="col-md-6">
+                            <input type="text" placeholder="Email Address" name="email">
+                        </div><!-- /.col-md-6 -->
+                        <div class="col-md-6">
+                            <input type="text" placeholder="Phone Number" name="phone">
+                        </div><!-- /.col-md-6 -->
+                        <div class="col-md-6">
+                            <input type="text" placeholder="Subject" name="subject">
+                        </div><!-- /.col-md-6 -->
+                        <div class="col-md-12">
+                            <textarea placeholder="Write a Message" name="message"></textarea>
+                        </div><!-- /.col-md-12 -->
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="thm-btn">Send a Message</button>
+                        </div><!-- /.col-md-12 -->
+                    </div><!-- /.row -->
+                </form>
+            </div><!-- /.container -->
+        </section><!-- /.contact-one -->
+
+        <section class="contact-infos">
+            <div class="container">
+                <div class="thm-tiny__slider" id="contact-infos-box" data-tiny-options='{
+            "container": "#contact-infos-box",
+            "items": 1,
+            "slideBy": "page",
+            "gutter": 0,
+            "mouseDrag": true,
+            "autoplay": true,
+            "nav": false,
+            "controlsPosition": "bottom",
+            "controlsText": ["<i class=\"fa fa-angle-left\"></i>", "<i class=\"fa fa-angle-right\"></i>"],
+            "autoplayButtonOutput": false,
+            "responsive": {
+                "640": {
+                  "items": 2,
+                  "gutter": 30
+                },
+                "992": {
+                  "gutter": 30,
+                  "items": 3
+                },
+                "1200": {
+                  "disable": true
+                }
+              }
+        }'>
+                    <div>
+                        <div class="contact-infos__single">
+                            <i class="organik-icon-location"></i>
+                            <h3>Visit Anytime</h3>
+                            <p>66 Broklyn Golden Street, <br>
+                                New York. USA</p>
+                        </div><!-- /.contact-infos__single -->
+                    </div>
+                    <div>
+                        <div class="contact-infos__single">
+                            <i class="organik-icon-email"></i>
+                            <h3>Send Email</h3>
+                            <p>
+                                <a href="mailto:needhelp@organik.com">needhelp@organik.com</a>
+                                <br>
+                                <a href="mailto:info@company.com">info@company.com</a>
+                            </p>
+                        </div><!-- /.contact-infos__single -->
+                    </div>
+                    <div>
+                        <div class="contact-infos__single">
+                            <i class="organik-icon-calling"></i>
+                            <h3>Call Center</h3>
+                            <p><a href="tel:92-666-888-0000">92 666 888 0000</a> <br>
+                                <a href="tel:666-000-6666">666 000 6666</a>
+                            </p>
+                        </div><!-- /.contact-infos__single -->
+                    </div>
+                </div>
+            </div><!-- /.container -->
+        </section><!-- /.contact-infos -->
+
+        <div class="google-map__default">
+            <iframe title="template google map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4562.753041141002!2d-118.80123790098536!3d34.152323469614075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82469c2162619%3A0xba03efb7998eef6d!2sCostco+Wholesale!5e0!3m2!1sbn!2sbd!4v1562518641290!5m2!1sbn!2sbd" class="map__default" allowfullscreen></iframe>
+        </div>
+        <!-- /.google-map -->
+
+      
+
+    </div><!-- /.page-wrapper -->
+
+
+    
+    <!-- /.mobile-nav__wrapper -->
+
+  
+
+  
+    <!-- /.search-popup -->
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+
 @endsection

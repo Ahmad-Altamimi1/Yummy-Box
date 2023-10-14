@@ -17,6 +17,7 @@
                     @endphp
                     @if (isset($products))
                         @foreach ($products as $product)
+
                         {{-- @dd($product['quantity']) --}}
                             @php
                                 $total += $product['price'] * $product['quantity'];
@@ -61,7 +62,7 @@
         </div>
 
         <div class="right col-lg-6 col-md-12 col-sm-12">
-            
+{{--             
             <div class="Completed ">
               <img src="/image/icon-complete.svg" alt="" />
               <h1>Thank you!</h1>
@@ -85,9 +86,44 @@
                
                 <button type="submit"><i class="fa fa-cc-stripe" aria-hidden="true"></i> Stripe</button>
                 </form>
-            </div>
-          </div>
-        
+            </div> --}}
+      <form class="personal form" method="get" action="{{ route('checkOut') }}">
+                @csrf
+                <h1 style="font-size: 30px;font-weight:bold">Personal Information</h1>
+                <p>FULL NAME</p>
+                <input name="name" type="text" placeholder="e.g.murad alshorman" class="name"
+                    value="{{ Auth::user()->name }}" />
+                <span style="color:red">
+                    @error('name')
+                        {{ $message }}
+                    @enderror
+                </span><br>
+                <p>FULL ADDRESS</p>
+                <input name="address" type="text" placeholder="Irbid/jordan" maxlength="14" class="name"
+                @if (isset(Auth::user()->address))
+                value="{{ Auth::user()->address->address }}"
+            @endif />
+                <span style="color:red">
+                    @error('address')
+                        {{ $message }}
+                    @enderror
+                </span><br>
+
+                <p>PHONE NUMBER</p>
+                <input name="number" type="text" placeholder="962777777777"
+                    value="{{ Auth::user()->number }}" class="name" />
+                <span style="color:red">
+                    @error('number')
+                        {{ $message }}
+                    @enderror
+                </span><br>
+
+
+
+
+                <input type="submit" value="Confirm" class="btn" />
+            </form>
+        </div>
     </section>
 @endsection
     <script src="{{ url('/js/jquery.min.js') }}"></script>

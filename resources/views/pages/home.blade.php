@@ -68,7 +68,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="image-layer"
-                            style="background-image: url(assets/images/main-slider/main-slider-1-1.jpg);">
+                            style="background-image: url(assets/images/main-slider/mainslider.jpg);">
                         </div>
                         <!-- /.image-layer -->
                         <div class="container">

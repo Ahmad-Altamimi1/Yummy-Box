@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Models\Cart;
 
 class RegisteredUserController extends Controller
 {
@@ -47,6 +48,19 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+        if ((session('cart'))==null) {
+           
+        }else{
+              $products=session('cart');
+        foreach ($products as $value) {
+Cart::Create([
+   'productId' => $value['id'],
+   'userId'=>Auth::user()->id,
+   'quantity'=>$value['quantity'],
+
+
+]);}
+        }
 
         return redirect(RouteServiceProvider::HOME);
     }

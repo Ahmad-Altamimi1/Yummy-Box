@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Cart;
 class AuthenticatedSessionController extends Controller
 {
     /**
@@ -19,12 +20,12 @@ class AuthenticatedSessionController extends Controller
     public function create(): View
     {
         // dd(url()->previous());
-
+     
         return view('auth.login');
     }
     public function creates(): View
     {
-        session(['page'=>true]);
+       
         return view('auth.login');
     }
 
@@ -34,8 +35,22 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {  
         $request->authenticate();
-        $request->session()->regenerate();
-       
+        // $request->session()->regenerate();
+        if ((session('cart')) == null) {
+        } else {
+          if (session('cart')) {
+                $products = session('cart');
+                foreach ($products as $value) {
+                    Cart::Create([
+                        'productId' => $value['id'],
+                        'userId' => Auth::user()->id,
+                        'quantity' => $value['quantity'],
+
+
+                    ]);
+                }
+          }
+        }
         if ($request->has('next')) {
             return redirect($request->input('next'));
         }

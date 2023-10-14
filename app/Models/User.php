@@ -62,6 +62,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class);
     }
-
+    public function address()
+    {
+        return $this->hasOne(Shipment::class, "userId");
+    }
 
 }

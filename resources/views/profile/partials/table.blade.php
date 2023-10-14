@@ -13,18 +13,17 @@
               </tr>
             </thead>
             <tbody>
-                @foreach ($volunteers as $item)
+                {{-- @foreach ($volunteers as $item)
     
 <tr>
        <td scope="col">{{ $item->Languages }}</td>
                 <td scope="col">{{ $item->Address }}</td>
                 <td scope="col">{{ $item->Experience }}</td>
                 <td scope="col"><a href="{{ url('uploads/' . $item->CV) }}">Show file</a></td>
-                {{-- <a href="{{url('/campaignPdf/' . $pendingcampaign->auth_file)}}" target="_blank" class="btn btn-primary">Show File</a> --}}
                 <td></td>
                 <td scope="col">{{ $item->day }}</td>
             
-@endforeach
+@endforeach --}}
             <tr>
 
             </tr>

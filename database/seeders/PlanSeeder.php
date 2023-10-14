@@ -22,6 +22,8 @@ class PlanSeeder extends Seeder
                 'price' => 10,
                 'description' => 'Business Plan',
                 'meals'=>5,
+                    'time' => 7,
+
                 "delivery" => 'Free Delivery'
 
             ],
@@ -30,6 +32,8 @@ class PlanSeeder extends Seeder
                 'price' => 30,
                 'description' => 'Premium',
                 'meals' => 20,
+                    'time' => 30,
+
                 "delivery"=> 'Free Delivery'
             ],
             [
@@ -38,6 +42,8 @@ class PlanSeeder extends Seeder
                 'price' => 19.99,
                 'description' => 'Premium',
                 'meals' => 5,
+                    'time' => 7,
+
                 "delivery" => 'Free Delivery'
             ],
             [
@@ -45,6 +51,7 @@ class PlanSeeder extends Seeder
                 'price' => 59,
                 'description' => 'Premium', 
                  'meals' => 20,
+                 'time' => 30,
                 "delivery" => 'Free Delivery'
             ]
             ]

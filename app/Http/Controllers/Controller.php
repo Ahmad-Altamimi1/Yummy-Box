@@ -19,7 +19,8 @@ class Controller extends BaseController
   {
        
         $categories = DB::table('categories')->get();
-        $products = DB::table('products')->get();
+        $products = DB::table('products')->take(6)->get();
+
         $users = DB::table('users')->get();
         $volanters = DB::table('paypals')->get();
         // $reviews = DB::table('reviews')->get();

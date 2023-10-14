@@ -47,7 +47,9 @@ Route::get('Doneselect', [DayController::class, 'Doneselect'])->name('Doneselect
 
 
 // cart 
-
+Route::get('/dragg',function(){
+return  view('pages.drag');
+});
 
 Route::post('/session', [StripeController::class, 'session'])->name('session');
 Route::get('/success', [StripeController::class, 'success'])->name('success');
@@ -66,7 +68,7 @@ Route::post('/add-product-to-session-array', [ProductsController::class, 'savePr
 Route::post('/search-product/{id?}', [ProductsController::class, 'search_products'])->name('search.products');
 Route::post('/sort-by/{id?}', [ProductsController::class, 'sort_by'])->name('sort.by');
 Route::post('/discount', [ProductsController::class, 'discount'])->name('discount');
-
+Route::get('/checkOut', [ProductsController::class, 'checkOut'])->name('checkOut');
 /*
 |--------------------------------------------------------------------------
 | Web Routes

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('image')->default('images/defultimg.jpg');
             $table->string('password');
-            $table->integer('Phone')->nullable();
+            $table->unsignedBigInteger('Phone')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

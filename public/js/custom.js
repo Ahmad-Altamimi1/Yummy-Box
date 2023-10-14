@@ -2,37 +2,59 @@
 $(document).ready(function () {
           $("#myTable").DataTable();
 });
-buttons = document.querySelectorAll("#cart");
+let countElement; 
 
-total=document.querySelector('#total')
-let noadd=false
+buttons = document.querySelectorAll("#cart");
+minus = document.querySelectorAll("#minus");
+
+total = document.querySelector("#total");
+let noadd = false;
 // console.log(buttons);
 buttons.forEach((el) => {
           el.addEventListener("click", () => {
-            let countcart = document.getElementById("countcart");
-            countcart.innerHTML = cart.length ;
-            console.log(countcart.innerHTML -1);
-	let allbaba = document.querySelectorAll(".mini-cart__item");
-		allbaba.forEach((baba)=>{
-			
-if (el.getAttribute("namepr") === baba.childNodes[1].innerHTML) {
-	 let countElement = baba.querySelector(".count");
-           let currentQuantity = parseInt(
-                     countElement.textContent.split(":")[1].trim()
-           );
-           countElement.textContent = `Quantity: ${currentQuantity + 1}`;
-		   total.innerHTML=(currentQuantity + 1) * el.getAttribute("price") 
-	
-	noadd=true
-}
-		})
-	
-if (!noadd) {
-			let productcart=document.createElement('div');
-			productcart.classList.add("cart-detail");
-			productcart.classList.add("row");
-		
-                  productcart.innerHTML = `
+                    let countcart = document.getElementById("countcart");
+                  let cart2 = document.querySelectorAll(".mini-cart__item");
+countcart.innerHTML=cart2.length
+                    let allbaba = document.querySelectorAll(".mini-cart__item");
+                    allbaba.forEach((baba) => {
+                              console.log(
+                                        baba.childNodes[3].childNodes[1]
+                                                  .childNodes[1].childNodes[0].innerHTML
+                              );
+                              if (
+                                        el.getAttribute("namepr") ===
+                                        baba.childNodes[3].childNodes[1]
+                                                  .childNodes[1].childNodes[0]
+                                                  .innerHTML
+                              ) {
+                                        let countElement =
+                                                  baba.querySelector(
+                                                            ".countpopcart"
+                                                  );
+                                                  console.log(countElement);
+                                        let currentQuantity = parseInt(
+                                                  countElement.innerHTML
+                                        );
+                                        console.log(currentQuantity);
+                                        //     console.log(countElement.textContent[1].trim());
+                                        countElement.innerHTML = `${
+                                                  currentQuantity + 1
+                                        }`;
+                                        console.log(countElement.innerHTML);
+                                        total.innerHTML =
+                                                  (currentQuantity + 1) *
+                                                  el.getAttribute("price");
+
+                                        noadd = true;
+                              }
+                    });
+
+                    if (!noadd) {
+                              let productcart = document.createElement("div");
+                              productcart.classList.add("cart-detail");
+                              productcart.classList.add("row");
+
+                              productcart.innerHTML = `
 
 
      <div class="mini-cart__item">
@@ -42,23 +64,23 @@ if (!noadd) {
                         <h3><a href="product-details.html">${el.getAttribute(
                                   "namepr"
                         )}</a></h3>
-                        <p> ${el.getAttribute("price")}</p>
+                        <p > ${el.getAttribute("price")}</p>
                     </div><!-- /.mini-cart__item-top -->
                     <div class="quantity-box">
-                        <p >1</p>
+                        <p class='countpopcart'>1</p>
                     </div>
                 </div><!-- /.mini-cart__item-content -->
             </div>
 
        `;
-								
-                    let cart = document.querySelector("#baba");
-					
-						
-						cart.appendChild(productcart);
-									}
+
+                              let cart = document.querySelector("#baba");
+                              console.log(cart);
 
 
+
+                              cart.appendChild(productcart);
+                    }
 
                     let valueToAdd = el.getAttribute("name");
                     console.log(valueToAdd);
@@ -74,8 +96,67 @@ if (!noadd) {
                                         console.error(error);
                               });
           });
-           return false;
+          return false;
 });
+minus.forEach((el) => {
+          el.addEventListener("click", () => {
+                    let countcart = document.getElementById("countcart");
+                    let cart2 = document.querySelectorAll(".mini-cart__item");
+                    countcart.innerHTML = cart2.length;
+                    let allbaba = document.querySelectorAll(".mini-cart__item");
+                    allbaba.forEach((baba) => {
+                              console.log(
+                                        baba.childNodes[3].childNodes[1]
+                                                  .childNodes[1].childNodes[0]
+                                                  .innerHTML
+                              );
+                              if (
+                                        el.getAttribute("namepr") ===
+                                        baba.childNodes[3].childNodes[1]
+                                                  .childNodes[1].childNodes[0]
+                                                  .innerHTML
+                              ) {
+                                        let countElement =
+                                                  baba.querySelector(
+                                                            ".countpopcart"
+                                                  );
+                                        console.log(countElement);
+                                        let currentQuantity = parseInt(
+                                                  countElement.innerHTML
+                                        );
+                                        console.log(currentQuantity);
+                                        //     console.log(countElement.textContent[1].trim());
+                                        countElement.innerHTML = `${
+                                                  currentQuantity - 1
+                                        }`;
+                                        console.log(countElement.innerHTML);
+                                        total.innerHTML =
+                                                  (currentQuantity - 1) *
+                                                  el.getAttribute("price");
+
+                                        noadd = true;
+                              }
+                    });
+
+                  
+
+                    let valueToAdd = el.getAttribute("name");
+                    console.log(valueToAdd);
+
+                    axios.post("/add-product-to-session-array", {
+                              data: valueToAdd,
+                    })
+                              .then(function (response) {
+                                        console.log(response.data.message); // Output the response message
+                                        // You can update the DOM or perform other actions here if needed
+                              })
+                              .catch(function (error) {
+                                        console.error(error);
+                              });
+          });
+          return false;
+});
+
 
 (function ($) {
           "use strict";
@@ -105,14 +186,14 @@ if (!noadd) {
           /* ..............................................
     Gallery
     ................................................. */
-$(document).ready(function () {     
-          $("#slides").superslides({
-                    inherit_width_from: ".cover-slides",
-                    inherit_height_from: ".cover-slides",
-                    play: 5000,
-                    animation: "fade",
+          $(document).ready(function () {
+                    $("#slides").superslides({
+                              inherit_width_from: ".cover-slides",
+                              inherit_height_from: ".cover-slides",
+                              play: 5000,
+                              animation: "fade",
+                    });
           });
-});
           $(".cover-slides ul li").append(
                     "<div class='overlay-background'></div>"
           );
@@ -174,8 +255,3 @@ $(document).ready(function () {
 
           $(".time").pickatime();
 })(jQuery);
-
-
-
-
-

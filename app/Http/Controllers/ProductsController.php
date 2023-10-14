@@ -43,6 +43,7 @@ class ProductsController extends Controller
             ];
         }
 
+
         if (Auth::check()) {
             $user = Auth::user();
             $cartproducts = Cart::where('userId', $user->id)->get();
@@ -52,7 +53,7 @@ class ProductsController extends Controller
 
                 if ($existingCartItem) {
                     // Update the quantity of the existing cart item
-                    $existingCartItem->quantity += $cartItem['quantity'];
+                    $existingCartItem->quantity = $cartItem['quantity'];
                     $existingCartItem->save();
                 } else {
                     // Create a new cart item
@@ -68,7 +69,7 @@ class ProductsController extends Controller
 
             session()->put('cart', $cart);
         }
-        // session()->put('cart', $cart);
+        session()->put('cart', $cart);
       
 
         // Push $valueToAdd onto the session array
@@ -77,6 +78,8 @@ class ProductsController extends Controller
 
         return response()->json(['message' => 'Value added to session array successfully']);
     }
+
+
     public function addToCart($id)
     {
         $product = Products::findOrFail($id);
@@ -97,6 +100,7 @@ class ProductsController extends Controller
                 "quantity" => 1
             ];
         }
+        
         if (Auth::check()) {
 
             session()->put('cart', $cart);
@@ -242,6 +246,7 @@ public function discount(Request $request){
 }
 
     public function showcheackout (){
+        
         //         if (count(session('cart')) > 0 && Auth::check()) {
         //             $userId = Auth::user()->id;
 
@@ -258,40 +263,98 @@ public function discount(Request $request){
         //    session()->get('cart', []);
 
         //         }
-        $products=[];
-        if (Auth::check()) {
-            $user = Auth::user();
-            $cartItems = Cart::where('userId', $user->id)->get();
-            $cart = [];
+        // $products=[];
+        // if (Auth::check()) {
+        //     $user = Auth::user();
+        //     $cartItems = Cart::where('userId', $user->id)->get();
+        //     $cart = [];
 
-            foreach ($cartItems as $cartItem) {
-                // Fetch the associated product details
-                $product = Products::find($cartItem->productId);
+        //     foreach ($cartItems as $cartItem) {
+        //         // Fetch the associated product details
+        //         $product = Products::find($cartItem->productId);
 
-                // Create an array with the desired product details
-                $products[$cartItem->productId] = [
-                    "id" => $cartItem->productId,
-                    "product_id" => $product->productId,
-                    "name" => $product->name,
-                    "img" => $product->img,
-                    "price" => $product->price,
-                    'cartDescription' => $product->cartDescription,
-                    "quantity" => $cartItem->quantity
-                ];
-            }
+        //         // Create an array with the desired product details
+        //         $products[$cartItem->productId] = [
+        //             "id" => $cartItem->productId,
+        //             "product_id" => $product->productId,
+        //             "name" => $product->name,
+        //             "img" => $product->img,
+        //             "price" => $product->price,
+        //             'cartDescription' => $product->cartDescription,
+        //             "quantity" => $cartItem->quantity
+        //         ];
+        //     }
 
 
 
-         
-        }
 
-    
+        // }
+
+        $products=session('cart');
 
             return view('pages.cheackout',compact('products'));
 }
 
+    public function checkOut(Request $request)
+    {
+// dd(session('cart'));
+        $request->validate([
+            'name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
+            'address' => 'required|max:30',
+            'number' => [
+                'required',
+                'min:8',
+                'regex:/^9627\d{8}$/'
+            ]
+        ], [
+            'number.required' => 'Phone number is required.',
+            'number.regex' => 'phone number must start with "9627" and be 12 characters long.',
+        ]);
 
+        $user = User::find(Auth::user()->id); // Replace $userId with the user's ID
 
+        if ($user) {
+            $user->Phone = $request->number; // Replace with the actual phone number
+            $user->name = $request->name; // Replace with the actual phone number
+            $user->save();
+        }
+        $user->address()->updateOrCreate([], ['address' => $request->address]);
+
+        $cartsession= session('cart'); // Your array of product IDs
+        $products = session('cart');
+
+        //   $productIds=[];
+        //     foreach ($cartsession as  $value) {
+        //         $productIds[]= $value['id'] ;
+        //     };
+        //     $productQuantities = [];
+
+        //     if (is_array($productIds) && count($productIds) > 0) {
+        //         // Calculate product quantities by counting the occurrences of each product ID
+        //         foreach ($productIds as $productId) {
+        //             if (array_key_exists($productId, $productQuantities)) {
+        //                 // If the product ID already exists in the quantities array, increment the quantity
+        //                 $productQuantities[$productId]++;
+        //             } else {
+        //                 // If it's the first occurrence, set the quantity to 1
+        //                 $productQuantities[$productId] = 1;
+        //             }
+        //         }
+
+        //         // Use the Product model to retrieve data from the database based on the IDs
+        //         $products = Products::whereIn('id', array_keys($productQuantities))->get();
+
+        //         // Loop through the collection of products and display their names and quantities
+        //         foreach ($products as $product) {
+        //             $product->quantity = $productQuantities[$product->id];
+        //         }
+        //         return view("pages.payment")->with("products", $products);
+        //     } else {
+        //         return view("pages.payment");
+        //     }
+        return view("pages.payment")->with("products", $products);
+
+    }
 
     public function ourproject()
     {
@@ -305,7 +368,7 @@ public function discount(Request $request){
     public function product($id)
           {
                     $products = products::find($id);
-                    $volanters = Volunteer::all();
+                    // $volanters = Volunteer::all();
                     return view('pages.single',compact('products' ,'volanters'));
           }
     /**

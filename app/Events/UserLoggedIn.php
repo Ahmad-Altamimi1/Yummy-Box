@@ -9,6 +9,9 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserLoggedIn
 {
@@ -24,6 +27,19 @@ class UserLoggedIn
     public function __construct($user)
     {
         $this->user = $user;
+        if ((session('cart')) == null) {
+        } else {
+            $products = session('cart');
+            foreach ($products as $value) {
+                Cart::Create([
+                    'productId' => $value['id'],
+                    'userId' => Auth::user()->id,
+                    'quantity' => $value['quantity'],
+
+
+                ]);
+            }
+        }
     }
 
     /**

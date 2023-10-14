@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url('../assets/images/favicons/favicon-32x32.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('../assets/images/favicons/favicon-16x16.png') }}" />
     <link rel="stylesheet" href="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css') }}">
     <script src="{{ url('https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js') }}"></script>
@@ -87,11 +89,24 @@
     <title>Nutrizen</title>
 </head>
 <body>
+     <div class="preloader">
+        <img class="preloader__image" width="55" src="{{ url('assets/images/loader.png') }}" alt="" />
+    </div>
     <?php 
 
 use App\Models\Cart;
 use App\Models\Products;
     if (Auth::check()) {
+      $products=session('cart');
+        foreach ($products as $value) {
+Cart::Create([
+   'productId' => $value['id'],
+   'userId'=>Auth::user()->id,
+   'quantity'=>$value['quantity'],
+
+
+]);
+        }
             $user = Auth::user();
             $cartItems = Cart::where('userId', $user->id)->get();
             $cart = [];
@@ -340,7 +355,7 @@ use App\Models\Products;
                     </div><!-- /.mini-cart__item-top -->
                     <div class="quantity-box">
                         {{-- <button type="button" class="sub">-</button> --}}
-                        <p >{{ $details['quantity'] }}</p>
+                        <p class="countpopcart" id="countpopcart">{{ $details['quantity'] }}</p>
                         {{-- <button type="button" class="add">+</button> --}}
                     </div>
                 </div><!-- /.mini-cart__item-content -->
@@ -349,9 +364,9 @@ use App\Models\Products;
             @endif
             </div>
        
-            <p style="color: white;font-size:20px;padding-top:8px">Total: $ {{ $total }}</p>
-            <a href="{{ route('cart') }}" class="thm-btn mini-cart__checkout">Show Cart</a>
+            <p style="color: white;font-size:20px;padding-top:8px" id="total">{{ $total }}</p>
             {{-- <a href="checkout.html" class="thm-btn mini-cart__checkout">Proceed To Checkout</a> --}}
+            <a href="{{ route('cart') }}" class="thm-btn ">Show Cart</a>
         </div><!-- /.mini-cart__content -->
     </div><!-- /.cart-toggler -->
     

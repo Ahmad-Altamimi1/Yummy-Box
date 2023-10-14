@@ -67,12 +67,13 @@
                        <div class="col-md-6 col-lg-4">
                         <div class="product-card">
                             <div class="product-card__image">
-                                <img src="{{ asset("assets/images/products/product-1-1.jpg") }}" alt="">
+                                <img src="{{ asset($product->img) }}" alt="">
                                 <div class="product-card__image-content">
                                     <a href={{ route('single', ['id' => $product->id]) }}><i class="organik-icon-visibility"></i></a>
 												<a  id="cart" class="cart" name="{{ $product->id}}" namepr="{{ $product->name}}" image="{{ $product->img}}" des="{{ $product->shortDescription}} " price="{{ $product->price}}"> <i class="organik-icon-shopping-cart"></i></a>
 
                                     {{-- <a href="{{ route('add_to_cart', ['id' => $product->id]) }}"><i class="organik-icon-shopping-cart"></i></a> --}}
+                                    
                                 </div><!-- /.product-card__image-content -->
                             </div><!-- /.product-card__image -->
                             <div class="product-card__content">

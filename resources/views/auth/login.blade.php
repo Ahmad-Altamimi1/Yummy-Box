@@ -1,123 +1,135 @@
-@extends('layouts.ahmadmaster')
-@section('title', 'Home')
+{{--  --}}
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <title>login & registration</title>
+</head>
 
-
-<style>
-    .site-footer {
-        display: none
-    }
-</style>
-
-<div class="site-mobile-menu site-navbar-target">
-    <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close">
-            <span class="icofont-close js-menu-toggle"></span>
-        </div>
-    </div>
-    <div class="site-mobile-menu-body"></div>
-</div>
-
-@section('content')
-
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <section class="text-center text-lg-start" style="    padding: 100px 0;">
-        <style>
-            .cascading-right {
-                margin-right: -50px;
-            }
-
-            @media (max-width: 991.98px) {
-                .cascading-right {
-                    margin-right: 0;
-                }
-            }
-        </style>
-
-
-        <!-- Jumbotron -->
-        <div class="container py-4">
-            <div class="row g-0 align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <div class="card cascading-right"
-                        style="
-            background: hsla(0, 0%, 100%, 0.55);
-            backdrop-filter: blur(30px);
-            ">
-                        <div class="card-body p-5 shadow-5 text-center">
-                            <h2 class="fw-bold mb-5 style="color:#555;"">Login</h2>
-
-                            <form method="POST" action="{{ route('login') }}">
-                                @csrf
-
-
-                                <!-- Email input -->
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example3">Email address</label>
-                                    <input type="email" name="email" :value="old('email')" required autofocus
-                                        autocomplete="username" id="form3Example3" class="form-control" />
-                                </div>
-
-                                <!-- Password input -->
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example4">Password</label>
-                                    <input id="password" class="form-control" type="password" name="password" required
-                                        autocomplete="current-password" id="form3Example4" />
-                                </div>
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
-
-                                <!-- Checkbox -->
-
-                                <div class="block mt-4 text-left">
-                                    <label for="remember_me" class="inline-flex items-center">
-                                        <input id="remember_me" type="checkbox"
-                                            class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
-                                            name="remember">
-                                        <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                                    </label>
-                                </div>
-                                <!-- Submit button -->
-                                <button type="submit" class="btn btn-primary" style="width:100%;   margin:10px 0 ;">
-                                    login
-                                </button>
-
-                                <div class="flex items-center justify-center m-4">
-                                    @if (Route::has('password.request'))
-                                        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                            href="{{ route('password.request') }}">
-                                            {{ __('Forgot your password?') }}
-                                        </a>
-                                    @endif
-
-                                </div>
-
-                                <!-- Register buttons -->
-                                <div class="text-center">
-                                    <p>or login with:</p>
-
-                                    <a
-                                        href="{{ route('facebook') }}"style="padding: 0 10px; font-size:25px; color: #ede43c"><i
-                                            class="fab fa-facebook-f"></i></a>
-                                    <a href="{{ route('google') }}"
-                                        style="padding: 0 10px; font-size:25px; color: #ede43c"><i
-                                            class="fab fa-google"></i></a>
-                                    <a href="{{ route('github') }}"style="padding: 0 10px; font-size:25px; color: #ede43c"><i
-                                            class="fab fa-github"></i></a>
-
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>
+                    <a href="#" class="social"><i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
                 </div>
+                <span>or use your email for registration</span>
+                <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Name"/>
+                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" placeholder="Email" />
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                        <x-text-input id="password" class="block mt-1 w-full"
+                        type="password"
+                        name="password"
+                        required autocomplete="new-password" 
+                        placeholder="Password"/>
 
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <img src="../images/Tablet login-cuate.png" class="w-100 rounded-4 shadow-4 d-none d-lg-block "
-                        style="height: 100%" alt="" />
+        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+            type="password"
+            name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password" />
+
+<x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+        {{ __('Already registered?') }}
+    </a>
+
+    <x-primary-button class="ml-4">
+        {{ __('Register') }}
+    </x-primary-button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="{{ route('facebook') }}" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="{{ route('google') }}" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>
+                    <a href="#" class="social"><i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <span>or use your account</span>
+                <div>
+
+                </div>
+                <x-text-input type="email" name="email" :value="old('email')" required autofocus autocomplete="username"
+                    placeholder="Email" />
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+
+
+
+                <x-text-input type="password" name="password" required autocomplete="current-password"
+                    placeholder="Password" />
+
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+
+              
+                    @if (Route::has('password.request'))
+                        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            href="{{ route('password.request') }}">
+                            {{ __('Forgot your password?') }}
+                        </a>
+                    @endif
+
+                    <x-primary-button class="ml-3">
+                        {{ __('Log in') }}
+                    </x-primary-button>
+            
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>
+                        To keep connected with us please login with your personal info
+                    </p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
                 </div>
             </div>
         </div>
-        <!-- Jumbotron -->
-    </section>
-@endsection
+    </div>
+    <div id="google-signin-button">
+        <svg viewBox="0 0 32 32" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" fill="#000000"
+            class="socialmedia" onclick="googleclick()">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path d="M23.75,16A7.7446,7.7446,0,0,1,8.7177,18.6259L4.2849,22.1721A13.244,13.244,0,0,0,29.25,16"
+                    fill="#00ac47"></path>
+                <path d="M23.75,16a7.7387,7.7387,0,0,1-3.2516,6.2987l4.3824,3.5059A13.2042,13.2042,0,0,0,29.25,16"
+                    fill="#4285f4"></path>
+                <path
+                    d="M8.25,16a7.698,7.698,0,0,1,.4677-2.6259L4.2849,9.8279a13.177,13.177,0,0,0,0,12.3442l4.4328-3.5462A7.698,7.698,0,0,1,8.25,16Z"
+                    fill="#ffba00"></path>
+                <polygon fill="#2ab2db" points="8.718 13.374 8.718 13.374 8.718 13.374 8.718 13.374"></polygon>
+                <path
+                    d="M16,8.25a7.699,7.699,0,0,1,4.558,1.4958l4.06-3.7893A13.2152,13.2152,0,0,0,4.2849,9.8279l4.4328,3.5462A7.756,7.756,0,0,1,16,8.25Z"
+                    fill="#ea4435"></path>
+                <polygon fill="#2ab2db" points="8.718 18.626 8.718 18.626 8.718 18.626 8.718 18.626"></polygon>
+                <path d="M29.25,15v1L27,19.5H16.5V14H28.25A1,1,0,0,1,29.25,15Z" fill="#4285f4"></path>
+            </g>
+        </svg>
+        <span>&nbsp</span>
+    </div>
+    <script src="/js/login.js"></script>
+</body>
+
+</html>
+
+{{--  --}}

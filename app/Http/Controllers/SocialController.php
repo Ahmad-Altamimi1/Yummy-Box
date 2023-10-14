@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Exception;
 use Hash;
 use Illuminate\Http\Request;
+use App\Models\Cart;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialController extends Controller
@@ -42,7 +43,19 @@ class SocialController extends Controller
 
             if ($finduser) {
                 Auth::login($finduser);
-              
+                if ((session('cart')) == null) {
+                } else {
+                    $products = session('cart');
+                    foreach ($products as $value) {
+                        Cart::Create([
+                            'productId' => $value['id'],
+                            'userId' => Auth::user()->id,
+                            'quantity' => $value['quantity'],
+
+
+                        ]);
+                    }
+                }
                 return redirect()->intended('home');
             } else {
                 $newUser = User::Create([
@@ -74,6 +87,19 @@ class SocialController extends Controller
 
             if ($finduser) {
                 Auth::login($finduser);
+                if ((session('cart')) == null) {
+                } else {
+                    $products = session('cart');
+                    foreach ($products as $value) {
+                        Cart::Create([
+                            'productId' => $value['id'],
+                            'userId' => Auth::user()->id,
+                            'quantity' => $value['quantity'],
+
+
+                        ]);
+                    }
+                }
                 return redirect()->intended('home');
 
             } else {
@@ -103,6 +129,19 @@ class SocialController extends Controller
 
             if ($finduser) {
                 Auth::login($finduser);
+                if ((session('cart')) == null) {
+                } else {
+                    $products = session('cart');
+                    foreach ($products as $value) {
+                        Cart::Create([
+                            'productId' => $value['id'],
+                            'userId' => Auth::user()->id,
+                            'quantity' => $value['quantity'],
+
+
+                        ]);
+                    }
+                }
                 return redirect()->intended('home');
 
             } else {

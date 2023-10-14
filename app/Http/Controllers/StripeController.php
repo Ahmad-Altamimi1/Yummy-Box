@@ -6,6 +6,10 @@ use App\Models\Cart;
 use App\Models\products;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Orderdetail;
+use App\Models\Orderitem;
+use App\Models\Shipment;
+use App\Models\Payment;
 
 // use App\Models\Stripe;
 // use App\Http\Requests\StoreStripeRequest;
@@ -23,7 +27,7 @@ class StripeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function payment(Request $request,$id)
+    public function payment(Request $request)
     {
 
 
@@ -55,7 +59,7 @@ $userid= Auth::user()->id;
             // dd($response);
             $totalsproduct = session('totalsproduct');
 
-   $products_total = products::find($id);
+//    $products_total = products::find($id);
 
         $products = Cart::where('userId', $userid)->get();
         foreach ($products as $product) {
@@ -80,8 +84,50 @@ $userid= Auth::user()->id;
 }
     public function success()
     {
+        $products = session('cart');
+        // dd($products);
+     
+                    $userId = Auth::user()->id;
+
+                    // foreach ($products as $cartItem) {
+                    //     // dd($cartItem);
+                    //     Cart::create([
+                    //         'userId' => $userId,
+                    //         'productId' => $cartItem['id'],
+                    //         'quantity' => $cartItem['quantity'],
+                    //     ]);
+                    // }
+               $total = 0 ;
+
+                        foreach((array) session('cart') as $id => $details){
+                            $total += $details['price'] * $details['quantity'] ;
+                        }
+
+            Orderdetail::create([
+                "userId" => Auth::user()->id,
+                "paymentId" => Payment::where("userId", Auth::user()->id)->latest()->first()->id,
+                "shipmentId" => Shipment::where("userId", Auth::user()->id)->latest()->first()->id,
+                "total" => $total,
+            ]);
+            // dd($products);
+            foreach ($products as $product) {
+                Orderitem::create([
+                    "orderId" => Orderdetail::where("userId", Auth::user()->id)->latest()->first()->id,
+                    "productId" => $product['id'],
+                    "quantity" => $product['quantity'],
+                ]);
+            }
+            session()->forget('cart');
+            session()->get('cart', []);
+            return redirect()->route("home");
+
+
+
+
+        //             session()->forget('cart');
         
-        return redirect()->route('finish');
+        
+        // return redirect()->route('finish');
     }
     public function cancel()
     {
